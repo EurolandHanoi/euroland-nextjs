@@ -1,0 +1,1786 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ── Myriad Pro — self-hosted via CDN ── */
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MyriadPro-Light_be03cb94.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-REGULAR_c48835d7.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-SEMIBOLD_f3b3ec90.OTF") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-SEMIBOLDIT_89d5ddc2.OTF") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-BOLD_b0394f27.OTF") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-BOLDIT_881fa8b3.OTF") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-COND_d319a4c7.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: condensed;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MYRIADPRO-BOLDCOND_75b835a1.OTF") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: condensed;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   EUROLAND IR — NORDIC DESIGN SYSTEM
+   Design Philosophy: Nordic Minimalism
+   - Deep navy-black hero, single #327AB1 accent
+   - Myriad Pro (self-hosted) + Source Sans 3 fallback
+   - Major Third scale (×1.25) anchored at 16px
+   - Strict 4px grid for ALL spacing, heights, radii
+   - Generous whitespace as active design ingredient
+   - Hairline borders, flat surfaces, restrained motion
+   ============================================================ */
+
+@theme inline {
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* ── Brand Colours ── */
+  --navy:          #082b45;
+  --navy-dark:     #082b45;   /* footer uses same navy */
+  --navy-medium:   #0b2743;
+  --navy-body:     #082b63;   /* 60% tint for body copy */
+  --blue:          #327AB1;
+  --blue-safe:     #28628F;
+  --slate:         #f5f5f5;
+  --white:         #ffffff;
+
+  /* ── Text ── */
+  --text-primary:   #22252b;
+  --text-secondary: #3a4a58;
+  --text-tertiary:  #5a6a7a;
+  --text-light:     #f9fbff;
+
+  /* ── Borders ── */
+  --border-light:   #dde0e6;
+  --border-hairline: rgba(8,43,69,0.10);
+
+  /* ── Shadows ── */
+  --shadow-card:  0 1px 3px rgba(8,43,69,0.06), 0 4px 12px rgba(8,43,69,0.06);
+  --shadow-hover: 0 4px 16px rgba(8,43,69,0.12), 0 1px 4px rgba(8,43,69,0.08);
+  --shadow-btn:   0 4px 12px rgba(0,173,240,0.28);
+
+  /* ── Typography: Complete Netlify System (Source Sans 3) ──
+     All values extracted via getComputedStyle on euroland-mockup.netlify.app
+     -----------------------------------------------------------------------
+     ELEMENT            SIZE    WEIGHT  LINE-H  LETTER-S  TRANSFORM
+     h1 (hero)          60px    300     64px    -0.6px    none
+     h2 (dark bg)       32px    700     40px    -0.32px   none
+     h3 (section head)  40px    400     48px    +0.2px    none
+     h4 (card head)     16px    600     24px    +0.08px   none
+     h5 (card title)    24px    500     32px    +0.16px   none
+     h6 (step title)    20px    500     28px    +0.16px   none
+     body / p           16px    400     24px    +0.16px   none
+     hero p (large)     20px    400     28px    +0.16px   none
+     nav items          12px    600     24px    +0.48px   uppercase
+     book-demo btn      12px    600     24px    +0.96px   uppercase
+     eyebrow label      12px    600     24px    +0.96px   uppercase
+     footer col head    12px    700     24px    +1.2px    uppercase
+     footer nav link    12px    400     24px    +0.16px   none
+     stat big number    32px    300     40px    +0.16px   none
+     stat sub-label     12px    700     24px    +0.48px   none
+     card number (01)   12px    700     24px    +0.96px   uppercase
+     section label      12px    600     24px    +0.96px   uppercase
+     ------------------------------------------------------------------ */
+
+  /* ── Font sizes — spec-aligned ── */
+  --fs-xs:   12px;   /* labels, buttons, nav, eyebrow, footer */
+  --fs-sm:   14px;   /* small utility text */
+  --fs-base: 16px;   /* body / paragraphs */
+  --fs-md:   20px;   /* H6: 20px/28px/500 */
+  --fs-lg:   24px;   /* H5: 24px/32px/500 */
+  --fs-xl:   32px;   /* H4: 32px/40px/400 */
+  --fs-2xl:  40px;   /* H3: 40px/48px/400 */
+  --fs-3xl:  48px;   /* H2: 48px/56px/300 */
+  --fs-4xl:  60px;   /* H1: 60px/64px/300 (home hero only) */
+
+  /* ── Line heights — tuned for Myriad Pro's wide letterforms ── */
+  --lh-xs:   16px;
+  --lh-sm:   20px;
+  --lh-base: 24px;   /* body, nav, eyebrow, footer */
+  --lh-md:   28px;   /* H6 */
+  --lh-lg:   32px;   /* H5 */
+  --lh-xl:   40px;   /* H4 */
+  --lh-2xl:  52px;   /* H3: 40px × 1.3 = 52px — more air for Myriad Pro */
+  --lh-3xl:  64px;   /* H2: 48px × 1.33 = 64px — generous for banner headlines */
+  --lh-4xl:  72px;   /* H1: 60px × 1.2 = 72px — prevents tight stacking on 2-line hero */
+
+  /* ── Letter spacing — spec-aligned ── */
+  --ls-h1:      -0.01em;  /* H1/H2 hero: -0.01em */
+  --ls-h2:      -0.01em;  /* H2 banners */
+  --ls-h3:       0.005em; /* H3/H4 section heads */
+  --ls-h4:       0.005em; /* H4 card heads */
+  --ls-body:     0.01em;  /* body / paragraphs */
+  --ls-nav:      0.08em;  /* nav items */
+  --ls-label:    0.08em;  /* labels/buttons/microcopy */
+  --ls-footer-h: 0.08em;  /* footer column headings */
+
+  /* Legacy aliases — keep for backward compat */
+  --ls-hero:    -0.01em;
+  --ls-heading:  0.005em;
+
+  /* ── 4px spacing grid ── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-14: 56px;
+  --sp-16: 64px;
+  --sp-18: 72px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-28: 112px;
+  --sp-30: 120px;
+
+  /* ── Tailwind semantic tokens ── */
+  --radius: 12px;
+  --background: #ffffff;
+  --foreground: #22252b;
+  --card: #ffffff;
+  --card-foreground: #22252b;
+  --popover: #ffffff;
+  --popover-foreground: #22252b;
+  --primary: #28628F;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #22252b;
+  --muted: #f5f5f5;
+  --muted-foreground: #6b7280;
+  --accent: #327AB1;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #dde3ef;
+  --input: #dde3ef;
+  --ring: #327AB1;
+}
+
+/* ── Base reset ── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Myriad Pro", "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    color: var(--text-primary);
+    background: var(--white);
+    letter-spacing: 0;             /* Myriad Pro reads cleanly at zero tracking at body size */
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1; /* enable kerning & ligatures for Myriad Pro */
+  }
+
+  /* ── Heading scale — optimised for Myriad Pro ── */
+  /* H1: 60px/72px/300 — home hero only. Generous line-height prevents tight stacking */
+  h1 { font-size: var(--fs-4xl) !important; line-height: var(--lh-4xl) !important; font-weight: 300 !important; letter-spacing: var(--ls-h1) !important; margin: 0; text-rendering: optimizeLegibility; }
+  /* H2: 48px/64px/300 — all inner page banners. 1.33 ratio suits Myriad Pro's wide letterforms */
+  h2 { font-size: var(--fs-3xl) !important; line-height: var(--lh-3xl) !important; font-weight: 300 !important; letter-spacing: var(--ls-h2) !important; margin: 0; text-rendering: optimizeLegibility; }
+  /* H3: 40px/52px/400 — major section headings. 1.3 ratio for comfortable reading */
+  h3 { font-size: var(--fs-2xl) !important; line-height: var(--lh-2xl) !important; font-weight: 400 !important; letter-spacing: var(--ls-h3) !important; margin: 0; }
+  /* H4: 32px/40px/400 — card/feature headings */
+  h4 { font-size: var(--fs-xl)  !important; line-height: var(--lh-xl)  !important; font-weight: 400 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
+  /* H5: 24px/32px/500 — sub-headings, card titles */
+  h5 { font-size: var(--fs-lg)  !important; line-height: var(--lh-lg)  !important; font-weight: 500 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
+  /* H6: 20px/28px/500 — small sub-headings, step titles */
+  h6 { font-size: var(--fs-md)  !important; line-height: var(--lh-md)  !important; font-weight: 500 !important; letter-spacing: 0 !important; margin: 0; }
+  p  { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text-secondary); letter-spacing: 0; margin: 0; }
+
+  /* ── Typography utility classes — allow semantic headings to render the correct design-system level ── */
+  .type-h1 { font-size: var(--fs-4xl) !important; line-height: var(--lh-4xl) !important; font-weight: 300 !important; letter-spacing: var(--ls-h1) !important; margin: 0; text-rendering: optimizeLegibility; }
+  .type-h2 { font-size: var(--fs-3xl) !important; line-height: var(--lh-3xl) !important; font-weight: 300 !important; letter-spacing: var(--ls-h2) !important; margin: 0; text-rendering: optimizeLegibility; }
+  .type-h3 { font-size: var(--fs-2xl) !important; line-height: var(--lh-2xl) !important; font-weight: 400 !important; letter-spacing: var(--ls-h3) !important; margin: 0; }
+  .type-h4 { font-size: var(--fs-xl) !important; line-height: var(--lh-xl) !important; font-weight: 400 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
+  .type-h5 { font-size: var(--fs-lg) !important; line-height: var(--lh-lg) !important; font-weight: 500 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
+  .type-h6 { font-size: var(--fs-md) !important; line-height: var(--lh-md) !important; font-weight: 500 !important; letter-spacing: 0 !important; margin: 0; }
+  .type-label { font-size: var(--fs-xs) !important; line-height: var(--lh-base) !important; font-weight: 500 !important; letter-spacing: var(--ls-label) !important; text-transform: uppercase !important; margin: 0; }
+
+  /* ── Mobile heading scale (≤767px) ── */
+  @media (max-width: 767px) {
+    h1 { font-size: 40px !important; line-height: 48px !important; }
+    h2 { font-size: 32px !important; line-height: 40px !important; }
+    h3 { font-size: 24px !important; line-height: 32px !important; }
+    h4 { font-size: 20px !important; line-height: 28px !important; }
+    .type-h1 { font-size: 40px !important; line-height: 48px !important; }
+    .type-h2 { font-size: 32px !important; line-height: 40px !important; }
+    .type-h3 { font-size: 24px !important; line-height: 32px !important; }
+    .type-h4 { font-size: 20px !important; line-height: 28px !important; }
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] { cursor: pointer; }
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  z-index: 200;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--blue-safe);
+  border: 1px solid rgba(0, 107, 163, 0.2);
+  box-shadow: 0 8px 24px rgba(8, 43, 69, 0.12);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 160ms ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(0, 107, 163, 0.35);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid rgba(0, 107, 163, 0.35);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ── Layout utilities ── */
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--sp-6);
+    padding-right: var(--sp-6);
+    max-width: 1536px; /* 1440px content frame + 48px left/right padding */
+  }
+  @media (min-width: 640px) {
+    .container { padding-left: var(--sp-8); padding-right: var(--sp-8); }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 48px; padding-right: 48px; } /* exact Netlify: 48px each side */
+  }
+
+  .flex { min-height: 0; min-width: 0; }
+
+  /* ── Label / eyebrow ── */
+  .u-label {
+    display: inline-block;
+    font-size: var(--fs-xs);   /* 12px — exact Netlify */
+    font-weight: 500;
+    letter-spacing: var(--ls-label);  /* 0.96px — exact Netlify */
+    text-transform: uppercase;
+    color: var(--blue-safe);
+  }
+  .u-label::after {
+    content: '';
+    display: block;
+    width: 25%;
+    height: 2px;
+    background: var(--blue-safe);
+    margin-top: 8px;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 12px 20px;
+    background: #28628F;
+    color: var(--white);
+    font-size: var(--fs-xs);    /* 12px — Netlify */
+    font-weight: 500;
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-label); /* 0.96px */
+    font-family: inherit;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 24px;
+    transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background: #1f4f72;
+    box-shadow: 0 4px 16px rgba(40,98,143,0.30);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--white);
+    font-size: var(--fs-xs);    /* 12px — Netlify */
+    font-weight: 500;
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-label); /* 0.96px */
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.40);
+    border-radius: 24px;
+    transition: border-color 160ms ease, background 160ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.80);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--navy);
+    font-size: var(--fs-xs);    /* 12px — Netlify */
+    font-weight: 500;
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-label); /* 0.96px */
+    text-transform: uppercase;
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    transition: border-color 160ms ease, background 160ms ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-outline:hover {
+    border-color: var(--blue-safe);
+    color: var(--blue-safe);
+  }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-xs);    /* 12px — Netlify */
+    font-weight: 500;
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-label); /* 0.96px */
+    text-transform: uppercase;
+    color: var(--blue-safe);
+    text-decoration: none;
+    transition: gap 160ms ease;
+  }
+  .btn-link:hover { gap: 12px; }
+  .btn-link::after { content: '→'; }
+
+  .btn-link-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    line-height: var(--lh-base);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: #8ddcff;
+    text-decoration: none;
+    transition: gap 160ms ease, color 160ms ease;
+  }
+  .btn-link-light:hover {
+    gap: 12px;
+    color: #ffffff;
+  }
+  .btn-link-light::after { content: '→'; }
+
+  .form-help {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-tertiary);
+  }
+
+  .form-status-error {
+    font-size: 14px;
+    line-height: 20px;
+    color: #b42318;
+  }
+
+  .form-status-success {
+    font-size: 14px;
+    line-height: 20px;
+    color: #14532d;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;  /* spec: 4px */
+    box-shadow: var(--shadow-card);
+    padding: var(--sp-10);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* ── Section rhythm ── */
+  .section { padding: 80px 0; }        /* default: standard content sections */
+  .section-lg { padding: 96px 0; }    /* major breaks: hero transitions, key CTAs */
+  .section-sm { padding: 64px 0; }    /* dense sections: stats, logos, compact content */
+  .section-xs { padding: 40px 0; }    /* very compact: utility bars, thin strips */
+
+  /* ── Section background utilities ── */
+  .bg-white  { background: #ffffff; }
+  .bg-subtle { background: #f2f4f6; }   /* light alternating sections */
+  .bg-muted  { background: #eef0f3; }   /* slightly deeper light sections */
+  .bg-dark   { background: #1a2b3c; }   /* neutral dark, non-brand */
+  .bg-navy   { background: var(--navy); }
+
+  /* ── Divider ── */
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: var(--blue);
+    margin: var(--sp-4) 0;
+  }
+
+  /* ── Fade-up animation ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Stat badge ── */
+  .stat-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: var(--sp-4) var(--sp-6);
+  }
+
+  /* ── Form inputs ── */
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    font-size: var(--fs-base);
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--white);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+    outline: none;
+  }
+  .form-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,173,240,0.12);
+  }
+  .form-label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-2);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Testimonial quote mark ── */
+  .quote-mark {
+    font-size: 64px;
+    line-height: 1;
+    color: var(--blue);
+    font-weight: 300;
+    margin-bottom: var(--sp-2);
+  }
+
+  /* ── Nav dropdown ── */
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 220px;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(8,43,69,0.12);
+    padding: var(--sp-2) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+    z-index: 100;
+  }
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-dropdown a {
+    display: block;
+    padding: 12px 20px;
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 120ms ease, background 120ms ease;
+  }
+  .nav-dropdown a:hover {
+    color: var(--blue);
+    background: var(--slate);
+  }
+
+  /* ── Feature card ── */
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;  /* spec: 4px */
+    padding: var(--sp-8);
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease, background-color 200ms ease;
+    cursor: pointer;
+  }
+  .feature-card:hover {
+    background-color: rgb(240, 250, 255);
+    border-color: rgb(61, 151, 219);
+    box-shadow: rgba(13, 27, 42, 0.1) 0px 4px 16px 0px, rgba(13, 27, 42, 0.07) 0px 1px 4px 0px;
+    transform: translateY(-2px);
+  }
+
+  /* ── News card ── */
+  .news-card {
+    border-top: 1px solid var(--border-light);
+    padding: var(--sp-8) 0;
+    transition: border-color 160ms ease;
+  }
+  .news-card:hover { border-top-color: var(--blue); }
+
+  /* ── Tab button ── */
+  .tab-btn {
+    padding: 8px 20px;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 160ms ease;
+  }
+  .tab-btn.active,
+  .tab-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  /* ── Scrolling marquee ── */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+
+  /* ── Page hero variants ── */
+  .hero-dark {
+    background: var(--navy-dark);
+    color: var(--white);
+    min-height: 440px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 0; /* content padding handled by container */
+  }
+  .hero-navy {
+    background: var(--navy-medium);
+    color: var(--white);
+    min-height: 440px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 0; /* content padding handled by container */
+  }
+  /* Myriad Pro Light (300) on dark backgrounds needs a subtle shadow for crispness */
+  .hero-navy h1,
+  .hero-navy h2 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    background: var(--navy);
+    color: var(--white);
+    padding: var(--sp-16) 0;  /* 64px — dense utility strip */
+  }
+
+  /* ── CTA band ── */
+  .cta-band {
+    background: var(--navy);
+    color: var(--white);
+    padding: var(--sp-24) 0;  /* 96px — major CTA moment */
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    padding: var(--sp-20) 0 var(--sp-12);  /* 80px top, 48px bottom */
+  }
+
+  /* ── Numbered section label ── */
+  .num-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: var(--sp-4);
+  }
+
+  /* ── Blog card ── */
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .blog-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+  .card-link:hover {
+    border-color: var(--blue-safe);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    color: var(--text-secondary);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    text-decoration: none;
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+  }
+  .filter-chip:hover {
+    border-color: var(--blue-safe);
+    background: #f0f7ff;
+    color: var(--blue-safe);
+  }
+  .filter-chip.active,
+  .filter-chip[aria-pressed="true"] {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── Newsroom card ── */
+  .nr-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .nr-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+  .nr-card-media {
+    background: var(--slate);
+    height: 200px;
+  }
+
+  /* ── Kicker / eyebrow text ── */
+  .kicker {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  /* ── Prose content ── */
+  .prose p { margin-bottom: var(--sp-4); }
+  .prose h2 { margin-top: var(--sp-10); margin-bottom: var(--sp-4); }
+  .prose h3 { margin-top: var(--sp-8); margin-bottom: var(--sp-3); }
+  .prose ul { padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
+  .prose li { margin-bottom: var(--sp-2); }
+}
+
+
+/* ── Navy background typography normalisation ── */
+.hero-dark,
+.hero-navy,
+.cta-band {
+  color: #ffffff;
+}
+
+.hero-dark h1, .hero-dark h2, .hero-dark h3, .hero-dark h4, .hero-dark h5, .hero-dark h6,
+.hero-navy h1, .hero-navy h2, .hero-navy h3, .hero-navy h4, .hero-navy h5, .hero-navy h6,
+.cta-band h1, .cta-band h2, .cta-band h3, .cta-band h4, .cta-band h5, .cta-band h6 {
+  color: #ffffff;
+}
+
+.hero-dark p,
+.hero-navy p,
+.cta-band p {
+  color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE UTILITIES
+   Breakpoints: mobile ≤767px | tablet 768–1023px | desktop ≥1024px
+   ============================================================ */
+
+/* ── Responsive grid helpers ── */
+.resp-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.resp-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.resp-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .resp-grid-2 { grid-template-columns: 1fr; gap: 32px; }
+  .resp-grid-3 { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .resp-grid-4 { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+@media (max-width: 767px) {
+  .resp-grid-2 { grid-template-columns: 1fr; gap: 24px; }
+  .resp-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+  .resp-grid-4 { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ── Hero banner responsive ── */
+@media (max-width: 1024px) {
+  .hero-dark,
+  .hero-navy {
+    height: auto;
+    min-height: 400px;
+    overflow: visible;
+  }
+}
+@media (max-width: 767px) {
+  .hero-dark,
+  .hero-navy {
+    height: auto;
+    min-height: 320px;
+    overflow: visible;
+  }
+}
+
+/* ── Section rhythm responsive ── */
+@media (max-width: 767px) {
+  .section    { padding: 40px 0; }
+  .section-lg { padding: 56px 0; }
+  .section-sm { padding: 28px 0; }
+  .cta-band   { padding: 56px 0; }
+  .stats-bar  { padding: 32px 0; }
+}
+
+/* ── Banner content padding responsive ── */
+@media (max-width: 1024px) {
+  .hero-dark .container,
+  .hero-navy .container {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+}
+@media (max-width: 767px) {
+  .hero-dark .container,
+  .hero-navy .container {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ── Responsive inline grid override helper ── */
+/* Pages that use inline style grids get these overrides via attribute selectors */
+@media (max-width: 1024px) {
+  /* 2-column grids → 1 column on tablet */
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="gridTemplateColumns: \"1fr 1fr\""] {
+    grid-template-columns: 1fr !important;
+  }
+  /* 3 and 4-column grids → 2 columns on tablet */
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: 1fr 1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Fixed pixel column grids → 1 column on tablet */
+  [style*="grid-template-columns: 688px"],
+  [style*="grid-template-columns: 759px"],
+  [style*="grid-template-columns: 633px"],
+  [style*="grid-template-columns: 464px"],
+  [style*="grid-template-columns: 342px"],
+  [style*="grid-template-columns: 336px"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fixed pixel widths on cards/items */
+  [style*="width: \"464px\""],
+  [style*="width: \"342px\""],
+  [style*="width: \"688px\""],
+  [style*="width: \"336px\""] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Fixed pixel heights on cards (allow auto height on tablet) */
+  [style*="height: \"276px\""],
+  [style*="height: \"320px\""] {
+    height: auto !important;
+    min-height: 200px !important;
+  }
+  /* Inline padding overrides */
+  [style*="paddingLeft: \"48px\""],
+  [style*="paddingRight: \"48px\""] {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  /* Fixed max-width containers */
+  [style*="maxWidth: \"1440px\""],
+  [style*="width: \"1440px\""] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  /* All multi-column grids → 1 column on mobile */
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(2"],
+  [style*="grid-template-columns: 1fr 1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fixed pixel column grids → 1 column on mobile */
+  [style*="grid-template-columns: 336px"],
+  [style*="grid-template-columns: 688px"],
+  [style*="grid-template-columns: 759px"],
+  [style*="grid-template-columns: 464px"],
+  [style*="grid-template-columns: 342px"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Fixed pixel widths on cards/items */
+  [style*="width: \"464px\""],
+  [style*="width: \"342px\""],
+  [style*="width: \"688px\""],
+  [style*="width: \"336px\""],
+  [style*="width: \"720px\""] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Fixed pixel heights on cards */
+  [style*="height: \"276px\""],
+  [style*="height: \"320px\""],
+  [style*="height: \"400px\""] {
+    height: auto !important;
+    min-height: 160px !important;
+  }
+  /* Inline padding overrides */
+  [style*="paddingLeft: \"48px\""],
+  [style*="paddingRight: \"48px\""],
+  [style*="paddingLeft: \"64px\""],
+  [style*="paddingRight: \"64px\""] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  /* Fixed max-width containers */
+  [style*="maxWidth: \"1440px\""],
+  [style*="width: \"1440px\""],
+  [style*="maxWidth: \"760px\""] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Inline flex rows → column on mobile */
+  [style*="flexDirection: \"row\""][style*="gap"] {
+    flex-direction: column !important;
+  }
+}
+
+/* ── Footer responsive ── */
+@media (max-width: 1024px) {
+  .site-footer .grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+@media (max-width: 767px) {
+  .site-footer .grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .site-footer .grid > *:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Horizontal scroll prevention ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ── Mobile padding adjustments ── */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ============================================================
+   MOBILE-FIRST LAYOUT CLASSES
+   These classes are applied directly in TSX components to
+   ensure reliable responsive behavior without relying on
+   inline style attribute selectors.
+   ============================================================ */
+
+/* ── Two-column grid that collapses to 1 column on mobile ── */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.grid-2col > * {
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+/* ── Four-column grid that collapses on mobile ── */
+.grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+.grid-4col > * {
+  min-width: 0;
+}
+@media (max-width: 1024px) {
+  .grid-4col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+}
+@media (max-width: 767px) {
+  .grid-4col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* ── Fixed-width element that becomes full-width on mobile ── */
+.mobile-full-w {
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .mobile-full-w {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    flex-shrink: 1 !important;
+  }
+}
+
+/* ── AI section: flex row that becomes flex column on mobile ── */
+.ai-section-flex {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .ai-section-flex {
+    flex-direction: column !important;
+  }
+  .ai-section-flex > *:first-child {
+    width: 100% !important;
+    min-height: 240px !important;
+    max-height: 300px !important;
+    flex-shrink: 0 !important;
+  }
+  .ai-section-flex > *:last-child {
+    padding: 40px 20px !important;
+  }
+}
+
+/* ── Platform section inner container ── */
+@media (max-width: 767px) {
+  .platform-inner {
+    padding: 0 20px !important;
+  }
+  .platform-inner .grid-2col > *:first-child {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+  }
+}
+
+/* ── Newsroom grid: 3-col desktop → 1-col mobile ── */
+.newsroom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1023px) {
+  .newsroom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Solutions grid: 2-col desktop → 1-col mobile ── */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1279px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Solution / news cards: fixed width → full width on mobile ── */
+.card-fixed {
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .card-fixed {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* ── Hero section: hide image column on mobile ── */
+@media (max-width: 767px) {
+  .hero-image-col {
+    display: none !important;
+  }
+  .hero-text-col {
+    max-width: 100% !important;
+  }
+}
+
+/* ── Stats bar: 4 columns → 2x2 on mobile ── */
+.stats-bar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .stats-bar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* ── Bottom stats: 4 columns → 2x2 on mobile ── */
+.bottom-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+@media (max-width: 767px) {
+  .bottom-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* ── CTA band grid: 2 col → 1 col on mobile ── */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .cta-grid-image {
+    display: none !important;
+  }
+}
+
+/* ── Footer grid: 5 col → 2 col on mobile ── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+@media (max-width: 767px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+  .footer-grid > *:first-child {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* ── Inner container padding fix on mobile ── */
+@media (max-width: 767px) {
+  .inner-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── Testimonial card padding on mobile ── */
+@media (max-width: 767px) {
+  .testimonial-card {
+    padding: 32px 24px !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Section inner container: fix 48px padding on mobile ── */
+@media (max-width: 767px) {
+  [style*="padding: 0px 48px"],
+  [style*="padding: 0 48px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── Prevent horizontal overflow from any fixed-width element ── */
+@media (max-width: 767px) {
+  .overflow-guard {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+}
+
+/* ── Hero section: reduce min-height on mobile ── */
+@media (max-width: 767px) {
+  .hero-section-mobile {
+    min-height: auto !important;
+    padding-top: 80px !important;
+    padding-bottom: 60px !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* ── Platform section image: fix aspect ratio on mobile ── */
+@media (max-width: 767px) {
+  .mobile-full-w[style*="aspect-ratio"] {
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* ── Three-column grid that collapses on mobile ── */
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.grid-3col > * {
+  min-width: 0;
+}
+@media (max-width: 1024px) {
+  .grid-3col {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+@media (max-width: 767px) {
+  .grid-3col {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* ── Flex row that becomes flex column on mobile ── */
+.flex-col-mobile {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .flex-col-mobile {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .flex-col-mobile > * {
+    width: 100% !important;
+    flex-shrink: 1 !important;
+  }
+}
+
+/* ── Flex row that wraps on mobile ── */
+.flex-wrap-mobile {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+}
+
+/* ── Banner hero section: fix height on mobile ── */
+@media (max-width: 767px) {
+  .banner-hero-section {
+    height: auto !important;
+    min-height: 320px !important;
+  }
+}
+@media (max-width: 1024px) {
+  .banner-hero-section {
+    height: auto !important;
+    min-height: 400px !important;
+  }
+}
+
+/* ── Banner hero container: ensure proper top padding on mobile ── */
+@media (max-width: 767px) {
+  .banner-hero-section .container {
+    padding-top: 80px !important;
+    padding-bottom: 48px !important;
+  }
+  /* Fix hero paragraph max-width on mobile */
+  .banner-hero-section p[style*="maxWidth"],
+  .banner-hero-section p {
+    max-width: 100% !important;
+  }
+  /* Fix hero heading max-width on mobile */
+  .banner-hero-section h1,
+  .banner-hero-section h2,
+  .banner-hero-section h3 {
+    max-width: 100% !important;
+  }
+}
+
+/* ── Container: reduce padding on mobile ── */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ── Newsroom grid: fix the 80px 1fr and 140px 1fr auto layouts ── */
+@media (max-width: 767px) {
+  [style*="grid-template-columns: 80px 1fr"] {
+    grid-template-columns: 60px 1fr !important;
+  }
+  [style*="grid-template-columns: 140px 1fr auto"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  [style*="grid-template-columns: 1fr auto"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Fixed-width images: ensure they don't overflow on mobile ── */
+@media (max-width: 767px) {
+  img[style*="width:"],
+  img[style*="width: "] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ── Card grids: ensure cards don't overflow ── */
+@media (max-width: 767px) {
+  .card,
+  .feature-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ── Sections with fixed padding: reduce on mobile ── */
+@media (max-width: 767px) {
+  [style*="padding: 60px 0"],
+  [style*="padding: 80px 0"],
+  [style*="padding: 100px 0"] {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  .section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* ── Nav: ensure hamburger is visible and nav doesn't overflow ── */
+@media (max-width: 767px) {
+  nav {
+    overflow: visible !important;
+  }
+}
+
+/* ── Press release rows: stack on mobile ── */
+@media (max-width: 767px) {
+  .press-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .press-row > *:last-child {
+    /* READ MORE link: move to new line */
+    width: 100% !important;
+    margin-top: 4px !important;
+  }
+}
+
+/* ============================================================
+   TABLET & SMALL-DESKTOP BREAKPOINTS
+   Extends the mobile-first utility classes for 768–1279px.
+   ============================================================ */
+
+/* ── Container: reduce padding on tablet ── */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  .inner-container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+  [style*="padding: 0px 48px"],
+  [style*="padding: 0 48px"] {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+
+/* ── Two-column grid: collapse to 1 column on tablet ── */
+@media (max-width: 1024px) {
+  .grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ── AI section: stack video + text on tablet ── */
+@media (max-width: 1024px) {
+  .ai-section-flex {
+    flex-direction: column !important;
+  }
+  .ai-section-flex > *:first-child {
+    width: 100% !important;
+    min-height: 320px !important;
+    max-height: 480px !important;
+    flex-shrink: 0 !important;
+  }
+  .ai-section-flex > *:last-child {
+    padding: 48px 32px !important;
+  }
+}
+
+/* ── Flex-col-mobile: also stack on tablet ── */
+@media (max-width: 1024px) {
+  .flex-col-mobile {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .flex-col-mobile > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+/* ── Mobile-full-w: also full-width on tablet ── */
+@media (max-width: 1024px) {
+  .mobile-full-w {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    flex-shrink: 1 !important;
+  }
+}
+
+/* ── Card-fixed: full width on tablet ── */
+@media (max-width: 1024px) {
+  .card-fixed {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+
+/* ── CTA grid: collapse on tablet ── */
+@media (max-width: 1024px) {
+  .cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .cta-grid-image {
+    display: none !important;
+  }
+}
+
+/* ── Hero section: auto height on tablet ── */
+@media (max-width: 1024px) {
+  .hero-section-mobile {
+    min-height: auto !important;
+    padding-top: 100px !important;
+    padding-bottom: 80px !important;
+  }
+  .hero-image-col {
+    display: none !important;
+  }
+  .hero-text-col {
+    max-width: 100% !important;
+  }
+}
+
+/* ── Stats bars: 2×2 on tablet ── */
+@media (max-width: 1024px) {
+  .stats-bar-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+  .bottom-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+}
+
+/* ── Sections: reduce vertical padding on tablet ── */
+@media (max-width: 1024px) {
+  [style*="padding: 60px 0"],
+  [style*="padding: 80px 0"],
+  [style*="padding: 100px 0"] {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* ── Feature cards: ensure no overflow on tablet ── */
+@media (max-width: 1024px) {
+  .card,
+  .feature-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ── Testimonial card: full width on tablet ── */
+@media (max-width: 1024px) {
+  .testimonial-card {
+    max-width: 100% !important;
+    padding: 40px 32px !important;
+  }
+}
+
+/* ── Press rows: wrap on tablet ── */
+@media (max-width: 1024px) {
+  .press-row {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ── Images with fixed widths: cap on tablet ── */
+@media (max-width: 1024px) {
+  img[style*="width:"],
+  img[style*="width: "] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ── Small desktop (1024–1279px): container padding ── */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .container {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  .inner-container {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* ── ListedCompanies / solutions cards: 2-col at tablet ── */
+@media (max-width: 1024px) {
+  .grid-3col.solutions-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Careers: fix flex children with hard-coded widths ── */
+@media (max-width: 1024px) {
+  [style*="flex: 0 0 688px"],
+  [style*="flex:0 0 688px"],
+  [style*="maxWidth: 688px"],
+  [style*="max-width: 688px"] {
+    flex: 1 1 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* ── About: fix 900px quote card ── */
+@media (max-width: 1024px) {
+  [style*="width: 900px"],
+  [style*="maxWidth: 900px"],
+  [style*="max-width: 900px"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Prevent any element from causing horizontal overflow at tablet ── */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  /* Exception: allow flex/grid containers to size children */
+  .grid-2col,
+  .grid-3col,
+  .grid-4col,
+  .ai-section-flex,
+  .flex-col-mobile {
+    max-width: unset;
+  }
+}
+
+/* ============================================================
+   SMALL DESKTOP (1025–1280px) BREAKPOINTS
+   Handle remaining overflow at 1024–1280px viewport widths.
+   ============================================================ */
+
+/* ── Careers: fix 688px flex children at small desktop ── */
+@media (max-width: 1400px) {
+  [style*="flex: 0 0 688px"],
+  [style*="flex:0 0 688px"] {
+    flex: 1 1 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* ── Careers: fix 342px feature cards at small desktop ── */
+@media (max-width: 1400px) {
+  .feature-card.card-fixed {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── ListedCompanies: fix 464px cards at small desktop ── */
+@media (max-width: 1400px) {
+  .card-fixed {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Home AI section: fix 953px video at small desktop ── */
+@media (max-width: 1300px) {
+  .ai-section-flex {
+    flex-direction: column !important;
+  }
+  .ai-section-flex > *:first-child {
+    width: 100% !important;
+    min-height: 440px !important;
+    max-height: 520px !important;
+    flex-shrink: 0 !important;
+  }
+  .ai-section-flex > *:last-child {
+    padding: 48px !important;
+  }
+}
+
+/* ── Newsroom: fix minor 8px overflow ── */
+@media (max-width: 400px) {
+  .press-row [style*="minWidth: 140px"],
+  .press-row [style*="min-width: 140px"] {
+    min-width: 80px !important;
+  }
+}
+
+/* ── Careers intro columns: flex children ── */
+.careers-intro-col {
+  min-width: 0;
+}
+@media (max-width: 1440px) {
+  .careers-intro-col {
+    flex: 1 1 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ── Subscribe form: stack on mobile ── */
+@media (max-width: 767px) {
+  .subscribe-form {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .subscribe-form button {
+    white-space: normal !important;
+    width: 100% !important;
+  }
+}
+
+/* ── Blog featured card: stack vertically on mobile ── */
+@media (max-width: 767px) {
+  .blog-featured-card {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .blog-featured-card > div:first-child {
+    min-height: 160px;
+  }
+  .blog-featured-card > div:last-child {
+    padding: 24px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
