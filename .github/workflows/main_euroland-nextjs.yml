@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: npm install, build, and test
+      - name: Install dependencies and build
         env:
           NEXT_PUBLIC_ANALYTICS_ENDPOINT: ${{ secrets.NEXT_PUBLIC_ANALYTICS_ENDPOINT }}
           NEXT_PUBLIC_ANALYTICS_WEBSITE_ID: ${{ secrets.NEXT_PUBLIC_ANALYTICS_WEBSITE_ID }}
@@ -33,20 +33,22 @@ jobs:
           NEXT_PUBLIC_FRONTEND_FORGE_API_URL: ${{ secrets.NEXT_PUBLIC_FRONTEND_FORGE_API_URL }}
         run: |
           npm ci
-          npm run build --if-present
-          npm run test --if-present
+          npm run build
 
-      - name: Prepare standalone deployment package
-        run: |
-          cp -r public .next/standalone/public
-          cp -r .next/static .next/standalone/.next/static
-          cp web.config .next/standalone/web.config
-          cp server.js .next/standalone/server.js
+      - name: Remove dev dependencies
+        run: npm prune --production
 
-      - name: Zip standalone package
+      - name: Zip deployment package
         run: |
-          cd .next/standalone
-          zip -r ../../app.zip .
+          zip -r app.zip \
+            .next \
+            node_modules \
+            public \
+            server.js \
+            web.config \
+            package.json \
+            next.config.ts \
+            -x ".next/cache/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -64,7 +66,7 @@ jobs:
         with:
           name: node-app
 
-      - name: 'Deploy to Azure Web App'
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
