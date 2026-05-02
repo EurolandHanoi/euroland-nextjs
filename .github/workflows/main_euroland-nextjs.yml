@@ -47,7 +47,7 @@ jobs:
             server.js \
             web.config \
             package.json \
-            next.config.ts \
+            next.config.js \
             -x ".next/cache/*"
 
       - name: Upload artifact for deployment job
