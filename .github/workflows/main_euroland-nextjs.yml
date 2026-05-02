@@ -41,6 +41,7 @@ jobs:
           cp -r public .next/standalone/public
           cp -r .next/static .next/standalone/.next/static
           cp web.config .next/standalone/web.config
+          cp server.js .next/standalone/server.js
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
