@@ -43,12 +43,16 @@ jobs:
           cp web.config .next/standalone/web.config
           cp server.js .next/standalone/server.js
 
+      - name: Zip standalone package
+        run: |
+          cd .next/standalone
+          zip -r ../../app.zip .
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          include-hidden-files: true
-          path: .next/standalone
+          path: app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -66,5 +70,5 @@ jobs:
         with:
           app-name: 'euroland-nextjs'
           slot-name: 'Production'
-          package: .
+          package: app.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8A16392277504298A57BBEE8F704A1B1 }}
