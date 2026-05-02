@@ -38,6 +38,9 @@ jobs:
       - name: Remove dev dependencies
         run: npm prune --production
 
+      - name: Remove Linux-only native binaries
+        run: find node_modules -name "*.node" -delete
+
       - name: Zip deployment package
         run: |
           zip -r app.zip \
@@ -47,7 +50,7 @@ jobs:
             server.js \
             web.config \
             package.json \
-            next.config.ts \
+            next.config.js \
             -x ".next/cache/*"
 
       - name: Upload artifact for deployment job
