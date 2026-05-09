@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="py-20" style={{ backgroundColor: "#082b45" }}>
+      <section className="py-24" style={{ backgroundColor: "#082b45" }}>
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-2xl">
             <SectionLabel light>{t("contact_label", "Contact")}</SectionLabel>
@@ -42,7 +42,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
@@ -77,7 +77,7 @@ export default function Contact() {
                     />
                   </div>
                   <button type="submit" className="btn-primary w-full justify-center">
-                    {t("contact_form_submit", "Send Message")} <ArrowRight size={16} />
+                    {t("contact_form_submit", "Submit")} <ArrowRight size={16} />
                   </button>
                 </form>
               )}

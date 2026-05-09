@@ -5,18 +5,18 @@
  * Source: euroland-ir-best-practice-ir-solutions-purpose-built-ai-for--page-export.json
  * All measurements at 1920px viewport
  *
- * S1 Hero:        section [25] h:714 pad:64px 0 60px | container maxW:1536px pad:0 48px
+ * S1 Hero:        section [25] h:714 | container maxW:1536px pad:96px 48px
  *                 grid [28]: 688px 688px gap:64px
  * S2 Stats Bar:   div [41] h:150 pad:32px 0 | bg:rgb(26,63,92) | 4 cols 336px gap:32px
  * S3 Logo Strip:  div [56] h:154 pad:32px 0 | bg:rgb(245,245,245)
- * S4 Platform:    section [63] h:507 pad:60px 0 | grid 688px 688px gap:64px
+ * S4 Platform:    section [63] h:507 pad:64px 0 | grid 688px 688px gap:64px
  * S5 AI:          section [74] h:592 bg:rgb(8,43,69) | flex 50/50 | right pad:64px
- * S6 Solutions:   section [96] h:944 pad:60px 0 | cards 464px×262px pad:40px gap:24px
- * S7 Stats Strip: div [132] h:236 pad:60px 0 | bg:rgb(8,43,69) | 4 cols 336px gap:32px
- * S8 Testimonial: section [151] h:634 pad:60px 0 | bg:rgb(245,245,245) | card 760×324px
- * S9 Newsroom:    section [165] h:542 pad:60px 0 | bg:white | 3 cards 464×274px
- * S10 CTA:        div [191] h:446 pad:80px 0 | grid 759px 633px gap:48px
- * S11 Member:     div [203] h:220 pad:60px 0 | bg:white
+ * S6 Solutions:   section [96] h:944 pad:64px 0 | cards 464px×264px pad:32px gap:32px
+ * S7 Stats Strip: div [132] h:236 pad:64px 0 | bg:rgb(8,43,69) | 4 cols 336px gap:32px
+ * S8 Testimonial: section [151] h:634 pad:64px 0 | bg:rgb(245,245,245) | card 760×324px
+ * S9 Newsroom:    section [165] h:542 pad:64px 0 | bg:white | 3 cards on 4px grid
+ * S10 CTA:        div [191] h:446 pad:96px 0 | grid 1fr/1fr gap:48px
+ * S11 Member:     div [203] h:220 pad:64px 0 | bg:white
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -26,6 +26,7 @@ import { ArrowRight } from "lucide-react";
 import { PageWrapper } from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ToolModal, { ModalData } from "@/components/ToolModal";
+import { getEventHighlightImage, getHomepageEventHighlights } from "@/data/eventsHighlights";
 
 type TFunction = (key: string, fallback?: string) => string;
 
@@ -86,7 +87,7 @@ function getSolutionCards(t: TFunction) {
       title: t("feat_ir_title", "IR Software Tools"),
       body: t(
         "feat_ir_desc",
-        "Stock information, analytics, calculators, and more, all designed to support investor relations teams."
+        "Stock information, analytics, calculators, and more, all designed to support Investor Relations teams."
       ),
       link: "/platform/stock-data",
       label: t("learn_more", "Learn more"),
@@ -96,7 +97,7 @@ function getSolutionCards(t: TFunction) {
       title: t("feat_ai_title", "AI Solutions"),
       body: t(
         "feat_ai_desc",
-        "Purpose-built AI tools for investor relations and corporate websites that save time and improve accuracy."
+        "Generative AI-powered search for Investor Relations websites and IR apps, helping stakeholders find relevant information quickly and verify it at the source."
       ),
       link: "/ai",
       label: t("learn_more", "Learn more"),
@@ -116,7 +117,7 @@ function getSolutionCards(t: TFunction) {
       title: t("feat_services_title", "IR Services"),
       body: t(
         "feat_services_desc",
-        "Investor relations services, including website design, strategy, and more, supporting every aspect of your IR programme."
+        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your IR Operation."
       ),
       link: "/platform",
       label: t("learn_more", "Learn more"),
@@ -143,7 +144,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
       title: t("feat_ir_title", "IR Software Tools"),
       subtitle: t(
         "feat_ir_desc",
-        "Stock information, analytics, calculators, and more, all designed to support investor relations teams."
+        "Stock information, analytics, calculators, and more, all designed to support Investor Relations teams."
       ),
       features: [
         t(
@@ -178,6 +179,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         t("home_modal_ir_impact_3", "Build trust through transparency"),
       ],
       learnMoreHref: "/platform/stock-data",
+      animationVideoSrc: "/share-graph.mp4",
     },
     "ai-solutions": {
       id: "ai-solutions",
@@ -186,32 +188,33 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
       title: t("feat_ai_title", "AI Solutions"),
       subtitle: t(
         "feat_ai_desc",
-        "Purpose-built AI tools for investor relations and corporate websites that save time and improve accuracy."
+        "Generative AI-powered search for Investor Relations websites and IR apps, helping stakeholders find relevant information quickly and verify it at the source."
       ),
       features: [
         t(
           "home_modal_ai_feature_1",
-          "Intelligent document analysis and categorisation"
+          "Generative AI-powered search for Investor Relations"
         ),
         t(
           "home_modal_ai_feature_2",
-          "Automated sentiment analysis from earnings calls"
+          "Search across earnings materials, financial statements, IR presentations, and public disclosures"
         ),
-        t("home_modal_ai_feature_3", "Natural language processing for Q&A"),
-        t("home_modal_ai_feature_4", "Purpose-built IR training data"),
-        t("home_modal_ai_feature_5", "Compliance-aware outputs"),
+        t("home_modal_ai_feature_3", "Context-aware answers to stakeholder questions"),
+        t("home_modal_ai_feature_4", "Links, document names, and PDF page references for verification"),
+        t("home_modal_ai_feature_5", "Multilingual support, including English and Nordic languages"),
       ],
       impact: [
-        t("home_modal_ai_impact_1", "Reduce manual work significantly"),
-        t("home_modal_ai_impact_2", "Improve accuracy and consistency"),
-        t("home_modal_ai_impact_3", "Respond faster to investor inquiries"),
+        t("home_modal_ai_impact_1", "Help investors find verified IR information faster"),
+        t("home_modal_ai_impact_2", "Reduce repetitive information requests for IR teams"),
+        t("home_modal_ai_impact_3", "Create a more intuitive IR website and app experience"),
       ],
       benefits: [
-        t("home_modal_ai_impact_1", "Reduce manual work significantly"),
-        t("home_modal_ai_impact_2", "Improve accuracy and consistency"),
-        t("home_modal_ai_impact_3", "Respond faster to investor inquiries"),
+        t("home_modal_ai_impact_1", "Help investors find verified IR information faster"),
+        t("home_modal_ai_impact_2", "Reduce repetitive information requests for IR teams"),
+        t("home_modal_ai_impact_3", "Create a more intuitive IR website and app experience"),
       ],
       learnMoreHref: "/ai",
+      animationVideoSrc: "/ai-popup.mp4",
     },
     "ir-apps": {
       id: "ir-apps",
@@ -252,6 +255,12 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         t("home_modal_apps_impact_3", "Deliver timely information instantly"),
       ],
       learnMoreHref: "/platform/ir-apps",
+      animationImageSrcs: [
+        "/myirapp/myirapp-1.png",
+        "/myirapp/myirapp-2.png",
+        "/myirapp/myirapp-3.png",
+        "/myirapp/myirapp-4.png",
+      ],
     },
     "ir-services": {
       id: "ir-services",
@@ -260,20 +269,20 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
       title: t("feat_services_title", "IR Services"),
       subtitle: t(
         "feat_services_desc",
-        "Investor relations services, including website design, strategy, and more, supporting every aspect of your IR programme."
+        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your IR Operation."
       ),
       features: [
         t("home_modal_services_feature_1", "IR platform design and development"),
         t(
           "home_modal_services_feature_2",
-          "Investor relations strategy consulting"
+          "Investor Relations strategy consulting"
         ),
         t(
           "home_modal_services_feature_3",
           "Annual report design and production"
         ),
         t("home_modal_services_feature_4", "Roadshow preparation and support"),
-        t("home_modal_services_feature_5", "Ongoing IR programme management"),
+        t("home_modal_services_feature_5", "Ongoing IR Operation management"),
       ],
       impact: [
         t(
@@ -292,6 +301,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         t("home_modal_services_impact_3", "Save time and reduce risk"),
       ],
       learnMoreHref: "/platform",
+      animationVideoSrc: "/ir-calendar-demo.mp4",
     },
     "esg-solutions": {
       id: "esg-solutions",
@@ -329,53 +339,27 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         ),
       ],
       learnMoreHref: "/solutions/sustainability-reporting",
+      animationVideoSrc: "/esg-popup.mp4",
     },
   };
 }
 
-function getNewsItems(t: TFunction) {
-  return [
-    {
-      tag: t("home_news_1_tag", "Press"),
-      title: t(
-        "home_news_1_title",
-        "Euroland expands best-practice IR platform with new capabilities"
-      ),
-      body: t(
-        "home_news_1_body",
-        "New disclosure management and AI-assisted drafting tools now available to all listed clients across all market caps."
-      ),
-    },
-    {
-      tag: t("home_news_2_tag", "Product"),
-      title: t(
-        "home_news_2_title",
-        "New AI workflows help IR teams move faster with confidence"
-      ),
-      body: t(
-        "home_news_2_body",
-        "Purpose-built language models trained on IR-specific data deliver accurate, compliant outputs in seconds."
-      ),
-    },
-    {
-      tag: t("home_news_3_tag", "Award"),
-      title: t(
-        "home_news_3_title",
-        "Recognised for design and investor engagement excellence"
-      ),
-      body: t(
-        "home_news_3_body",
-        "Euroland IR receives top honours at the IR Magazine Awards for digital IR innovation and client outcomes."
-      ),
-    },
-  ];
+function getNewsItems() {
+  return getHomepageEventHighlights(3).map((item) => ({
+    tag: item.tag,
+    title: item.title,
+    body: item.desc,
+    href: `/events-highlights/${item.slug}`,
+    image: getEventHighlightImage(item),
+  }));
 }
+
 
 function getTopStats(t: TFunction) {
   return [
     {
       num: t("stat_clients_num", "1,400+"),
-      label: t("stat_clients_label", "Clients"),
+      label: t("stat_clients_label", "Companies"),
     },
     {
       num: t("stat_exchanges_num", "60+"),
@@ -386,7 +370,7 @@ function getTopStats(t: TFunction) {
       label: t("stat_support_label", "Support & Service"),
     },
     {
-      num: t("stat_years_num", "20+"),
+      num: t("stat_years_num", "25+"),
       label: t("stat_years_label", "Years of experience"),
     },
   ];
@@ -396,7 +380,7 @@ function getBottomStats(t: TFunction) {
   return [
     {
       num: t("stat_clients_num", "1,400+"),
-      label: t("stat_clients_label", "Clients"),
+      label: t("stat_clients_label", "Companies"),
       body: t(
         "home_stats_strip_1_body",
         "Trusted by companies worldwide, from emerging growth businesses to global market leaders."
@@ -464,7 +448,7 @@ const MEMBER_LOGOS = [
   },
 ];
 
-/** Parse a stat string like "1,400+", "60+", "24/7", "20+" into { value, suffix } */
+/** Parse a stat string like "1,400+", "60+", "24/7", "25+" into { value, suffix } */
 function parseStatNum(raw: string): { value: number; suffix: string } {
   // Handle special cases like "24/7" — no numeric count-up, just display as-is
   if (raw.includes("/")) return { value: -1, suffix: raw };
@@ -507,7 +491,7 @@ function useCountUp(raw: string, active: boolean, duration = 2000): string {
 }
 
 /** Single animated stat number — triggers count-up on intersection */
-function AnimatedStatNum({ raw, style, static: isStatic }: { raw: string; style?: React.CSSProperties; static?: boolean }) {
+function AnimatedStatNum({ raw, style, className, static: isStatic }: { raw: string; style?: React.CSSProperties; className?: string; static?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   const display = useCountUp(raw, active);
@@ -529,7 +513,7 @@ function AnimatedStatNum({ raw, style, static: isStatic }: { raw: string; style?
     return () => obs.disconnect();
   }, [isStatic]);
 
-  return <div ref={ref} style={style}>{isStatic ? raw : display}</div>;
+  return <div ref={ref} className={className} style={style}>{isStatic ? raw : display}</div>;
 }
 
 function useFadeUp() {
@@ -588,7 +572,7 @@ function HeroCycler() {
   return (
     <span
       style={{
-        color: "#327AB1",
+        color: "#00ADF0",
         transition: "opacity 300ms ease",
         opacity: visible ? 1 : 0,
         display: "inline-block",
@@ -615,7 +599,7 @@ export default function Home() {
   const testimonials = getTestimonials(t);
   const solutionCards = getSolutionCards(t);
   const homeModals = getHomeModals(t);
-  const newsItems = getNewsItems(t);
+  const newsItems = getNewsItems();
   const topStats = getTopStats(t);
   const bottomStats = getBottomStats(t);
   const activeTestimonial = testimonials[testimonialIdx];
@@ -626,19 +610,26 @@ export default function Home() {
         className="hero-section-mobile"
         style={{
           background: "var(--navy-dark)",
-          backgroundImage:
-            "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/hero-bg_c3bbfd60.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-          backgroundRepeat: "no-repeat",
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
-          paddingTop: "64px",
+          paddingTop: 0,
           position: "relative",
           overflow: "hidden",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/hero-bg_c3bbfd60.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: lang === "ar" ? "center left" : "center right",
+            backgroundRepeat: "no-repeat",
+            transform: lang === "ar" ? "scaleX(-1)" : "none",
+            transformOrigin: "center center",
+          }}
+        />
         <div
           style={{
             position: "absolute",
@@ -652,20 +643,18 @@ export default function Home() {
           className="container"
           style={{ paddingTop: "96px", paddingBottom: "96px" }}
         >
-          <div className="grid-2col" style={{ gap: "var(--sp-16)" }}>
+          <div className="grid-2col" style={{ gap: "var(--sp-16)", gridTemplateColumns: "1fr" }}>
             <div ref={fadeHero} className="fade-up hero-text-col">
               <div
-                className="u-label"
-                style={{ marginBottom: "var(--sp-6)", color: "#327AB1" }}
+                className="u-label u-label-dark"
+                style={{ marginBottom: "var(--sp-6)" }}
               >
-                {t("home_hero_label", "Best-Practice IR Solutions")}
+                  {t("home_hero_label", "Best-Practice Investor Relations")}
               </div>
               <h1
+                className="type-hero"
                 style={{
                   color: "white",
-                  fontSize: "var(--fs-4xl)",
-                  lineHeight: "var(--lh-4xl)",
-                  fontWeight: 300,
                   letterSpacing: "var(--ls-hero)",
                   marginBottom: "var(--sp-6)",
                 }}
@@ -684,7 +673,7 @@ export default function Home() {
               >
                 {t(
                   "home_hero_sub",
-                  "Best-practice investor relations solutions and purpose-built AI for IR teams. Trusted by more than 1,400 publicly listed companies across 60+ stock exchanges worldwide."
+        "Best-practice Investor Relations solutions and purpose-built AI for IR teams. Trusted by more than 1,400 publicly listed companies across 60+ stock exchanges worldwide."
                 )}
               </p>
               <div
@@ -697,12 +686,12 @@ export default function Home() {
                 <LangLink href="/book-demo" className="btn-primary">
                   {t("home_hero_cta1", "Book a Demo")}
                 </LangLink>
-                <LangLink href="/contact" className="btn-secondary">
+                <LangLink href="/solutions" className="btn-secondary">
                   {t("home_hero_cta2", "Talk to Us")}
                 </LangLink>
               </div>
             </div>
-            <div className="hero-image-col" style={{ position: "relative" }}>
+            <div className="hero-image-col" style={{ position: "relative", display: "none" }}>
               <div
                 style={{
                   background: "rgba(255,255,255,0.04)",
@@ -710,7 +699,7 @@ export default function Home() {
                   borderRadius: "12px",
                   overflow: "hidden",
                   minHeight: "260px",
-                  boxShadow: "0 18px 54px rgba(0,0,0,0.22)",
+                  boxShadow: "0 16px 56px rgba(0,0,0,0.22)",
                 }}
               >
                 <img
@@ -728,10 +717,10 @@ export default function Home() {
                   border: "1px solid rgba(255,255,255,0.10)",
                 }}
               >
-                <div style={{ color: "#8ddcff", fontSize: "12px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
+                <div style={{ color: "var(--label-blue-dark)", fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
                   {t("home_hero_proof_label", "What you will see")}
                 </div>
-                <p style={{ color: "rgba(255,255,255,0.84)", margin: 0, fontSize: "14px", lineHeight: "24px" }}>
+                <p style={{ color: "rgba(255,255,255,0.84)", margin: 0, fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)" }}>
                   {t("home_hero_proof_body", "Investor website modules, market data, disclosure workflows, and purpose-built AI in one managed IR platform.")}
                 </p>
               </div>
@@ -750,25 +739,29 @@ export default function Home() {
         <div className="inner-container" style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div className="stats-bar-grid">
             {topStats.map(item => (
-              <div key={item.label} style={{ color: "rgb(255, 255, 255)", textAlign: "center" }}>
+              <div key={item.label} className="stat-block" style={{ color: "rgb(255, 255, 255)" }}>
                 <AnimatedStatNum
                   raw={item.num}
                   static={lang === "ja"}
+                  className="stat-number"
                   style={{
-                    fontSize: "40px",
+                    fontSize: "var(--fs-2xl)",
                     fontWeight: 300,
-                    lineHeight: "52px",
+                    lineHeight: "var(--lh-2xl)",
                     color: "rgb(255, 255, 255)",
+                    margin: 0,
+                    padding: 0,
                   }}
                 />
                 <div
+                  className="stat-label"
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 500,
-                    lineHeight: "24px",
-                    letterSpacing: "0.96px",
-                    textTransform: "uppercase",
+                    lineHeight: "20px",
                     color: "rgb(255, 255, 255)",
+                    margin: 0,
+                    padding: 0,
                   }}
                 >
                   {item.label}
@@ -787,7 +780,6 @@ export default function Home() {
         }}
       >
         {lang === "ja" ? (
-          /* Static centred strip for Japanese locale */
           <div
             style={{
               display: "flex",
@@ -800,7 +792,7 @@ export default function Home() {
               src="/client-logos-ja.webp"
               alt="Euroland IR clients"
               style={{
-                height: "35px",
+                height: "36px",
                 width: "auto",
                 display: "block",
                 maxWidth: "100%",
@@ -808,28 +800,31 @@ export default function Home() {
             />
           </div>
         ) : (
-          /* Scrolling marquee for all other locales */
           <div style={{ width: "100%", position: "relative" }}>
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "0px",
+                gap: 0,
                 width: "max-content",
+                willChange: "transform",
                 animation: "marquee 60s linear infinite",
               }}
             >
-              {[1, 2].map((copy) => (
+              {[1, 2, 3].map((copy) => (
                 <img
                   key={copy}
                   src={
-                    lang === "zh" || lang === "zh-TW"
-                      ? "/client-logos-zh.webp"
-                      : "/client-logos.webp"
+                    lang === "ar"
+                      ? "/client-logos-ar.svg"
+                      : lang === "zh" || lang === "zh-TW"
+                      ? "/client-logos-zh.svg"
+                      : "/client-logos.svg"
                   }
                   alt="Euroland IR clients"
+                  aria-hidden={copy > 1}
                   style={{
-                    height: "35px",
+                    height: "48px",
                     width: "auto",
                     display: "block",
                     flexShrink: 0,
@@ -841,13 +836,13 @@ export default function Home() {
         )}
       </div>
 
-      <section style={{ padding: "80px 0" }}>
+      <section style={{ padding: "64px 0" }}>
         <div
           ref={fadePlatform}
           className="fade-up inner-container"
           style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px" }}
         >
-          <div className="grid-2col">
+          <div className="grid-2col" style={{ alignItems: "center" }}>
             <div className="mobile-full-w" style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "16/9" }}>
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/webpages-showcase_cbbd263f.png"
@@ -865,26 +860,26 @@ export default function Home() {
             </div>
 
             <div>
-              <div className="u-label" style={{ marginBottom: "16px" }}>
-                {t("equity_label", "Our Platform")}
-              </div>
+            <div className="u-label" style={{ marginBottom: "16px", textAlign: "left", fontSize: "var(--fs-sm)", fontWeight: 400 }}>
+              {t("equity_label", "Our Platform")}
+            </div>
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "52px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
-                  marginBottom: "24px",
+                  marginBottom: "32px",
                 }}
               >
                 {t("equity_h3", "Tell Your Equity Story")}
               </h3>
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58, 74, 88)",
                   marginBottom: "16px",
@@ -897,9 +892,9 @@ export default function Home() {
               </p>
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58, 74, 88)",
                   marginBottom: "32px",
@@ -910,25 +905,7 @@ export default function Home() {
                   "From disclosure management to investor analytics, every tool is designed to help IR teams communicate with clarity, confidence, and compliance."
                 )}
               </p>
-              <LangLink href="/solutions"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "12px 28px",
-                  height: "50px",
-                  backgroundColor: "transparent",
-                  color: "rgb(8, 43, 69)",
-                  borderRadius: "24px",
-                  border: "1px solid rgb(221, 224, 230)",
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                }}
-              >
+              <LangLink href="/solutions" className="btn-outline">
                 {t("equity_cta", "Explore Solutions")}
               </LangLink>
             </div>
@@ -936,109 +913,139 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ai-section-flex" style={{ backgroundColor: "rgb(8, 43, 69)", minHeight: "480px" }}>
+      <section className="ai-section-flex" style={{ backgroundColor: "rgb(8, 43, 69)", minHeight: "480px", padding: "64px 0", alignItems: "center", gap: "64px", flexDirection: "row-reverse" }}>
         <div
           style={{
-            width: "953px",
+            flex: "1 1 auto",
             minHeight: "480px",
             flexShrink: 0,
             overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            paddingLeft: "48px",
+            paddingRight: "0",
+            boxSizing: "border-box",
           }}
         >
-          <video
-            autoPlay
-            muted
-            playsInline
+          <div
             style={{
               width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
+              maxWidth: "973px",
+              aspectRatio: "973 / 547",
+              borderRadius: "8px",
+              overflow: "hidden",
+              boxShadow: "0 16px 40px rgba(0,0,0,0.22)",
+              backgroundColor: "rgba(255,255,255,0.04)",
             }}
           >
-            <source src="/ai-solutions-bg.mp4" type="video/mp4" />
-          </video>
+            <video
+              autoPlay
+              muted
+              playsInline
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            >
+              <source src="/ai-solutions-bg.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
 
         <div
           ref={fadeAI}
           className="fade-up"
           style={{
-            flex: 1,
-            padding: "64px 64px 64px 48px",
+            flex: lang === "ar" ? "0 0 calc((min(100vw, 1536px) - 96px - 48px) / 2)" : "0 0 calc((min(100vw, 1536px) - 96px - 64px) / 2)",
+            maxWidth: lang === "ar" ? "736px" : "688px",
+            marginLeft: "max(48px, calc((100vw - 1536px) / 2 + 48px))",
+            paddingRight: lang === "ar" ? "48px" : 0,
+            paddingLeft: lang === "ar" ? "16px" : 0,
             backgroundColor: "rgb(8, 43, 69)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            textAlign: lang === "ar" ? "right" : "left",
+            width: "100%",
           }}
         >
           <span
-            className="u-label"
-            style={{ marginBottom: "16px", display: "inline-block" }}
+            className="u-label u-label-dark"
+            style={{
+              marginBottom: "16px",
+              display: "inline-block",
+              alignSelf: lang === "ar" ? "flex-end" : "flex-start",
+            }}
           >
             {t("home_ai_label", "AI Solutions")}
           </span>
           <h3
             style={{
-              fontSize: "40px",
+              fontSize: lang === "ar" ? "32px" : "40px",
               fontWeight: 400,
-              lineHeight: "52px",
+              lineHeight: lang === "ar" ? "var(--lh-xl)" : "var(--lh-2xl)",
               letterSpacing: "0.005em",
               color: "rgb(255, 255, 255)",
-              marginBottom: "20px",
+              marginBottom: "16px",
+              maxWidth: lang === "ar" ? "620px" : "none",
+              alignSelf: lang === "ar" ? "flex-end" : "auto",
+              textAlign: lang === "ar" ? "right" : "left",
             }}
           >
-            {t("home_ai_title", "Purpose-built AI for investor relations")}
+            {t("home_ai_title", "Purpose-built AI for Investor Relations")}
           </h3>
           <p
             style={{
-              fontSize: "16px",
+              fontSize: "var(--fs-base)",
               fontWeight: 400,
-              lineHeight: "24px",
+              lineHeight: "var(--lh-base)",
               letterSpacing: "0.01em",
               color: "rgba(255, 255, 255, 0.72)",
               marginBottom: "32px",
+              maxWidth: lang === "ar" ? "620px" : "none",
+              alignSelf: lang === "ar" ? "flex-end" : "auto",
+              textAlign: lang === "ar" ? "right" : "left",
             }}
           >
             {t(
               "home_ai_subtitle",
-              "Intelligent tools designed specifically for IR teams — saving time, improving accuracy, and keeping your communications compliant and consistent."
+              "A generative AI-powered search experience that helps shareholders and stakeholders find accurate, relevant, and verifiable information across your Investor Relations content."
             )}
           </p>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "24px",
-              marginBottom: "40px",
+              gap: lang === "ar" ? "20px" : "24px",
+              marginBottom: "32px",
+              maxWidth: lang === "ar" ? "620px" : "none",
+              alignSelf: lang === "ar" ? "flex-end" : "auto",
+              width: "100%",
             }}
           >
             {[
               {
-                title: t("home_ai_feature_1_title", "Earnings Q&A Assistant"),
+                title: t("home_ai_feature_1_title", "AI-Powered IR Search"),
                 body: t(
                   "home_ai_feature_1_body",
-                  "Instantly answers investor questions using your own earnings transcripts and filings."
+                  "Let investors search across earnings materials, financial statements, IR presentations, and public disclosures from your website or IR app."
                 ),
               },
               {
-                title: t(
-                  "home_ai_feature_2_title",
-                  "Real-time Auto-Translation"
-                ),
+                title: t("home_ai_feature_2_title", "Verified Source References"),
                 body: t(
                   "home_ai_feature_2_body",
-                  "Publish IR content in multiple languages automatically, with IR-specific terminology preserved."
+                  "Provide context-aware answers with links, document names, and PDF page references so users can verify information quickly."
                 ),
               },
               {
-                title: t(
-                  "home_ai_feature_3_title",
-                  "Investor Sentiment Analysis"
-                ),
+                title: t("home_ai_feature_3_title", "Multilingual Investor Access"),
                 body: t(
                   "home_ai_feature_3_body",
-                  "Monitor how investors and analysts are responding to your disclosures in real time."
+                  "Support multilingual IR information access, including English and Nordic languages, directly within the corporate website and IR mobile app."
                 ),
               },
             ].map(item => (
@@ -1046,8 +1053,11 @@ export default function Home() {
                 key={item.title}
                 style={{
                   display: "flex",
-                  gap: "12px",
+                  gap: lang === "ar" ? "16px" : "12px",
                   alignItems: "flex-start",
+                  flexDirection: lang === "ar" ? "row-reverse" : "row",
+                  width: "100%",
+                  justifyContent: lang === "ar" ? "flex-end" : "flex-start",
                 }}
               >
                 <div
@@ -1057,29 +1067,42 @@ export default function Home() {
                     borderRadius: "50%",
                     backgroundColor: "rgb(0, 173, 240)",
                     flexShrink: 0,
-                    marginTop: "8px",
+                    marginTop: "12px",
                   }}
                 />
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: lang === "ar" ? "flex-end" : "flex-start",
+                    width: "100%",
+                    textAlign: lang === "ar" ? "right" : "left",
+                  }}
+                >
                   <h6
                     style={{
-                      fontSize: "20px",
+                      fontSize: "var(--fs-md)",
                       fontWeight: 500,
-                      lineHeight: "28px",
+                      lineHeight: "var(--lh-md)",
                       letterSpacing: "0.01em",
                       color: "rgb(255, 255, 255)",
-                      marginBottom: "6px",
+                      marginBottom: "8px",
+                      width: "100%",
+                      textAlign: lang === "ar" ? "right" : "left",
                     }}
                   >
                     {item.title}
                   </h6>
                   <p
                     style={{
-                      fontSize: "16px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgba(255, 255, 255, 0.72)",
+                      width: "100%",
+                      textAlign: lang === "ar" ? "right" : "left",
+                      margin: 0,
                     }}
                   >
                     {item.body}
@@ -1088,35 +1111,18 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div>
-            <LangLink href="/ai"
-              style={{
-                display: "inline-block",
-                padding: "12px 32px",
-                height: "48px",
-                backgroundColor: "transparent",
-                color: "rgb(255, 255, 255)",
-                borderRadius: "24px",
-                border: "1px solid rgba(255,255,255,0.6)",
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                textDecoration: "none",
-              }}
-            >
+          <div style={{ display: "flex", justifyContent: lang === "ar" ? "flex-end" : "flex-start" }}>
+            <LangLink href="/ai" className="btn-secondary">
               {t("home_ai_cta", "Explore AI Solutions")}
             </LangLink>
           </div>
         </div>
       </section>
-
-      <section style={{ padding: "80px 0" }}>
+      <section style={{ padding: "64px 0" }}>
         <div className="inner-container" style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px" }}>
           <div
             ref={fadeSolutions}
-            className="fade-up"
+            className="fade-up section-heading-center"
             style={{ marginBottom: "48px", textAlign: "center" }}
           >
             <div
@@ -1127,21 +1133,21 @@ export default function Home() {
             </div>
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "52px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
-                marginBottom: "20px",
+                marginBottom: "16px",
               }}
             >
               {t("home_solutions_title", "Best Practice IR Solutions")}
             </h3>
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 maxWidth: "800px",
@@ -1150,7 +1156,7 @@ export default function Home() {
             >
               {t(
                 "home_solutions_subtitle",
-                "Transform your IR programme with a complete suite of tools, services, and technology built specifically for listed companies."
+                "Transform your IR Operation with a complete suite of tools, services, and technology built specifically for listed companies."
               )}
             </p>
           </div>
@@ -1167,8 +1173,8 @@ export default function Home() {
                 }
                 style={{
                   width: "100%",
-                  height: "262px",
-                  padding: "40px",
+                  height: "264px",
+                  padding: "32px",
                   backgroundColor: "rgb(255, 255, 255)",
                   border: "1px solid rgb(221, 224, 230)",
                   borderRadius: "16px",
@@ -1183,11 +1189,11 @@ export default function Home() {
                 onMouseEnter={e => {
                   e.currentTarget.style.boxShadow =
                     "0 8px 32px rgba(0,107,163,0.18)";
-                  e.currentTarget.style.borderColor = "rgb(0, 107, 163)";
+                  e.currentTarget.style.borderColor = "rgb(0, 116, 217)";
                   e.currentTarget.style.backgroundColor = "rgb(245, 250, 255)";
                   e.currentTarget.style.transform = "translateY(-4px)";
                   const cta = e.currentTarget.querySelector(".card-cta") as HTMLElement;
-                  if (cta) { cta.style.color = "rgb(0, 107, 163)"; cta.style.gap = "8px"; }
+                  if (cta) { cta.style.color = "rgb(0, 116, 217)"; cta.style.gap = "8px"; }
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.boxShadow = "none";
@@ -1201,21 +1207,21 @@ export default function Home() {
                 <div>
                   <h4 className="type-h5"
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       color: "rgb(13, 27, 42)",
-                      marginBottom: "8px",
+                      marginBottom: "16px",
                     }}
                   >
                     {card.title}
                   </h4>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
-                      letterSpacing: "0.01em",
+                      lineHeight: "var(--lh-base)",
+                      letterSpacing: 0,
                       color: "rgb(58, 74, 88)",
                     }}
                   >
@@ -1229,9 +1235,9 @@ export default function Home() {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "4px",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                    lineHeight: "24px",
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.08em",
                     color: "rgb(8, 43, 69)",
                     textTransform: "uppercase",
@@ -1249,10 +1255,10 @@ export default function Home() {
               className="card-fixed"
               style={{
                 width: "100%",
-                height: "262px",
-                padding: "40px",
+                height: "264px",
+                padding: "32px",
                 backgroundColor: "rgb(245, 250, 255)",
-                border: "2px solid rgb(0, 107, 163)",
+                border: "2px solid rgb(0, 116, 217)",
                 borderRadius: "16px",
                 display: "flex",
                 flexDirection: "column",
@@ -1276,20 +1282,20 @@ export default function Home() {
             >
               <div
                 style={{
-                  fontSize: "48px",
+                  fontSize: "var(--fs-3xl)",
                   fontWeight: 700,
-                  lineHeight: "56px",
-                  color: "rgb(0, 107, 163)",
-                  marginBottom: "8px",
+                  lineHeight: "var(--lh-3xl)",
+                  color: "rgb(0, 116, 217)",
+                  marginBottom: "16px",
                 }}
               >
                 35+
               </div>
               <p
                 style={{
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 500,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(13, 27, 42)",
                   marginBottom: "16px",
                 }}
@@ -1302,11 +1308,11 @@ export default function Home() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "4px",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  lineHeight: "24px",
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.08em",
-                  color: "rgb(0, 107, 163)",
+                  color: "#0074D9",
                   textTransform: "uppercase",
                   width: "100%",
                 }}
@@ -1317,26 +1323,8 @@ export default function Home() {
           </div>
 
           <div style={{ marginTop: "48px", textAlign: "center" }}>
-            <LangLink href="/platform"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "12px 32px",
-                height: "48px",
-                backgroundColor: "rgb(0, 107, 163)",
-                color: "rgb(255, 255, 255)",
-                borderRadius: "24px",
-                border: "none",
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                textDecoration: "none",
-              }}
-            >
-              Explore all 35+ solutions
+            <LangLink href="/platform" className="btn-outline">
+              Explore Solutions
             </LangLink>
           </div>
         </div>
@@ -1348,6 +1336,7 @@ export default function Home() {
             {bottomStats.map(item => (
               <div
                 key={item.label}
+                className="bottom-stat-block"
                 style={{
                   paddingLeft: "20px",
                   borderLeft: "2px solid rgba(0, 173, 240, 0.3)",
@@ -1356,36 +1345,36 @@ export default function Home() {
               >
                 <div
                   style={{
-                    fontSize: "32px",
+                    fontSize: "var(--fs-2xl)",
                     fontWeight: 300,
-                    lineHeight: "40px",
+                    lineHeight: "var(--lh-2xl)",
                     color: "rgb(255, 255, 255)",
-                    marginBottom: "4px",
                   }}
                 >
                   {item.num}
                 </div>
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 700,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(255, 255, 255)",
-                    marginBottom: "8px",
+                    display: "flex",
+                    alignItems: "flex-start",
                   }}
                 >
                   {item.label}
                 </div>
                 <p
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "16px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgba(255, 255, 255, 0.7)",
                   }}
-                >
-                  {item.body}
-                </p>
+                  >
+                    {item.body}
+                  </p>
               </div>
             ))}
           </div>
@@ -1393,12 +1382,12 @@ export default function Home() {
       </div>
 
       <section
-        style={{ padding: "80px 0", backgroundColor: "rgb(245, 245, 245)" }}
+        style={{ padding: "64px 0", backgroundColor: "rgb(245, 245, 245)" }}
       >
         <div className="inner-container" style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px" }}>
           <div
             ref={fadeTestimonial}
-            className="fade-up"
+            className="fade-up section-heading-center"
             style={{ marginBottom: "48px", textAlign: "center" }}
           >
             <div
@@ -1409,9 +1398,9 @@ export default function Home() {
             </div>
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "52px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
               }}
@@ -1432,9 +1421,9 @@ export default function Home() {
             >
               <p
                 style={{
-                  fontSize: "24px",
+                  fontSize: "var(--fs-lg)",
                   fontWeight: 300,
-                  lineHeight: "36px",
+                  lineHeight: "var(--lh-xl)",
                   letterSpacing: "-0.01em",
                   maxWidth: "600px",
                   color: "rgb(13, 27, 42)",
@@ -1446,11 +1435,11 @@ export default function Home() {
               {activeTestimonial.name && (
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 700,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(13, 27, 42)",
-                    marginBottom: "2px",
+                    marginBottom: "16px",
                   }}
                 >
                   {activeTestimonial.name}
@@ -1458,9 +1447,9 @@ export default function Home() {
               )}
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 600,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(13, 27, 42)",
                 }}
               >
@@ -1468,9 +1457,9 @@ export default function Home() {
               </div>
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(58, 74, 88)",
                 }}
               >
@@ -1483,7 +1472,7 @@ export default function Home() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginTop: "24px",
+                marginTop: "32px",
                 minHeight: "36px",
               }}
             >
@@ -1540,16 +1529,16 @@ export default function Home() {
 
             <div
               style={{
-                marginTop: "12px",
+                marginTop: "16px",
                 display: "flex",
                 justifyContent: "center",
               }}
             >
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 500,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(58, 74, 88)",
                 }}
               >
@@ -1561,12 +1550,12 @@ export default function Home() {
       </section>
 
       {lang === "en" && <section
-        style={{ padding: "80px 0", backgroundColor: "rgb(255, 255, 255)" }}
+        style={{ padding: "64px 0", backgroundColor: "rgb(255, 255, 255)" }}
       >
         <div className="inner-container" style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px" }}>
           <div
             ref={fadeNewsroom}
-            className="fade-up"
+            className="fade-up section-heading-center"
             style={{
               marginBottom: "48px",
               textAlign: "center",
@@ -1580,9 +1569,9 @@ export default function Home() {
             </div>
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "52px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
                 marginBottom: "16px",
@@ -1598,24 +1587,57 @@ export default function Home() {
             {newsItems.map(item => (
               <LangLink
                 key={item.title}
-                href="/company/newsroom"
+                href={item.href}
                 className="card-link card-fixed"
                 style={{
                   width: "100%",
-                  height: "274px",
-                  padding: "32px",
+                  minHeight: "360px",
+                  padding: 0,
                   justifyContent: "space-between",
+                  overflow: "hidden",
                 }}
               >
-                <div>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "148px",
+                    backgroundColor: "rgb(8, 43, 69)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        background: "linear-gradient(135deg, rgba(0,107,163,0.28) 0%, rgba(8,43,69,0.88) 100%)",
+                      }}
+                    />
+                  )}
                   <div
                     style={{
-                      fontSize: "12px",
-                      fontWeight: 500,
-                      lineHeight: "24px",
+                      position: "absolute",
+                      inset: 0,
+                      background: "linear-gradient(to top, rgba(8,43,69,0.35), rgba(8,43,69,0.05))",
+                    }}
+                  />
+                </div>
+                <div style={{ padding: "16px 16px 0" }}>
+                  <div
+                    style={{
+                      fontSize: "var(--fs-sm)",
+                      fontWeight: 400,
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.96px",
                       textTransform: "uppercase",
-                      color: "#28628F",
+                      color: "#0074D9",
                       marginBottom: "16px",
                     }}
                   >
@@ -1623,20 +1645,20 @@ export default function Home() {
                   </div>
                   <h5
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-md)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       color: "rgb(13, 27, 42)",
-                      marginBottom: "8px",
+                      marginBottom: "16px",
                     }}
                   >
                     {item.title}
                   </h5>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
@@ -1645,7 +1667,7 @@ export default function Home() {
                     {item.body}
                   </p>
                 </div>
-                <span className="btn-link" style={{ alignSelf: "flex-start" }}>
+                <span className="btn-link" style={{ alignSelf: "flex-start", margin: "16px 24px 32px" }}>
                   {t("read_more", "Read more")}
                 </span>
               </LangLink>
@@ -1653,7 +1675,11 @@ export default function Home() {
           </div>
 
           <div style={{ marginTop: "32px", textAlign: "center" }}>
-            <LangLink href="/company/newsroom" className="btn-link">
+            <LangLink
+              href="/company/newsroom"
+              className="btn-link"
+              style={{ fontSize: "var(--fs-sm)" }}
+            >
               {t("news_visit", "Visit newsroom")}
             </LangLink>
           </div>
@@ -1675,12 +1701,12 @@ export default function Home() {
               </div>
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "52px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(255, 255, 255)",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                 }}
               >
                 {t(
@@ -1690,9 +1716,9 @@ export default function Home() {
               </h3>
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgba(255, 255, 255, 0.7)",
                   maxWidth: "440px",
@@ -1701,7 +1727,7 @@ export default function Home() {
               >
                 {t(
                   "home_cta_subtitle",
-                  "Trusted by 1,400+ listed companies across 60+ exchanges. Speak with our team to find the right solution for your IR programme."
+                  "Trusted by 1,400+ listed companies across 60+ exchanges. Speak with our team to find the right solution for your IR Operation."
                 )}
               </p>
               <div
@@ -1713,8 +1739,8 @@ export default function Home() {
                 >
                   {t("cta_cta1", "Book a Demo")}
                 </LangLink>
-                <LangLink href="/contact" className="btn-secondary">
-                  {t("cta_cta2", "Talk to Us")}
+                <LangLink href="/platform" className="btn-secondary">
+                  {t("cta_cta2", "Explore our tools")}
                 </LangLink>
               </div>
             </div>
@@ -1723,7 +1749,7 @@ export default function Home() {
               className="cta-grid-image"
               style={{
                 width: "100%",
-                height: "286px",
+                height: "288px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -1734,9 +1760,9 @@ export default function Home() {
             >
               <span
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
+                  lineHeight: "var(--lh-base)",
                   color: "rgba(255, 255, 255, 0.35)",
                   letterSpacing: "0.96px",
                   textTransform: "uppercase",
@@ -1760,12 +1786,12 @@ export default function Home() {
           >
             <div
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
+                fontSize: "var(--fs-sm)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.96px",
                 textTransform: "uppercase",
-                color: "#28628F",
+                color: "var(--button-blue)",
                 marginBottom: "32px",
                 textAlign: "center",
               }}
@@ -1812,7 +1838,7 @@ export default function Home() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333333%);
           }
         }
       `}</style>
@@ -1821,3 +1847,5 @@ export default function Home() {
     </PageWrapper>
   );
 }
+
+

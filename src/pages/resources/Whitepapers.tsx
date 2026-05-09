@@ -71,7 +71,7 @@ const PAPERS: Whitepaper[] = [
     date: "December 2025",
     pages: "24 pages",
     title: "AI in Investor Relations: A Practical Adoption Guide",
-    desc: "A framework for IR teams evaluating AI tools — from automated Q&A and earnings preparation to sentiment analysis and investor targeting.",
+    desc: "A framework for IR teams evaluating AI-powered IR search, source-referenced answers, multilingual access, and corporate website or IR app integration.",
   },
   {
     category: "Investor Engagement",
@@ -105,15 +105,6 @@ const CATEGORIES: Category[] = [
   "Regulatory & Compliance",
 ];
 
-// Category pill colour
-const CATEGORY_COLORS: Record<string, { bg: string; color: string }> = {
-  "IR Strategy":             { bg: "rgb(0, 107, 163)",    color: "#fff" },
-  "ESG & Sustainability":    { bg: "rgb(0, 150, 81)",     color: "#fff" },
-  "AI & Technology":         { bg: "rgb(91, 107, 122)",   color: "#fff" },
-  "Investor Engagement":     { bg: "rgb(0, 107, 163)",    color: "#fff" },
-  "Regulatory & Compliance": { bg: "rgb(58, 74, 88)",     color: "#fff" },
-};
-
 function paperHref(title: string) {
   return `/resources/whitepapers/${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
 }
@@ -123,22 +114,13 @@ function paperRequestHref(title: string) {
 }
 
 function CategoryBadge({ cat }: { cat: string }) {
-  const c = CATEGORY_COLORS[cat] ?? { bg: "rgb(221,224,230)", color: "rgb(58,74,88)" };
   return (
     <span
+      className="u-label whitepapers-label"
       style={{
-        display: "inline-flex",
-        alignItems: "center",
-        padding: "2px 10px",
-        borderRadius: "4px",
-        fontSize: "10px",
-        fontWeight: 700,
-        lineHeight: "24px",
-        letterSpacing: "0.10em",
-        textTransform: "uppercase",
-        background: c.bg,
-        color: c.color,
-        whiteSpace: "nowrap",
+        display: "inline-block",
+        marginBottom: 0,
+        color: "var(--label-blue-light)",
       }}
     >
       {cat}
@@ -163,7 +145,7 @@ function WhitepapersInner() {
         variant="resources"
         label="Resources"
         title="Whitepapers & Research"
-        subtitle="Long-form research, strategic frameworks, and practical guidance for investor relations professionals covering disclosure, AI, ESG, engagement, and capital markets communication."
+        subtitle="Long-form research, strategic frameworks, and practical guidance for Investor Relations professionals covering disclosure, AI, ESG, engagement, and capital markets communication."
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
@@ -179,13 +161,14 @@ function WhitepapersInner() {
           <div ref={f1} className="fade-up">
             {/* Section label: 10px/700/0.12em/uppercase/rgb(0,107,163) */}
             <div
+              className="whitepapers-label"
               style={{
-                fontSize: "10px",
-                fontWeight: 700,
-                lineHeight: "24px",
-                letterSpacing: "0.12em",
+                fontSize: "var(--fs-sm)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
+                letterSpacing: "var(--ls-label)",
                 textTransform: "uppercase",
-                color: "rgb(0, 107, 163)",
+                color: "var(--label-blue-light)",
                 marginBottom: "16px",
               }}
             >
@@ -195,9 +178,9 @@ function WhitepapersInner() {
             {/* H3: 32px/600/48px/rgb(8,43,69) */}
             <h3 className="type-h4"
               style={{
-                fontSize: "32px",
+                fontSize: "var(--fs-xl)",
                 fontWeight: 600,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.01em",
                 color: "rgb(8, 43, 69)",
                 margin: "0 0 32px",
@@ -215,9 +198,9 @@ function WhitepapersInner() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ padding: "28px" }}>
+              <div style={{ padding: "32px" }}>
                 {/* Top row: category badge */}
-                <div style={{ marginBottom: "12px" }}>
+                <div style={{ marginBottom: "16px" }}>
                   <CategoryBadge cat={FEATURED.category} />
                 </div>
 
@@ -228,12 +211,12 @@ function WhitepapersInner() {
                 >
                   <h4 className="type-h5"
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 600,
-                      lineHeight: "28px",
+                      lineHeight: "var(--lh-md)",
                       letterSpacing: "0.01em",
                       color: "rgb(8, 43, 69)",
-                      margin: "0 0 12px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {FEATURED.title}
@@ -243,11 +226,11 @@ function WhitepapersInner() {
                 {/* Description: 16px/400/24px/rgb(74,71,64) */}
                 <p
                   style={{
-                    fontSize: "16px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(74, 71, 64)",
-                    margin: "0 0 24px",
+                    margin: "0 0 32px",
                   }}
                 >
                   {FEATURED.desc}
@@ -259,7 +242,7 @@ function WhitepapersInner() {
                     display: "flex",
                     alignItems: "center",
                     gap: "16px",
-                    marginBottom: "24px",
+                    marginBottom: "32px",
                   }}
                 >
                   <span
@@ -267,7 +250,7 @@ function WhitepapersInner() {
                       display: "flex",
                       alignItems: "center",
                       gap: "4px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       color: "rgb(91, 107, 122)",
                     }}
                   >
@@ -279,7 +262,7 @@ function WhitepapersInner() {
                       display: "flex",
                       alignItems: "center",
                       gap: "4px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       color: "rgb(91, 107, 122)",
                     }}
                   >
@@ -291,7 +274,7 @@ function WhitepapersInner() {
                       display: "flex",
                       alignItems: "center",
                       gap: "4px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       color: "rgb(91, 107, 122)",
                     }}
                   >
@@ -335,13 +318,14 @@ function WhitepapersInner() {
           <div ref={f2} className="fade-up">
             {/* Section label */}
             <div
+              className="whitepapers-label"
               style={{
-                fontSize: "10px",
-                fontWeight: 700,
-                lineHeight: "24px",
-                letterSpacing: "0.12em",
+                fontSize: "var(--fs-sm)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
+                letterSpacing: "var(--ls-label)",
                 textTransform: "uppercase",
-                color: "rgb(0, 107, 163)",
+                color: "var(--label-blue-light)",
                 marginBottom: "16px",
               }}
             >
@@ -351,9 +335,9 @@ function WhitepapersInner() {
             {/* H3 */}
             <h3 className="type-h4"
               style={{
-                fontSize: "32px",
+                fontSize: "var(--fs-xl)",
                 fontWeight: 600,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 color: "rgb(8, 43, 69)",
                 margin: "0 0 32px",
               }}
@@ -377,16 +361,16 @@ function WhitepapersInner() {
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     style={{
-                      padding: "8px 16px",
+                      padding: "16px 16px",
                       borderRadius: "4px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: isActive ? 600 : 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.24px",
                       border: isActive
-                        ? "1px solid rgb(0, 107, 163)"
+                        ? "1px solid var(--button-blue)"
                         : "1px solid rgb(221, 224, 230)",
-                      background: isActive ? "rgb(0, 107, 163)" : "rgb(255, 255, 255)",
+                      background: isActive ? "var(--button-blue)" : "rgb(255, 255, 255)",
                       color: isActive ? "rgb(255, 255, 255)" : "rgb(58, 74, 88)",
                       cursor: "pointer",
                       transition: "all 150ms ease",
@@ -406,7 +390,7 @@ function WhitepapersInner() {
                   style={{
                     borderTop: idx === 0 ? "1px solid rgb(221, 224, 230)" : "none",
                     borderBottom: "1px solid rgb(221, 224, 230)",
-                    padding: "24px 0",
+                    padding: "16px 0",
                   }}
                 >
                   <div
@@ -425,24 +409,26 @@ function WhitepapersInner() {
                           display: "flex",
                           alignItems: "center",
                           gap: "12px",
-                          marginBottom: "8px",
+                          marginBottom: "16px",
                         }}
                       >
                         <CategoryBadge cat={paper.category} />
                         <span
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
+                            fontWeight: 600,
                             color: "rgba(74, 71, 64, 0.60)",
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                           }}
                         >
                           {paper.date}
                         </span>
                         <span
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
+                            fontWeight: 600,
                             color: "rgba(74, 71, 64, 0.60)",
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                           }}
                         >
                           {paper.pages}
@@ -453,11 +439,11 @@ function WhitepapersInner() {
                       <LangLink href={paperHref(paper.title)} style={{ textDecoration: "none" }}>
                         <h4 className="type-h6"
                           style={{
-                            fontSize: "20px",
+                            fontSize: "var(--fs-md)",
                             fontWeight: 600,
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                             color: "rgb(8, 43, 69)",
-                            margin: "0 0 6px",
+                            margin: "0 0 16px",
                           }}
                         >
                           {paper.title}
@@ -467,9 +453,9 @@ function WhitepapersInner() {
                       {/* Desc: 12px/400/20px/rgb(74,71,64) */}
                       <p
                         style={{
-                          fontSize: "12px",
+                          fontSize: "var(--fs-sm)",
                           fontWeight: 400,
-                          lineHeight: "20px",
+                          lineHeight: "var(--lh-sm)",
                           color: "rgb(74, 71, 64)",
                           margin: 0,
                           maxWidth: "640px",
@@ -486,7 +472,7 @@ function WhitepapersInner() {
                         flexDirection: "column",
                         alignItems: "flex-end",
                         gap: "8px",
-                        paddingTop: "4px",
+                        paddingTop: "0px",
                         minWidth: "120px",
                       }}
                     >
@@ -494,8 +480,8 @@ function WhitepapersInner() {
                         href={paperRequestHref(paper.title)}
                         className="btn-primary"
                         style={{
-                          fontSize: "12px",
-                          padding: "8px 16px",
+                          fontSize: "var(--fs-sm)",
+                          padding: "16px 16px",
                           display: "flex",
                           alignItems: "center",
                           gap: "6px",
@@ -527,3 +513,4 @@ export default function Whitepapers() {
     </EnglishOnlyGuard>
   );
 }
+

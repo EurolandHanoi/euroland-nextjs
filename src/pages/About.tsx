@@ -33,7 +33,7 @@ function getValues(t: TFunction) {
       title: t("about_values_global_reach", "Global Reach"),
       desc: t(
         "about_values_global_reach_desc",
-        "IR is a global discipline. Our platform supports 10 languages and 40+ markets out of the box."
+        "IR is a global discipline. Our platform supports 10 languages and companies listed across 60+ stock exchanges."
       ),
     },
     {
@@ -71,7 +71,16 @@ export default function About() {
   return (
     <div>
       {/* Hero */}
-      <section className="py-20" style={{ backgroundColor: "#082b45" }}>
+      <section
+        className="py-24"
+        style={{
+          backgroundColor: "#082b45",
+          backgroundImage:
+            "linear-gradient(90deg, rgba(8, 43, 69, 0.92) 0%, rgba(8, 43, 69, 0.72) 52%, rgba(8, 43, 69, 0.42) 100%), url('/hero-bg_c3bbfd60.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl">
             <SectionLabel light>{t("about_hero_label", "About Euroland IR")}</SectionLabel>
@@ -82,17 +91,17 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionLabel>{t("about_mission_label", "Our Mission")}</SectionLabel>
-              <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mb-6">{t("about_mission_title", "Empowering investor relations teams worldwide")}</h2>
+              <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mb-6">{t("about_mission_title", "Empowering Investor Relations teams worldwide")}</h2>
               <p className="text-[#3a4a58] leading-relaxed mb-4">
-                Euroland IR was founded in 1999 with a clear purpose: to give every publicly listed company access to the same quality of investor relations tools and infrastructure that was previously only available to the largest corporations.
+                Euroland IR was founded in 1999 with a clear purpose: to give every publicly listed company access to the same quality of Investor Relations tools and infrastructure that was previously only available to the largest corporations.
               </p>
               <p className="text-[#3a4a58] leading-relaxed">
-                Today, we serve over 1,400 listed companies across 40+ countries — from newly listed micro-cap companies to global large-cap enterprises — all on the same platform, with the same commitment to reliability and best practice.
+                Today, we serve over 1,400 listed companies across 60+ stock exchanges - from newly listed micro-cap companies to global large-cap enterprises - all on the same platform, with the same commitment to reliability and best practice.
               </p>
             </div>
             <div className="bg-[#f2f4f6] p-8 border-l-4 border-[#28628F]">
@@ -104,8 +113,8 @@ export default function About() {
                   <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_listed_companies", "Listed Companies")}</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#082b45]">40+</div>
-                  <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_countries", "Countries")}</div>
+                  <div className="text-2xl font-bold text-[#082b45]">60+</div>
+                  <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_countries", "Stock Exchanges")}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-[#082b45]">25+</div>
@@ -122,10 +131,10 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-16" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="text-center mb-12">
-            <SectionLabel className="justify-center items-center flex flex-col">{t("about_values_label", "Our Values")}</SectionLabel>
+            <SectionLabel centered className="justify-center items-center flex flex-col">{t("about_values_label", "Our Values")}</SectionLabel>
             <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mt-2">{t("about_values_title", "What drives us")}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -141,11 +150,11 @@ export default function About() {
       </section>
 
       {/* Offices */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="mb-12">
             <SectionLabel>{t("about_offices_label", "Global Offices")}</SectionLabel>
-            <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mt-2">{t("about_offices_title", "Present in 40+ markets worldwide")}</h2>
+            <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mt-2">{t("about_offices_title", "Global presence across key capital markets")}</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -153,7 +162,7 @@ export default function About() {
                 <div key={i} className="p-4 border border-[#dde0e6]">
                   <div className="font-bold text-[#0f1e2b]">{office.city}</div>
                   <div className="text-sm text-[#3a4a58]">{office.country}</div>
-                  <div className="text-xs text-[#28628F] font-semibold mt-1 uppercase tracking-wide">{office.role}</div>
+                  <div className="text-xs text-[#00ADF0] font-semibold mt-1 uppercase tracking-wide">{office.role}</div>
                 </div>
               ))}
             </div>
@@ -169,13 +178,13 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-24" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8 text-center" style={{ maxWidth: "1536px" }}>
           <h2 className="type-h5 text-2xl font-bold text-[#0f1e2b] mb-4">{t("about_cta_title", "Work with us")}</h2>
           <p className="text-[#3a4a58] mb-8 max-w-xl mx-auto">
             {t(
               "about_cta_text",
-              "Whether you're a listed company looking for a better IR platform, or a talented professional looking to join our team — we'd love to hear from you."
+              "Whether you are a listed company looking for a stronger IR platform or a professional interested in joining our team, we would be pleased to hear from you."
             )}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

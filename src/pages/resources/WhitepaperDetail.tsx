@@ -40,7 +40,7 @@ const WHITEPAPER = {
 };
 
 function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
-  const { lang } = useLanguage();
+  const { lang, t } = useLanguage();
   const pathname = usePathname();
   const [status, setStatus] = useState<Status>("idle");
   const [email, setEmail] = useState("");
@@ -69,7 +69,7 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
       form.reset();
     } catch (error) {
       setStatus("error");
-      setErrorMessage(error instanceof Error ? error.message : "We could not send your request right now.");
+      setErrorMessage(error instanceof Error ? error.message : t("whitepaperdetail_submit_error", "We could not send your request right now."));
     }
   }
 
@@ -80,13 +80,13 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
         background: dark ? "rgba(0,0,0,0.25)" : "rgb(255,255,255)",
         border: dark ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgb(221,224,230)",
         borderRadius: "8px",
-        padding: "28px",
+        padding: "32px",
       }}
     >
-      <div style={{ fontSize: "10px", fontWeight: 700, lineHeight: "24px", letterSpacing: "0.12em", textTransform: "uppercase", color: dark ? "#8ddcff" : "rgb(0, 107, 163)", marginBottom: "12px" }}>
+      <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.12em", textTransform: "uppercase", color: dark ? "var(--label-blue-dark)" : "var(--label-blue-light)", marginBottom: "16px" }}>
         Request PDF
       </div>
-      <p style={{ fontSize: "13px", fontWeight: 400, lineHeight: "20px", color: dark ? "rgba(255,255,255,0.72)" : "rgb(58,74,88)", margin: "0 0 16px" }}>
+      <p style={{ fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-sm)", color: dark ? "rgba(255,255,255,0.72)" : "rgb(58,74,88)", margin: "0 0 16px" }}>
         {WHITEPAPER.downloadLabel}
       </p>
 
@@ -106,9 +106,9 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
             required
             style={{
               width: "100%",
-              padding: "10px 14px",
-              fontSize: "13px",
-              lineHeight: "20px",
+              padding: "16px 14px",
+              fontSize: "var(--fs-sm)",
+              lineHeight: "var(--lh-sm)",
               border: dark ? "1px solid rgba(255,255,255,0.25)" : "1px solid rgb(221,224,230)",
               borderRadius: "4px",
               background: dark ? "rgba(255,255,255,0.08)" : "rgb(255,255,255)",
@@ -122,9 +122,9 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
             placeholder="Company"
             style={{
               width: "100%",
-              padding: "10px 14px",
-              fontSize: "13px",
-              lineHeight: "20px",
+              padding: "16px 14px",
+              fontSize: "var(--fs-sm)",
+              lineHeight: "var(--lh-sm)",
               border: dark ? "1px solid rgba(255,255,255,0.25)" : "1px solid rgb(221,224,230)",
               borderRadius: "4px",
               background: dark ? "rgba(255,255,255,0.08)" : "rgb(255,255,255)",
@@ -133,7 +133,7 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
             }}
           />
           {status === "error" && <p className="form-status-error">{errorMessage}</p>}
-          <button type="submit" className="btn-primary" style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }} disabled={status === "submitting"}>
+          <button type="submit" className="btn-primary" style={{ width: "100%" }} disabled={status === "submitting"}>
             <Download size={14} />
             {status === "submitting" ? "Sending request..." : "Request PDF"}
           </button>
@@ -144,11 +144,12 @@ function DownloadCard({ dark = false, id }: { dark?: boolean; id?: string }) {
 }
 
 function WhitepaperDetailInner() {
+  const { t } = useLanguage();
   return (
     <PageWrapper>
       <section className="hero-navy banner-hero-section" style={{ minHeight: "440px" }}>
-        <div className="container" style={{ maxWidth: "1536px", padding: "120px 48px 80px" }}>
-          <div style={{ marginBottom: "24px", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center", color: "rgba(255,255,255,0.72)", fontSize: "13px" }}>
+        <div className="container" style={{ maxWidth: "1536px", padding: "64px 48px 64px" }}>
+          <div style={{ marginBottom: "32px", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center", color: "rgba(255,255,255,0.72)", fontSize: "var(--fs-sm)" }}>
             {WHITEPAPER.breadcrumb.map((crumb, index) => (
               <span key={crumb.label} style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
                 {crumb.href ? <LangLink href={crumb.href} style={{ color: "rgba(255,255,255,0.82)", textDecoration: "none" }}>{crumb.label}</LangLink> : <span>{crumb.label}</span>}
@@ -160,15 +161,15 @@ function WhitepaperDetailInner() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: "64px", alignItems: "start" }}>
             <div>
               <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>{WHITEPAPER.category}</div>
-              <h1 className="type-h3" style={{ fontSize: "40px", fontWeight: 300, lineHeight: "48px", letterSpacing: "-0.01em", color: "rgb(255,255,255)", margin: "0 0 24px", maxWidth: "720px" }}>
+              <h1 className="type-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 300, lineHeight: "var(--lh-2xl)", letterSpacing: "-0.01em", color: "rgb(255,255,255)", margin: "0 0 32px", maxWidth: "720px" }}>
                 {WHITEPAPER.title}
               </h1>
-              <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "24px", color: "rgba(255,255,255,0.78)", margin: "0 0 32px", maxWidth: "640px" }}>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.78)", margin: "0 0 32px", maxWidth: "640px" }}>
                 {WHITEPAPER.description}
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "rgba(255,255,255,0.72)", fontSize: "13px" }}><Calendar size={14} /> {WHITEPAPER.date}</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "rgba(255,255,255,0.72)", fontSize: "13px" }}><FileText size={14} /> {WHITEPAPER.pages}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "rgba(255,255,255,0.72)", fontSize: "var(--fs-sm)" }}><Calendar size={14} /> {WHITEPAPER.date}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "rgba(255,255,255,0.72)", fontSize: "var(--fs-sm)" }}><FileText size={14} /> {WHITEPAPER.pages}</span>
               </div>
             </div>
             <DownloadCard dark id="request-pdf" />
@@ -180,9 +181,9 @@ function WhitepaperDetailInner() {
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: "64px", alignItems: "start" }}>
             <div>
-              <div style={{ marginBottom: "56px" }}>
+              <div style={{ marginBottom: "48px" }}>
                 <div className="u-label" style={{ marginBottom: "16px" }}>Abstract</div>
-                <h2 className="type-h4" style={{ fontSize: "32px", lineHeight: "40px", fontWeight: 400, color: "var(--text-primary)", marginBottom: "20px" }}>What this whitepaper covers</h2>
+                <h2 className="type-h4" style={{ fontSize: "var(--fs-xl)", lineHeight: "var(--lh-xl)", fontWeight: 400, color: "var(--text-primary)", marginBottom: "16px" }}>What this whitepaper covers</h2>
                 <div style={{ display: "grid", gap: "16px", maxWidth: "760px" }}>
                   {WHITEPAPER.abstract.map((paragraph) => (
                     <p key={paragraph} style={{ margin: 0 }}>{paragraph}</p>
@@ -192,11 +193,11 @@ function WhitepaperDetailInner() {
 
               <div>
                 <div className="u-label" style={{ marginBottom: "16px" }}>Key insights</div>
-                <h2 className="type-h4" style={{ fontSize: "32px", lineHeight: "40px", fontWeight: 400, color: "var(--text-primary)", marginBottom: "20px" }}>What you will learn</h2>
+                <h2 className="type-h4" style={{ fontSize: "var(--fs-xl)", lineHeight: "var(--lh-xl)", fontWeight: 400, color: "var(--text-primary)", marginBottom: "16px" }}>What you will learn</h2>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "16px", maxWidth: "780px" }}>
                   {WHITEPAPER.keyInsights.map((item) => (
                     <li key={item} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                      <span style={{ width: "22px", height: "22px", borderRadius: "999px", background: "rgba(0,107,163,0.10)", color: "rgb(0,107,163)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>+</span>
+                      <span style={{ width: "22px", height: "22px", borderRadius: "999px", background: "rgba(0,107,163,0.10)", color: "rgb(0,107,163)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontWeight: 700, flexShrink: 0, marginTop: "16px" }}>+</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -206,14 +207,14 @@ function WhitepaperDetailInner() {
 
             <aside style={{ position: "sticky", top: "96px", display: "grid", gap: "20px" }}>
               <div className="card">
-                <div className="u-label" style={{ marginBottom: "12px" }}>Audience</div>
+                <div className="u-label" style={{ marginBottom: "16px" }}>Audience</div>
                 <p style={{ margin: 0 }}>{WHITEPAPER.audience}</p>
               </div>
               <div className="card">
-                <div className="u-label" style={{ marginBottom: "12px" }}>Topics</div>
+                <div className="u-label" style={{ marginBottom: "16px" }}>Topics</div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                   {WHITEPAPER.topics.map((topic) => (
-                    <span key={topic} style={{ padding: "4px 12px", borderRadius: "4px", fontSize: "12px", fontWeight: 500, lineHeight: "24px", border: "1px solid rgb(0,107,163)", color: "rgb(0,107,163)", background: "rgb(255,255,255)" }}>
+                    <span key={topic} style={{ padding: "16px 12px", borderRadius: "4px", fontSize: "var(--fs-sm)", fontWeight: 500, lineHeight: "var(--lh-base)", border: "1px solid rgb(0,107,163)", color: "rgb(0,107,163)", background: "rgb(255,255,255)" }}>
                       {topic}
                     </span>
                   ))}
@@ -229,15 +230,15 @@ function WhitepaperDetailInner() {
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "center" }}>
             <div>
-              <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>See it in action</div>
-              <h2 className="type-h3" style={{ fontSize: "40px", fontWeight: 300, lineHeight: "48px", color: "rgb(255,255,255)", margin: "0 0 16px" }}>Ready to put these insights into practice?</h2>
-              <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "24px", color: "rgba(255,255,255,0.70)", margin: 0 }}>
-                Book a personalised demo and see how Euroland IR can help your team implement a stronger, more credible digital IR experience.
+              <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>{t("whitepaperdetail_cta_label", "See it in action")}</div>
+              <h2 className="type-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 300, lineHeight: "var(--lh-2xl)", color: "rgb(255,255,255)", margin: "0 0 16px" }}>{t("whitepaperdetail_cta_title", "Ready to put these insights into practice?")}</h2>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)", margin: 0 }}>
+                {t("whitepaperdetail_cta_body", "Book a personalised demo and see how Euroland IR can help your team implement a stronger, more credible digital IR experience.")}
               </p>
             </div>
             <div style={{ display: "flex", gap: "16px", alignItems: "center", flexShrink: 0 }}>
-              <LangLink href="/book-demo" className="btn-primary">Book a Demo</LangLink>
-              <LangLink href="/resources/whitepapers" className="btn-secondary">More whitepapers</LangLink>
+              <LangLink href="/book-demo" className="btn-primary">{t("common_book_demo", "Book a Demo")}</LangLink>
+              <LangLink href="/resources/whitepapers" className="btn-secondary">{t("whitepaperdetail_more", "More whitepapers")}</LangLink>
             </div>
           </div>
         </div>
@@ -253,3 +254,5 @@ export default function WhitepaperDetail() {
     </EnglishOnlyGuard>
   );
 }
+
+

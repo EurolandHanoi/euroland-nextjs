@@ -14,21 +14,25 @@
  *  5. Press Releases (y:2197–2971): light grey, 4 horizontal press rows
  *  6. Euroland in the News (y:2971–3682): white, 3-col media cards (464×455)
  *  7. Newsletter (y:3682–4145):  white, centered card with email input + SUBSCRIBE
- *  8. Press Contact (y:4145–4445): dark navy, eyebrow + H3 + subtitle + SEND MESSAGE btn
+ *  8. Press Contact (y:4145–4445): dark navy, eyebrow + H3 + subtitle + Submit btn
  */
 import { useState } from "react";
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
 import { PageWrapper } from "@/components/Layout";
+import BannerHero from "@/components/layout/BannerHero";
 import { Calendar, ExternalLink } from "lucide-react";
+import { getEventHighlightImage, getHomepageEventHighlights } from "@/data/eventsHighlights";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
-const EVENT_HIGHLIGHTS = [
-  { tag: "AWARDS", title: "PLC Awards 2025", tall: false, slug: "plc-awards-2025", image: "/images/events/plc-awards-2025/ceremony.png" },
-  { tag: "CONFERENCE", title: "JIRA IR Conference 2025 — Tokyo", tall: false, slug: "jira-ir-conference-2025-tokyo", image: "/images/events/jira-tokyo-2025/presentation.png" },
-  { tag: "PARTNERSHIP", title: "Euroland IR & Ubhar Capital Partnership", tall: false, slug: "ubhar-capital-partnership-2025" },
-];
+const EVENT_HIGHLIGHTS = getHomepageEventHighlights(3).map((event) => ({
+  tag: event.tag,
+  title: event.title,
+  tall: false,
+  slug: event.slug,
+  image: getEventHighlightImage(event),
+}));
 
 const UPCOMING_EVENTS = [
   { day: "25", month: "MAR", tag: "WEBINAR", title: "AI for IR: a practical guide for listed companies", location: "Online", slug: "ai-for-ir-webinar-2026" },
@@ -40,8 +44,8 @@ const UPCOMING_EVENTS = [
 const PRESS_RELEASES = [
   {
     date: "12 Mar 2026",
-    title: "Euroland IR expands best-practice platform with new AI disclosure tools",
-    desc: "New AI-assisted drafting and disclosure management capabilities now available to 1,200+ subscribers.",
+    title: "Euroland IR expands best-practice platform with AI-powered IR search",
+    desc: "New AI-powered IR search capabilities help stakeholders access verified Investor Relations information across websites and IR apps.",
     slug: "euroland-ir-expands-platform-ai-disclosure-tools",
   },
 
@@ -51,8 +55,8 @@ const MEDIA_COVERAGE = [
   {
     outlet: "FINANCIAL TIMES",
     date: "10 Mar 2026",
-    title: "How AI is transforming investor relations for public companies",
-    desc: "A deep dive into the tools and workflows that are saving IR teams hundreds of hours per quarter.",
+    title: "How AI is transforming Investor Relations for public companies",
+    desc: "A closer look at the tools and workflows helping IR teams reduce manual work and improve disclosure consistency.",
   },
   {
     outlet: "IR MAGAZINE",
@@ -116,12 +120,12 @@ function EventHighlightCard({ tag, title, tall, slug, image }: { tag: string; ti
         {/* Tag — 12px/700/24px/0.96px/uppercase/rgb(0,173,240) */}
         <div
           style={{
-            fontSize: "12px",
+            fontSize: "var(--fs-sm)",
             fontWeight: 500,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             letterSpacing: "0.96px",
             textTransform: "uppercase",
-            color: "rgb(0, 173, 240)",
+            color: "var(--label-blue-dark)",
             marginBottom: "0px",
           }}
         >
@@ -130,9 +134,9 @@ function EventHighlightCard({ tag, title, tall, slug, image }: { tag: string; ti
         {/* Title — 12px/600/24px/0.16px/rgb(255,255,255) */}
         <div
           style={{
-            fontSize: "12px",
+            fontSize: "var(--fs-sm)",
             fontWeight: 600,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             letterSpacing: "0.01em",
             color: "rgb(255, 255, 255)",
           }}
@@ -154,7 +158,7 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         display: "flex",
         alignItems: "center",
         gap: "24px",
-        padding: "24px",
+        padding: "32px",
         background: "rgb(255, 255, 255)",
         border: "1px solid rgb(221, 224, 230)",
         borderRadius: "4px",
@@ -179,9 +183,9 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         {/* Day — 32px/300/32px/0.16px/rgb(255,255,255) */}
         <div
           style={{
-            fontSize: "32px",
+            fontSize: "var(--fs-xl)",
             fontWeight: 300,
-            lineHeight: "32px",
+            lineHeight: "var(--lh-lg)",
             letterSpacing: "0.01em",
             color: "rgb(255, 255, 255)",
           }}
@@ -191,12 +195,12 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         {/* Month — 12px/700/24px/0.72px/uppercase/rgb(0,173,240) */}
         <div
           style={{
-            fontSize: "12px",
+            fontSize: "var(--fs-sm)",
             fontWeight: 500,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "rgb(0, 173, 240)",
+            color: "var(--label-blue-dark)",
           }}
         >
           {month}
@@ -208,13 +212,13 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         {/* Tag — 12px/700/24px/0.96px/uppercase/rgb(0,107,163) */}
         <div
           style={{
-            fontSize: "12px",
+            fontSize: "var(--fs-sm)",
             fontWeight: 500,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             letterSpacing: "0.96px",
             textTransform: "uppercase",
-            color: "#327AB1",
-            marginBottom: "2px",
+            color: "var(--label-blue-light)",
+            marginBottom: "16px",
           }}
         >
           {tag}
@@ -222,12 +226,12 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         {/* Title — 24px/500/32px/0.16px/rgb(13,27,42) */}
         <div
           style={{
-            fontSize: "24px",
+            fontSize: "var(--fs-lg)",
             fontWeight: 500,
-            lineHeight: "32px",
+            lineHeight: "var(--lh-lg)",
             letterSpacing: "0.01em",
             color: "rgb(13, 27, 42)",
-            marginBottom: "2px",
+            marginBottom: "16px",
           }}
         >
           {title}
@@ -235,9 +239,9 @@ function UpcomingEventRow({ day, month, tag, title, location, slug }: { day: str
         {/* Location — 12px/600/24px/0.16px/rgb(58,74,88) */}
         <div
           style={{
-            fontSize: "12px",
+            fontSize: "var(--fs-sm)",
             fontWeight: 600,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             letterSpacing: "0.01em",
             color: "rgb(58, 74, 88)",
           }}
@@ -260,47 +264,12 @@ export default function Newsroom() {
     <PageWrapper>
 
       {/* ── 1. HERO (y:0–544) ────────────────────────────────────────────── */}
-      <section
-        className="hero-navy banner-hero-section"
-        style={{ minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}
-      >
-        <div className="container" style={{ maxWidth: "1536px", padding: "120px 48px 80px" }}>
-          <div style={{ maxWidth: "640px" }}>
-          {/* Eyebrow — node[35] 12px/600/24px/0.96px/uppercase/rgb(91,200,245) */}
-          <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>
-            NEWSROOM
-          </div>
-          {/* H2 — node[36] 48px/300/56px/-0.48px/white */}
-          <h2
-            style={{
-              fontSize: "48px",
-              fontWeight: 300,
-              lineHeight: "64px",
-              letterSpacing: "-0.01em",
-              color: "rgb(255, 255, 255)",
-              margin: "0 0 24px",
-              maxWidth: "640px",
-            }}
-          >
-            Newsroom
-          </h2>
-          {/* Subtitle — node[37] 20px/400/24px/0.16px/rgba(255,255,255,0.7) */}
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: 400,
-              lineHeight: "24px",
-              letterSpacing: "0.01em",
-              color: "rgba(255, 255, 255, 0.7)",
-              margin: 0,
-              maxWidth: "520px",
-            }}
-          >
-            The latest press releases, investor relations product updates, and award announcements from Euroland IR — trusted IR technology for 1,400+ listed companies.
-          </p>
-          </div>
-        </div>
-      </section>
+      <BannerHero
+        variant="resources"
+        label="Newsroom"
+        title="Newsroom"
+        subtitle="The latest press releases, Investor Relations product updates, and award announcements from Euroland IR — trusted IR technology for publicly listed companies."
+      />
 
       {/* ── 2. FILTER TABS — hidden for now */}
       {false && <div
@@ -318,7 +287,7 @@ export default function Newsroom() {
                 style={{
                   padding: "0 16px",
                   height: "42px",
-                  fontSize: "13px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: activeFilter === tab ? 600 : 600,
                   color: activeFilter === tab ? "rgb(255, 255, 255)" : "rgb(58, 74, 88)",
                   background: activeFilter === tab ? "rgb(34, 37, 43)" : "transparent",
@@ -337,19 +306,19 @@ export default function Newsroom() {
 
       {/* ── 3. EVENTS & HIGHLIGHTS (y:586–1562, h:976) ───────────────────── */}
       {/* node[45] geo:0,586 2004x976 — light grey bg */}
-      <section style={{ background: "rgb(245, 247, 250)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(245, 247, 250)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Section header */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "40px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "32px" }}>
             <div>
               {/* Eyebrow — node[49] rgb(0,107,163) */}
-              <div className="u-label" style={{ marginBottom: "8px" }}>PRODUCT</div>
+              <div className="u-label" style={{ marginBottom: "16px" }}>PRODUCT</div>
               {/* H3 — node[50] 40px/400/48px/0.2px/rgb(13,27,42) */}
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
                   margin: 0,
@@ -358,7 +327,7 @@ export default function Newsroom() {
                 Events &amp; Highlights
               </h3>
             </div>
-            <Calendar size={20} color="rgb(13, 27, 42)" style={{ marginTop: "52px" }} />
+            <Calendar size={20} color="rgb(13, 27, 42)" style={{ marginTop: "48px" }} />
           </div>
 
           {/* 3-col grid — 2 rows of 3 */}
@@ -376,11 +345,11 @@ export default function Newsroom() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 600,
                 letterSpacing: "0.96px",
                 textTransform: "uppercase" as const,
-                color: "#28628F",
+                color: "var(--label-blue-light)",
                 textDecoration: "none",
               }}
             >
@@ -392,17 +361,17 @@ export default function Newsroom() {
       </section>
 
       {/* ── 4. UPCOMING EVENTS — hidden for now */}
-      {false && <section style={{ background: "rgb(255, 255, 255)", padding: "80px 0" }}>
+      {false && <section style={{ background: "rgb(255, 255, 255)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Section header */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "40px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "32px" }}>
             <div>
-              <div className="u-label" style={{ marginBottom: "8px" }}>EVENTS</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
+              <div className="u-label" style={{ marginBottom: "16px" }}>EVENTS</div>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
                 Upcoming Events
               </h3>
             </div>
-            <Calendar size={20} color="rgb(13, 27, 42)" style={{ marginTop: "52px" }} />
+            <Calendar size={20} color="rgb(13, 27, 42)" style={{ marginTop: "48px" }} />
           </div>
 
           {/* 2-col grid — node[96] geo:282,1758 1440x379 */}
@@ -422,17 +391,17 @@ export default function Newsroom() {
 
       {/* ── 5. PRESS RELEASES (y:2197–2971, h:774) ──────────────────────── */}
       {/* light grey bg */}
-      <section style={{ background: "rgb(245, 247, 250)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(245, 247, 250)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Section header */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "40px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "32px" }}>
             <div>
-              <div className="u-label" style={{ marginBottom: "8px" }}>PRESS</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
+              <div className="u-label" style={{ marginBottom: "16px" }}>PRESS</div>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
                 Press Releases
               </h3>
             </div>
-            <ExternalLink size={20} color="rgb(13, 27, 42)" style={{ marginTop: "52px" }} />
+            <ExternalLink size={20} color="rgb(13, 27, 42)" style={{ marginTop: "48px" }} />
           </div>
 
           {/* Press rows — node[131] geo:282,2391 1440x130 */}
@@ -445,21 +414,21 @@ export default function Newsroom() {
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "24px",
-                  padding: "24px 0",
+                  padding: "16px 0",
                   borderBottom: "1px solid rgb(221, 224, 230)",
                 }}
               >
                   {/* Date — 12px/600/24px/0.48px/rgb(58,74,88) */}
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.48px",
                     color: "rgb(58, 74, 88)",
                     minWidth: "140px",
                     flexShrink: 0,
-                    paddingTop: "4px",
+                    paddingTop: "0px",
                   }}
                 >
                   {pr.date}
@@ -469,12 +438,12 @@ export default function Newsroom() {
                   {/* Title — 24px/500/32px/0.16px/rgb(13,27,42) */}
                   <div
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
-                      marginBottom: "4px",
+                      marginBottom: "16px",
                     }}
                   >
                     {pr.title}
@@ -482,9 +451,9 @@ export default function Newsroom() {
                   {/* Desc — 12px/400/24px/0.16px/rgb(58,74,88) */}
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                     }}
@@ -496,15 +465,15 @@ export default function Newsroom() {
                 <LangLink
                   href={`/company/newsroom/press/${pr.slug}`}
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
-                    color: "#327AB1",
+                    color: "var(--label-blue-light)",
                     textDecoration: "none",
                     flexShrink: 0,
-                    paddingTop: "4px",
+                    paddingTop: "0px",
                   }}
                 >
                   READ MORE
@@ -521,11 +490,11 @@ export default function Newsroom() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 600,
                 letterSpacing: "0.96px",
                 textTransform: "uppercase" as const,
-                color: "#28628F",
+                color: "var(--label-blue-light)",
                 textDecoration: "none",
               }}
             >
@@ -540,17 +509,17 @@ export default function Newsroom() {
       {false && <>
       {/* 6. EUROLAND IN THE NEWS */}
       {/* node[169] geo:0,2971 2004x711 — white bg */}
-      <section style={{ background: "rgb(255, 255, 255)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(255, 255, 255)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Section header */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "40px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "32px" }}>
             <div>
-              <div className="u-label" style={{ marginBottom: "8px" }}>MEDIA COVERAGE</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
+              <div className="u-label" style={{ marginBottom: "16px" }}>MEDIA COVERAGE</div>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>
                 Euroland in the News
               </h3>
             </div>
-            <ExternalLink size={20} color="rgb(13, 27, 42)" style={{ marginTop: "52px" }} />
+            <ExternalLink size={20} color="rgb(13, 27, 42)" style={{ marginTop: "48px" }} />
           </div>
 
           {/* 3-col media cards — node[176] geo:282,3166 1440x455 */}
@@ -576,7 +545,7 @@ export default function Newsroom() {
                 >
                   <span
                     style={{
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 700,
                       letterSpacing: "1.4px",
                       textTransform: "uppercase",
@@ -587,31 +556,31 @@ export default function Newsroom() {
                   </span>
                 </div>
                 {/* Content — node[179] geo:283,3367 462x254 */}
-                <div style={{ padding: "24px" }}>
+                <div style={{ padding: "32px" }}>
                   {/* Outlet + date row — node[180] */}
-                  <div style={{ display: "flex", gap: "8px", marginBottom: "8px", alignItems: "center" }}>
+                  <div style={{ display: "flex", gap: "8px", marginBottom: "16px", alignItems: "center" }}>
                     <span
                       style={{
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 500,
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
-                        color: "#327AB1",
+                        color: "var(--label-blue-light)",
                       }}
                     >
                       {mc.outlet}
                     </span>
-                    <span style={{ fontSize: "12px", fontWeight: 400, lineHeight: "24px", letterSpacing: "0.01em", color: "rgb(58, 74, 88)" }}>{mc.date}</span>
+                    <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)" }}>{mc.date}</span>
                   </div>
                   {/* Title — 24px/500/32px/0.16px/rgb(13,27,42) */}
                   <div
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
-                      marginBottom: "8px",
+                      marginBottom: "16px",
                     }}
                   >
                     {mc.title}
@@ -619,9 +588,9 @@ export default function Newsroom() {
                   {/* Desc — 12px/400/24px/0.16px/rgb(58,74,88) */}
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                       marginBottom: "16px",
@@ -633,11 +602,11 @@ export default function Newsroom() {
                   <a
                     href="#"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 500,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
-                      color: "#327AB1",
+                      color: "var(--label-blue-light)",
                       textDecoration: "none",
                     }}
                   >
@@ -652,7 +621,7 @@ export default function Newsroom() {
 
       {/* ── 7. NEWSLETTER (y:3682–4145, h:464) ──────────────────────────── */}
       {/* node[204] geo:0,3682 2004x464 — white bg */}
-      <section style={{ background: "rgb(255, 255, 255)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(255, 255, 255)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Centered card — node[206] geo:682,3746 640x335 */}
           <div
@@ -666,13 +635,13 @@ export default function Newsroom() {
             }}
           >
             {/* Eyebrow — node[207] rgb(0,107,163) */}
-            <div className="u-label" style={{ marginBottom: "16px", textAlign: "center" }}>NEWSLETTER</div>
+            <div className="u-label u-label-center" style={{ marginBottom: "16px", textAlign: "center" }}>NEWSLETTER</div>
             {/* H3 — 32px/400/40px/0.16px/rgb(13,27,42) */}
             <h3 className="type-h4"
               style={{
-                fontSize: "32px",
+                fontSize: "var(--fs-xl)",
                 fontWeight: 400,
-                lineHeight: "40px",
+                lineHeight: "var(--lh-xl)",
                 color: "rgb(13, 27, 42)",
                 margin: "0 0 16px",
               }}
@@ -682,9 +651,9 @@ export default function Newsroom() {
             {/* Subtitle — node[209] 14px/400/24px/rgb(58,74,88) */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 margin: "0 0 32px",
@@ -706,7 +675,7 @@ export default function Newsroom() {
                   border: "1px solid rgb(221, 224, 230)",
                   borderRight: "none",
                   borderRadius: "4px 0 0 4px",
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   color: "rgb(13, 27, 42)",
                   outline: "none",
                   background: "rgb(255, 255, 255)",
@@ -721,7 +690,7 @@ export default function Newsroom() {
                   color: "rgb(255, 255, 255)",
                   border: "none",
                   borderRadius: "0 4px 4px 0",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 500,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
@@ -741,7 +710,7 @@ export default function Newsroom() {
       <section
         style={{
           background: "rgb(8, 43, 69)",
-          padding: "96px 0",
+          padding: "64px 0",
         }}
       >
         <div
@@ -763,9 +732,9 @@ export default function Newsroom() {
             {/* H3 — node[217] geo:282,4277 1245x48 — 40px/300/48px/white */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 color: "rgb(255, 255, 255)",
                 margin: "0 0 16px",
               }}
@@ -775,9 +744,9 @@ export default function Newsroom() {
             {/* Subtitle — 16px/400/24px/0.16px/rgba(255,255,255,0.7) */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgba(255, 255, 255, 0.7)",
                 margin: 0,
@@ -787,12 +756,12 @@ export default function Newsroom() {
             </p>
           </div>
 
-          {/* SEND MESSAGE button — node[219] geo:1575,4271 147x48 */}
+          {/* Submit button — node[219] geo:1575,4271 147x48 */}
           <button
             className="btn-primary"
             style={{ whiteSpace: "nowrap", flexShrink: 0 }}
           >
-            SEND MESSAGE
+            Submit
           </button>
         </div>
       </section>
@@ -803,3 +772,6 @@ export default function Newsroom() {
     </PageWrapper>
   );
 }
+
+
+

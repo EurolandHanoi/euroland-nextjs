@@ -29,14 +29,14 @@ export default function SimplePage({ label, title, subtitle, children, showCta =
             alignItems: "center",
           }}
         >
-          <div className="container" style={{ paddingTop: "120px", paddingBottom: "80px" }}>
+          <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
             <div style={{ maxWidth: "720px" }}>
               <SectionLabel light>{label}</SectionLabel>
               <h1 className="type-h2"
                 style={{
-                  fontSize: "48px",
+                  fontSize: "var(--fs-3xl)",
                   fontWeight: 300,
-                  lineHeight: "64px",
+                  lineHeight: "var(--lh-3xl)",
                   letterSpacing: "-0.01em",
                   color: "#ffffff",
                   margin: "0 0 16px",
@@ -47,8 +47,8 @@ export default function SimplePage({ label, title, subtitle, children, showCta =
               {subtitle && (
                 <p
                   style={{
-                    fontSize: "18px",
-                    lineHeight: "28px",
+                    fontSize: "var(--fs-md)",
+                    lineHeight: "var(--lh-md)",
                     color: "rgba(255,255,255,0.78)",
                     letterSpacing: "0.01em",
                     margin: 0,
@@ -65,10 +65,10 @@ export default function SimplePage({ label, title, subtitle, children, showCta =
         <div>{children}</div>
 
         {showCta && (
-          <section style={{ backgroundColor: "#f2f4f6", padding: "80px 0" }}>
+          <section style={{ backgroundColor: "#f2f4f6", padding: "96px 0" }}>
             <div className="container" style={{ textAlign: "center" }}>
               <h2 style={{ color: "#0f1e2b", marginBottom: "16px" }}>
-                {t("home_cta_title", "Ready to elevate your IR programme?")}
+                {t("home_cta_title", "Ready to elevate your IR Operation?")}
               </h2>
               <p style={{ color: "#3a4a58", marginBottom: "32px", maxWidth: "560px", margin: "0 auto 32px" }}>
                 {t(
@@ -92,3 +92,4 @@ export default function SimplePage({ label, title, subtitle, children, showCta =
     </div>
   );
 }
+

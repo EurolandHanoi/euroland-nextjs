@@ -33,11 +33,11 @@ function getProblems(t: TFunction) {
 function getFeatures(t: TFunction) {
   return [
     { num: "01", title: t("aipage_feature_ai_powered_search", "AI-Powered Search"), desc: t("aipage_feature_ai_powered_search_desc", "Instantly surface relevant data from your entire IR document library using natural language queries.") },
-    { num: "02", title: t("aipage_feature_text_completion", "Text Completion"), desc: t("aipage_feature_text_completion_desc", "Draft earnings releases, press releases, and investor communications with AI assistance trained on IR-specific language.") },
-    { num: "03", title: t("aipage_feature_document_intelligence", "Document Intelligence"), desc: t("aipage_feature_document_intelligence_desc", "Automatically extract, classify, and summarise key information from filings, reports, and disclosures.") },
-    { num: "04", title: t("aipage_feature_compliance_guardrails", "Compliance Guardrails"), desc: t("aipage_feature_compliance_guardrails_desc", "Built-in controls ensure AI outputs meet regulatory standards before publication.") },
-    { num: "05", title: t("aipage_feature_sentiment_analysis", "Sentiment Analysis"), desc: t("aipage_feature_sentiment_analysis_desc", "Monitor investor sentiment across news, social, and analyst reports in real time.") },
-    { num: "06", title: t("aipage_feature_transparent_ai", "Transparent AI"), desc: t("aipage_feature_transparent_ai_desc", "Every AI output is explainable and auditable — full visibility into sources and reasoning.") },
+    { num: "02", title: t("aipage_feature_source_references", "Verified Source References"), desc: t("aipage_feature_source_references_desc", "Provide answers with links, document names, and PDF page references so investors can verify information quickly.") },
+    { num: "03", title: t("aipage_feature_ir_content_coverage", "IR Content Coverage"), desc: t("aipage_feature_ir_content_coverage_desc", "Search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures.") },
+    { num: "04", title: t("aipage_feature_website_app_integration", "Website and App Integration"), desc: t("aipage_feature_website_app_integration_desc", "Integrate the AI search experience directly into the corporate website and IR mobile app.") },
+    { num: "05", title: t("aipage_feature_multilingual_functionality", "Multilingual Functionality"), desc: t("aipage_feature_multilingual_functionality_desc", "Support multilingual IR information access, including English and Nordic languages.") },
+    { num: "06", title: t("aipage_feature_context_aware_answers", "Context-Aware Answers"), desc: t("aipage_feature_context_aware_answers_desc", "Understand user intent and deliver relevant answers based on the company's Investor Relations materials.") },
   ];
 }
 
@@ -45,14 +45,14 @@ function getAiSearchBullets(t: TFunction) {
   return [
     t("aipage_ai_search_bullet_1", "Natural language queries — no complex syntax"),
     t("aipage_ai_search_bullet_2", "Instant results with source citations"),
-    t("aipage_ai_search_bullet_3", "Context-aware responses trained on IR data"),
-    t("aipage_ai_search_bullet_4", "Compliance guardrails built in"),
+    t("aipage_ai_search_bullet_3", "Context-aware responses based on your public IR content"),
+    t("aipage_ai_search_bullet_4", "Links, document names, and PDF page references"),
   ];
 }
 
 export default function AIPage() {
   const { t } = useLanguage();
-  const f1 = useFadeUp(); const f2 = useFadeUp(); const f3 = useFadeUp(); const f4 = useFadeUp(); const f5 = useFadeUp();
+  const f1 = useFadeUp(); const f2 = useFadeUp(); const f3 = useFadeUp(); const f4 = useFadeUp(); const f5 = useFadeUp(); const f6 = useFadeUp();
   const PROBLEMS = getProblems(t);
   const FEATURES = getFeatures(t);
   const AI_SEARCH_BULLETS = getAiSearchBullets(t);
@@ -66,8 +66,9 @@ export default function AIPage() {
         title={t("aipage_hero_heading", "Purpose-Built AI for Investor Relations")}
         subtitle={t(
           "aipage_hero_paragraph",
-          "Instant answers from your entire IR knowledge base — filings, transcripts, reports, and disclosures — with compliance guardrails built in."
+          "A generative AI-powered search solution that turns your corporate website and IR app into an intelligent information hub for shareholders and stakeholders."
         )}
+        backgroundImage="/ai-banner.jpg"
         primaryCtaLabel={t("aipage_hero_btn_book_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("common_talk_to_us", "Talk to Us")}
@@ -77,15 +78,15 @@ export default function AIPage() {
       />
 
       {/* ── VIDEO SECTION ── */}
-      <section id="see-in-action" style={{ background: "var(--slate)", padding: "80px 0" }}>
+      <section id="see-in-action" style={{ background: "var(--slate)", padding: "64px 0" }}>
         <div className="container">
           <div ref={f1} className="fade-up" style={{ textAlign: "center", marginBottom: "var(--sp-10)" }}>
             <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("aipage_video_section_label", "See It In Action")}</div>
             <h3 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
-              {t("aipage_video_section_heading", "Watch how Euroland AI transforms IR workflows")}
+              {t("aipage_video_section_heading", "Watch how Euroland AI improves IR information access")}
             </h3>
             <p style={{ maxWidth: "520px", margin: "0 auto" }}>
-              {t("aipage_video_section_paragraph", "See how IR teams use our AI to answer stakeholder questions in seconds, not hours.")}
+              {t("aipage_video_section_paragraph", "See how stakeholders can ask questions in plain language and receive relevant answers with source references for verification.")}
             </p>
           </div>
           {/* Video */}
@@ -113,7 +114,7 @@ export default function AIPage() {
       </section>
 
       {/* ── PROBLEM CARDS ── */}
-      <section style={{ background: "white", padding: "80px 0" }}>
+      <section style={{ background: "white", padding: "64px 0" }}>
         <div className="container">
           <div ref={f3} className="fade-up" style={{ textAlign: "center", marginBottom: "var(--sp-12)" }}>
             <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("aipage_problem_cards_label", "The Challenge")}</div>
@@ -124,7 +125,7 @@ export default function AIPage() {
               <div key={p.title} className="card">
                 <p.icon size={24} color="#28628F" strokeWidth={1.5} style={{ marginBottom: "var(--sp-4)" }} />
                 <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-3)" }}>{p.title}</h5>
-                <p style={{ fontSize: "var(--fs-sm)", margin: 0 }}>{p.desc}</p>
+                <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", margin: 0 }}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -132,7 +133,7 @@ export default function AIPage() {
       </section>
 
       {/* ── AI SEARCH FEATURE (two-column) ── */}
-      <section style={{ background: "var(--slate)", padding: "80px 0" }}>
+      <section style={{ background: "var(--slate)", padding: "64px 0" }}>
         <div className="container">
           <div ref={f4} className="fade-up grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-16)", alignItems: "center" }}>
             {/* Left — AI search demo screenshot */}
@@ -152,12 +153,12 @@ export default function AIPage() {
                 {t("aipage_ai_search_heading", "Ask questions in plain language. Get instant, cited answers.")}
               </h3>
               <p style={{ marginBottom: "var(--sp-6)" }}>
-                {t("aipage_ai_search_paragraph", "Euroland AI understands IR terminology and searches across your entire knowledge base — filings, transcripts, analyst reports, press releases — in seconds.")}
+                {t("aipage_ai_search_paragraph", "Euroland AI searches across dynamic IR content, including earnings materials, financial statements, IR presentations, reports, and publicly available disclosures. Answers include source references where available, helping users verify information quickly.")}
               </p>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 var(--sp-8)", display: "flex", flexDirection: "column", gap: "var(--sp-3)" }}>
                 {AI_SEARCH_BULLETS.map((b) => (
-                  <li key={b} style={{ display: "flex", alignItems: "flex-start", gap: "var(--sp-3)", fontSize: "var(--fs-sm)" }}>
-                    <span style={{ color: "#28628F", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <li key={b} style={{ display: "flex", alignItems: "flex-start", gap: "var(--sp-3)", fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)" }}>
+                    <span style={{ color: "#0074D9", fontWeight: 700, flexShrink: 0 }}>✓</span>
                     <span>{b}</span>
                   </li>
                 ))}
@@ -174,14 +175,14 @@ export default function AIPage() {
           <div ref={f5} className="fade-up" style={{ marginBottom: "var(--sp-12)" }}>
             <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>{t("aipage_capabilities_label", "Capabilities")}</div>
             <h3 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{t("aipage_capabilities_heading", "AI built for IR professionals")}</h3>
-            <p style={{ maxWidth: "560px" }}>{t("aipage_capabilities_paragraph", "Every feature is designed around the specific needs of IR teams — compliant, accurate, and transparent.")}</p>
+            <p style={{ maxWidth: "560px" }}>{t("aipage_capabilities_paragraph", "Each capability is designed to help investors, analysts, and stakeholders access accurate, relevant, and verifiable IR information more easily.")}</p>
           </div>
           <div className="grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "var(--sp-6)" }}>
             {FEATURES.map((f) => (
               <div key={f.num} className="feature-card">
                 <div className="num-label">{f.num}</div>
                 <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-3)" }}>{f.title}</h5>
-                <p style={{ fontSize: "var(--fs-sm)", margin: 0 }}>{f.desc}</p>
+                <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", margin: 0 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -191,8 +192,8 @@ export default function AIPage() {
       {/* ── CTA ── */}
       <div className="cta-band">
         <div className="container" style={{ textAlign: "center" }}>
-          <div className="fade-up">
-            <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("aipage_cta_label", "Get Started")}</div>
+          <div ref={f6} className="fade-up">
+            <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("aipage_cta_label", "Get Started")}</div>
             <h3 style={{ color: "white", fontWeight: 300, marginBottom: "var(--sp-8)", maxWidth: "600px", margin: "0 auto var(--sp-8)" }}>
               {t("aipage_cta_heading", "Ready to put AI to work for your IR team?")}
             </h3>

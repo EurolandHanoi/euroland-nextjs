@@ -61,10 +61,10 @@ const SECTIONS = [
   },
 ];
 
-const SECTION_STYLE = { marginBottom: "40px" } as const;
-const H3_STYLE = { fontSize: "18px", fontWeight: 600, lineHeight: "28px", color: "rgb(13, 27, 42)", marginBottom: "12px" } as const;
-const P_STYLE = { fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", whiteSpace: "pre-line" as const };
-const LI_STYLE = { fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: "6px" } as const;
+const SECTION_STYLE = { marginBottom: "32px" } as const;
+const H3_STYLE = { fontSize: "var(--fs-md)", fontWeight: 600, lineHeight: "var(--lh-md)", color: "rgb(13, 27, 42)", marginBottom: "16px" } as const;
+const P_STYLE = { fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", whiteSpace: "pre-line" as const };
+const LI_STYLE = { fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: "16px" } as const;
 
 export default function Cookies() {
   return (
@@ -77,7 +77,7 @@ export default function Cookies() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl">
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
+            <p style={{ fontSize: "var(--fs-sm)", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "32px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
               Last updated: April 2025
             </p>
             {SECTIONS.map((section, i) => (
@@ -92,22 +92,22 @@ export default function Cookies() {
                   </ul>
                 )}
                 {section.table && (
-                  <div style={{ overflowX: "auto", marginTop: "8px" }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                  <div style={{ overflowX: "auto", marginTop: "16px" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--fs-base)" }}>
                       <thead>
                         <tr style={{ background: "rgb(242, 244, 246)" }}>
                           {["Cookie Name", "Type", "Purpose", "Duration"].map(h => (
-                            <th key={h} style={{ padding: "10px 14px", textAlign: "left", fontWeight: 600, color: "rgb(13, 27, 42)", borderBottom: "1px solid rgb(221, 224, 230)", whiteSpace: "nowrap" }}>{h}</th>
+                            <th key={h} style={{ padding: "16px 14px", textAlign: "left", fontWeight: 600, color: "rgb(13, 27, 42)", borderBottom: "1px solid rgb(221, 224, 230)", whiteSpace: "nowrap" }}>{h}</th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
                         {COOKIE_TABLE.map((row, j) => (
                           <tr key={j} style={{ borderBottom: "1px solid rgb(238, 240, 243)" }}>
-                            <td style={{ padding: "10px 14px", fontFamily: "monospace", fontSize: "13px", color: "rgb(0, 107, 163)" }}>{row.name}</td>
-                            <td style={{ padding: "10px 14px", color: "rgb(58, 74, 88)" }}>{row.type}</td>
-                            <td style={{ padding: "10px 14px", color: "rgb(58, 74, 88)" }}>{row.purpose}</td>
-                            <td style={{ padding: "10px 14px", color: "rgb(58, 74, 88)", whiteSpace: "nowrap" }}>{row.duration}</td>
+                            <td style={{ padding: "16px 14px", fontFamily: "monospace", fontSize: "var(--fs-sm)", color: "rgb(0, 116, 217)" }}>{row.name}</td>
+                            <td style={{ padding: "16px 14px", color: "rgb(58, 74, 88)" }}>{row.type}</td>
+                            <td style={{ padding: "16px 14px", color: "rgb(58, 74, 88)" }}>{row.purpose}</td>
+                            <td style={{ padding: "16px 14px", color: "rgb(58, 74, 88)", whiteSpace: "nowrap" }}>{row.duration}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -122,3 +122,4 @@ export default function Cookies() {
     </SimplePage>
   );
 }
+

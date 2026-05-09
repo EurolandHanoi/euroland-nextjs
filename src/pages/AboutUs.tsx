@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import LangLink from "@/components/LangLink";
 import BannerHero from "@/components/layout/BannerHero";
 import { PageWrapper } from "@/components/Layout";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function useFadeUp() {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,19 +24,27 @@ const TEAM_VALUES = [
 ];
 
 export default function AboutUs() {
+  const { t } = useLanguage();
   const f1 = useFadeUp(); const f2 = useFadeUp(); const f3 = useFadeUp(); const f4 = useFadeUp();
+  const teamValues = [
+    { num: "01", title: t("aboutus_value_transparency_title", "Transparency"), desc: t("aboutus_value_transparency_desc", "We believe in open, honest communication with our clients, our partners, and the capital markets we serve.") },
+    { num: "02", title: t("aboutus_value_innovation_title", "Innovation"), desc: t("aboutus_value_innovation_desc", "We continuously invest in technology to keep IR teams ahead of regulatory and market demands.") },
+    { num: "03", title: t("aboutus_value_partnership_title", "Partnership"), desc: t("aboutus_value_partnership_desc", "We work alongside our clients as long-term partners, not just software vendors.") },
+    { num: "04", title: t("aboutus_value_excellence_title", "Excellence"), desc: t("aboutus_value_excellence_desc", "Award-winning design and engineering standards applied to every product we ship.") },
+  ];
   return (
     <PageWrapper>
       {/* Hero */}
       <BannerHero
         variant="resources"
-        label="Company"
-        title="About Euroland IR"
-        subtitle="Best-practice IR solutions and purpose-built AI for investor relations, trusted by more than 1,400 publicly listed companies across 60+ stock exchanges worldwide."
+        label={t("aboutus_hero_label", "Company")}
+        title={t("aboutus_hero_title", "About Euroland IR")}
+        subtitle={t("aboutus_hero_subtitle", "Award-winning IR solutions, best-practice Investor Relations tools, and purpose-built AI for listed companies worldwide.")}
+        backgroundImage="/hero-bg_c3bbfd60.jpg"
       />
 
       {/* Intro */}
-      <section style={{ background: "rgb(255,255,255)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(255,255,255)", padding: "64px 0" }}>
         <div className="container inner-container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f1} className="fade-up flex-col-mobile" style={{ display: "flex", gap: "48px", alignItems: "center" }}>
             {/* Left: video */}
@@ -48,14 +57,14 @@ export default function AboutUs() {
               />
             </div>
             {/* Right: card */}
-            <div className="card" style={{ flex: 1, padding: "40px" }}>
-              <div className="u-label" style={{ marginBottom: "16px" }}>Euroland IR</div>
-              <h4 style={{ fontSize: "32px", fontWeight: 400, lineHeight: "40px", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 24px" }}>Award-winning IR technology</h4>
-              <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "24px", color: "rgb(58,74,88)", margin: "0 0 16px" }}>
-                Euroland IR has been shaping the practice of Investor Relations for over two decades. Founded with a deep understanding of capital markets and the evolving needs of publicly listed companies, we combine long-standing IR expertise with modern financial technology to support IR teams worldwide.
+            <div className="card" style={{ flex: 1, padding: "32px" }}>
+              <div className="u-label" style={{ marginBottom: "16px" }}>{t("aboutus_intro_label", "Euroland IR")}</div>
+              <h4 style={{ fontSize: "var(--fs-xl)", fontWeight: 400, lineHeight: "var(--lh-xl)", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 32px" }}>{t("aboutus_intro_title", "Award-winning IR technology and managed digital solutions")}</h4>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgb(58,74,88)", margin: "0 0 16px" }}>
+                {t("aboutus_intro_body_1", "Euroland IR has created professional Investor Relations solutions for more than 25 years. Founded with a deep understanding of capital markets and the evolving needs of listed companies, we combine long-standing IR expertise with modern financial technology to support IR teams worldwide.")}
               </p>
-              <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "24px", color: "rgb(58,74,88)", margin: 0 }}>
-                Today, we serve 1,400+ listed companies across 60+ stock exchanges, providing the tools, data, and expertise they need to communicate effectively with investors.
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgb(58,74,88)", margin: 0 }}>
+                {t("aboutus_intro_body_2", "Today, we serve 1,400+ listed companies across 60+ stock exchanges, providing the tools, data, AI capabilities, and service support they need to communicate effectively with investors.")}
               </p>
             </div>
           </div>
@@ -63,18 +72,18 @@ export default function AboutUs() {
       </section>
 
       {/* Values */}
-      <section style={{ background: "rgb(246,248,250)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(246,248,250)", padding: "64px 0" }}>
         <div className="container inner-container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f2} className="fade-up" style={{ marginBottom: "48px" }}>
-            <div className="u-label" style={{ marginBottom: "16px" }}>Our Values</div>
-            <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: 0 }}>What drives us</h3>
+            <div className="u-label" style={{ marginBottom: "16px" }}>{t("about_values_label", "Our Values")}</div>
+            <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: 0 }}>{t("about_values_title", "What drives us")}</h3>
           </div>
           <div className="grid-4col">
-            {TEAM_VALUES.map((v) => (
-              <div key={v.num} className="card" style={{ padding: "40px" }}>
+            {teamValues.map((v) => (
+              <div key={v.num} className="card" style={{ padding: "32px" }}>
                 <div className="num-label" style={{ marginBottom: "16px" }}>{v.num}</div>
-                <h5 style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 12px" }}>{v.title}</h5>
-                <p style={{ fontSize: "15px", fontWeight: 400, lineHeight: "26px", color: "rgb(58,74,88)", margin: 0 }}>{v.desc}</p>
+                <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 16px" }}>{v.title}</h5>
+                <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgb(58,74,88)", margin: 0 }}>{v.desc}</p>
               </div>
             ))}
           </div>
@@ -82,26 +91,26 @@ export default function AboutUs() {
       </section>
 
       {/* Quote */}
-      <section style={{ background: "rgb(255,255,255)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(255,255,255)", padding: "64px 0" }}>
         <div className="container inner-container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f3} className="fade-up card mobile-full-w" style={{ width: "900px", margin: "0 auto", padding: "48px", textAlign: "center" }}>
-            <p style={{ fontSize: "24px", fontWeight: 300, lineHeight: "40px", color: "rgb(13,27,42)", margin: 0 }}>
-              "We are stewards of optimal stakeholder value and are committed to making capital markets more accessible, transparent, and connected."
+            <p style={{ fontSize: "var(--fs-lg)", fontWeight: 300, lineHeight: "var(--lh-xl)", color: "rgb(13,27,42)", margin: 0 }}>
+              "{t("aboutus_quote", "We work in long-term partnership with listed companies, with a focus on reliability, clarity, service, and continuous improvement.")}"
             </p>
           </div>
         </div>
       </section>
 
       {/* Work With Us */}
-      <section style={{ background: "rgb(246,248,250)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(246,248,250)", padding: "64px 0" }}>
         <div className="container inner-container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f4} className="fade-up flex-col-mobile" style={{ display: "flex", gap: "48px", alignItems: "center" }}>
             {/* Left */}
             <div className="mobile-full-w" style={{ width: "688px", flexShrink: 0 }}>
-              <div className="u-label" style={{ marginBottom: "16px" }}>Careers</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 24px" }}>Global delivery with a collaborative culture</h3>
-              <p style={{ fontSize: "16px", fontWeight: 400, lineHeight: "24px", color: "rgb(58,74,88)", margin: "0 0 32px" }}>We combine international reach with a close-working, low-ego culture across our offices, helping listed companies get consistent support from teams that understand IR in practice.</p>
-              <LangLink href="/company/careers" className="btn-outline">View Openings</LangLink>
+              <div className="u-label" style={{ marginBottom: "16px" }}>{t("aboutus_careers_label", "Careers")}</div>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13,27,42)", margin: "0 0 32px" }}>{t("aboutus_careers_title", "Global delivery with a collaborative culture")}</h3>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgb(58,74,88)", margin: "0 0 32px" }}>{t("aboutus_careers_body", "We combine international reach with a collaborative service culture across our offices, helping listed companies receive consistent support from teams that understand Investor Relations in practice.")}</p>
+              <LangLink href="/company/careers" className="btn-outline">{t("aboutus_careers_cta", "View Openings")}</LangLink>
             </div>
             {/* Right: world map panel */}
             <div style={{ flex: 1, minHeight: "200px", borderRadius: "8px", overflow: "hidden" }}>
@@ -118,13 +127,13 @@ export default function AboutUs() {
       {/* CTA Band */}
       <div className="cta-band">
         <div className="container inner-container" style={{ maxWidth: "1536px", padding: "0 48px", textAlign: "center" }}>
-          <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>Get Started</div>
-          <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "rgb(255,255,255)", margin: "0 0 32px" }}>
-            Ready to transform your investor relations?
+          <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>{t("get_started", "Get Started")}</div>
+          <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(255,255,255)", margin: "0 0 32px" }}>
+            {t("aboutus_cta_title", "Ready to transform your Investor Relations?")}
           </h3>
           <div className="flex-wrap-mobile" style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-            <LangLink href="/book-demo" className="btn-primary">Book a Demo</LangLink>
-            <LangLink href="/contact" className="btn-secondary">Talk to Us</LangLink>
+            <LangLink href="/book-demo" className="btn-primary">{t("common_book_demo", "Book a Demo")}</LangLink>
+            <LangLink href="/contact" className="btn-secondary">{t("common_talk_to_us", "Talk to Us")}</LangLink>
           </div>
         </div>
       </div>
@@ -132,3 +141,4 @@ export default function AboutUs() {
     </PageWrapper>
   );
 }
+

@@ -43,7 +43,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "What is Euroland IR and who is it for?",
-        a: "Euroland IR is a comprehensive investor relations platform built for publicly listed companies. It provides everything from IR platforms and real-time stock data to earnings management, investor communications, and AI-powered analytics. It is designed for IR professionals, CFOs, and company secretaries at listed companies of all sizes.",
+        a: "Euroland IR is a comprehensive Investor Relations platform built for publicly listed companies. It provides everything from IR platforms and real-time stock data to earnings management, investor communications, ESG/CSRD communication, AI-powered IR search, and investor-facing mobile access. It is designed for IR professionals, CFOs, and company secretaries at listed companies of all sizes.",
       },
       {
         q: "How quickly can we get started?",
@@ -55,7 +55,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         q: "What IR tools are included in the platform?",
-        a: "The platform includes an IR platform builder, real-time stock and financial data, earnings management tools, investor communications, ESG/CSRD reporting, AI-powered analytics, a disclosure management module, and a mobile app for investors.",
+        a: "The platform includes an IR platform builder, real-time stock and financial data, earnings management tools, investor communications, ESG/CSRD communication, AI-powered IR search, disclosure workflows, and a mobile app for investors.",
       },
     ],
   },
@@ -121,7 +121,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         q: "What AI features does Euroland IR offer?",
-        a: "Euroland IR includes Purpose-Built AI for IR: an AI Disclosure Assistant for regulatory filings, an AI Q&A preparation tool for earnings calls, sentiment analysis for investor communications, and AI-powered analytics for investor targeting.",
+        a: "Euroland IR offers purpose-built AI-powered search for Investor Relations. It helps stakeholders search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures, with source references such as links, document names, and PDF page numbers where available.",
       },
     ],
   },
@@ -131,15 +131,15 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "Is the AI output auditable and explainable?",
-        a: "Yes. All AI-generated outputs include source citations and confidence indicators. The AI Disclosure Assistant shows which regulatory frameworks and precedents informed each suggestion, so your legal and compliance teams can review and approve before publication.",
+        a: "AI-powered search responses are designed to include source references where available, such as links, document names, and PDF page numbers, so users can verify information in the original material.",
       },
       {
         q: "Does the AI use my company data to train its models?",
         a: "No. Your company data is never used to train our AI models. All AI processing is performed in an isolated environment, and your data remains strictly confidential.",
       },
       {
-        q: "Which regulatory frameworks does the AI Disclosure Assistant support?",
-        a: "The AI Disclosure Assistant supports MAR (Market Abuse Regulation), CSRD, ESRS, TCFD, GRI, and SASB. Support for additional frameworks is added on a rolling basis.",
+        q: "What content can the AI search?",
+        a: "The AI search can be configured to search across dynamic IR content, including earnings materials, financial statements, IR presentations, reports, and publicly available disclosures. The exact scope depends on the content connected to your website or IR app.",
       },
     ],
   },
@@ -189,7 +189,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "What does Euroland IR include in an IR platform?",
-        a: "Our IR platform solution includes a fully managed, branded investor relations website with real-time stock data, financial reports, governance documents, press releases, earnings calendar, ESG section, and investor contact tools — all in a single, compliant platform.",
+        a: "Our IR platform solution includes a fully managed, branded Investor Relations website with real-time stock data, financial reports, governance documents, press releases, earnings calendar, ESG section, and investor contact tools — all in a single, compliant platform.",
       },
       {
         q: "Can we manage our IR platform content ourselves?",
@@ -224,7 +224,7 @@ function AccordionItem({ q, a }: FAQItem) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "20px 0",
+          padding: "16px 0",
           background: "none",
           border: "none",
           cursor: "pointer",
@@ -235,9 +235,9 @@ function AccordionItem({ q, a }: FAQItem) {
         {/* Question: 16px/400/24px/rgb(13,27,42) — node[63] */}
         <span
           style={{
-            fontSize: "16px",
+            fontSize: "var(--fs-base)",
             fontWeight: 400,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             color: "rgb(13, 27, 42)",
             flex: 1,
           }}
@@ -247,9 +247,9 @@ function AccordionItem({ q, a }: FAQItem) {
         {/* + icon: 16px, rgb(0,107,163) */}
         <span
           style={{
-            fontSize: "16px",
+            fontSize: "var(--fs-base)",
             fontWeight: 400,
-            color: "rgb(0, 107, 163)",
+            color: "rgb(0, 116, 217)",
             flexShrink: 0,
             transition: "transform 200ms ease",
             transform: open ? "rotate(45deg)" : "rotate(0deg)",
@@ -262,10 +262,10 @@ function AccordionItem({ q, a }: FAQItem) {
       {open && (
         <div
           style={{
-            paddingBottom: "20px",
-            fontSize: "14px",
+            paddingBottom: "16px",
+            fontSize: "var(--fs-base)",
             fontWeight: 400,
-            lineHeight: "24px",
+            lineHeight: "var(--lh-base)",
             color: "rgb(58, 74, 88)",
           }}
         >
@@ -318,7 +318,7 @@ export default function FAQ() {
         variant="resources"
         label={t("resources_label", "Resources")}
         title={t("faq_hero_title", "Investor Relations Platform FAQs for Listed Companies")}
-        subtitle={<><span>{t("faq_hero_subtitle", "Everything you need to know about the Euroland IR platform, our investor relations software, pricing, and support.")}{" "}</span><LangLink href="/contact" style={{ color: "rgba(255,255,255,0.92)", textDecoration: "underline", textUnderlineOffset: "4px" }}>{t("contact_us", "Contact us.")}</LangLink></> as React.ReactNode}
+        subtitle={<><span>{t("faq_hero_subtitle", "Everything you need to know about the Euroland IR platform, our Investor Relations software, pricing, and support.")}{" "}</span><LangLink href="/contact" style={{ color: "rgba(255,255,255,0.92)", textDecoration: "underline", textUnderlineOffset: "4px" }}>{t("contact_us", "Contact us.")}</LangLink></> as React.ReactNode}
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
@@ -329,7 +329,7 @@ export default function FAQ() {
         style={{
           background: "rgb(255, 255, 255)",
           borderBottom: "1px solid rgb(221, 224, 230)",
-          padding: "12px 0",
+          padding: "16px 0",
         }}
       >
         <div
@@ -359,9 +359,9 @@ export default function FAQ() {
                 flex: 1,
                 border: "none",
                 outline: "none",
-                fontSize: "14px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgb(13, 27, 42)",
                 background: "transparent",
               }}
@@ -405,9 +405,9 @@ export default function FAQ() {
                     : "2px solid transparent",
                   background: "none",
                   cursor: "pointer",
-                  fontSize: "13px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: activeCategory === tab.id ? 600 : 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: activeCategory === tab.id
                     ? "rgb(13, 27, 42)"
                     : "rgb(90, 106, 122)",
@@ -426,7 +426,7 @@ export default function FAQ() {
       <section
         style={{
           background: "rgb(255, 255, 255)",
-          padding: "48px 0 80px",
+          padding: "64px 0",
         }}
       >
         <div
@@ -440,7 +440,7 @@ export default function FAQ() {
                 style={{
                   padding: "64px 0",
                   textAlign: "center",
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   color: "rgb(90, 106, 122)",
                 }}
               >
@@ -462,9 +462,9 @@ export default function FAQ() {
                   >
                     <span
                       style={{
-                        fontSize: "10px",
-                        fontWeight: 700,
-                        lineHeight: "24px",
+                        fontSize: "var(--fs-sm)",
+                        fontWeight: 400,
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.10em",
                         textTransform: "uppercase",
                         color: "rgb(58, 74, 88)",
@@ -501,40 +501,6 @@ export default function FAQ() {
             justifyContent: "space-between",
           }}
         >
-          {/* Left: eyebrow + H3 + subtitle — node[242] geo:282,3457 1252x140 */}
-          <div>
-            {/* Eyebrow: u-label-dark — node[243] geo:282,3459 147x34 */}
-            <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>
-              Still have questions?
-            </div>
-            {/* H3: 40px/300/48px/rgb(255,255,255) — node[244] geo:282,3509 1252x48 */}
-            <h3
-              style={{
-                fontSize: "40px",
-                fontWeight: 400,
-                lineHeight: "48px",
-                letterSpacing: "0.005em",
-                color: "rgb(255, 255, 255)",
-                margin: "0 0 24px",
-              }}
-            >
-              Speak with our team
-            </h3>
-            {/* Subtitle: 16px/400/24px/rgba(255,255,255,0.70) — node[245] geo:282,3573 1252x24 */}
-            <p
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "24px",
-                color: "rgba(255, 255, 255, 0.70)",
-                margin: 0,
-              }}
-            >
-              Our IR specialists are happy to answer any questions about the platform and help you find the right solution for your company.
-            </p>
-          </div>
-
-          {/* Right: buttons — node[246] geo:1582,3472 140x110 */}
           <div
             style={{
               display: "flex",
@@ -546,10 +512,10 @@ export default function FAQ() {
             }}
           >
             <LangLink href="/book-demo" className="btn-primary" style={{ textAlign: "center" }}>
-              Book a Demo
+              {t("common_book_demo", "Book a Demo")}
             </LangLink>
             <LangLink href="/contact" className="btn-secondary" style={{ textAlign: "center" }}>
-              Talk to Us
+              {t("common_talk_to_us", "Talk to Us")}
             </LangLink>
           </div>
         </div>
@@ -559,3 +525,4 @@ export default function FAQ() {
     </PageWrapper>
   );
 }
+

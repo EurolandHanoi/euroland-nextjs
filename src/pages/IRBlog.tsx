@@ -60,11 +60,11 @@ export default function IRBlog() {
       <section className="hero-navy banner-hero-section" style={{ minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}>
         <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
           <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>{t("irblog_ir_blog", "IR Blog")}</div>
-          <h2 style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "white", marginBottom: "var(--sp-6)", maxWidth: "640px" }}>
+          <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "white", marginBottom: "var(--sp-6)", maxWidth: "640px" }}>
             {t("irblog_ir_insights_best_practice", "IR Insights & Best Practice")}
           </h2>
           <p style={{ color: "rgba(255,255,255,0.70)", fontSize: "var(--fs-md)", maxWidth: "560px" }}>
-            {t("irblog_expert_perspectives", "Expert perspectives on investor relations strategy, ESG disclosure, regulatory compliance, and the future of IR technology — written for IR professionals at listed companies.")}
+            {t("irblog_expert_perspectives", "Expert perspectives on Investor Relations strategy, ESG disclosure, regulatory compliance, and the future of IR technology — written for IR professionals at listed companies.")}
           </p>
         </div>
       </section>
@@ -100,20 +100,20 @@ export default function IRBlog() {
                   alignItems: "center",
                   justifyContent: "center",
                   color: "rgba(255,255,255,0.25)",
-                  fontSize: "var(--fs-xs)",
-                  fontWeight: 500,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                 }}>
                   {t("irblog_featured", "FEATURED")}
                 </div>
                 <div style={{ padding: "var(--sp-10)", background: "white" }}>
-                  <div className="kicker" style={{ marginBottom: "var(--sp-3)", textTransform: "uppercase" }}>{featured.cat}</div>
-                  <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{featured.title}</h3>
+                  <div className="kicker" style={{ marginBottom: "var(--sp-3)", textTransform: "uppercase", color: "var(--button-blue)" }}>{featured.cat}</div>
+                  <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{featured.title}</h3>
                   <p style={{ marginBottom: "var(--sp-6)" }}>{featured.excerpt}</p>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: "var(--fs-xs)", color: "var(--text-tertiary)", fontWeight: 600 }}>{featured.date} · {featured.readTime} {t("irblog_read", "read")}</span>
-                    <span className="btn-link" style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>{t("irblog_read_article_arrow", "Read Article →")}</span>
+                    <span className="btn-link" style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: 0 }}>{t("irblog_read_article_arrow", "Read article")}</span>
                   </div>
                 </div>
               </a>
@@ -133,20 +133,20 @@ export default function IRBlog() {
                       alignItems: "center",
                       justifyContent: "center",
                       color: "var(--text-tertiary)",
-                      fontSize: "var(--fs-xs)",
-                      fontWeight: 500,
+                      fontSize: "var(--fs-sm)",
+                      fontWeight: 400,
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
                     }}>
                       {t("irblog_article_image", "Article Image")}
                     </div>
                     <div style={{ padding: "var(--sp-6)", flex: 1, display: "flex", flexDirection: "column" }}>
-                      <div className="kicker" style={{ marginBottom: "var(--sp-3)", textTransform: "uppercase" }}>{post.cat}</div>
+                      <div className="kicker" style={{ marginBottom: "var(--sp-3)", textTransform: "uppercase", color: "var(--button-blue)" }}>{post.cat}</div>
                       <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-3)", flex: 1 }}>{post.title}</h5>
-                      <p style={{ fontSize: "var(--fs-sm)", marginBottom: "var(--sp-5)" }}>{post.excerpt}</p>
+                      <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", marginBottom: "var(--sp-5)" }}>{post.excerpt}</p>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <span style={{ fontSize: "var(--fs-xs)", color: "var(--text-tertiary)", fontWeight: 600 }}>{post.readTime} {t("irblog_read", "read")}</span>
-                        <span className="btn-link" style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>{t("irblog_read_article_arrow", "Read Article →")}</span>
+                        <span className="btn-link" style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: 0 }}>{t("irblog_read_article_arrow", "Read article")}</span>
                       </div>
                     </div>
                   </article>
@@ -162,7 +162,7 @@ export default function IRBlog() {
         <div className="container">
           <div className="card" style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center", padding: "var(--sp-12)" }}>
             <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("irblog_newsletter", "Newsletter")}</div>
-            <h5 style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{t("irblog_stay_ahead_in_ir", "Stay ahead in IR")}</h5>
+            <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{t("irblog_stay_ahead_in_ir", "Stay ahead in IR")}</h5>
             <p style={{ marginBottom: "var(--sp-8)" }}>
               {t("irblog_monthly_insights", "Monthly insights on best practice IR, regulatory updates, and technology trends — delivered to your inbox.")}
             </p>
@@ -176,3 +176,4 @@ export default function IRBlog() {
     </PageWrapper>
   );
 }
+

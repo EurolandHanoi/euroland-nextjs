@@ -26,7 +26,7 @@ function getServices(t: TFunction) {
       title: t("irservices_ir_website_design_build", "IR Platform Design & Build"),
       desc: t(
         "irservices_ir_website_desc",
-        "Best-practice investor relations websites designed to meet the disclosure requirements of every major exchange. Responsive, accessible, multi-language, and always up to date."
+        "Best-practice Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges. Responsive, accessible, multi-language, and managed for ongoing accuracy."
       ),
       features: [
         t("irservices_feature_custom_ir_website_design", "Custom IR platform design aligned to your brand"),
@@ -42,10 +42,10 @@ function getServices(t: TFunction) {
       title: t("irservices_ir_strategy_consulting", "IR Strategy & Consulting"),
       desc: t(
         "irservices_ir_strategy_desc",
-        "Expert investor relations strategy and consulting to help you build a compelling equity story, target the right investors, and communicate effectively with the market."
+        "Expert Investor Relations strategy and consulting to help you build a compelling equity story, target the right investors, and communicate effectively with the market."
       ),
       features: [
-        t("irservices_feature_ir_programme_assessment", "IR programme assessment and benchmarking"),
+        t("irservices_feature_ir_programme_assessment", "IR Operation assessment and benchmarking"),
         t("irservices_feature_equity_story_development", "Equity story development and messaging"),
         t("irservices_feature_investor_targeting_studies", "Investor targeting and perception studies"),
         t("irservices_feature_annual_report_review", "Annual report and results presentation review"),
@@ -131,13 +131,13 @@ export default function IRServices() {
           <div style={{ maxWidth: "640px" }}>
             <SectionLabel light>{t("irservices_ir_services", "IR Services")}</SectionLabel>
             {/* h2 — banner headline: 48px/300/-0.01em */}
-            <h2 style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 24px" }}>
+            <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px" }}>
               {t("irservices_investor_relations_services_for_listed_companies", "Investor Relations Services for Listed Companies")}
             </h2>
-            <p style={{ fontSize: "16px", lineHeight: "24px", color: "rgba(255,255,255,0.70)", margin: "0 0 40px", letterSpacing: "0.01em" }}>
+            <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)", margin: "0 0 32px", letterSpacing: "0.01em" }}>
               {t(
                 "irservices_hero_body",
-                "From IR platform design and strategy to annual report production and ESG reporting — Euroland IR provides the full range of investor relations services to support every aspect of your investor communications programme."
+                "From IR platform design and strategy to annual report production and ESG reporting — Euroland IR provides the full range of Investor Relations services to support every aspect of your investor communications programme."
               )}
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
@@ -153,18 +153,18 @@ export default function IRServices() {
       </section>
 
       {/* ── Services Grid ── h3: 40px/400/0.005em, h5: 24px/500/0.005em */}
-      <section style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
+      <section style={{ padding: "64px 0", backgroundColor: "#ffffff" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <div style={{ display: "flex", justifyContent: "center" }}><SectionLabel>{t("irservices_our_services", "Our Services")}</SectionLabel></div>
+            <div style={{ display: "flex", justifyContent: "center" }}><SectionLabel centered>{t("irservices_our_services", "Our Services")}</SectionLabel></div>
             {/* h3 — section heading: 40px/400/0.005em */}
-            <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "#0f1e2b", margin: "12px 0 20px" }}>
-              {t("irservices_full_service_investor_relations_support", "Full-service investor relations support")}
+            <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "16px 0 32px" }}>
+              {t("irservices_full_service_investor_relations_support", "Full-service Investor Relations support")}
             </h3>
-            <p style={{ fontSize: "16px", color: "#3a4a58", lineHeight: "24px", letterSpacing: "0.01em", maxWidth: "640px", margin: "0 auto" }}>
+            <p style={{ fontSize: "var(--fs-base)", color: "#3a4a58", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", maxWidth: "640px", margin: "0 auto" }}>
               {t(
                 "irservices_services_intro",
-                "Whether you need a complete IR programme or targeted support in a specific area, our team of investor relations specialists is here to help."
+                "Whether you need a complete IR Operation or targeted support in a specific area, our team of Investor Relations specialists is here to help."
               )}
             </p>
           </div>
@@ -173,22 +173,22 @@ export default function IRServices() {
             {SERVICES.map((service) => (
               <div
                 key={service.num}
-                style={{ padding: "40px", border: "1px solid #dde0e6", borderRadius: "4px" }}
+                style={{ padding: "32px", border: "1px solid #dde0e6", borderRadius: "4px" }}
               >
-                <div style={{ fontSize: "32px", marginBottom: "16px" }}>{service.icon}</div>
-                <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "#327AB1", marginBottom: "12px" }}>{service.num}</div>
+                <div style={{ fontSize: "var(--fs-xl)", marginBottom: "16px" }}>{service.icon}</div>
+                <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--label-blue-light)", marginBottom: "16px" }}>{service.num}</div>
                 {/* h5 — card title: 24px/500/0.005em */}
-                <h5 style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 16px" }}>
+                <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 16px" }}>
                   {service.title}
                 </h5>
-                <p style={{ fontSize: "16px", color: "#5a6a7a", lineHeight: "24px", letterSpacing: "0.01em", margin: "0 0 24px" }}>
+                <p style={{ fontSize: "var(--fs-base)", color: "#5a6a7a", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", margin: "0 0 32px" }}>
                   {service.desc}
                 </p>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
                   {service.features.map((feature, i) => (
                     <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-                      <CheckCircle2 size={16} color="#28628F" style={{ flexShrink: 0, marginTop: "4px" }} />
-                      <span style={{ fontSize: "14px", color: "#3a4a58", lineHeight: "22px", letterSpacing: "0.01em" }}>{feature}</span>
+                      <CheckCircle2 size={16} color="#28628F" style={{ flexShrink: 0, marginTop: "16px" }} />
+                      <span style={{ fontSize: "var(--fs-base)", color: "#3a4a58", lineHeight: "var(--lh-base)", letterSpacing: "0.01em" }}>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -199,19 +199,19 @@ export default function IRServices() {
       </section>
 
       {/* ── Why Euroland ── h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
-      <section style={{ padding: "80px 0", backgroundColor: "#f2f4f6" }}>
+      <section style={{ padding: "64px 0", backgroundColor: "#f2f4f6" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
             <div>
               <SectionLabel>{t("irservices_why_euroland_ir", "Why Euroland IR")}</SectionLabel>
               {/* h3 — section heading: 40px/400/0.005em */}
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "#0f1e2b", margin: "12px 0 24px" }}>
-                {t("irservices_years_of_investor_relations_expertise", "25+ years of investor relations expertise")}
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "16px 0 32px" }}>
+                {t("irservices_years_of_investor_relations_expertise", "25+ years of Investor Relations expertise")}
               </h3>
-              <p style={{ fontSize: "16px", color: "#3a4a58", lineHeight: "24px", letterSpacing: "0.01em", margin: "0 0 40px" }}>
+              <p style={{ fontSize: "var(--fs-base)", color: "#3a4a58", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", margin: "0 0 32px" }}>
                 {t(
                   "irservices_why_body",
-                  "Euroland IR has been supporting listed companies with investor relations services since 1997. Our team combines deep IR expertise with cutting-edge technology to deliver services that are both strategically sound and operationally efficient."
+                  "Euroland IR has been supporting listed companies with Investor Relations services since 1997. Our team combines deep IR expertise with cutting-edge technology to deliver services that are both strategically sound and operationally efficient."
                 )}
               </p>
               <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
@@ -221,29 +221,29 @@ export default function IRServices() {
                   { stat: "25+", label: t("irservices_years_of_experience", "Years of experience") },
                   { stat: "24/7", label: t("irservices_support_available", "Support available") },
                 ].map((item, i) => (
-                  <div key={i} style={{ backgroundColor: "#ffffff", padding: "24px", border: "1px solid #dde0e6", borderRadius: "4px" }}>
-                    <div style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "-0.01em", color: "#082b45", marginBottom: "4px" }}>{item.stat}</div>
-                    <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5a6a7a" }}>{item.label}</div>
+                  <div key={i} style={{ backgroundColor: "#ffffff", padding: "32px", border: "1px solid #dde0e6", borderRadius: "4px" }}>
+                    <div style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "-0.01em", color: "#082b45", marginBottom: "16px" }}>{item.stat}</div>
+                    <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "#5a6a7a" }}>{item.label}</div>
                   </div>
                 ))}
               </div>
             </div>
             <div style={{ backgroundColor: "#ffffff", padding: "48px", border: "1px solid #dde0e6", borderRadius: "4px" }}>
               {/* h6 — panel heading: 20px/500/0.01em */}
-              <h6 style={{ fontSize: "20px", fontWeight: 500, lineHeight: "28px", letterSpacing: "0.01em", color: "#0f1e2b", margin: "0 0 16px" }}>
+              <h6 style={{ fontSize: "var(--fs-md)", fontWeight: 500, lineHeight: "var(--lh-md)", letterSpacing: "0.01em", color: "#0f1e2b", margin: "0 0 16px" }}>
                 {t("irservices_speak_with_our_ir_services_team", "Speak with our IR Services team")}
               </h6>
-              <p style={{ fontSize: "16px", color: "#3a4a58", lineHeight: "24px", letterSpacing: "0.01em", margin: "0 0 32px" }}>
+              <p style={{ fontSize: "var(--fs-base)", color: "#3a4a58", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", margin: "0 0 32px" }}>
                 {t(
                   "irservices_speak_body",
-                  "Our investor relations specialists are available to discuss your requirements and recommend the right combination of services for your programme."
+                  "Our Investor Relations specialists are available to discuss your requirements and recommend the right combination of services for your programme."
                 )}
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <LangLink href="/book-demo" className="btn-primary" style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+                <LangLink href="/book-demo" className="btn-primary">
                   {t("irservices_book_a_consultation", "Book a Consultation")} <ArrowRight size={16} />
                 </LangLink>
-                <LangLink href="/contact" className="btn-outline" style={{ textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <LangLink href="/contact" className="btn-outline">
                   {t("irservices_contact_us", "Talk to Us")}
                 </LangLink>
               </div>
@@ -256,10 +256,10 @@ export default function IRServices() {
       <section style={{ padding: "96px 0", backgroundColor: "#082b45" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box", textAlign: "center" }}>
           {/* h3 — CTA heading: 40px/400/0.005em */}
-          <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "#ffffff", margin: "0 0 20px" }}>
-            {t("irservices_ready_to_elevate_your_investor_relations_programme", "Ready to elevate your investor relations programme?")}
+          <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#ffffff", margin: "0 0 16px" }}>
+            {t("irservices_ready_to_elevate_your_investor_relations_programme", "Ready to elevate your Investor Relations operation?")}
           </h3>
-          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.70)", lineHeight: "24px", letterSpacing: "0.01em", maxWidth: "520px", margin: "0 auto 40px" }}>
+          <p style={{ fontSize: "var(--fs-base)", color: "rgba(255,255,255,0.70)", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", maxWidth: "520px", margin: "0 auto 32px" }}>
             {t(
               "irservices_cta_body",
               "Join 1,400+ listed companies across 60+ exchanges who trust Euroland IR to support their investor communications."
@@ -278,3 +278,5 @@ export default function IRServices() {
     </PageWrapper>
   );
 }
+
+

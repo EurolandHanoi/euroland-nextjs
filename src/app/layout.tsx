@@ -4,7 +4,7 @@ import "@/globals.css";
 export const metadata: Metadata = {
   title: "Euroland IR – Best Practice IR Solutions & Purpose-Built AI for IR",
   description:
-    "Best Practice IR Solutions, Purpose-Built AI for IR. Trusted by 1,400+ publicly listed companies worldwide.",
+    "Best Practice IR Solutions and Purpose-Built AI for IR. Trusted by 1,400+ listed companies across 60+ stock exchanges worldwide.",
 };
 
 export default function RootLayout({
@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="stylesheet" href="https://use.typekit.net/qtk5zxy.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

@@ -18,11 +18,10 @@ const NAV_ITEMS: NavItem[] = [
     fallback: "Platform",
     children: [
       { labelKey: "nav_overview", fallback: "Platform Overview", href: "/platform" },
+      { labelKey: "nav_ai_solutions", fallback: "Purpose-Built AI", href: "/ai" },
       { labelKey: "nav_stock_data", fallback: "Stock & Financial Data", href: "/platform/stock-data" },
       { labelKey: "nav_ir_apps", fallback: "IR Apps", href: "/platform/ir-apps" },
-      { labelKey: "nav_analytics_earnings", fallback: "Analytics & Earnings", href: "/platform/analytics-earnings" },
       { labelKey: "nav_investor_comms", fallback: "Investor Communications", href: "/platform/investor-communications" },
-      { labelKey: "nav_ai_solutions", fallback: "Purpose-Built AI", href: "/ai" },
     ],
   },
   {
@@ -112,7 +111,7 @@ export function Nav() {
           aria-label="Euroland IR home"
           className="inline-flex items-center no-underline transition-opacity duration-200 hover:opacity-90"
         >
-          <img src="/euroland-ir-logo.svg" alt="Euroland IR" style={{ height: "20px", width: "222px" }} />
+          <img src="/euroland-ir-logo.svg" alt="Euroland IR" style={{ height: "24px", width: "266px" }} />
         </LangLink>
 
         <nav className="hidden flex-1 items-center gap-1 lg:flex" aria-label="Primary">
@@ -128,7 +127,7 @@ export function Nav() {
               >
                 <button
                   type="button"
-                  className="flex items-center gap-1 rounded-md border-0 bg-transparent px-4 py-2 text-[12px] font-medium uppercase tracking-[0.48px] text-[#082b45] transition-colors duration-150 hover:text-[#28628F]"
+                  className="flex items-center gap-1 rounded-md border-0 bg-transparent px-4 py-2 text-[12px] font-medium uppercase tracking-[0.48px] text-[#082b45] transition-colors duration-150 hover:text-[#00ADF0]"
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === item.labelKey}
                   aria-controls={menuId}
@@ -167,7 +166,7 @@ export function Nav() {
           <div className="relative">
             <button
               type="button"
-              className="flex items-center gap-1.5 rounded-md border border-[#082b45]/20 px-3 py-1.5 text-[12px] font-medium tracking-[0.24px] text-[#082b45] transition-colors duration-150 hover:border-[#082b45]/40"
+              className="flex h-9 items-center gap-1.5 rounded border border-[#082b45]/20 px-4 py-0 text-[12px] font-medium tracking-[0.24px] text-[#082b45] transition-colors duration-150 hover:border-[#082b45]/40"
               aria-haspopup="listbox"
               aria-expanded={langOpen}
               aria-label={`Change language. Current language: ${currentLanguage.nativeLabel}`}
@@ -202,7 +201,7 @@ export function Nav() {
               </div>
             )}
           </div>
-          <LangLink href="/book-demo" className="btn-primary" style={{ height: "40px", padding: "0 20px", boxSizing: "border-box" }}>
+          <LangLink href="/book-demo" className="btn-primary nav-cta">
             {t("nav_book_demo", "Book a Demo")}
           </LangLink>
         </div>
@@ -274,7 +273,7 @@ export function Nav() {
             })}
 
             <div className="pt-4 border-t border-[#dde3ef]">
-              <LangLink href="/book-demo" className="btn-primary block text-center">
+              <LangLink href="/book-demo" className="btn-primary nav-cta text-center">
                 {t("nav_book_demo", "Book a Demo")}
               </LangLink>
             </div>
@@ -293,11 +292,10 @@ export function Footer() {
       heading: t("nav_platform", "Platform"),
       links: [
         { label: t("nav_overview", "Platform Overview"), href: "/platform" },
+        { label: t("nav_ai_solutions", "Purpose-Built AI"), href: "/ai" },
         { label: t("nav_stock_data", "Stock & Financial Data"), href: "/platform/stock-data" },
         { label: t("nav_ir_apps", "IR Apps"), href: "/platform/ir-apps" },
-        { label: t("nav_analytics_earnings", "Analytics & Earnings"), href: "/platform/analytics-earnings" },
         { label: t("nav_investor_comms", "Investor Communications"), href: "/platform/investor-communications" },
-        { label: t("nav_ai_solutions", "Purpose-Built AI"), href: "/ai" },
       ],
     },
     {
@@ -346,14 +344,14 @@ export function Footer() {
           <div>
             <img src="/euroland-footer-logo.webp" alt="Euroland IR" style={{ height: "20px", width: "auto", marginBottom: "16px", display: "block" }} />
             <p className="mb-8 text-[12px] leading-[20px] text-white" style={{ maxWidth: "280px" }}>
-              {t("footer_tagline", "Best-practice investor relations technology for listed companies across 60+ markets.")}
+              {t("footer_tagline", "Best-practice Investor Relations technology for listed companies across 60+ stock exchanges.")}
             </p>
             <div className="flex gap-3" aria-label="Social links">
               <a
                 href="https://se.linkedin.com/company/eurolandir"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded border border-white/20 text-[12px] text-white/60 no-underline transition-colors duration-150 hover:border-[#327AB1] hover:text-[#327AB1]"
+                className="flex h-8 w-8 items-center justify-center rounded border border-white/20 text-[12px] text-white/60 no-underline transition-colors duration-150 hover:border-[#00ADF0] hover:text-[#00ADF0]"
                 aria-label="Euroland IR on LinkedIn"
               >
                 in
@@ -362,7 +360,7 @@ export function Footer() {
                 href="https://x.com/EurolandIR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded border border-white/20 text-[12px] text-white/60 no-underline transition-colors duration-150 hover:border-[#327AB1] hover:text-[#327AB1]"
+                className="flex h-8 w-8 items-center justify-center rounded border border-white/20 text-[12px] text-white/60 no-underline transition-colors duration-150 hover:border-[#00ADF0] hover:text-[#00ADF0]"
                 aria-label="Euroland IR on X"
               >
                 𝕏
@@ -376,7 +374,7 @@ export function Footer() {
               <ul className="m-0 flex list-none flex-col gap-2 p-0">
                 {column.links.map((link) => (
                   <li key={`${column.heading}-${link.href}`}>
-                    <LangLink href={link.href} className="text-[12px] tracking-[0.16px] text-white no-underline transition-colors duration-150 hover:text-[#327AB1]">
+                    <LangLink href={link.href} className="text-[12px] tracking-[0.16px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
                       {link.label}
                     </LangLink>
                   </li>
@@ -389,16 +387,16 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 pt-8 md:flex-row">
           <p className="m-0 text-[12px] text-white">{t("footer_copyright", `© ${new Date().getFullYear()} Euroland IR. All rights reserved.`)}</p>
           <div className="flex gap-6">
-            <LangLink href="/legal/privacy" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#327AB1]">
+            <LangLink href="/legal/privacy" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
               {t("footer_privacy", "Privacy Policy")}
             </LangLink>
-            <LangLink href="/legal/terms" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#327AB1]">
+            <LangLink href="/legal/terms" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
               {t("footer_terms", "Terms of Use")}
             </LangLink>
-            <LangLink href="/legal/cookies" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#327AB1]">
+            <LangLink href="/legal/cookies" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
               {t("footer_cookies", "Cookies")}
             </LangLink>
-            <LangLink href="/sitemap" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#327AB1]">
+            <LangLink href="/sitemap" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
               Site Map
             </LangLink>
           </div>

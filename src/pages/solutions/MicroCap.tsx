@@ -8,7 +8,7 @@ export default function MicroCap() {
   return (
     <CapPageLayout
       breadcrumbLabel="For Listed Companies"
-      heroLabel="Micro Cap Companies"
+      heroLabel="Micro Cap companies"
       heroTitle="Professional IR, built for where you are now"
       heroSubtitle="Entry-level IR infrastructure designed for newly listed and very small companies. Simple to set up, easy to run, and built on the same platform used by 1,400+ listed companies worldwide."
       challengesLabel="The Challenges"
@@ -74,9 +74,6 @@ export default function MicroCap() {
         { step: "05", title: "", description: "" },
         { step: "06", title: "", description: "" },
       ]}
-      testimonialQuote="We went from no IR presence to a fully professional setup in less than a week. The platform handles everything we need at this stage of our journey."
-      testimonialAuthor="Chief Financial Officer"
-      testimonialRole="Micro cap company, Nordic market"
     />
   );
 }

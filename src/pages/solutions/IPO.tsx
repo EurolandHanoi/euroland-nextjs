@@ -43,7 +43,7 @@ export default function IPO() {
   ];
 
   const whyItems = [
-    t("ipo_why_item_1", "Experienced in 40+ markets and exchanges"),
+    t("ipo_why_item_1", "Experienced across 60+ stock exchanges"),
     t("ipo_why_item_2", "Regulatory compliance built in from day one"),
     t("ipo_why_item_3", "Fast setup — live before your listing date"),
     t("ipo_why_item_4", "Dedicated IPO support team"),
@@ -64,10 +64,10 @@ export default function IPO() {
       />
 
       {/* Phase timeline */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="text-center mb-12">
-            <SectionLabel className="justify-center items-center flex flex-col">{t("ipo_journey_label", "The IPO Journey")}</SectionLabel>
+            <SectionLabel centered className="justify-center items-center flex flex-col">{t("ipo_journey_label", "The IPO Journey")}</SectionLabel>
             <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mt-2">{t("ipo_journey_heading", "Support at every stage")}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -94,7 +94,7 @@ export default function IPO() {
       </section>
 
       {/* Why Euroland for IPO */}
-      <section className="py-20" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-16" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -125,7 +125,7 @@ export default function IPO() {
       </section>
 
       {/* CTA */}
-      <section className="py-16" style={{ backgroundColor: "#eef0f3" }}>
+      <section className="py-24" style={{ backgroundColor: "#eef0f3" }}>
         <div className="container mx-auto px-4 lg:px-8 text-center" style={{ maxWidth: "1536px" }}>
           <h2 className="type-h5 text-2xl font-bold text-[#0f1e2b] mb-4">{t("ipo_cta_heading", "Planning an IPO?")}</h2>
           <p className="text-[#3a4a58] mb-8 max-w-xl mx-auto">{t("ipo_cta_body", "Talk to our IPO specialists about how we can support your listing and build your IR infrastructure for the long term.")}</p>

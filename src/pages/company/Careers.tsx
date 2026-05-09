@@ -6,6 +6,7 @@
 
 import { PageWrapper } from "@/components/Layout";
 import BannerHero from "@/components/layout/BannerHero";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Section geometry from JSON:
 // Hero: y:0 h:544 — dark navy bg
@@ -15,14 +16,15 @@ import BannerHero from "@/components/layout/BannerHero";
 // Total page: 2969px
 
 export default function Careers() {
+  const { t } = useLanguage();
   return (
     <PageWrapper>
       {/* ── 1. HERO ─────────────────────────────────────────── */}
       <BannerHero
         variant="resources"
-        label="Company"
-        title="Careers at Euroland IR"
-        subtitle="Join our global team and help shape the future of investor relations technology for publicly listed companies worldwide."
+        label={t("careers_hero_label", "Company")}
+        title={t("careers_hero_title", "Careers at Euroland IR")}
+        subtitle={t("careers_hero_subtitle", "Join our global team and help shape the future of Investor Relations technology for publicly listed companies worldwide.")}
       />
 
       {/* ── 2. INTRO — "Exceptional talent, global impact" (y:544, h:636) ── */}
@@ -30,7 +32,7 @@ export default function Careers() {
       <section
         style={{
           background: "rgb(255, 255, 255)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
@@ -51,12 +53,12 @@ export default function Careers() {
               {/* H3 — node[46] geo:282,768 688x48 — 40px/400/48px/0.2px/rgb(13,27,42) */}
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
-                  margin: "0 0 24px",
+                  margin: "0 0 32px",
                 }}
               >
                 Exceptional talent, global impact
@@ -64,9 +66,9 @@ export default function Careers() {
               {/* Body 1 — node[47] geo:282,840 688x48 — 16px/400/24px/0.16px/rgb(58,74,88) */}
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58, 74, 88)",
                   margin: "0 0 16px",
@@ -77,12 +79,12 @@ export default function Careers() {
               {/* Body 2 — node[48] geo:282,904 688x24 — 16px/400/24px/0.16px/rgb(58,74,88) */}
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58, 74, 88)",
-                  margin: "0 0 40px",
+                  margin: "0 0 32px",
                 }}
               >
                 Making IR information accessible to increase investments and enable more investors.
@@ -103,7 +105,7 @@ export default function Careers() {
                 overflow: "hidden",
                 border: "1px solid rgb(221, 224, 230)",
                 background: "rgb(245, 247, 250)",
-                padding: "20px",
+                padding: "16px",
               }}
             >
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "16px" }}>
@@ -121,8 +123,8 @@ export default function Careers() {
                 ))}
               </div>
               <div style={{ padding: "0 4px" }}>
-                <div className="u-label" style={{ marginBottom: "8px" }}>Global team</div>
-                <p style={{ margin: 0, fontSize: "14px", lineHeight: "24px", color: "rgb(58, 74, 88)" }}>
+                <div className="u-label" style={{ marginBottom: "16px" }}>Global team</div>
+                <p style={{ margin: 0, fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)" }}>
                   Work with a distributed team serving listed companies across Europe, Asia Pacific, and the Middle East.
                 </p>
               </div>
@@ -136,7 +138,7 @@ export default function Careers() {
       <section
         style={{
           background: "rgb(245, 247, 250)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
@@ -149,9 +151,9 @@ export default function Careers() {
             {/* H3 — node[62] geo:282,1292 1440x48 — 40px/400/48px/0.2px/rgb(13,27,42) */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
                 margin: 0,
@@ -198,7 +200,7 @@ export default function Careers() {
                 style={{
                   width: "342px",
                   minHeight: "238px",
-                  padding: "40px 40px 40px 40px",
+                  padding: "32px 40px 32px 40px",
                   background: "rgb(255, 255, 255)",
                   border: "1px solid rgb(221, 224, 230)",
                 }}
@@ -213,12 +215,12 @@ export default function Careers() {
                 {/* Title — node[66] 24px/500/32px/0.16px/rgb(13,27,42) */}
                 <h5
                   style={{
-                    fontSize: "24px",
+                    fontSize: "var(--fs-lg)",
                     fontWeight: 500,
-                    lineHeight: "32px",
+                    lineHeight: "var(--lh-lg)",
                     letterSpacing: "0.01em",
                     color: "rgb(13, 27, 42)",
-                    margin: "0 0 12px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {card.title}
@@ -226,9 +228,9 @@ export default function Careers() {
                 {/* Body — node[67] 12px/400/24px/0.16px/rgb(58,74,88) */}
                 <p
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
                     color: "rgb(58, 74, 88)",
                     margin: 0,
@@ -248,7 +250,7 @@ export default function Careers() {
         id="open-positions"
         style={{
           background: "rgb(255, 255, 255)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
@@ -258,12 +260,12 @@ export default function Careers() {
             <div className="u-label" style={{ marginBottom: "16px" }}>
               OPEN POSITIONS
             </div>
-            {/* H3 — node[85] geo:282,1797 1440x48 — 48px/300/56px/-0.48px/rgb(13,27,42) */}
+            {/* H3 — node[85] geo:282,1797 1440x48 — --fs-3xl/300/--lh-3xl/-0.48px/rgb(13,27,42) */}
             <h3 className="type-h2"
               style={{
-                fontSize: "48px",
+                fontSize: "var(--fs-3xl)",
                 fontWeight: 300,
-                lineHeight: "64px",
+                lineHeight: "var(--lh-3xl)",
                 letterSpacing: "-0.01em",
                 color: "rgb(13, 27, 42)",
                 margin: "0 0 16px",
@@ -274,9 +276,9 @@ export default function Careers() {
             {/* Subtitle — node[86] geo:742,1861 520x48 — 16px/400/24px/0.16px/rgb(58,74,88) */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 margin: "0 auto",
@@ -296,7 +298,7 @@ export default function Careers() {
               flexDirection: "column",
               alignItems: "center",
               textAlign: "center",
-              marginBottom: "40px",
+              marginBottom: "32px",
             }}
           >
             {/* Icon — node[88] geo:978,2022 48x48 */}
@@ -304,8 +306,8 @@ export default function Careers() {
               style={{
                 width: "48px",
                 height: "48px",
-                marginBottom: "24px",
-                color: "rgb(0, 107, 163)",
+                marginBottom: "32px",
+                color: "rgb(0, 116, 217)",
               }}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -318,9 +320,9 @@ export default function Careers() {
             {/* Title — node[90] geo:347,2094 1310x32 — 24px/500/32px/0.16px/rgb(13,27,42) */}
             <h4 className="type-h5"
               style={{
-                fontSize: "24px",
+                fontSize: "var(--fs-lg)",
                 fontWeight: 500,
-                lineHeight: "32px",
+                lineHeight: "var(--lh-lg)",
                 letterSpacing: "0.01em",
                 color: "rgb(13, 27, 42)",
                 margin: "0 0 16px",
@@ -331,9 +333,9 @@ export default function Careers() {
             {/* Body — node[91] geo:792,2138 420x72 — 16px/400/24px/0.16px/rgb(58,74,88) */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 margin: 0,
@@ -349,19 +351,19 @@ export default function Careers() {
             {/* Note — node[93] geo:282,2306 1440x24 — 14px/400/24px/0.16px/rgb(58,74,88) */}
             <p
               style={{
-                fontSize: "14px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 margin: "0 0 16px",
               }}
             >
-              We're always looking for exceptional talent. Send us your CV and we'll be in touch when the right opportunity arises.
+              {t("careers_apply_note", "We're always looking for exceptional talent. Send us your CV and we'll be in touch when the right opportunity arises.")}
             </p>
-            {/* APPLY button — node[94] geo:956,2346 93x48 */}
+            {/* Apply button — node[94] geo:956,2346 93x48 */}
             <a href="mailto:careers@eurolandir.com" className="btn-primary">
-              APPLY
+              {t("careers_apply_cta", "Apply")}
             </a>
           </div>
         </div>
@@ -369,3 +371,4 @@ export default function Careers() {
     </PageWrapper>
   );
 }
+

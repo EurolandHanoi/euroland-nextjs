@@ -7,7 +7,7 @@
  *  3. Stats Bar: dark navy, 3 stats
  */
 import { PageWrapper } from "@/components/Layout";
-import { Linkedin } from "lucide-react";
+import BannerHero from "@/components/layout/BannerHero";
 
 const ROW1 = [
   {
@@ -87,7 +87,7 @@ function TeamCard({ name, title, linkedin }: { name: string; title: string; link
       {/* Info row */}
       <div
         style={{
-          padding: "20px 20px 16px",
+          padding: "16px 20px 16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -97,20 +97,20 @@ function TeamCard({ name, title, linkedin }: { name: string; title: string; link
         <div style={{ flex: 1, minWidth: 0 }}>
           <div
             style={{
-              fontSize: "14px",
+              fontSize: "var(--fs-base)",
               fontWeight: 600,
-              lineHeight: "20px",
+              lineHeight: "var(--lh-sm)",
               color: "rgb(8, 43, 69)",
-              marginBottom: "2px",
+              marginBottom: "16px",
             }}
           >
             {name}
           </div>
           <div
             style={{
-              fontSize: "12px",
+              fontSize: "var(--fs-sm)",
               fontWeight: 400,
-              lineHeight: "20px",
+              lineHeight: "var(--lh-sm)",
               color: "rgb(58, 74, 88)",
             }}
           >
@@ -130,7 +130,7 @@ function TeamCard({ name, title, linkedin }: { name: string; title: string; link
           }}
           aria-label={`${name} on LinkedIn`}
         >
-          <Linkedin size={13} />
+          <span style={{ fontSize: "var(--fs-sm)", fontWeight: 700, lineHeight: 1 }}>in</span>
         </a>
       </div>
     </div>
@@ -141,52 +141,18 @@ export default function Leadership() {
   return (
     <PageWrapper>
       {/* ── 1. HERO ─────────────────────────────────────────────────────────── */}
-      <section
-        className="hero-navy banner-hero-section"
-        style={{ minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}
-      >
-        <div
-          className="container"
-          style={{ maxWidth: "1536px", padding: "120px 48px 80px" }}
-        >
-          <div style={{ maxWidth: "640px" }}>
-            <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>
-              Company
-            </div>
-            <h2
-              style={{
-                fontSize: "48px",
-                fontWeight: 300,
-                lineHeight: "64px",
-                letterSpacing: "-0.01em",
-                color: "rgb(255, 255, 255)",
-                margin: "0 0 24px",
-                maxWidth: "640px",
-              }}
-            >
-              Our Leadership Team
-            </h2>
-            <p
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "24px",
-                color: "rgba(255, 255, 255, 0.70)",
-                margin: 0,
-                maxWidth: "520px",
-              }}
-            >
-              A leadership team combining deep capital-markets expertise with a passion for building best-in-class investor relations technology for publicly listed companies worldwide.
-            </p>
-          </div>
-        </div>
-      </section>
+      <BannerHero
+        variant="resources"
+        label="Company"
+        title="Our Leadership Team"
+        subtitle="A leadership team combining deep capital-markets expertise with a passion for building best-in-class Investor Relations technology for publicly listed companies worldwide."
+      />
 
       {/* ── 2. TEAM GRID ─────────────────────────────────────────────────── */}
       <section
         style={{
           background: "rgb(255, 255, 255)",
-          padding: "60px 0",
+          padding: "48px 0",
         }}
       >
         <div
@@ -198,7 +164,7 @@ export default function Leadership() {
             style={{
               display: "flex",
               gap: "24px",
-              marginBottom: "24px",
+              marginBottom: "32px",
               flexWrap: "wrap",
             }}
           >
@@ -225,7 +191,7 @@ export default function Leadership() {
       <section
         style={{
           background: "rgb(8, 43, 69)",
-          padding: "60px 0",
+          padding: "48px 0",
         }}
       >
         <div
@@ -242,26 +208,26 @@ export default function Leadership() {
             {[
               { value: "1,400+", label: "Listed companies worldwide" },
               { value: "60+", label: "Markets covered" },
-              { value: "20+", label: "Years in investor relations" },
+              { value: "25+", label: "Years in Investor Relations" },
             ].map(({ value, label }) => (
               <div key={value} style={{ textAlign: "center" }}>
                 <div
                   style={{
-                    fontSize: "40px",
+                    fontSize: "var(--fs-2xl)",
                     fontWeight: 300,
-                    lineHeight: "52px",
+                    lineHeight: "var(--lh-2xl)",
                     letterSpacing: "-0.01em",
                     color: "rgb(255, 255, 255)",
-                    marginBottom: "8px",
+                    marginBottom: "16px",
                   }}
                 >
                   {value}
                 </div>
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 400,
-                    lineHeight: "20px",
+                    lineHeight: "var(--lh-sm)",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     color: "rgba(255, 255, 255, 0.60)",
@@ -277,3 +243,4 @@ export default function Leadership() {
     </PageWrapper>
   );
 }
+

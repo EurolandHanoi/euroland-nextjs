@@ -74,9 +74,6 @@ export default function MidCap() {
         { step: "05", title: "", description: "" },
         { step: "06", title: "", description: "" },
       ]}
-      testimonialQuote="The platform gave us the depth we needed to manage a growing institutional investor base without adding headcount. It's become the backbone of our entire IR operation."
-      testimonialAuthor="Director of Investor Relations"
-      testimonialRole="Mid cap company, Euronext Paris"
     />
   );
 }

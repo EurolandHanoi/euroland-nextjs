@@ -7,7 +7,7 @@ import SimplePage from "@/components/layout/SimplePage";
 const SECTIONS = [
   {
     title: "1. Who We Are",
-    content: `Euroland IR AB ("Euroland IR", "we", "us", "our") is a technology company providing investor relations software and services to publicly listed companies. Our registered office is at Stureplan 4C, 114 35 Stockholm, Sweden. We are the data controller for personal data processed in connection with our website and services.`,
+    content: `Euroland IR AB ("Euroland IR", "we", "us", "our") is a technology company providing Investor Relations software and services to publicly listed companies. Our registered office is at Stureplan 4C, 114 35 Stockholm, Sweden. We are the data controller for personal data processed in connection with our website and services.`,
   },
   {
     title: "2. Data We Collect",
@@ -24,7 +24,7 @@ const SECTIONS = [
     title: "3. How We Use Your Data",
     content: `We use your personal data for the following purposes:`,
     list: [
-      "To provide, operate, and improve our investor relations platform and services.",
+      "To provide, operate, and improve our Investor Relations platform and services.",
       "To respond to enquiries, support requests, and demo bookings.",
       "To send you product updates, newsletters, and marketing communications (where you have consented or we have a legitimate interest).",
       "To comply with legal and regulatory obligations.",
@@ -102,23 +102,23 @@ export default function Privacy() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl">
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
+            <p style={{ fontSize: "var(--fs-sm)", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "32px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
               Last updated: April 2025
             </p>
             {SECTIONS.map((section, i) => (
-              <div key={i} style={{ marginBottom: "40px" }}>
-                <h3 className="type-h6" style={{ fontSize: "18px", fontWeight: 600, lineHeight: "28px", color: "rgb(13, 27, 42)", marginBottom: "12px" }}>
+              <div key={i} style={{ marginBottom: "32px" }}>
+                <h3 className="type-h6" style={{ fontSize: "var(--fs-md)", fontWeight: 600, lineHeight: "var(--lh-md)", color: "rgb(13, 27, 42)", marginBottom: "16px" }}>
                   {section.title}
                 </h3>
                 {section.content && (
-                  <p style={{ fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: section.list ? "12px" : "0", whiteSpace: "pre-line" }}>
+                  <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: section.list ? "12px" : "0", whiteSpace: "pre-line" }}>
                     {section.content}
                   </p>
                 )}
                 {section.list && (
                   <ul style={{ paddingLeft: "20px", margin: 0 }}>
                     {section.list.map((item, j) => (
-                      <li key={j} style={{ fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: "6px" }}>
+                      <li key={j} style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: "16px" }}>
                         {item}
                       </li>
                     ))}

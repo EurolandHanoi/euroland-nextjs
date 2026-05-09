@@ -31,7 +31,7 @@ export default function BannerHero({
   subtitle,
   backgroundImage,
   overlay,
-  minHeight = "440px",
+  minHeight = "580px",
   titleMaxWidth = "720px",
   subtitleMaxWidth = "560px",
   primaryCtaLabel,
@@ -42,14 +42,17 @@ export default function BannerHero({
   supportingCtaHref,
 }: BannerHeroProps) {
   const sectionClassName = variant === "platform" ? "hero-dark" : "hero-navy";
+  const showCtas = variant !== "solutions" && variant !== "platform" && primaryCtaLabel && primaryCtaHref;
+  const desktopHeight = variant === "resources" ? "500px" : minHeight;
+  const desktopTopPadding = variant === "resources" ? "128px" : "160px";
+  const tabletTopPadding = variant === "resources" ? "80px" : "96px";
+  const mobileTopPadding = variant === "resources" ? "80px" : "96px";
 
   return (
     <section
       className={`${sectionClassName} banner-hero-section`}
       style={{
-        minHeight,
-        display: "flex",
-        alignItems: "center",
+        height: desktopHeight,
         paddingTop: 0,
         position: "relative",
         overflow: "hidden",
@@ -63,13 +66,14 @@ export default function BannerHero({
     >
       <style>{`
         @media (max-width: 1023px) {
-          .banner-hero-section { min-height: 400px !important; }
+          .banner-hero-section { height: auto !important; min-height: 400px !important; }
+          .banner-hero-container { padding: ${tabletTopPadding} 32px 64px !important; }
         }
         @media (max-width: 767px) {
-          .banner-hero-section { min-height: 320px !important; }
-          .banner-hero-container { padding: 96px 20px 64px !important; }
-          .banner-hero-title { font-size: 32px !important; line-height: 40px !important; }
-          .banner-hero-subtitle { font-size: 16px !important; line-height: 24px !important; }
+          .banner-hero-section { height: auto !important; min-height: 320px !important; }
+          .banner-hero-container { padding: ${mobileTopPadding} 20px 64px !important; }
+          .banner-hero-title { font-size: var(--fs-xl) !important; line-height: var(--lh-xl) !important; }
+          .banner-hero-subtitle { font-size: var(--fs-base) !important; line-height: var(--lh-base) !important; }
         }
       `}</style>
       <div
@@ -86,7 +90,9 @@ export default function BannerHero({
         className="container banner-hero-container"
         style={{
           maxWidth: "1536px",
-          padding: "120px 48px 80px",
+          height: "100%",
+          boxSizing: "border-box",
+          padding: `${desktopTopPadding} 48px 96px`,
           position: "relative",
           zIndex: 1,
         }}
@@ -96,12 +102,12 @@ export default function BannerHero({
           <h1
             className="banner-hero-title type-h2"
             style={{
-              fontSize: "48px",
-              fontWeight: 300,
-              lineHeight: "64px",
+              fontSize: "var(--fs-3xl)",
+              fontWeight: 600,
+              lineHeight: "var(--lh-3xl)",
               letterSpacing: "-0.01em",
               color: "#ffffff",
-              margin: "0 0 24px",
+              margin: "0 0 32px",
               maxWidth: titleMaxWidth,
             }}
           >
@@ -110,18 +116,18 @@ export default function BannerHero({
           <div
             className="banner-hero-subtitle"
             style={{
-              fontSize: "20px",
+              fontSize: "var(--fs-md)",
               fontWeight: 400,
-              lineHeight: "28px",
+              lineHeight: "var(--lh-md)",
               letterSpacing: "0.01em",
               color: "rgba(255,255,255,0.86)",
               maxWidth: subtitleMaxWidth,
-              margin: primaryCtaLabel ? "0 0 40px" : 0,
+              margin: showCtas ? "0 0 32px" : 0,
             }}
           >
             {subtitle}
           </div>
-          {primaryCtaLabel && primaryCtaHref && (
+          {showCtas && (
             <div>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
                 <LangLink href={primaryCtaHref} className="btn-primary">
@@ -147,3 +153,4 @@ export default function BannerHero({
     </section>
   );
 }
+

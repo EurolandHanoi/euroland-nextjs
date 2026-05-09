@@ -16,12 +16,15 @@ export default function LangLayout({
 }) {
   const { lang } = use(params);
   const resolvedLang = SUPPORTED_LANGS.includes(lang) ? lang : "en";
+  const dir = resolvedLang === "ar" ? "rtl" : "ltr";
 
   return (
     <LanguageProvider initialLang={resolvedLang}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         <TooltipProvider>
-          {children}
+          <div lang={resolvedLang} dir={dir}>
+            {children}
+          </div>
           <Toaster />
         </TooltipProvider>
       </ThemeProvider>

@@ -54,10 +54,10 @@ const SECTIONS: Array<{ title: string; content?: string; list?: string[]; measur
   },
 ];
 
-const SECTION_STYLE = { marginBottom: "40px" } as const;
-const H3_STYLE = { fontSize: "18px", fontWeight: 600, lineHeight: "28px", color: "rgb(13, 27, 42)", marginBottom: "12px" } as const;
-const P_STYLE = { fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", whiteSpace: "pre-line" as const };
-const LI_STYLE = { fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: "6px" } as const;
+const SECTION_STYLE = { marginBottom: "32px" } as const;
+const H3_STYLE = { fontSize: "var(--fs-md)", fontWeight: 600, lineHeight: "var(--lh-md)", color: "rgb(13, 27, 42)", marginBottom: "16px" } as const;
+const P_STYLE = { fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", whiteSpace: "pre-line" as const };
+const LI_STYLE = { fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: "16px" } as const;
 
 export default function Accessibility() {
   return (
@@ -65,7 +65,7 @@ export default function Accessibility() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl">
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
+            <p style={{ fontSize: "var(--fs-sm)", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "32px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
               Last updated: April 2025
             </p>
             {SECTIONS.map((section, i) => (
@@ -80,11 +80,11 @@ export default function Accessibility() {
                   </ul>
                 )}
                 {section.measures && (
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "8px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px" }}>
                     {MEASURES.map((m, j) => (
-                      <div key={j} style={{ padding: "20px 24px", border: "1px solid rgb(221, 224, 230)", borderRadius: "4px", borderLeft: "3px solid rgb(0, 107, 163)" }}>
-                        <div style={{ fontSize: "15px", fontWeight: 600, color: "rgb(13, 27, 42)", marginBottom: "6px" }}>{m.label}</div>
-                        <div style={{ fontSize: "14px", lineHeight: "24px", color: "rgb(58, 74, 88)" }}>{m.desc}</div>
+                      <div key={j} style={{ padding: "16px 24px", border: "1px solid rgb(221, 224, 230)", borderRadius: "4px", borderLeft: "3px solid rgb(0, 116, 217)" }}>
+                        <div style={{ fontSize: "var(--fs-base)", fontWeight: 600, color: "rgb(13, 27, 42)", marginBottom: "16px" }}>{m.label}</div>
+                        <div style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)" }}>{m.desc}</div>
                       </div>
                     ))}
                   </div>

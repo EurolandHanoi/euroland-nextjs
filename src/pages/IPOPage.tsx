@@ -4,7 +4,7 @@
  * IPO PAGE — Euroland IR
  * Typography & layout from euroland-ir-...-typography-export(1).json at 2004px viewport
  *
- * S1 Hero:        hero-dark, height 664px, container 1536px, padding 80px 48px
+ * S1 Hero:        hero-dark, height 664px, container 1536px, padding 96px 48px
  * S2 IPO Microsite: section white, 654px tall, 2-col (728px content + image)
  * S3 The Journey: section slate bg, 4-col feature-card grid
  * S4 Platform:    section slate bg, 2-col (features list + dashboard preview)
@@ -78,7 +78,7 @@ export default function IPOPage() {
         variant="solutions"
         label={t("ipopage_ipo_solutions", "IPO Solutions")}
         title={t("ipopage_ipo_readiness", "IPO Readiness")}
-        subtitle={t("ipopage_ipo_readiness_subtitle", "From pre-IPO preparation and IPO readiness to post-listing investor relations, we provide the IR software, managed services, and capital markets communication tools you need to build investor trust from day one.")}
+        subtitle={t("ipopage_ipo_readiness_subtitle", "From pre-IPO preparation and IPO readiness to post-listing Investor Relations, we provide the IR software, managed services, and capital markets communication tools you need to build investor trust from day one.")}
         primaryCtaLabel={t("ipopage_book_a_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("common_talk_to_us", "Talk to Us")}
@@ -111,12 +111,6 @@ export default function IPOPage() {
               <div
                 className="u-label"
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  color: "#28628F",
                   marginBottom: "16px",
                 }}
               >
@@ -126,12 +120,12 @@ export default function IPOPage() {
               {/* H4: 32px/500/40px/0.16px/rgb(13,27,42) */}
               <h4
                 style={{
-                  fontSize: "32px",
+                  fontSize: "var(--fs-xl)",
                   fontWeight: 500,
-                  lineHeight: "40px",
+                  lineHeight: "var(--lh-xl)",
                   letterSpacing: "0.01em",
                   color: "rgb(13, 27, 42)",
-                  margin: "0 0 24px",
+                  margin: "0 0 32px",
                 }}
               >
                 {t("ipopage_ipo_microsite_heading", "A dedicated IPO microsite that tells your story")}
@@ -140,9 +134,9 @@ export default function IPOPage() {
               {/* Body: 16px/400/24px/0.16px/rgb(58,74,88), width 520px */}
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58, 74, 88)",
                   maxWidth: "520px",
@@ -170,9 +164,9 @@ export default function IPOPage() {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: "8px",
-                      fontSize: "16px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                     }}
@@ -186,11 +180,11 @@ export default function IPOPage() {
                         width: "18px",
                         height: "18px",
                         borderRadius: "50%",
-                        border: "1.5px solid rgb(0, 107, 163)",
-                        color: "rgb(0, 107, 163)",
-                        fontSize: "10px",
+                        border: "1.5px solid rgb(0, 116, 217)",
+                        color: "rgb(0, 116, 217)",
+                        fontSize: "var(--fs-xs)",
                         flexShrink: 0,
-                        marginTop: "3px",
+                        marginTop: "16px",
                       }}
                     >
                       ✓
@@ -240,12 +234,6 @@ export default function IPOPage() {
             <div
               className="u-label"
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                color: "#28628F",
                 marginBottom: "16px",
               }}
             >
@@ -255,9 +243,9 @@ export default function IPOPage() {
             {/* H3: 40px/400/48px/0.2px/rgb(13,27,42) */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
                 margin: "0 0 16px",
@@ -269,16 +257,16 @@ export default function IPOPage() {
             {/* Body: 16px/400/24px/0.16px/rgb(58,74,88) */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 maxWidth: "560px",
                 margin: "0 0 48px",
               }}
             >
-              {t("ipopage_ir_support_body", "Our IPO readiness and investor relations solutions are structured around the four phases of a successful public listing — from pre-IPO preparation to ongoing post-listing IR.")}
+              {t("ipopage_ir_support_body", "Our IPO readiness and Investor Relations solutions are structured around the four phases of a successful public listing — from pre-IPO preparation to ongoing post-listing IR.")}
             </p>
 
             {/* 4-col feature-card grid */}
@@ -296,12 +284,12 @@ export default function IPOPage() {
                   <div
                     className="num-label"
                     style={{
-                      fontSize: "12px",
-                      fontWeight: 500,
-                      lineHeight: "24px",
+                      fontSize: "var(--fs-sm)",
+                      fontWeight: 400,
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "1.44px",
                       textTransform: "uppercase",
-                      color: "#28628F",
+                      color: "#0074D9",
                       marginBottom: "16px",
                     }}
                   >
@@ -311,12 +299,12 @@ export default function IPOPage() {
                   {/* h5: 24px/500/32px/0.16px/rgb(13,27,42) */}
                   <h5
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
-                      margin: "0 0 12px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {p.title}
@@ -325,9 +313,9 @@ export default function IPOPage() {
                   {/* p: 12px/400/24px/0.16px/rgb(58,74,88) */}
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
@@ -367,12 +355,6 @@ export default function IPOPage() {
                 <div
                   className="u-label"
                   style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    lineHeight: "24px",
-                    letterSpacing: "0.96px",
-                    textTransform: "uppercase",
-                    color: "#28628F",
                     marginBottom: "16px",
                   }}
                 >
@@ -382,9 +364,9 @@ export default function IPOPage() {
                 {/* H3: 40px/400/48px/0.2px/rgb(13,27,42) */}
                 <h3
                   style={{
-                    fontSize: "40px",
+                    fontSize: "var(--fs-2xl)",
                     fontWeight: 400,
-                    lineHeight: "48px",
+                    lineHeight: "var(--lh-2xl)",
                     letterSpacing: "0.005em",
                     color: "rgb(13, 27, 42)",
                     margin: "0 0 32px",
@@ -402,20 +384,20 @@ export default function IPOPage() {
                     >
                       <f.icon
                         size={20}
-                        color="rgb(0, 107, 163)"
+                        color="rgb(0, 116, 217)"
                         strokeWidth={1.5}
-                        style={{ flexShrink: 0, marginTop: "2px" }}
+                        style={{ flexShrink: 0, marginTop: "16px" }}
                       />
                       <div>
                         {/* Feature title: 16px/600/24px/0.16px/rgb(13,27,42) */}
                         <div
                           style={{
-                            fontSize: "16px",
+                            fontSize: "var(--fs-base)",
                             fontWeight: 600,
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                             letterSpacing: "0.01em",
                             color: "rgb(13, 27, 42)",
-                            marginBottom: "4px",
+                            marginBottom: "16px",
                           }}
                         >
                           {f.title}
@@ -423,9 +405,9 @@ export default function IPOPage() {
                         {/* Feature desc: 12px/400/24px/0.16px/rgb(58,74,88) */}
                         <p
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 400,
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                             letterSpacing: "0.01em",
                             color: "rgb(58, 74, 88)",
                             margin: 0,
@@ -454,9 +436,9 @@ export default function IPOPage() {
                 {/* Dashboard preview label: 12px/600/24px/0.72px/uppercase/rgba(255,255,255,0.3) */}
                 <div
                   style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    lineHeight: "24px",
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     color: "rgba(255, 255, 255, 0.3)",
@@ -479,12 +461,6 @@ export default function IPOPage() {
             <div
               className="u-label u-label-dark"
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                color: "#28628F",
                 marginBottom: "16px",
                 display: "inline-block",
               }}
@@ -495,9 +471,9 @@ export default function IPOPage() {
             {/* H3: 40px/300/48px/0.2px/center/rgb(255,255,255) */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255, 255, 255)",
                 textAlign: "center",
@@ -520,3 +496,4 @@ export default function IPOPage() {
     </PageWrapper>
   );
 }
+

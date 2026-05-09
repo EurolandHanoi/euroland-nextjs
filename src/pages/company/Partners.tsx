@@ -28,7 +28,7 @@ export default function Partners() {
         { name: "PR Newswire", desc: t("partners_prnewswire_desc", "Global press release distribution to financial media and investors.") },
         { name: "Business Wire", desc: t("partners_businesswire_desc", "News distribution to financial media, investors, and regulators.") },
         { name: "GlobeNewswire", desc: t("partners_globenewswire_desc", "Press release distribution across North America and Europe.") },
-        { name: "EQS Group", desc: t("partners_eqs_desc", "Regulatory disclosure and investor relations distribution.") },
+        { name: "EQS Group", desc: t("partners_eqs_desc", "Regulatory disclosure and Investor Relations distribution.") },
       ],
     },
     {
@@ -56,18 +56,18 @@ export default function Partners() {
   const STATS = [
     { value: "60+", label: t("partners_stat_1", "Exchange integrations") },
     { value: "1,400+", label: t("partners_stat_2", "Listed company clients") },
-    { value: "20+", label: t("partners_stat_3", "Years of partnerships") },
+    { value: "25+", label: t("partners_stat_3", "Years of IR expertise") },
   ];
 
   return (
     <PageWrapper>
       {/* Hero */}
       <section style={{ backgroundColor: "#082b45", minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}>
-        <div className="container" style={{ maxWidth: "1536px", padding: "120px 48px 80px" }}>
+        <div className="container" style={{ maxWidth: "1536px", padding: "96px 48px 96px" }}>
           <div style={{ maxWidth: "640px" }}>
             <SectionLabel light>{t("company_label", "Company")}</SectionLabel>
-            <h2 style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 24px" }}>{t("partners_hero_title", "Partners")}</h2>
-            <p style={{ fontSize: "16px", lineHeight: "24px", color: "rgba(255,255,255,0.70)", letterSpacing: "0.01em", marginBottom: "40px" }}>
+            <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px" }}>{t("partners_hero_title", "Partners")}</h2>
+            <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)", letterSpacing: "0.01em", marginBottom: "32px" }}>
               {t("partners_hero_subtitle", "Euroland IR works with leading data providers, distribution networks, technology vendors, and stock exchanges to deliver a complete, integrated IR solution for listed companies worldwide.")}
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
@@ -88,8 +88,8 @@ export default function Partners() {
           <div style={{ display: "flex", justifyContent: "center", gap: "80px", flexWrap: "wrap" }}>
             {STATS.map((s) => (
               <div key={s.value} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "-0.01em", color: "#ffffff" }}>{s.value}</div>
-                <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.48px", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "-0.01em", color: "#ffffff" }}>{s.value}</div>
+                <div style={{ fontSize: "var(--fs-sm)", fontWeight: 500, letterSpacing: "0.48px", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginTop: "16px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -98,21 +98,21 @@ export default function Partners() {
 
       {/* Partner categories */}
       {PARTNER_CATEGORIES.map((cat, ci) => (
-        <section key={cat.category} style={{ backgroundColor: ci % 2 === 0 ? "#ffffff" : "#f2f4f6", padding: "80px 0" }}>
+        <section key={cat.category} style={{ backgroundColor: ci % 2 === 0 ? "#ffffff" : "#f2f4f6", padding: "64px 0" }}>
           <div className="container">
             <div style={{ marginBottom: "48px" }}>
               <SectionLabel>{cat.category}</SectionLabel>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "#0f1e2b", maxWidth: "640px", margin: "12px 0 0" }}>{cat.desc}</h3>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", maxWidth: "640px", margin: "16px 0 0" }}>{cat.desc}</h3>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
               {cat.partners.map((p) => (
                 <div key={p.name} style={{ backgroundColor: "#ffffff", border: "1px solid #dde0e6", padding: "32px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                  <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "#327AB1" }}>
+                  <div style={{ fontSize: "var(--fs-sm)", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)" }}>
                     {cat.category.replace(` ${t("partners_suffix", "Partners")}`, "")}
                   </div>
-                  <h5 style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 8px" }}>{p.name}</h5>
-                  <p style={{ fontSize: "16px", color: "#5a6a7a", lineHeight: "24px", letterSpacing: "0.01em", margin: 0 }}>{p.desc}</p>
-                  <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "12px", fontWeight: 600, color: "#28628F", textDecoration: "none", marginTop: "8px" }}>
+                  <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 16px" }}>{p.name}</h5>
+                  <p style={{ fontSize: "var(--fs-base)", color: "#5a6a7a", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", margin: 0 }}>{p.desc}</p>
+                  <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "var(--fs-sm)", fontWeight: 600, color: "#0074D9", textDecoration: "none", marginTop: "16px" }}>
                     {t("learn_more", "Learn more")} <ExternalLink size={12} />
                   </a>
                 </div>
@@ -123,11 +123,11 @@ export default function Partners() {
       ))}
 
       {/* Become a partner CTA */}
-      <section style={{ backgroundColor: "#082b45", padding: "96px 0" }}>
+      <section style={{ backgroundColor: "#082b45", padding: "64px 0" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <SectionLabel light>{t("partners_cta_label", "Partner Programme")}</SectionLabel>
-          <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "#ffffff", margin: "12px 0 20px" }}>{t("partners_cta_heading", "Interested in partnering with us?")}</h3>
-          <p style={{ fontSize: "16px", lineHeight: "24px", color: "rgba(255,255,255,0.70)", marginBottom: "32px", maxWidth: "480px", margin: "0 auto 32px" }}>
+          <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#ffffff", margin: "16px 0 32px" }}>{t("partners_cta_heading", "Interested in partnering with us?")}</h3>
+          <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)", marginBottom: "32px", maxWidth: "480px", margin: "0 auto 32px" }}>
             {t("partners_cta_body", "We work with data providers, technology vendors, and service firms to extend the value of the Euroland IR platform for listed companies worldwide.")}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
@@ -143,3 +143,4 @@ export default function Partners() {
     </PageWrapper>
   );
 }
+

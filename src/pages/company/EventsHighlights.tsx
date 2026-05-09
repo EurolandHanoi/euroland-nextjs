@@ -17,65 +17,20 @@ import { useState } from "react";
 import { PageWrapper } from "@/components/Layout";
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
-
-// ── Tag colour map ────────────────────────────────────────────────────────────
-const TAG_COLORS: Record<string, string> = {
-  CONFERENCE:        "rgb(0, 107, 163)",
-  AWARDS:            "rgb(139, 92, 246)",
-  "PRODUCT SHOWCASE":"rgb(0, 163, 107)",
-  WORKSHOP:          "rgb(234, 88, 12)",
-  "INVESTOR EVENT":  "rgb(0, 107, 163)",
-  FORUM:             "rgb(0, 107, 163)",
-  RECEPTION:         "rgb(220, 38, 38)",
-};
-
-// ── Event data ────────────────────────────────────────────────────────────────
-const EVENTS = [
-  {
-    id: "plc-awards-2025",
-    tag: "AWARDS",
-    date: "2025",
-    location: "London, UK",
-    title: "PLC Awards 2025",
-    desc: "Euroland IR at the PLC Awards 2025 — celebrating excellence across the UK main market with clients and partners.",
-    photos: 2,
-    featured: true,
-    image: "/images/events/plc-awards-2025/ceremony.png",
-  },
-  {
-    id: "jira-ir-conference-2025-tokyo",
-    tag: "CONFERENCE",
-    date: "2025",
-    location: "Tokyo, Japan",
-    title: "JIRA IR Conference 2025 — Tokyo",
-    desc: "Euroland IR at the Japan Investor Relations Association conference, exploring the evolving role of IR in Japan's capital markets.",
-    photos: 3,
-    featured: false,
-    image: "/images/events/jira-tokyo-2025/presentation.png",
-  },
-  {
-    id: "ubhar-capital-partnership-2025",
-    tag: "PARTNERSHIP",
-    date: "2025",
-    location: "Muscat, Oman",
-    title: "Euroland IR & Ubhar Capital Partnership",
-    desc: "Euroland IR and Ubhar Capital announce a strategic partnership to strengthen digital IR communication and investor engagement across Oman.",
-    photos: 0,
-    featured: false,
-  },
-];
-
-const FILTER_TABS = ["All", "Conference", "Awards", "Partnership"];
+import {
+  EVENT_HIGHLIGHT_FILTER_TABS,
+  EVENT_HIGHLIGHT_TAG_COLORS,
+  getEventHighlightImage,
+  getFilteredEventHighlights,
+} from "@/data/eventsHighlights";
 
 export default function EventsHighlights() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filtered = activeFilter === "All"
-    ? EVENTS
-    : EVENTS.filter(e => e.tag === activeFilter.toUpperCase() || e.tag.toLowerCase() === activeFilter.toLowerCase());
+  const filtered = getFilteredEventHighlights(activeFilter);
 
   const featured = filtered.find(e => e.featured) || filtered[0];
-  const gridEvents = filtered.filter(e => e !== featured);
+  const gridEvents = featured ? filtered.filter(e => e.slug !== featured.slug) : [];
 
   return (
     <PageWrapper>
@@ -114,19 +69,19 @@ export default function EventsHighlights() {
             zIndex: 2,
             maxWidth: "1536px",
             margin: "0 auto",
-            padding: "114px 48px 80px",
+            padding: "64px 48px 64px",
           }}
         >
           {/* Eyebrow */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
             <span
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
+                fontSize: "var(--fs-sm)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.96px",
                 textTransform: "uppercase",
-                color: "#327AB1",
+                color: "#0074D9",
               }}
             >
               EVENTS &amp; HIGHLIGHTS
@@ -136,12 +91,12 @@ export default function EventsHighlights() {
           {/* H1 */}
           <h1 className="type-h2"
             style={{
-              fontSize: "48px",
+              fontSize: "var(--fs-3xl)",
               fontWeight: 300,
-              lineHeight: "64px",
+              lineHeight: "var(--lh-3xl)",
               letterSpacing: "-0.01em",
               color: "rgb(255, 255, 255)",
-              margin: "0 0 24px",
+              margin: "0 0 32px",
               maxWidth: "640px",
             }}
           >
@@ -150,9 +105,9 @@ export default function EventsHighlights() {
           {/* Subtitle */}
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "var(--fs-md)",
               fontWeight: 400,
-              lineHeight: "32px",
+              lineHeight: "var(--lh-lg)",
               letterSpacing: "0.01em",
               color: "rgba(255, 255, 255, 0.75)",
               maxWidth: "520px",
@@ -184,15 +139,15 @@ export default function EventsHighlights() {
             overflowX: "auto",
           }}
         >
-          {FILTER_TABS.map((tab) => (
+          {EVENT_HIGHLIGHT_FILTER_TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveFilter(tab)}
               style={{
-                padding: "12px 16px",
-                fontSize: "13px",
+                padding: "16px 16px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: activeFilter === tab ? 600 : 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: activeFilter === tab ? "rgb(13, 27, 42)" : "rgb(100, 116, 139)",
                 background: "none",
@@ -237,20 +192,20 @@ export default function EventsHighlights() {
                 right: "16px",
                 backgroundColor: "rgba(0,0,0,0.5)",
                 color: "rgb(255,255,255)",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 600,
-                padding: "4px 10px",
+                padding: "16px 10px",
                 borderRadius: "2px",
                 zIndex: 2,
               }}
             >
-              {featured.photos} photos
+              {featured.photoCount} photos
             </div>
             {/* Real image if available */}
-            {(featured as any).image && (
-              <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${(featured as any).image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+            {getEventHighlightImage(featured) && (
+              <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${getEventHighlightImage(featured)})`, backgroundSize: "cover", backgroundPosition: "center" }} />
             )}
-            {!(featured as any).image && (
+            {!getEventHighlightImage(featured) && (
             <div
               style={{
                 position: "absolute",
@@ -283,7 +238,7 @@ export default function EventsHighlights() {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                padding: "40px",
+                padding: "32px",
                 zIndex: 2,
               }}
             >
@@ -291,31 +246,31 @@ export default function EventsHighlights() {
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}>
                 <span
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 500,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     color: "rgb(255,255,255)",
-                    backgroundColor: TAG_COLORS[featured.tag] || "rgb(0,107,163)",
-                    padding: "4px 10px",
+                    backgroundColor: EVENT_HIGHLIGHT_TAG_COLORS[featured.tag] || "rgb(0,107,163)",
+                    padding: "16px 10px",
                     borderRadius: "2px",
                   }}
                 >
                   {featured.tag}
                 </span>
-                <span style={{ fontSize: "14px", fontWeight: 400, color: "rgba(255,255,255,0.7)" }}>
+                <span style={{ fontSize: "var(--fs-base)", fontWeight: 400, color: "rgba(255,255,255,0.7)" }}>
                   {featured.date} · {featured.location}
                 </span>
               </div>
               {/* Title */}
               <h2 className="type-h4"
                 style={{
-                  fontSize: "32px",
-                  fontWeight: 500,
-                  lineHeight: "40px",
+                  fontSize: "var(--fs-xl)",
+                  fontWeight: 400,
+                  lineHeight: "var(--lh-xl)",
                   letterSpacing: "0.01em",
                   color: "rgb(255,255,255)",
-                  margin: "0 0 12px",
+                  margin: "0 0 16px",
                   maxWidth: "640px",
                 }}
               >
@@ -324,21 +279,21 @@ export default function EventsHighlights() {
               {/* Desc */}
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgba(255,255,255,0.75)",
-                  margin: "0 0 20px",
+                  margin: "0 0 16px",
                   maxWidth: "560px",
                 }}
               >
                 {featured.desc}
               </p>
               {/* VIEW GALLERY link */}
-              <a
-                href="#"
+              <LangLink
+                href={`/events-highlights/${featured.slug}`}
                 style={{
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 600,
                   letterSpacing: "0.01em",
                   color: "rgb(0, 173, 240)",
@@ -349,7 +304,7 @@ export default function EventsHighlights() {
                 }}
               >
                 VIEW GALLERY →
-              </a>
+              </LangLink>
             </div>
           </div>
         </div>
@@ -360,7 +315,7 @@ export default function EventsHighlights() {
         style={{
           maxWidth: "1536px",
           margin: "0 auto",
-          padding: "48px 48px 80px",
+            padding: "64px 48px 64px",
         }}
       >
         <div
@@ -372,7 +327,7 @@ export default function EventsHighlights() {
         >
           {gridEvents.map((event) => (
             <div
-              key={event.id}
+              key={event.slug}
               style={{
                 borderRadius: "4px",
                 overflow: "hidden",
@@ -399,14 +354,14 @@ export default function EventsHighlights() {
                 style={{
                   width: "100%",
                   height: "180px",
-                  background: (event as any).image ? `url(${(event as any).image}) center/cover no-repeat` : "linear-gradient(135deg, rgb(20, 40, 80) 0%, rgb(60, 20, 100) 100%)",
+                  background: getEventHighlightImage(event) ? `url(${getEventHighlightImage(event)}) center/cover no-repeat` : "linear-gradient(135deg, rgb(20, 40, 80) 0%, rgb(60, 20, 100) 100%)",
                   position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                {!(event as any).image && <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5">
+                {!getEventHighlightImage(event) && <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5">
                   <rect x="3" y="3" width="18" height="18" rx="2" />
                   <circle cx="8.5" cy="8.5" r="1.5" />
                   <path d="m21 15-5-5L5 21" />
@@ -419,46 +374,46 @@ export default function EventsHighlights() {
                     right: "12px",
                     backgroundColor: "rgba(0,0,0,0.5)",
                     color: "rgb(255,255,255)",
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
-                    padding: "2px 8px",
+                    padding: "16px 8px",
                     borderRadius: "2px",
                   }}
                 >
-                  {event.photos} photos
+                  {event.photoCount} photos
                 </div>
               </div>
               {/* Content area */}
-              <div style={{ padding: "24px" }}>
+              <div style={{ padding: "32px" }}>
                 {/* Tag + date row */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
                   <span
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 500,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                       color: "rgb(255,255,255)",
-                      backgroundColor: TAG_COLORS[event.tag] || "rgb(0,107,163)",
-                      padding: "3px 8px",
+                      backgroundColor: EVENT_HIGHLIGHT_TAG_COLORS[event.tag] || "rgb(0,107,163)",
+                      padding: "16px 8px",
                       borderRadius: "2px",
                     }}
                   >
                     {event.tag}
                   </span>
-                  <span style={{ fontSize: "12px", fontWeight: 400, color: "rgb(100, 116, 139)" }}>
+                  <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, color: "rgb(100, 116, 139)" }}>
                     {event.date}
                   </span>
                 </div>
                 {/* Title */}
                 <h3 className="type-h6"
                   style={{
-                    fontSize: "20px",
+                    fontSize: "var(--fs-md)",
                     fontWeight: 600,
-                    lineHeight: "28px",
+                    lineHeight: "var(--lh-md)",
                     letterSpacing: "0.01em",
                     color: "rgb(13, 27, 42)",
-                    margin: "0 0 8px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {event.title}
@@ -466,9 +421,9 @@ export default function EventsHighlights() {
                 {/* Desc */}
                 <p
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(58, 74, 88)",
                     margin: "0 0 16px",
                   }}
@@ -477,16 +432,16 @@ export default function EventsHighlights() {
                 </p>
                 {/* Location + VIEW GALLERY */}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontSize: "12px", fontWeight: 400, color: "rgb(100, 116, 139)" }}>
+                  <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, color: "rgb(100, 116, 139)" }}>
                     {event.location}
                   </span>
                   <LangLink
-                    href={`/events-highlights/${event.id}`}
+                    href={`/events-highlights/${event.slug}`}
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 600,
                       letterSpacing: "0.01em",
-                      color: "#327AB1",
+                      color: "#0074D9",
                       textDecoration: "none",
                     }}
                   >
@@ -521,12 +476,12 @@ export default function EventsHighlights() {
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <span
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.96px",
                   textTransform: "uppercase",
-                  color: "#327AB1",
+                  color: "#0074D9",
                 }}
               >
                 STAY CONNECTED
@@ -535,9 +490,9 @@ export default function EventsHighlights() {
             </div>
             <h2 className="type-h3"
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255, 255, 255)",
                 margin: "0 0 16px",
@@ -547,9 +502,9 @@ export default function EventsHighlights() {
             </h2>
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgba(255, 255, 255, 0.7)",
                 margin: 0,
               }}
@@ -562,10 +517,10 @@ export default function EventsHighlights() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "12px 24px",
-                backgroundColor: "rgb(0, 173, 240)",
+                padding: "16px 24px",
+                backgroundColor: "var(--button-blue)",
                 color: "rgb(255, 255, 255)",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 500,
                 letterSpacing: "0.96px",
                 textTransform: "uppercase",
@@ -582,3 +537,4 @@ export default function EventsHighlights() {
     </PageWrapper>
   );
 }
+

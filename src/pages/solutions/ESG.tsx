@@ -105,6 +105,7 @@ export default function ESG() {
   const f2 = useFadeUp();
   const f3 = useFadeUp();
   const f4 = useFadeUp();
+  const f5 = useFadeUp();
 
   const CHALLENGES = getChallenges(t);
   const CSRD_BULLETS = getCsrdBullets(t);
@@ -140,12 +141,6 @@ export default function ESG() {
               <div
                 className="u-label"
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  color: "rgb(0, 107, 163)",
                   marginBottom: "16px",
                   display: "inline-block",
                 }}
@@ -156,9 +151,9 @@ export default function ESG() {
               {/* H3: 40px/400/48px/0.2px/rgb(13,27,42) */}
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
                   margin: "0 auto",
@@ -189,13 +184,13 @@ export default function ESG() {
                   {/* Number: rgb(0,173,240) */}
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 500,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "1.44px",
                       textTransform: "uppercase",
                       color: "rgb(0, 173, 240)",
-                      marginBottom: "12px",
+                      marginBottom: "16px",
                     }}
                   >
                     {c.num}
@@ -204,12 +199,12 @@ export default function ESG() {
                   {/* Title: 16px/600/24px/rgb(13,27,42) */}
                   <h4 className="type-h6"
                     style={{
-                      fontSize: "16px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 600,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
-                      margin: "0 0 12px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {c.title}
@@ -218,9 +213,9 @@ export default function ESG() {
                   {/* Body: 12px/400/24px/rgb(58,74,88) */}
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
@@ -245,12 +240,6 @@ export default function ESG() {
               <div
                 className="u-label"
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  color: "rgb(0, 107, 163)",
                   marginBottom: "16px",
                   display: "inline-block",
                 }}
@@ -259,9 +248,9 @@ export default function ESG() {
               </div>
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
                   margin: "0 auto",
@@ -289,7 +278,7 @@ export default function ESG() {
                   background: "rgb(255, 255, 255)",
                   border: "1px solid rgb(221, 224, 230)",
                   borderRadius: "8px",
-                  padding: "40px",
+                  padding: "32px",
                   display: "flex",
                   flexDirection: "column",
                 }}
@@ -297,12 +286,12 @@ export default function ESG() {
                 {/* Product type tag: 12px/600/uppercase/rgb(0,107,163) */}
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.48px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "#0074D9",
                     marginBottom: "16px",
                   }}
                 >
@@ -312,12 +301,12 @@ export default function ESG() {
                 {/* Product name H4: 24px/600/32px/rgb(13,27,42) */}
                 <h4 className="type-h5"
                   style={{
-                    fontSize: "24px",
+                    fontSize: "var(--fs-lg)",
                     fontWeight: 600,
-                    lineHeight: "32px",
+                    lineHeight: "var(--lh-lg)",
                     letterSpacing: "0.01em",
                     color: "rgb(13, 27, 42)",
-                    margin: "0 0 8px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {t("solutions_esg_card1_title", "CSRD Reporting Solution")}
@@ -326,13 +315,13 @@ export default function ESG() {
                 {/* Subtitle tag: 12px/400/italic/rgb(0,107,163) */}
                 <p
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
-                    color: "rgb(0, 107, 163)",
+                    color: "rgb(0, 116, 217)",
                     fontStyle: "italic",
-                    margin: "0 0 20px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {t("solutions_esg_card1_subtitle", "For formal CSRD and ESG disclosure presentation")}
@@ -341,12 +330,12 @@ export default function ESG() {
                 {/* Body: 14px/400/24px/rgb(58,74,88) */}
                 <p
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
                     color: "rgb(58, 74, 88)",
-                    margin: "0 0 24px",
+                    margin: "0 0 32px",
                   }}
                 >
                   {t(
@@ -374,9 +363,9 @@ export default function ESG() {
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "10px",
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 400,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.01em",
                         color: "rgb(58, 74, 88)",
                       }}
@@ -387,9 +376,9 @@ export default function ESG() {
                           width: "6px",
                           height: "6px",
                           borderRadius: "50%",
-                          background: "rgb(0, 107, 163)",
+                          background: "rgb(0, 116, 217)",
                           flexShrink: 0,
-                          marginTop: "9px",
+                          marginTop: "16px",
                         }}
                       />
                       {b}
@@ -401,11 +390,11 @@ export default function ESG() {
                 <a
                   href="/book-demo"
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.48px",
-                    color: "rgb(0, 107, 163)",
+                    color: "rgb(0, 116, 217)",
                     textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
@@ -422,7 +411,7 @@ export default function ESG() {
                   background: "rgb(255, 255, 255)",
                   border: "1px solid rgb(221, 224, 230)",
                   borderRadius: "8px",
-                  padding: "40px",
+                  padding: "32px",
                   display: "flex",
                   flexDirection: "column",
                 }}
@@ -430,12 +419,12 @@ export default function ESG() {
                 {/* Product type tag */}
                 <div
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.48px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "#0074D9",
                     marginBottom: "16px",
                   }}
                 >
@@ -444,12 +433,12 @@ export default function ESG() {
 
                 <h4 className="type-h5"
                   style={{
-                    fontSize: "24px",
+                    fontSize: "var(--fs-lg)",
                     fontWeight: 600,
-                    lineHeight: "32px",
+                    lineHeight: "var(--lh-lg)",
                     letterSpacing: "0.01em",
                     color: "rgb(13, 27, 42)",
-                    margin: "0 0 8px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {t("solutions_esg_card2_title", "Sustainability IAT")}
@@ -457,13 +446,13 @@ export default function ESG() {
 
                 <p
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
-                    color: "rgb(0, 107, 163)",
+                    color: "rgb(0, 116, 217)",
                     fontStyle: "italic",
-                    margin: "0 0 20px",
+                    margin: "0 0 16px",
                   }}
                 >
                   {t(
@@ -474,12 +463,12 @@ export default function ESG() {
 
                 <p
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
                     color: "rgb(58, 74, 88)",
-                    margin: "0 0 24px",
+                    margin: "0 0 32px",
                   }}
                 >
                   {t(
@@ -506,9 +495,9 @@ export default function ESG() {
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "10px",
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 400,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.01em",
                         color: "rgb(58, 74, 88)",
                       }}
@@ -519,9 +508,9 @@ export default function ESG() {
                           width: "6px",
                           height: "6px",
                           borderRadius: "50%",
-                          background: "rgb(0, 107, 163)",
+                          background: "rgb(0, 116, 217)",
                           flexShrink: 0,
-                          marginTop: "9px",
+                          marginTop: "16px",
                         }}
                       />
                       {b}
@@ -532,11 +521,11 @@ export default function ESG() {
                 <a
                   href="/book-demo"
                   style={{
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.48px",
-                    color: "rgb(0, 107, 163)",
+                    color: "rgb(0, 116, 217)",
                     textDecoration: "none",
                     display: "inline-flex",
                     alignItems: "center",
@@ -560,12 +549,6 @@ export default function ESG() {
               <div
                 className="u-label"
                 style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  color: "rgb(0, 107, 163)",
                   marginBottom: "16px",
                   display: "inline-block",
                 }}
@@ -576,9 +559,9 @@ export default function ESG() {
               {/* H3: 40px/400 */}
               <h3
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 400,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   letterSpacing: "0.005em",
                   color: "rgb(13, 27, 42)",
                   margin: "0 0 32px",
@@ -604,12 +587,12 @@ export default function ESG() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "8px",
-                      padding: "10px 20px",
+                      padding: "16px 20px",
                       border: "1px solid rgb(221, 224, 230)",
                       borderRadius: "24px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 600,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
                       textDecoration: "none",
@@ -625,7 +608,7 @@ export default function ESG() {
                       (e.currentTarget as HTMLAnchorElement).style.background = "rgb(255, 255, 255)";
                     }}
                   >
-                    {r.label} <span style={{ color: "rgb(0, 107, 163)" }}>→</span>
+                    {r.label} <span style={{ color: "rgb(0, 116, 217)" }}>→</span>
                   </a>
                 ))}
               </div>
@@ -637,6 +620,7 @@ export default function ESG() {
       {/* ── S5: CTA BAND ──────────────────────────────────────────────────────── */}
       <div className="cta-band">
         <div
+          ref={f5}
           className="fade-up container"
           style={{
             maxWidth: "1536px",
@@ -648,12 +632,6 @@ export default function ESG() {
           <div
             className="u-label u-label-dark"
             style={{
-              fontSize: "12px",
-              fontWeight: 500,
-              lineHeight: "24px",
-              letterSpacing: "0.96px",
-              textTransform: "uppercase",
-              color: "rgb(0, 107, 163)",
               marginBottom: "16px",
               display: "inline-block",
             }}
@@ -664,9 +642,9 @@ export default function ESG() {
           {/* H3: 40px/300/48px/center/white */}
           <h3
             style={{
-              fontSize: "40px",
+              fontSize: "var(--fs-2xl)",
               fontWeight: 300,
-              lineHeight: "48px",
+              lineHeight: "var(--lh-2xl)",
               letterSpacing: "0.005em",
               color: "rgb(255, 255, 255)",
               textAlign: "center",
@@ -688,3 +666,4 @@ export default function ESG() {
     </PageWrapper>
   );
 }
+

@@ -19,50 +19,50 @@ function getAiCapabilities(t: TFunction) {
   return [
     {
       icon: "✍️",
-      title: t("solutions_ai_ai_drafting", "AI Drafting"),
+      title: t("solutions_ai_ai_drafting", "AI-Powered IR Search"),
       desc: t(
         "solutions_ai_ai_drafting_desc",
-        "Draft press releases, earnings commentary, and investor communications in seconds. Trained on IR-specific language and best practice."
+        "Help investors and stakeholders search across earnings materials, financial statements, IR presentations, reports, and public disclosures using natural language."
       ),
     },
     {
       icon: "📊",
-      title: t("solutions_ai_earnings_analysis", "Earnings Analysis"),
+      title: t("solutions_ai_earnings_analysis", "Verified Answers"),
       desc: t(
         "solutions_ai_earnings_analysis_desc",
-        "Automatically analyse earnings results, identify key themes, and generate structured commentary for investor communications."
+        "Deliver context-aware responses with links, document names, and PDF page references so users can verify information quickly."
       ),
     },
     {
       icon: "🎯",
-      title: t("solutions_ai_investor_sentiment", "Investor Sentiment"),
+      title: t("solutions_ai_investor_sentiment", "Multilingual Access"),
       desc: t(
         "solutions_ai_investor_sentiment_desc",
-        "AI-powered analysis of investor questions, media coverage, and market sentiment to inform your IR strategy."
+        "Support multilingual IR information access, including English and Nordic languages, for international investor audiences."
       ),
     },
     {
       icon: "🔍",
-      title: t("solutions_ai_disclosure_review", "Disclosure Review"),
+      title: t("solutions_ai_disclosure_review", "Website Integration"),
       desc: t(
         "solutions_ai_disclosure_review_desc",
-        "AI review of draft disclosures for completeness, regulatory alignment, and consistency with previous communications."
+        "Integrate generative AI-powered IR search directly into the corporate website as an intelligent investor information hub."
       ),
     },
     {
       icon: "🌐",
-      title: t("solutions_ai_translation_localisation", "Translation & Localisation"),
+      title: t("solutions_ai_translation_localisation", "IR App Integration"),
       desc: t(
         "solutions_ai_translation_localisation_desc",
-        "AI-powered translation of IR content across 10 languages, with IR-specific terminology and tone."
+        "Extend AI-powered search into the IR mobile app so stakeholders can access relevant company information on the move."
       ),
     },
     {
       icon: "🤖",
-      title: t("solutions_ai_workflow_automation", "Workflow Automation"),
+      title: t("solutions_ai_workflow_automation", "Investor Self-Service"),
       desc: t(
         "solutions_ai_workflow_automation_desc",
-        "Automate repetitive IR tasks — from data collection to report generation — freeing your team for higher-value work."
+        "Reduce repetitive information requests by helping stakeholders find accurate, relevant, and verified IR information independently."
       ),
     },
   ];
@@ -78,10 +78,10 @@ export default function AI() {
       <BannerHero
         variant="solutions"
         label={t("solutions_ai_ai_solutions", "AI Solutions")}
-        title={t("solutions_ai_ai_that_understands_investor_relations", "AI that understands investor relations")}
+        title={t("solutions_ai_ai_that_understands_investor_relations", "Generative AI-powered search for Investor Relations")}
         subtitle={t(
           "solutions_ai_euroland_ai_description",
-          "Euroland AI is not a generic large language model applied to IR. It is trained on IR-specific data, workflows, and best practice — so the output is relevant, accurate, and ready to use."
+          "Euroland AI is designed to transform your corporate website and IR app into an intelligent information hub, helping shareholders and stakeholders access accurate, relevant, and verified information from your public IR materials."
         )}
         backgroundImage={CDN.aiHero}
         primaryCtaLabel={t("common_book_demo", "Book a Demo")}
@@ -91,55 +91,55 @@ export default function AI() {
       />
 
       {/* What makes it different */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <SectionLabel>{t("solutions_ai_what_makes_it_different", "What Makes It Different")}</SectionLabel>
               <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mb-6">
-                {t("solutions_ai_built_for_ir_not_adapted_for_it", "Built for IR, not adapted for it")}
+                {t("solutions_ai_built_for_ir_not_adapted_for_it", "Designed for Investor Relations content")}
               </h2>
               <p className="text-[#3a4a58] leading-relaxed mb-4">
                 {t(
                   "solutions_ai_generic_ai_tools_require_significant_prompting_and_editing",
-                  "Generic AI tools require significant prompting and editing to produce IR-quality output. Euroland AI is trained on thousands of real IR documents — earnings releases, annual reports, investor presentations, and regulatory filings — so it understands the language, structure, and expectations of professional investor communications."
+                  "Euroland AI is purpose-built for Investor Relations information access. It searches across dynamic IR content, including earnings materials, financial statements, IR presentations, reports, and publicly available disclosures, so users can find relevant information without navigating multiple documents manually."
                 )}
               </p>
               <p className="text-[#3a4a58] leading-relaxed">
                 {t(
                   "solutions_ai_the_result_is_ai_output_that_is_closer_to_publication_ready",
-                  "The result is AI output that is closer to publication-ready, with less editing required and fewer hallucinations or off-tone suggestions."
+                  "The result is a clearer, more intuitive investor experience: users can ask questions in plain language and receive context-aware answers with source references for verification."
                 )}
               </p>
             </div>
             <div className="grid grid-cols-1 gap-4">
               {[
                 {
-                  label: t("solutions_ai_trained_on_ir_specific_data", "Trained on IR-specific data"),
+                  label: t("solutions_ai_trained_on_ir_specific_data", "Searches IR-specific content"),
                   desc: t(
                     "solutions_ai_earnings_releases_annual_reports_investor_presentations",
-                    "Earnings releases, annual reports, investor presentations"
+                    "Earnings materials, reports, presentations, and disclosures"
                   ),
                 },
                 {
-                  label: t("solutions_ai_understands_regulatory_context", "Understands regulatory context"),
+                  label: t("solutions_ai_understands_regulatory_context", "Provides source references"),
                   desc: t(
                     "solutions_ai_knows_what_can_and_cannot_be_said_in_different_disclosure_types",
-                    "Knows what can and cannot be said in different disclosure types"
+                    "Links, document names, and PDF page references where available"
                   ),
                 },
                 {
-                  label: t("solutions_ai_consistent_with_your_voice", "Consistent with your voice"),
+                  label: t("solutions_ai_consistent_with_your_voice", "Supports multilingual access"),
                   desc: t(
                     "solutions_ai_learns_your_companys_tone_and_style_over_time",
-                    "Learns your company's tone and style over time"
+                    "Including English and Nordic languages"
                   ),
                 },
                 {
-                  label: t("solutions_ai_integrated_with_your_ir_data", "Integrated with your IR data"),
+                  label: t("solutions_ai_integrated_with_your_ir_data", "Integrated with your digital IR channels"),
                   desc: t(
                     "solutions_ai_accesses_your_financial_data_consensus_and_historical_communications",
-                    "Accesses your financial data, consensus, and historical communications"
+                    "Corporate website and IR mobile app integration"
                   ),
                 },
               ].map((item, i) => (
@@ -157,10 +157,10 @@ export default function AI() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-20" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-16" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="text-center mb-12">
-            <SectionLabel className="justify-center items-center flex flex-col">
+            <SectionLabel centered className="justify-center items-center flex flex-col">
               {t("solutions_ai_ai_capabilities", "AI Capabilities")}
             </SectionLabel>
             <h2 className="type-h3 text-3xl font-bold text-[#0f1e2b] mt-2">
@@ -180,26 +180,26 @@ export default function AI() {
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-5xl text-[#28628F] font-serif mb-6">"</div>
             <blockquote className="text-xl text-[#0f1e2b] italic leading-relaxed mb-8">
               {t(
                 "solutions_ai_the_ai_drafting_tools_have_cut_our_disclosure_preparation_time_in_half",
-                "The AI drafting tools have cut our disclosure preparation time in half. The quality of output is consistently high and aligned with best practice — it's become an essential part of our IR workflow."
+                "Euroland AI helps our stakeholders find the information they need more quickly, with source references that make it easier to verify answers and continue reading in the original materials."
               )}
             </blockquote>
             <div>
-              <p className="font-bold text-[#0f1e2b]">{t("solutions_ai_ir_manager", "IR Manager")}</p>
-              <p className="text-[#5a6a7a] text-sm">{t("solutions_ai_large_cap_company_london_stock_exchange", "Large-cap company, London Stock Exchange")}</p>
+              <p className="font-bold text-[#0f1e2b]">{t("solutions_ai_ir_manager", "Investor Relations Team")}</p>
+              <p className="text-[#5a6a7a] text-sm">{t("solutions_ai_large_cap_company_london_stock_exchange", "Listed company client")}</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-24" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8 text-center" style={{ maxWidth: "1536px" }}>
           <h2 className="type-h5 text-2xl font-bold text-[#0f1e2b] mb-4">
             {t("solutions_ai_see_euroland_ai_in_action", "See Euroland AI in action")}
@@ -207,7 +207,7 @@ export default function AI() {
           <p className="text-[#3a4a58] mb-8 max-w-xl mx-auto">
             {t(
               "solutions_ai_book_a_demo_to_see_how_ai_can_transform_your_ir_workflow",
-              "Book a demo to see how AI can transform your IR workflow — from drafting to analysis to automation."
+              "Book a demo to see how AI-powered IR search can help investors and stakeholders access relevant company information more easily."
             )}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

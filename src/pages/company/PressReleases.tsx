@@ -11,9 +11,9 @@ const RELEASES = [
     slug: "euroland-ir-expands-platform-ai-disclosure-tools",
     tag: "PRESS RELEASE",
     date: "12 Mar 2026",
-    title: "Euroland IR expands best-practice platform with new AI disclosure tools",
+    title: "Euroland IR expands best-practice platform with AI-powered IR search",
     subtitle:
-      "New AI-assisted drafting and disclosure management capabilities now available to all 1,400+ listed clients.",
+      "New AI-powered IR search capabilities help stakeholders access verified Investor Relations information across websites and IR apps.",
   },
 
 ];
@@ -47,7 +47,7 @@ export default function PressReleases() {
           className="container banner-hero-container"
           style={{
             maxWidth: "1536px",
-            padding: "120px 48px 80px",
+            padding: "64px 48px 64px",
             position: "relative",
             zIndex: 1,
           }}
@@ -59,12 +59,12 @@ export default function PressReleases() {
               display: "inline-flex",
               alignItems: "center",
               gap: "6px",
-              fontSize: "13px",
+              fontSize: "var(--fs-sm)",
               fontWeight: 400,
-              lineHeight: "24px",
+              lineHeight: "var(--lh-base)",
               color: "rgba(255,255,255,0.5)",
               textDecoration: "none",
-              marginBottom: "24px",
+              marginBottom: "32px",
             }}
           >
             <svg
@@ -84,9 +84,9 @@ export default function PressReleases() {
           <h2
             className="type-h2"
             style={{
-              fontSize: "48px",
+              fontSize: "var(--fs-3xl)",
               fontWeight: 300,
-              lineHeight: "64px",
+              lineHeight: "var(--lh-3xl)",
               letterSpacing: "-0.01em",
               color: "rgb(255, 255, 255)",
               margin: "0 0 16px",
@@ -99,9 +99,9 @@ export default function PressReleases() {
           {/* Subtitle */}
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "var(--fs-md)",
               fontWeight: 400,
-              lineHeight: "32px",
+              lineHeight: "var(--lh-lg)",
               letterSpacing: "0.01em",
               color: "rgba(255, 255, 255, 0.75)",
               maxWidth: "520px",
@@ -117,7 +117,7 @@ export default function PressReleases() {
       <section
         style={{
           backgroundColor: "rgb(248, 249, 251)",
-          padding: "64px 48px 80px",
+              padding: "64px 48px 64px",
         }}
       >
         <div
@@ -161,16 +161,16 @@ export default function PressReleases() {
                   style={{
                     flexShrink: 0,
                     width: "160px",
-                    paddingTop: "4px",
+                    paddingTop: "0px",
                   }}
                 >
                   <p
                     style={{
-                      fontSize: "13px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(100, 116, 139)",
-                      margin: "0 0 8px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {release.date}
@@ -178,13 +178,13 @@ export default function PressReleases() {
                   <span
                     style={{
                       display: "inline-block",
-                      fontSize: "11px",
-                      fontWeight: 500,
+                      fontSize: "var(--fs-sm)",
+                      fontWeight: 400,
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                       color: "rgb(255, 255, 255)",
-                      backgroundColor: "#327AB1",
-                      padding: "2px 8px",
+                      backgroundColor: "#00ADF0",
+                      padding: "16px 8px",
                       borderRadius: "2px",
                     }}
                   >
@@ -196,20 +196,20 @@ export default function PressReleases() {
                 <div style={{ flex: 1 }}>
                   <p
                     style={{
-                      fontSize: "18px",
+                      fontSize: "var(--fs-md)",
                       fontWeight: 600,
-                      lineHeight: "28px",
+                      lineHeight: "var(--lh-md)",
                       color: "rgb(13, 27, 42)",
-                      margin: "0 0 8px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {release.title}
                   </p>
                   <p
                     style={{
-                      fontSize: "15px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
                     }}
@@ -225,12 +225,12 @@ export default function PressReleases() {
                     display: "flex",
                     alignItems: "center",
                     gap: "6px",
-                    fontSize: "13px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
-                    color: "#327AB1",
-                    paddingTop: "4px",
+                    color: "#0074D9",
+                    paddingTop: "0px",
                     whiteSpace: "nowrap",
                   }}
                 >
@@ -254,3 +254,4 @@ export default function PressReleases() {
     </PageWrapper>
   );
 }
+

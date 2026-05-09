@@ -46,7 +46,7 @@ const GUIDES = [
     title: "Measuring the ROI of Investor Relations",
     desc: "How do you quantify the value of IR to a CFO? This guide provides a practical framework for measuring the return on your IR investment — from reduced cost of capital to improved analyst coverage.",
     readTime: "12 min read",
-    href: "/platform/analytics-earnings",
+    href: "/platform",
   },
   {
     num: "03",
@@ -54,13 +54,13 @@ const GUIDES = [
     title: "IR Analytics: What to Track and Why",
     desc: "Data is only useful if you know what to measure. This guide covers the KPIs that matter in IR, how to build a reporting framework, and how to use analytics to improve investor targeting and messaging.",
     readTime: "9 min read",
-    href: "/platform/analytics-earnings",
+    href: "/platform",
   },
   {
     num: "04",
     tag: "AI & TECHNOLOGY",
     title: "A Practical Guide to AI in Investor Relations",
-    desc: "AI is changing how IR teams work — from automated Q&A and earnings preparation to sentiment analysis. This guide separates the practical from the hype and provides a realistic adoption roadmap.",
+    desc: "AI is changing how stakeholders access Investor Relations information. This guide explains how AI-powered IR search, source references, and multilingual access can improve the digital investor experience.",
     readTime: "8 min read",
     href: "/ai",
   },
@@ -93,7 +93,7 @@ function GuidesInner() {
         variant="resources"
         label="Resources"
         title="IR Guides"
-        subtitle="Six structured guides for investor relations professionals — covering IR platforms, ROI measurement, IR analytics, AI for investor relations, IPO readiness, and ESG disclosure. Written to be read in sequence or used as standalone references."
+        subtitle="Six structured guides for Investor Relations professionals — covering IR platforms, ROI measurement, IR analytics, AI for Investor Relations, IPO readiness, and ESG disclosure. Written to be read in sequence or used as standalone references."
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
@@ -118,12 +118,6 @@ function GuidesInner() {
                 <div
                   className="u-label"
                   style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    lineHeight: "24px",
-                    letterSpacing: "0.96px",
-                    textTransform: "uppercase",
-                    color: "#28628F",
                     marginBottom: "16px",
                   }}
                 >
@@ -133,12 +127,12 @@ function GuidesInner() {
                 {/* H3: 32px/400/40px/rgb(13,27,42) */}
                 <h3 className="type-h4"
                   style={{
-                    fontSize: "32px",
+                    fontSize: "var(--fs-xl)",
                     fontWeight: 400,
-                    lineHeight: "40px",
+                    lineHeight: "var(--lh-xl)",
                     letterSpacing: "0.01em",
                     color: "rgb(13, 27, 42)",
-                    margin: "0 0 20px",
+                    margin: "0 0 16px",
                   }}
                 >
                   Why IR infrastructure matters more than most companies realise
@@ -147,9 +141,9 @@ function GuidesInner() {
                 {/* Body: 16px/400/24px/rgb(58,74,88) */}
                 <p
                   style={{
-                    fontSize: "16px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
                     color: "rgb(58, 74, 88)",
                     margin: 0,
@@ -181,8 +175,8 @@ function GuidesInner() {
 
       {/* ── S3: GUIDE LIST ───────────────────────────────────────────────────── */}
       {/* section white, 6 horizontal guide rows separated by dividers */}
-      <section className="section" style={{ background: "rgb(255, 255, 255)", paddingTop: 0 }}>
-        <div className="container" style={{ maxWidth: "1536px", padding: "0 48px 80px" }}>
+      <section className="section" style={{ background: "rgb(255, 255, 255)" }}>
+        <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f2} className="fade-up">
             {GUIDES.map((guide, idx) => (
               <a
@@ -222,12 +216,12 @@ function GuidesInner() {
                   {/* Number: large, light, grey */}
                   <div
                     style={{
-                      fontSize: "40px",
+                      fontSize: "var(--fs-2xl)",
                       fontWeight: 300,
-                      lineHeight: "48px",
+                      lineHeight: "var(--lh-2xl)",
                       letterSpacing: "-0.4px",
                       color: "rgb(200, 210, 220)",
-                      paddingTop: "4px",
+                      paddingTop: "0px",
                     }}
                   >
                     {guide.num}
@@ -238,13 +232,13 @@ function GuidesInner() {
                     {/* Tag: 12px/600/uppercase/rgb(0,107,163) */}
                     <div
                       style={{
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 500,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.96px",
                         textTransform: "uppercase",
-                        color: "#327AB1",
-                        marginBottom: "4px",
+                        color: "#0074D9",
+                        marginBottom: "16px",
                       }}
                     >
                       {guide.tag}
@@ -253,12 +247,12 @@ function GuidesInner() {
                     {/* H5 title: 20px/600/28px/rgb(13,27,42) */}
                     <h5 className="type-h6"
                       style={{
-                        fontSize: "20px",
+                        fontSize: "var(--fs-md)",
                         fontWeight: 600,
-                        lineHeight: "28px",
+                        lineHeight: "var(--lh-md)",
                         letterSpacing: "0.01em",
                         color: "rgb(13, 27, 42)",
-                        margin: "0 0 8px",
+                        margin: "0 0 16px",
                       }}
                     >
                       {guide.title}
@@ -267,9 +261,9 @@ function GuidesInner() {
                     {/* Description: 14px/400/24px/rgb(58,74,88) */}
                     <p
                       style={{
-                        fontSize: "14px",
+                        fontSize: "var(--fs-base)",
                         fontWeight: 400,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.01em",
                         color: "rgb(58, 74, 88)",
                         margin: 0,
@@ -287,7 +281,7 @@ function GuidesInner() {
                       flexDirection: "column",
                       alignItems: "flex-end",
                       gap: "8px",
-                      paddingTop: "4px",
+                      paddingTop: "0px",
                       minWidth: "120px",
                     }}
                   >
@@ -297,9 +291,9 @@ function GuidesInner() {
                         display: "flex",
                         alignItems: "center",
                         gap: "5px",
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 400,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         color: "rgb(91, 107, 122)",
                         whiteSpace: "nowrap",
                       }}
@@ -311,11 +305,11 @@ function GuidesInner() {
                     {/* Read link: 12px/600/rgb(0,107,163) */}
                     <span
                       style={{
-                        fontSize: "12px",
+                        fontSize: "var(--fs-sm)",
                         fontWeight: 600,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         letterSpacing: "0.48px",
-                        color: "#327AB1",
+                        color: "#0074D9",
                         display: "flex",
                         alignItems: "center",
                         gap: "4px",
@@ -342,3 +336,4 @@ export default function Guides() {
     </EnglishOnlyGuard>
   );
 }
+

@@ -1,8 +1,5 @@
 "use client";
 
-// Euroland IR — CapPageLayout (redesigned to match IPO page structure)
-// Sections: BannerHero → S2 two-column content+bullets (white) → S3 4-col feature cards (slate) → CTA band
-
 import { useEffect, useRef } from "react";
 import LangLink from "@/components/LangLink";
 import BannerHero from "@/components/layout/BannerHero";
@@ -12,14 +9,25 @@ import { Check } from "lucide-react";
 
 function useFadeUp() {
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const el = ref.current; if (!el) return;
+    const el = ref.current;
+    if (!el) return;
+
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { el.classList.add("visible"); obs.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("visible");
+          obs.disconnect();
+        }
+      },
       { threshold: 0.1 }
     );
-    obs.observe(el); return () => obs.disconnect();
+
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
+
   return ref;
 }
 
@@ -59,9 +67,6 @@ export interface CapPageProps {
   processLabel: string;
   processTitle: string;
   process: CapProcess[];
-  testimonialQuote: string;
-  testimonialAuthor: string;
-  testimonialRole: string;
 }
 
 export default function CapPageLayout({
@@ -76,9 +81,6 @@ export default function CapPageLayout({
   capabilitiesTitle,
   capabilities,
   process,
-  testimonialQuote,
-  testimonialAuthor,
-  testimonialRole,
 }: CapPageProps) {
   const { t } = useLanguage();
   const f1 = useFadeUp();
@@ -87,8 +89,6 @@ export default function CapPageLayout({
 
   return (
     <PageWrapper>
-
-      {/* ── S1: HERO ── */}
       <BannerHero
         variant="solutions"
         label={heroLabel}
@@ -100,7 +100,6 @@ export default function CapPageLayout({
         secondaryCtaHref="/contact"
       />
 
-      {/* ── S2: HOW WE HELP — two-column content + testimonial ── */}
       <section className="section" style={{ background: "rgb(255,255,255)" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div
@@ -110,34 +109,22 @@ export default function CapPageLayout({
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: "64px",
-              alignItems: "center",
+              alignItems: "start",
             }}
           >
-            {/* Left — eyebrow, heading, intro, bullets, CTA */}
             <div style={{ padding: "0 48px" }}>
-              <div
-                className="u-label"
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
-                  color: "#327AB1",
-                  marginBottom: "16px",
-                }}
-              >
+              <div className="u-label" style={{ marginBottom: "16px" }}>
                 {howWeHelpLabel}
               </div>
 
               <h4
                 style={{
-                  fontSize: "32px",
+                  fontSize: "var(--fs-xl)",
                   fontWeight: 500,
-                  lineHeight: "40px",
+                  lineHeight: "var(--lh-xl)",
                   letterSpacing: "0.01em",
                   color: "rgb(13,27,42)",
-                  margin: "0 0 24px",
+                  margin: "0 0 32px",
                 }}
               >
                 {howWeHelpTitle}
@@ -145,26 +132,34 @@ export default function CapPageLayout({
 
               <p
                 style={{
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.01em",
                   color: "rgb(58,74,88)",
                   maxWidth: "520px",
-                  margin: "0 0 28px",
+                  margin: 0,
                 }}
               >
                 {howWeHelpIntro}
               </p>
+            </div>
 
+            <div
+              style={{
+                background: "#f2f4f6",
+                borderRadius: "8px",
+                padding: "32px",
+              }}
+            >
               <ul
                 style={{
                   listStyle: "none",
                   padding: 0,
-                  margin: "0 0 32px",
+                  margin: 0,
                   display: "flex",
                   flexDirection: "column",
-                  gap: "10px",
+                  gap: "16px",
                 }}
               >
                 {howWeHelpBullets.map((bullet, i) => (
@@ -173,10 +168,10 @@ export default function CapPageLayout({
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
-                      gap: "10px",
-                      fontSize: "16px",
+                      gap: "12px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58,74,88)",
                     }}
@@ -186,95 +181,38 @@ export default function CapPageLayout({
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        width: "18px",
-                        height: "18px",
+                        width: "20px",
+                        height: "20px",
                         borderRadius: "50%",
-                        border: "1.5px solid #28628F",
-                        color: "#28628F",
-                        fontSize: "10px",
+                        background: "rgba(0, 116, 217, 0.08)",
+                        color: "#0074D9",
                         flexShrink: 0,
-                        marginTop: "3px",
+                        marginTop: "2px",
                       }}
                     >
-                      ✓
+                      <Check size={12} strokeWidth={2.25} />
                     </span>
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
-
-              <LangLink href="/book-demo" className="btn-primary">
-                {t("common_book_demo", "Book a Demo")}
-              </LangLink>
-            </div>
-
-            {/* Right — testimonial quote card */}
-            <div
-              style={{
-                background: "#f2f4f6",
-                borderRadius: "8px",
-                padding: "48px 40px",
-                borderLeft: "4px solid #28628F",
-              }}
-            >
-              <blockquote
-                style={{
-                  fontSize: "20px",
-                  fontWeight: 300,
-                  lineHeight: "32px",
-                  letterSpacing: "-0.01em",
-                  color: "rgb(13,27,42)",
-                  fontStyle: "italic",
-                  margin: "0 0 32px",
-                }}
-              >
-                "{testimonialQuote}"
-              </blockquote>
-              <div>
-                <p
-                  style={{
-                    fontWeight: 600,
-                    color: "rgb(13,27,42)",
-                    fontSize: "14px",
-                    letterSpacing: "0.01em",
-                    margin: "0 0 4px",
-                  }}
-                >
-                  {testimonialAuthor}
-                </p>
-                <p style={{ color: "#5a6a7a", fontSize: "14px", letterSpacing: "0.01em", margin: 0 }}>
-                  {testimonialRole}
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── S3: CAPABILITIES — 4-col feature cards (slate bg) ── */}
       <section className="section" style={{ background: "var(--slate)" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           <div ref={f2} className="fade-up">
-            <div
-              className="u-label"
-              style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                color: "#327AB1",
-                marginBottom: "16px",
-              }}
-            >
+            <div className="u-label" style={{ marginBottom: "16px" }}>
               {capabilitiesLabel}
             </div>
 
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 400,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(13,27,42)",
                 margin: "0 0 16px",
@@ -285,9 +223,9 @@ export default function CapPageLayout({
 
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58,74,88)",
                 maxWidth: "560px",
@@ -297,7 +235,6 @@ export default function CapPageLayout({
               {t("cap_capabilities_intro", "A complete set of tools built for your company's stage and needs.")}
             </p>
 
-            {/* 4-col (or 3-col for 6 items) feature-card grid */}
             <div
               style={{
                 display: "grid",
@@ -310,12 +247,12 @@ export default function CapPageLayout({
                   <div
                     className="num-label"
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 500,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "1.44px",
                       textTransform: "uppercase",
-                      color: "#327AB1",
+                      color: "#0074D9",
                       marginBottom: "16px",
                     }}
                   >
@@ -324,12 +261,12 @@ export default function CapPageLayout({
 
                   <h5
                     style={{
-                      fontSize: "24px",
+                      fontSize: "var(--fs-lg)",
                       fontWeight: 500,
-                      lineHeight: "32px",
+                      lineHeight: "var(--lh-lg)",
                       letterSpacing: "0.01em",
                       color: "rgb(13,27,42)",
-                      margin: "0 0 12px",
+                      margin: "0 0 16px",
                     }}
                   >
                     {cap.title}
@@ -337,9 +274,9 @@ export default function CapPageLayout({
 
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58,74,88)",
                       margin: 0,
@@ -354,19 +291,12 @@ export default function CapPageLayout({
         </div>
       </section>
 
-      {/* ── S4: CTA BAND ── */}
       <div className="cta-band">
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px", textAlign: "center" }}>
           <div ref={f3} className="fade-up">
             <div
               className="u-label u-label-dark"
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "0.96px",
-                textTransform: "uppercase",
-                color: "#327AB1",
                 marginBottom: "16px",
                 display: "inline-block",
               }}
@@ -376,9 +306,9 @@ export default function CapPageLayout({
 
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255,255,255)",
                 textAlign: "center",
@@ -386,22 +316,22 @@ export default function CapPageLayout({
                 maxWidth: "600px",
               }}
             >
-              {t("home_cta_title", "Ready to elevate your IR programme?")}
+              {t("home_cta_title", "Ready to elevate your IR Operation?")}
             </h3>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">
                 {t("common_book_demo", "Book a Demo")}
               </LangLink>
-              <LangLink href="/contact" className="btn-secondary">
-                {t("common_talk_to_us", "Talk to Us")}
+              <LangLink href="/platform" className="btn-secondary">
+                {t("common_talk_to_us", "Explore our tools")}
               </LangLink>
             </div>
           </div>
         </div>
       </div>
       <div style={{ height: "60px", background: "#fff" }} />
-
     </PageWrapper>
   );
 }
+

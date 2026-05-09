@@ -47,7 +47,7 @@ export const LANGUAGES: Language[] = [
 
 export const SUPPORTED_LANG_CODES = LANGUAGES.map(l => l.code);
 
-const LOCALE_V = "3";
+const LOCALE_V = "9";
 const LOCALE_URLS: Record<LangCode, string> = {
   en: `/locales/en.json?v=${LOCALE_V}`,
   fr: `/locales/fr.json?v=${LOCALE_V}`,

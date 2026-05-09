@@ -28,7 +28,7 @@ export default function EnglishOnlyGuard({ children }: Props) {
             <h1 className="type-h3" style={{ color: "var(--text-primary)", marginBottom: "16px" }}>
               {t("resource_language_notice_heading", "This resource is currently available in English only")}
             </h1>
-            <p style={{ marginBottom: "24px", maxWidth: "640px" }}>
+            <p style={{ marginBottom: "32px", maxWidth: "640px" }}>
               {t(
                 "resource_language_notice_body",
                 "We have kept this resource live so you can still access the original content. Switch to English to continue, or contact us if you need support in your local market."
@@ -47,7 +47,7 @@ export default function EnglishOnlyGuard({ children }: Props) {
               </LangLink>
             </div>
             {pathname && (
-              <p className="form-help" style={{ marginTop: "20px" }}>
+              <p className="form-help" style={{ marginTop: "16px" }}>
                 {t("resource_language_notice_current_locale", "Current page")}: {pathname}
               </p>
             )}

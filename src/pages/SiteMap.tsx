@@ -44,18 +44,17 @@ const SECTIONS: SiteSection[] = [
       { label: "Platform Overview", href: "/platform", description: "Full platform overview" },
       { label: "Purpose Built AI", href: "/ai", description: "AI-powered IR tools" },
       { label: "Stock & Financial Data", href: "/platform/stock-data", description: "Real-time market data feeds" },
-      { label: "Analytics & Earnings", href: "/platform/analytics-earnings", description: "Earnings analytics and reporting" },
       { label: "Investor Communications", href: "/platform/investor-communications", description: "Webcasts, press releases, alerts" },
       { label: "IR Apps", href: "/platform/ir-apps", description: "Mobile and web IR applications" },
     ],
   },
   {
     heading: "Solutions",
-    color: "#28628F",
+    color: "#0074D9",
     icon: "💡",
     pages: [
       { label: "For Listed Companies", href: "/solutions/listed-companies", description: "Solutions by company size" },
-      { label: "Micro-Cap Companies", href: "/solutions/listed-companies/micro-cap", description: "IR solutions for micro-cap issuers" },
+      { label: "Micro Cap companies", href: "/solutions/listed-companies/micro-cap", description: "IR solutions for micro-cap issuers" },
       { label: "Small-Cap Companies", href: "/solutions/listed-companies/small-cap", description: "IR solutions for small-cap issuers" },
       { label: "Mid-Cap Companies", href: "/solutions/listed-companies/mid-cap", description: "IR solutions for mid-cap issuers" },
       { label: "Large-Cap Companies", href: "/solutions/listed-companies/large-cap", description: "IR solutions for large-cap issuers" },
@@ -69,7 +68,7 @@ const SECTIONS: SiteSection[] = [
     color: "#1a6fa8",
     icon: "📚",
     pages: [
-      { label: "IR Guide", href: "/resources/ir-guide", description: "Best-practice investor relations guides" },
+      { label: "IR Guide", href: "/resources/ir-guide", description: "Best-practice Investor Relations guides" },
       { label: "Whitepapers", href: "/resources/whitepapers", description: "In-depth research and whitepapers" },
       { label: "IR Blog", href: "/resources/ir-blog", description: "Latest IR insights and articles" },
       { label: "FAQ", href: "/resources/faq", description: "Frequently asked questions" },
@@ -112,12 +111,12 @@ export default function SiteMap() {
       <section
         style={{ backgroundColor: "#082b45", minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}
       >
-        <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
+        <div className="container" style={{ paddingTop: "64px", paddingBottom: "64px" }}>
           <div style={{ maxWidth: "640px" }}>
-            <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "#8ddcff", marginBottom: "16px", display: "inline-block" }}>{t("sitemap_navigation", "Navigation")}</div>
+            <div className="u-label u-label-dark" style={{ marginBottom: "16px", display: "inline-block" }}>{t("sitemap_navigation", "Navigation")}</div>
             {/* h2 → 32px/700/-0.32px from @layer base !important */}
             <h1 className="type-h2" style={{ color: "#ffffff", marginBottom: "16px" }}>{t("sitemap_site_map", "Site Map")}</h1>
-            <p style={{ fontSize: "16px", lineHeight: "24px", color: "rgba(255,255,255,0.70)" }}>
+            <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)" }}>
               {t("sitemap_all_pages_across_sections_click_any_link_to_preview", `All ${totalPages} pages across ${SECTIONS.length} sections — click any link to preview.`)}
             </p>
           </div>
@@ -179,7 +178,7 @@ export default function SiteMap() {
       </section>
 
       {/* Quick stats bar */}
-      <section className="py-10 border-t border-[#dde0e6]" style={{ backgroundColor: "#f2f4f6" }}>
+      <section className="py-12 border-t border-[#dde0e6]" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="flex flex-wrap gap-8 items-center justify-between">
             <div className="flex flex-wrap gap-8">
@@ -204,3 +203,4 @@ export default function SiteMap() {
     </PageWrapper>
   );
 }
+

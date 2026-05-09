@@ -84,7 +84,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 hover:text-white transition-colors text-sm font-bold"
+                className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm font-bold"
                 aria-label="LinkedIn"
               >
                 in
@@ -93,7 +93,7 @@ export default function Footer() {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 hover:text-white transition-colors text-sm font-bold"
+                className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm font-bold"
                 aria-label="X (Twitter)"
               >
                 𝕏
@@ -102,7 +102,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 hover:text-white transition-colors text-sm"
+                className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm"
                 aria-label="YouTube"
               >
                 ▶
@@ -121,7 +121,7 @@ export default function Footer() {
                   <li key={`${col.title}-${idx}`}>
                     <LangLink
                       href={link.href}
-                      className="text-sm text-white/70 hover:text-white transition-colors"
+                      className="inline-flex px-2 py-1 -mx-2 rounded text-sm text-white/70 hover:text-[#035F88] hover:bg-white/10 transition-colors"
                     >
                       {link.label}
                     </LangLink>
@@ -142,7 +142,7 @@ export default function Footer() {
               <LangLink
                 key={link.href}
                 href={link.href}
-                className="text-xs text-white/40 hover:text-white/70 transition-colors"
+                className="inline-flex px-2 py-1 -mx-2 rounded text-xs text-white/40 hover:text-[#035F88] hover:bg-white/10 transition-colors"
               >
                 {link.label}
               </LangLink>

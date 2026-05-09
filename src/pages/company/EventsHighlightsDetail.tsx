@@ -22,95 +22,19 @@ import { useState } from "react";
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
 import { PageWrapper } from "@/components/Layout";
-
-// ── Tag colour map ─────────────────────────────────────────────────────────────
-const TAG_COLORS: Record<string, string> = {
-  CONFERENCE:          "rgb(0, 107, 163)",
-  AWARDS:              "rgb(139, 92, 246)",
-  "PRODUCT SHOWCASE":  "rgb(0, 163, 107)",
-  WORKSHOP:            "rgb(234, 88, 12)",
-  "INVESTOR EVENT":    "rgb(0, 107, 163)",
-  FORUM:               "rgb(0, 107, 163)",
-  RECEPTION:           "rgb(220, 38, 38)",
-};
-
-// ── Event data (mirrors EventsHighlights.tsx) ──────────────────────────────────
-const EVENTS = [
-  {
-    slug: "ubhar-capital-partnership-2025",
-    tag: "PARTNERSHIP",
-    date: "2025",
-    location: "Muscat, Oman",
-    type: "Partnership Signing",
-    title: "Euroland IR & Ubhar Capital Partnership",
-    desc: "Euroland IR and Ubhar Capital announce a strategic partnership to strengthen digital IR communication and investor engagement across Oman's capital market.",
-    body: [
-      "We are proud to announce a partnership between Euroland IR and Ubhar Capital, underscoring a strategic commitment to strengthening digital IR Communication and investor engagement across Oman.",
-      "The agreement was signed in the presence of Muscat Stock Exchange S.A.O.C's CEO, Haitham Al Salmi, and signed by Ubhar Capital's CEO, Abdulaziz Al-Saadi, and Euroland IR CEO and Founder, Lisa Marklund. The signing ceremony was attended by Team Euroland IR, as well as CFOs and Investor Relations Officers from leading listed Omani companies.",
-      "By combining Ubhar Capital's deep local market expertise with Euroland IR's award-winning IR Solutions and Purpose-Built AI for IR, the partnership will elevate investor outreach for Omani issuers, enhance transparency and accessibility in capital markets communication, strengthen investor trust through interactive financial storytelling, and expand regional and international visibility.",
-      "Aligned with Oman Vision 2040, this partnership reinforces Oman's strategic ambition to enhance global visibility and to deepen international investor engagement within its capital markets. Euroland IR looks forward to partnering with issuers and driving long-term value creation for issuers and investors alike.",
-    ],
-    photoCredit: "",
-    photoCount: 0,
-  },
-  {
-    slug: "plc-awards-2025",
-    tag: "AWARDS",
-    date: "2025",
-    location: "London, UK",
-    type: "Awards Ceremony",
-    title: "PLC Awards 2025",
-    desc: "Euroland IR at the PLC Awards 2025 — celebrating excellence across the UK main market with clients and partners.",
-    body: [
-      "Euroland IR was delighted to attend the PLC Awards 2025, celebrating excellence across the UK main market. The evening brought together leading listed companies, advisers, and capital market professionals to recognise outstanding achievement in investor relations, corporate communications, and governance.",
-      "We were especially proud to see our clients and partners recognised among this year's winners, including the Best Investor Communication, Fund Manager, and Company of the Year categories. The PLC Awards, held in association with the London Stock Exchange and sponsored by BDO, are one of the most prestigious recognitions on the UK main market.",
-      "The evening was a wonderful opportunity to connect with IR teams, advisers, and partners who share a commitment to best-practice investor relations. Euroland IR congratulates all the winners and nominees, and thanks our hosts for the invitations.",
-      "We look forward to continuing to support our clients in delivering the transparency, communication quality, and digital IR capabilities that underpin recognition at events like these.",
-    ],
-    photoCredit: "Photography: Euroland IR Events Team",
-    photoCount: 2,
-    mainImage: "/images/events/plc-awards-2025/ceremony.png",
-    galleryImages: [
-      "/images/events/plc-awards-2025/ceremony.png",
-      "/images/events/plc-awards-2025/team.png",
-    ],
-  },
-  {
-    slug: "jira-ir-conference-2025-tokyo",
-    tag: "CONFERENCE",
-    date: "2025",
-    location: "Tokyo, Japan",
-    type: "Conference",
-    title: "JIRA IR Conference 2025 — Tokyo",
-    desc: "Euroland IR at the Japan Investor Relations Association conference, exploring the evolving role of IR in Japan's capital markets.",
-    body: [
-      "Team Euroland IR attended the Japan Investor Relations Association (JIRA) IR Conference 2025 in Tokyo, held at the Tokyo Stock Exchange. The conference brought together IR professionals, listed companies, and capital market leaders to discuss the evolving role of investor relations in Japan's rapidly transforming market environment.",
-      "The keynote by Hiromi Yamaji, CEO of the Tokyo Stock Exchange, set the tone with a compelling Vision 2030 — outlining how Japan's capital market is evolving and how the role of Investor Relations is expanding. Three priorities stood out: attracting international capital, enhancing transparency and disclosure, and strengthening trust between companies and investors.",
-      "Euroland IR's Managing Director joined discussions on how Wise Solutions and AI-enabled IR tools empower IR teams to meet these priorities. Key themes included global readiness in IR communication, digital and AI-enabled IR workflows, and the shift from reporting efficiency to strategic investor engagement.",
-      "AI-driven IR tools are redefining how Investor Relations delivers value in a rapidly evolving digital capital-markets environment. It was a privilege to meet our clients and connections in Tokyo, and Euroland IR looks forward to continuing the conversation and supporting IR Teams implement AI Solutions that tell the equity story and engage investors.",
-    ],
-    photoCredit: "Photography: Euroland IR Events Team",
-    photoCount: 3,
-    mainImage: "/images/events/jira-tokyo-2025/presentation.png",
-    galleryImages: [
-      "/images/events/jira-tokyo-2025/conference-hall.png",
-      "/images/events/jira-tokyo-2025/presentation.png",
-      "/images/events/jira-tokyo-2025/team-photo.png",
-    ],
-  },
-];
-
-// ── Other Highlights (sidebar) — always show 3 events that are NOT the current one ──
-function getOtherHighlights(currentSlug: string) {
-  return EVENTS.filter((e) => e.slug !== currentSlug).slice(0, 3);
-}
+import {
+  EVENT_HIGHLIGHTS,
+  EVENT_HIGHLIGHT_TAG_COLORS,
+  getEventHighlightBySlug,
+  getOtherEventHighlights,
+} from "@/data/eventsHighlights";
 
 export default function EventsHighlightsDetail() {
   const params = useParams<{ slug: string }>();
-  const slug = params?.slug || EVENTS[0].slug;
-  const event = EVENTS.find((e) => e.slug === slug) || EVENTS[0];
-  const others = getOtherHighlights(event.slug);
-  const tagColor = TAG_COLORS[event.tag] || "rgb(0, 107, 163)";
+  const slug = params?.slug || EVENT_HIGHLIGHTS[0].slug;
+  const event = getEventHighlightBySlug(slug) || EVENT_HIGHLIGHTS[0];
+  const others = getOtherEventHighlights(event.slug);
+  const tagColor = EVENT_HIGHLIGHT_TAG_COLORS[event.tag] || "rgb(0, 116, 217)";
   const galleryImages: string[] = (event as any).galleryImages || [];
   const defaultIndex = galleryImages.indexOf((event as any).mainImage ?? "");
   const [activeIndex, setActiveIndex] = useState<number>(defaultIndex >= 0 ? defaultIndex : 0);
@@ -135,11 +59,11 @@ export default function EventsHighlightsDetail() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(13,27,42,0.92), rgba(14,45,74,0.90) 60%, rgba(8,43,69,0.94))", pointerEvents: "none" }} />
         <div
           className="container banner-hero-container"
-          style={{ maxWidth: "1536px", padding: "120px 48px 80px", position: "relative", zIndex: 1 }}
+          style={{ maxWidth: "1536px", padding: "64px 48px 64px", position: "relative", zIndex: 1 }}
         >
           {/* Breadcrumb */}
           <LangLink href="/company/newsroom"
-            style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "13px", fontWeight: 400, lineHeight: "24px", color: "rgba(255,255,255,0.5)", textDecoration: "none", marginBottom: "24px" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.5)", textDecoration: "none", marginBottom: "32px" }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15 18 9 12 15 6" />
@@ -149,11 +73,11 @@ export default function EventsHighlightsDetail() {
 
           <div style={{ maxWidth: "720px" }}>
             {/* Heading */}
-            <h2 className="banner-hero-title type-h2" style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 24px" }}>
+            <h2 className="banner-hero-title type-h2" style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px" }}>
               Events &amp; Highlights
             </h2>
             {/* Date · Location as subtitle */}
-            <p className="banner-hero-subtitle" style={{ fontSize: "20px", fontWeight: 400, lineHeight: "28px", color: "rgba(255,255,255,0.72)", margin: 0 }}>
+            <p className="banner-hero-subtitle" style={{ fontSize: "var(--fs-md)", fontWeight: 400, lineHeight: "var(--lh-md)", color: "rgba(255,255,255,0.72)", margin: 0 }}>
               {event.date} · {event.location}
             </p>
           </div>
@@ -164,7 +88,7 @@ export default function EventsHighlightsDetail() {
       <section
         style={{
           backgroundColor: "rgb(248, 249, 250)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div
@@ -182,12 +106,12 @@ export default function EventsHighlightsDetail() {
             {/* Event title above gallery */}
             <h2
               style={{
-                fontSize: "24px",
+                fontSize: "var(--fs-lg)",
                 fontWeight: 500,
-                lineHeight: "32px",
+                lineHeight: "var(--lh-lg)",
                 letterSpacing: "0.005em",
                 color: "rgb(13, 27, 42)",
-                margin: "0 0 20px",
+                margin: "0 0 16px",
               }}
             >
               {event.title}
@@ -203,7 +127,7 @@ export default function EventsHighlightsDetail() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginBottom: "8px",
+                marginBottom: "16px",
                 overflow: "hidden",
                 position: "relative",
               }}
@@ -268,7 +192,7 @@ export default function EventsHighlightsDetail() {
                           width: i === activeIndex ? "20px" : "8px",
                           height: "8px",
                           borderRadius: "4px",
-                          background: i === activeIndex ? "#327AB1" : "rgba(255,255,255,0.45)",
+                          background: i === activeIndex ? "#00ADF0" : "rgba(255,255,255,0.45)",
                           border: "none",
                           cursor: "pointer",
                           padding: 0,
@@ -301,7 +225,7 @@ export default function EventsHighlightsDetail() {
                       borderRadius: "2px",
                       overflow: "hidden",
                       cursor: "pointer",
-                      border: i === activeIndex ? "2px solid #327AB1" : "2px solid transparent",
+                      border: i === activeIndex ? "2px solid #00ADF0" : "2px solid transparent",
                       transition: "border-color 0.15s",
                     }}
                   >
@@ -320,7 +244,7 @@ export default function EventsHighlightsDetail() {
                     display: "grid",
                     gridTemplateColumns: "repeat(4, 1fr)",
                     gap: "8px",
-                    marginBottom: "8px",
+                    marginBottom: "16px",
                   }}
                 >
                   {[0, 1, 2, 3].map((i) => (
@@ -362,7 +286,7 @@ export default function EventsHighlightsDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "40px",
+                padding: "32px",
               }}
             >
               {/* u-label — y:1264 h:34 */}
@@ -376,20 +300,20 @@ export default function EventsHighlightsDetail() {
               >
                 <span
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "var(--label-blue-light)",
                   }}
                 >
                   ABOUT THIS EVENT
                 </span>
                 <div
                   style={{
-                    flex: 1,
-                    height: "1px",
-                    backgroundColor: "rgb(229, 231, 235)",
+                    width: "25%",
+                    height: "2px",
+                    backgroundColor: "var(--label-blue-light)",
                   }}
                 />
               </div>
@@ -397,12 +321,12 @@ export default function EventsHighlightsDetail() {
               {/* h4 — y:1314 h:40 */}
               <h4 className="type-h5"
                 style={{
-                  fontSize: "24px",
+                  fontSize: "var(--fs-lg)",
                   fontWeight: 500,
-                  lineHeight: "32px",
+                  lineHeight: "var(--lh-lg)",
                   letterSpacing: "0.01em",
                   color: "rgb(13, 27, 42)",
-                  margin: "0 0 24px",
+                  margin: "0 0 32px",
                 }}
               >
                 Event overview
@@ -413,9 +337,9 @@ export default function EventsHighlightsDetail() {
                 <p
                   key={i}
                   style={{
-                    fontSize: "16px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "28px",
+                    lineHeight: "var(--lh-md)",
                     color: "rgb(58, 74, 88)",
                     margin: "0 0 16px",
                   }}
@@ -427,9 +351,9 @@ export default function EventsHighlightsDetail() {
               {/* Photo credit — y:1694 h:49 */}
               <p
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(100, 116, 139)",
                   margin: "16px 0 0",
                   borderTop: "1px solid rgb(229, 231, 235)",
@@ -469,25 +393,25 @@ export default function EventsHighlightsDetail() {
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
-                  marginBottom: "24px",
+                  marginBottom: "32px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "var(--label-blue-light)",
                   }}
                 >
                   EVENT DETAILS
                 </span>
                 <div
                   style={{
-                    flex: 1,
-                    height: "1px",
-                    backgroundColor: "rgb(229, 231, 235)",
+                    width: "25%",
+                    height: "2px",
+                    backgroundColor: "var(--label-blue-light)",
                   }}
                 />
               </div>
@@ -495,28 +419,28 @@ export default function EventsHighlightsDetail() {
               {/* DATE — y:632 h:69 */}
               <div
                 style={{
-                  marginBottom: "28px",
-                  paddingBottom: "28px",
+                  marginBottom: "32px",
+                  paddingBottom: "32px",
                   borderBottom: "1px solid rgb(229, 231, 235)",
                 }}
               >
                 <div
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
                     color: "rgb(58, 74, 88)",
-                    marginBottom: "4px",
+                    marginBottom: "16px",
                   }}
                 >
                   DATE
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(13, 27, 42)",
                   }}
                 >
@@ -527,28 +451,28 @@ export default function EventsHighlightsDetail() {
               {/* LOCATION — y:721 h:69 */}
               <div
                 style={{
-                  marginBottom: "28px",
-                  paddingBottom: "28px",
+                  marginBottom: "32px",
+                  paddingBottom: "32px",
                   borderBottom: "1px solid rgb(229, 231, 235)",
                 }}
               >
                 <div
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
                     color: "rgb(58, 74, 88)",
-                    marginBottom: "4px",
+                    marginBottom: "16px",
                   }}
                 >
                   LOCATION
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(13, 27, 42)",
                   }}
                 >
@@ -560,21 +484,21 @@ export default function EventsHighlightsDetail() {
               <div>
                 <div
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
                     color: "rgb(58, 74, 88)",
-                    marginBottom: "4px",
+                    marginBottom: "16px",
                   }}
                 >
                   TYPE
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 500,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(13, 27, 42)",
                   }}
                 >
@@ -598,25 +522,25 @@ export default function EventsHighlightsDetail() {
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
-                  marginBottom: "24px",
+                  marginBottom: "32px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "var(--label-blue-light)",
                   }}
                 >
                   OTHER HIGHLIGHTS
                 </span>
                 <div
                   style={{
-                    flex: 1,
-                    height: "1px",
-                    backgroundColor: "rgb(229, 231, 235)",
+                    width: "25%",
+                    height: "2px",
+                    backgroundColor: "var(--label-blue-light)",
                   }}
                 />
               </div>
@@ -629,7 +553,7 @@ export default function EventsHighlightsDetail() {
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "12px",
-                        padding: "12px 0",
+                        padding: "16px 0",
                         borderBottom:
                           i < others.length - 1 ? "1px solid rgb(229, 231, 235)" : "none",
                         textDecoration: "none",
@@ -666,9 +590,9 @@ export default function EventsHighlightsDetail() {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 400,
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                             color: "rgb(58, 74, 88)",
                           }}
                         >
@@ -676,9 +600,9 @@ export default function EventsHighlightsDetail() {
                         </div>
                         <div
                           style={{
-                            fontSize: "13px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 500,
-                            lineHeight: "20px",
+                            lineHeight: "var(--lh-sm)",
                             color: "rgb(13, 27, 42)",
                           }}
                         >
@@ -694,10 +618,10 @@ export default function EventsHighlightsDetail() {
                   style={{
                     display: "block",
                     marginTop: "16px",
-                    fontSize: "12px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 600,
                     letterSpacing: "0.01em",
-                    color: "rgb(0, 107, 163)",
+                    color: "rgb(0, 116, 217)",
                     textDecoration: "none",
                   }}
                 >
@@ -720,25 +644,25 @@ export default function EventsHighlightsDetail() {
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
-                  marginBottom: "24px",
+                  marginBottom: "32px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase",
-                    color: "rgb(0, 107, 163)",
+                    color: "var(--label-blue-light)",
                   }}
                 >
                   SHARE
                 </span>
                 <div
                   style={{
-                    flex: 1,
-                    height: "1px",
-                    backgroundColor: "rgb(229, 231, 235)",
+                    width: "25%",
+                    height: "2px",
+                    backgroundColor: "var(--label-blue-light)",
                   }}
                 />
               </div>
@@ -760,14 +684,14 @@ export default function EventsHighlightsDetail() {
                       color: "rgb(255, 255, 255)",
                       border: "none",
                       borderRadius: "2px",
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 600,
                       cursor: "pointer",
                       transition: "background-color 200ms ease",
                     }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                        "rgb(0, 107, 163)")
+                        "var(--button-blue-hover)")
                     }
                     onMouseLeave={(e) =>
                       ((e.currentTarget as HTMLButtonElement).style.backgroundColor =
@@ -812,11 +736,11 @@ export default function EventsHighlightsDetail() {
             >
               <span
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase",
-                  color: "rgb(91, 200, 245)",
+                  color: "var(--label-blue-light)",
                 }}
               >
                 STAY CONNECTED
@@ -825,16 +749,16 @@ export default function EventsHighlightsDetail() {
                 style={{
                   width: "25%",
                   height: "2px",
-                  backgroundColor: "rgb(91, 200, 245)",
+                  backgroundColor: "var(--label-blue-light)",
                 }}
               />
             </div>
             {/* H3 — y:1975 h:48 */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255, 255, 255)",
                 margin: "0 0 16px",
@@ -845,9 +769,9 @@ export default function EventsHighlightsDetail() {
             {/* Subtitle — y:2039 h:24 */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgba(255, 255, 255, 0.7)",
                 margin: 0,
               }}
@@ -861,10 +785,10 @@ export default function EventsHighlightsDetail() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "12px 24px",
-                backgroundColor: "rgb(0, 173, 240)",
+                padding: "16px 24px",
+                backgroundColor: "var(--button-blue)",
                 color: "rgb(255, 255, 255)",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 500,
                 letterSpacing: "0.96px",
                 textTransform: "uppercase",
@@ -881,3 +805,5 @@ export default function EventsHighlightsDetail() {
     </PageWrapper>
   );
 }
+
+

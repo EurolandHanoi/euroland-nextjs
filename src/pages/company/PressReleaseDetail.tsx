@@ -31,16 +31,16 @@ const RELEASES = [
     slug: "euroland-ir-expands-platform-ai-disclosure-tools",
     tag: "PRESS RELEASE",
     date: "12 Mar 2026",
-    title: "Euroland IR expands best-practice platform with new AI disclosure tools",
+    title: "Euroland IR expands best-practice platform with AI-powered IR search",
     subtitle:
-      "New AI-assisted drafting and disclosure management capabilities now available to all 1,400+ listed clients.",
-    lead: "New AI-assisted drafting and disclosure management capabilities now available to all 1,400+ listed clients.",
+      "New AI-powered IR search capabilities help stakeholders access verified Investor Relations information across websites and IR apps.",
+    lead: "New AI-powered IR search capabilities help stakeholders access verified Investor Relations information across websites and IR apps.",
     body: [
-      "Euroland IR today announced the expansion of its best-practice investor relations platform with the introduction of new AI-assisted disclosure tools, now available to all 1,400+ listed company clients.",
-      "The new capabilities include AI-assisted earnings release drafting, automated consistency checking across disclosure documents, and a MAR compliance review module that flags language requiring legal review before publication.",
-      "\u201cThese tools represent a significant step forward in how IR teams can use AI responsibly,\u201d said the CEO of Euroland IR. \u201cWe\u2019ve built them with compliance at the core \u2014 not as an afterthought \u2014 and we\u2019re making them available to all clients as part of their existing subscription.\u201d",
-      "The AI disclosure tools are built on Euroland IR\u2019s proprietary language model, trained on a corpus of verified regulatory filings and investor communications from publicly listed companies across 60+ stock exchanges.",
-      "The tools are available immediately to all Euroland IR clients. A guided onboarding session is available through the client helpdesk.",
+      "Euroland IR today announced the expansion of its best-practice Investor Relations platform with generative AI-powered search for Investor Relations content.",
+      "The AI-powered search experience helps shareholders and stakeholders search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures.",
+      "The solution is designed to make Investor Relations information easier to find, understand, and verify directly from the corporate website or IR mobile app.",
+      "The AI-powered search provides context-aware responses with source references where available, including links, document names, and PDF page numbers.",
+      "A guided onboarding process is available through the Euroland IR team to help clients connect relevant IR content and configure the experience for their website or IR app.",
     ],
   },
   {
@@ -52,7 +52,7 @@ const RELEASES = [
       "Strategic partnership to provide integrated IR services to listed companies across the Nordic region.",
     lead: "Strategic partnership to provide integrated IR services to listed companies across the Nordic region.",
     body: [
-      "Euroland IR has entered into a strategic partnership with a leading Nordic stock exchange to provide integrated investor relations services to listed companies across the Nordic region.",
+      "Euroland IR has entered into a strategic partnership with a leading Nordic stock exchange to provide integrated Investor Relations services to listed companies across the Nordic region.",
       "The partnership will enable listed companies to access Euroland IR\u2019s full suite of IR tools directly through the exchange\u2019s client portal, streamlining onboarding and reducing the administrative burden for IR teams.",
       "\u201cThis partnership reflects our commitment to making best-practice IR accessible to all listed companies, regardless of size or market,\u201d said the Head of Partnerships at Euroland IR.",
       "The integrated service will be available to all companies listed on the exchange from Q2 2026, with a phased rollout beginning in April.",
@@ -63,16 +63,16 @@ const RELEASES = [
     slug: "euroland-ir-wins-ir-magazine-award-best-digital-ir-innovation",
     tag: "PRESS RELEASE",
     date: "21 Feb 2026",
-    title: "Euroland IR wins IR Magazine Award for Best Digital IR Innovation",
+    title: "Euroland IR recognised for award-winning digital IR innovation",
     subtitle:
-      "Award recognises Euroland IR\u2019s AI-powered disclosure tools and purpose-built IR platform.",
-    lead: "Award recognises Euroland IR\u2019s AI-powered disclosure tools and purpose-built IR platform.",
+      "Recognition highlights Euroland IR\u2019s purpose-built Investor Relations platform and AI-powered IR search capabilities.",
+    lead: "Recognition highlights Euroland IR\u2019s purpose-built Investor Relations platform and AI-powered IR search capabilities.",
     body: [
-      "Euroland IR has been awarded the IR Magazine Award for Best Digital IR Innovation, recognising the company\u2019s AI-powered disclosure tools and purpose-built investor relations platform.",
-      "The award was presented at the IR Magazine Europe Awards ceremony in London, attended by investor relations professionals from across Europe.",
-      "\u201cThis award is a recognition of the work our product and engineering teams have done to build tools that genuinely improve the quality and efficiency of investor communications,\u201d said the CEO of Euroland IR.",
-      "The winning submission highlighted Euroland IR\u2019s AI-assisted earnings release drafting tool, which has been shown to reduce drafting time by up to 60% while improving consistency and compliance.",
-      "Euroland IR will continue to invest in AI-powered IR tools throughout 2026, with new features planned for release in Q2 and Q3.",
+      "Euroland IR has been recognised for award-winning digital IR innovation, including its purpose-built Investor Relations platform and AI-powered IR search capabilities.",
+      "The recognition reflects Euroland IR’s focus on practical, technology-driven Investor Relations solutions for listed-company teams.",
+      "The recognition reflects Euroland IR\u2019s focus on practical tools that improve the quality, consistency, and efficiency of investor communications.",
+      "The recognised capabilities include Euroland IR\u2019s AI-powered IR search, designed to help stakeholders locate relevant company information and verify answers through source references.",
+      "Euroland IR will continue to invest in AI-powered Investor Relations tools, with a focus on clearer access to verified company information.",
     ],
   },
   {
@@ -120,11 +120,11 @@ export default function PressReleaseDetail() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(13,27,42,0.92), rgba(14,45,74,0.90) 60%, rgba(8,43,69,0.94))", pointerEvents: "none" }} />
         <div
           className="container banner-hero-container"
-          style={{ maxWidth: "1536px", padding: "120px 48px 80px", position: "relative", zIndex: 1 }}
+          style={{ maxWidth: "1536px", padding: "64px 48px 64px", position: "relative", zIndex: 1 }}
         >
           {/* Breadcrumb */}
           <LangLink href="/company/newsroom"
-            style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "13px", fontWeight: 400, lineHeight: "24px", color: "rgba(255,255,255,0.5)", textDecoration: "none", marginBottom: "24px" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.5)", textDecoration: "none", marginBottom: "32px" }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15 18 9 12 15 6" />
@@ -134,11 +134,11 @@ export default function PressReleaseDetail() {
 
           <div style={{ maxWidth: "720px" }}>
             {/* Heading */}
-            <h2 className="banner-hero-title type-h2" style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 24px" }}>
+            <h2 className="banner-hero-title type-h2" style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px" }}>
               Press Release
             </h2>
             {/* Date as subtitle */}
-            <p className="banner-hero-subtitle" style={{ fontSize: "20px", fontWeight: 400, lineHeight: "28px", color: "rgba(255,255,255,0.72)", margin: 0 }}>
+            <p className="banner-hero-subtitle" style={{ fontSize: "var(--fs-md)", fontWeight: 400, lineHeight: "var(--lh-md)", color: "rgba(255,255,255,0.72)", margin: 0 }}>
               {release.date}
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function PressReleaseDetail() {
       <section
         style={{
           backgroundColor: "rgb(247, 248, 250)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div
@@ -169,7 +169,7 @@ export default function PressReleaseDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "40px",
+                padding: "32px",
               }}
             >
               {/* Title — type-h5: 24px/32px/500 */}
@@ -177,7 +177,7 @@ export default function PressReleaseDetail() {
                 className="type-h5"
                 style={{
                   color: "rgb(13, 27, 42)",
-                  margin: "0 0 12px",
+                  margin: "0 0 16px",
                 }}
               >
                 {release.title}
@@ -188,8 +188,8 @@ export default function PressReleaseDetail() {
                 className="type-h6"
                 style={{
                   color: "rgb(13, 27, 42)",
-                  margin: "0 0 40px",
-                  paddingBottom: "40px",
+                  margin: "0 0 32px",
+                  paddingBottom: "48px",
                   borderBottom: "1px solid rgb(229, 231, 235)",
                 }}
               >
@@ -208,9 +208,9 @@ export default function PressReleaseDetail() {
                   <p
                     key={i}
                     style={{
-                      fontSize: "15px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "28px",
+                      lineHeight: "var(--lh-md)",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
                     }}
@@ -224,15 +224,15 @@ export default function PressReleaseDetail() {
               <div
                 style={{
                   marginTop: "48px",
-                  paddingTop: "24px",
+                  paddingTop: "32px",
                   borderTop: "1px solid rgb(229, 231, 235)",
                 }}
               >
                 <p
                   style={{
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgb(58, 74, 88)",
                     margin: 0,
                   }}
@@ -262,18 +262,18 @@ export default function PressReleaseDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "28px",
+                padding: "32px",
               }}
             >
               {/* ACTIONS u-label */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(0, 107, 163)",
-                  marginBottom: "8px",
+                  color: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               >
                 ACTIONS
@@ -282,8 +282,8 @@ export default function PressReleaseDetail() {
                 style={{
                   width: "25%",
                   height: "2px",
-                  backgroundColor: "rgb(0, 107, 163)",
-                  marginBottom: "20px",
+                  backgroundColor: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               />
               {/* Print release button — y:554 h:24 */}
@@ -294,16 +294,16 @@ export default function PressReleaseDetail() {
                   alignItems: "center",
                   gap: "8px",
                   width: "100%",
-                  padding: "8px 0",
+                  padding: "16px 0",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(58, 74, 88)",
                   borderBottom: "1px solid rgb(229, 231, 235)",
-                  marginBottom: "8px",
+                  marginBottom: "16px",
                   textAlign: "left" as const,
                 }}
               >
@@ -328,13 +328,13 @@ export default function PressReleaseDetail() {
                   alignItems: "center",
                   gap: "8px",
                   width: "100%",
-                  padding: "8px 0",
+                  padding: "16px 0",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(58, 74, 88)",
                   textAlign: "left" as const,
                 }}
@@ -356,18 +356,18 @@ export default function PressReleaseDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "28px",
+                padding: "32px",
               }}
             >
               {/* MEDIA CONTACT u-label — y:705 h:34 */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(0, 107, 163)",
-                  marginBottom: "8px",
+                  color: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               >
                 MEDIA CONTACT
@@ -376,8 +376,8 @@ export default function PressReleaseDetail() {
                 style={{
                   width: "25%",
                   height: "2px",
-                  backgroundColor: "rgb(0, 107, 163)",
-                  marginBottom: "20px",
+                  backgroundColor: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               />
               {/* Email link — y:763 h:24 */}
@@ -387,9 +387,9 @@ export default function PressReleaseDetail() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(13, 27, 42)",
                   textDecoration: "none",
                 }}
@@ -408,18 +408,18 @@ export default function PressReleaseDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "28px",
+                padding: "32px",
               }}
             >
               {/* MORE RELEASES u-label — y:878 h:34 */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(0, 107, 163)",
-                  marginBottom: "8px",
+                  color: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               >
                 MORE RELEASES
@@ -428,8 +428,8 @@ export default function PressReleaseDetail() {
                 style={{
                   width: "25%",
                   height: "2px",
-                  backgroundColor: "rgb(0, 107, 163)",
-                  marginBottom: "20px",
+                  backgroundColor: "var(--label-blue-light)",
+                  marginBottom: "16px",
                 }}
               />
 
@@ -439,7 +439,7 @@ export default function PressReleaseDetail() {
                   <LangLink key={rel.slug} href={`/company/newsroom/press/${rel.slug}`}
                       style={{
                         display: "block",
-                        padding: "12px 0",
+                        padding: "16px 0",
                         borderBottom:
                           i < moreReleases.length - 1
                             ? "1px solid rgb(229, 231, 235)"
@@ -451,11 +451,11 @@ export default function PressReleaseDetail() {
                       {/* Date — y:936 h:24 */}
                       <div
                         style={{
-                          fontSize: "12px",
+                          fontSize: "var(--fs-sm)",
                           fontWeight: 400,
-                          lineHeight: "24px",
+                          lineHeight: "var(--lh-base)",
                           color: "rgb(58, 74, 88)",
-                          marginBottom: "4px",
+                          marginBottom: "16px",
                         }}
                       >
                         {rel.date}
@@ -463,9 +463,9 @@ export default function PressReleaseDetail() {
                       {/* Title — y:964 h:48 */}
                       <div
                         style={{
-                          fontSize: "13px",
+                          fontSize: "var(--fs-sm)",
                           fontWeight: 500,
-                          lineHeight: "20px",
+                          lineHeight: "var(--lh-sm)",
                           color: "rgb(13, 27, 42)",
                         }}
                       >
@@ -482,10 +482,10 @@ export default function PressReleaseDetail() {
                     alignItems: "center",
                     gap: "4px",
                     marginTop: "16px",
-                    fontSize: "13px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: 500,
-                    lineHeight: "24px",
-                    color: "rgb(0, 107, 163)",
+                    lineHeight: "var(--lh-base)",
+                    color: "rgb(0, 116, 217)",
                     textDecoration: "none",
                   }}
                 >
@@ -525,11 +525,11 @@ export default function PressReleaseDetail() {
             >
               <span
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(91, 200, 245)",
+                  color: "var(--label-blue-light)",
                 }}
               >
                 MEDIA ENQUIRIES
@@ -545,9 +545,9 @@ export default function PressReleaseDetail() {
             {/* H3 — y:1527 h:48 */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255, 255, 255)",
                 margin: "0 0 16px",
@@ -558,9 +558,9 @@ export default function PressReleaseDetail() {
             {/* Subtitle — y:1591 h:24 */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgba(255, 255, 255, 0.7)",
                 margin: 0,
               }}
@@ -575,10 +575,10 @@ export default function PressReleaseDetail() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "12px 24px",
-              backgroundColor: "rgb(0, 173, 240)",
+              padding: "16px 24px",
+              backgroundColor: "var(--button-blue)",
               color: "rgb(255, 255, 255)",
-              fontSize: "12px",
+              fontSize: "var(--fs-sm)",
               fontWeight: 500,
               letterSpacing: "0.96px",
               textTransform: "uppercase" as const,
@@ -595,3 +595,5 @@ export default function PressReleaseDetail() {
     </PageWrapper>
   );
 }
+
+

@@ -10,7 +10,7 @@ export default function SmallCap() {
       breadcrumbLabel="For Listed Companies"
       heroLabel="Small Cap Companies"
       heroTitle="Professional IR that grows with you"
-      heroSubtitle="A complete IR presence that's fast to set up, easy to manage, and scales as your company grows. Built for small cap companies that take investor relations seriously."
+      heroSubtitle="A complete IR presence that's fast to set up, easy to manage, and scales as your company grows. Built for small cap companies that take Investor Relations seriously."
       challengesLabel="The Challenges"
       challengesTitle="What small cap companies face"
       challenges={[
@@ -31,7 +31,7 @@ export default function SmallCap() {
         "ESG and sustainability reporting",
       ]}
       capabilitiesLabel="What You Can Do"
-      capabilitiesTitle="Run a full IR programme with a small team"
+      capabilitiesTitle="Run a full IR Operation with a small team"
       capabilities={[
         {
           icon: "",
@@ -74,9 +74,6 @@ export default function SmallCap() {
         { step: "05", title: "", description: "" },
         { step: "06", title: "", description: "" },
       ]}
-      testimonialQuote="Euroland IR has made it possible for our two-person IR team to deliver a programme that punches well above our weight. The tools are intuitive and the support is excellent."
-      testimonialAuthor="Head of Investor Relations"
-      testimonialRole="Small cap company, London Stock Exchange"
     />
   );
 }

@@ -5,10 +5,10 @@
  * Exact structure from Netlify reference DOM audit at 1280px viewport
  * Overlay: position:fixed, z:1000, bg:rgba(8,27,42,0.8)
  * Modal: 1216×596px, display:flex, 2 cols 608px each, border-radius:16px
- * Left panel: navy bg(8,43,69), padding:44px 40px, animation placeholder
- * Right panel: white, padding:44px 40px, header+divider+features+impact+buttons
+ * Left panel: navy bg(8,43,69), padding:48px 40px, animation placeholder
+ * Right panel: white, padding:48px 40px, header+divider+features+impact+buttons
  */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 import LangLink from "@/components/LangLink";
 
@@ -20,6 +20,9 @@ export interface ModalData {
   features: string[];
   impact?: string[];
   learnMoreHref?: string;
+  animationVideoSrc?: string;
+  animationImageSrcs?: string[];
+  animationVariant?: "investor-calendar";
   /** Legacy fields — kept for backward compat with IRTools.tsx */
   iconLabel?: string;
   benefits?: string[];
@@ -30,8 +33,91 @@ interface ToolModalProps {
   onClose: () => void;
 }
 
+function InvestorCalendarPreview() {
+  const months = ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"];
+  const events = [
+    ["29/04/2026", "Year 2026 3-month interim report"],
+    ["22/07/2026", "Year 2026 6-month half-year financial report"],
+    ["29/10/2026", "Year 2026 9-month interim report"],
+  ];
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        background: "#ffffff",
+        color: "#111827",
+        padding: "16px",
+        boxSizing: "border-box",
+        fontFamily: "Arial, sans-serif",
+        overflow: "hidden",
+      }}
+    >
+      <h3 style={{ margin: "0 0 14px", textAlign: "center", color: "#c94a00", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 800, letterSpacing: "0.06em" }}>
+        INVESTOR CALENDAR
+      </h3>
+      <div style={{ fontSize: "var(--fs-xs)", lineHeight: "var(--lh-xs)", marginBottom: "16px" }}>
+        <strong style={{ display: "block", marginBottom: "16px" }}>Next Event:</strong>
+        <strong style={{ display: "block" }}>29/04/2026</strong>
+        <span>Year 2026 3-month interim report</span>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", border: "1px solid #e5e7eb", marginBottom: "16px" }}>
+        {months.map((month) => (
+          <div
+            key={month}
+            style={{
+              height: "28px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRight: "1px solid #e5e7eb",
+              background: month === "Apr" ? "#e8e8e8" : "#ffffff",
+              fontSize: "var(--fs-xs)",
+              position: "relative",
+            }}
+          >
+            {month}
+            {["Mar", "Apr", "Jul", "Oct"].includes(month) && (
+              <span style={{ position: "absolute", bottom: "3px", width: "2px", height: "2px", borderRadius: "50%", background: "#0057b8" }} />
+            )}
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+        <div>
+          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Download all upcoming events</strong>
+          <div style={{ width: "22px", height: "22px", borderRadius: "4px", background: "#d7e8ef", display: "flex", alignItems: "center", justifyContent: "center", color: "#3b82f6", fontSize: "var(--fs-sm)" }}>▦</div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Subscribe for events</strong>
+          <button style={{ border: 0, background: "#092b67", color: "#ffffff", padding: "16px 12px", fontSize: "var(--fs-xs)", fontWeight: 700 }}>
+            Subscribe
+          </button>
+        </div>
+      </div>
+      <div style={{ borderBottom: "1px solid #6b7280", display: "flex", gap: "8px", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>
+        <span style={{ border: "1px solid #6b7280", borderBottom: "0", padding: "16px 10px", color: "#4b5563" }}>Upcoming Events</span>
+        <span style={{ padding: "16px 10px", color: "#05245c" }}>Past Events</span>
+      </div>
+      <div style={{ fontSize: "var(--fs-xs)" }}>
+        {events.map(([date, label]) => (
+          <div key={date} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "12px", borderBottom: "1px solid #e5e7eb", padding: "16px 0" }}>
+            <div>
+              <strong style={{ display: "block", marginBottom: "16px" }}>{date}</strong>
+              <span>{label}</span>
+            </div>
+            <strong style={{ alignSelf: "center" }}>Results</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function ToolModal({ modal, onClose }: ToolModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     if (!modal) return;
@@ -43,6 +129,15 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
       document.body.style.overflow = "";
     };
   }, [modal, onClose]);
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+    if (!modal?.animationImageSrcs?.length) return;
+    const interval = window.setInterval(() => {
+      setActiveImageIndex((index) => (index + 1) % modal.animationImageSrcs!.length);
+    }, 3000);
+    return () => window.clearInterval(interval);
+  }, [modal]);
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === overlayRef.current) onClose();
@@ -67,6 +162,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
     >
       {/* Modal card: 1216×596px, 2 equal columns */}
       <div
+        className="tool-modal-card"
         style={{
           width: "1216px",
           maxWidth: "calc(100vw - 48px)",
@@ -82,11 +178,12 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
       >
         {/* LEFT PANEL — navy, 608px, animation placeholder */}
         <div
+          className="tool-modal-media-panel"
           style={{
             width: "608px",
             flexShrink: 0,
             background: "rgb(8, 43, 69)",
-            padding: "44px 40px",
+            padding: "48px 40px",
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -95,6 +192,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
         >
           {/* Decorative orb top-left */}
           <div
+            className="tool-modal-animation"
             style={{
               position: "absolute",
               width: "324px",
@@ -137,62 +235,156 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
               gap: "16px",
             }}
           >
-            {/* Play icon */}
-            <div
-              style={{
-                width: "56px",
-                height: "56px",
-                borderRadius: "50%",
-                border: "1px solid rgba(0, 173, 240, 0.4)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            {modal.animationVideoSrc ? (
               <div
                 style={{
-                  width: 0,
-                  height: 0,
-                  borderTop: "8px solid transparent",
-                  borderBottom: "8px solid transparent",
-                  borderLeft: "14px solid rgba(0, 173, 240, 0.7)",
-                  marginLeft: "4px",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "linear-gradient(135deg, #ffffff 0%, #eef7fb 100%)",
+                  padding: "16px",
+                  boxSizing: "border-box",
                 }}
-              />
-            </div>
-            <div
-              style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                letterSpacing: "1.2px",
-                color: "rgba(255, 255, 255, 0.28)",
-                textTransform: "uppercase",
-                textAlign: "center",
-              }}
-            >
-              ANIMATION AREA
-            </div>
-            <div
-              style={{
-                fontSize: "12px",
-                fontWeight: 400,
-                lineHeight: "20px",
-                letterSpacing: "0.01em",
-                color: "rgba(255, 255, 255, 0.18)",
-                textAlign: "center",
-              }}
-            >
-              {modal.title}         </div>
+              >
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={`${modal.title} preview`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    display: "block",
+                    borderRadius: "12px",
+                    background: "#ffffff",
+                    boxShadow: "0 18px 48px rgba(0, 0, 0, 0.24)",
+                  }}
+                >
+                  <source src={modal.animationVideoSrc} type="video/mp4" />
+                </video>
+              </div>
+            ) : modal.animationImageSrcs?.length ? (
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,173,240,0.04))",
+                  padding: "16px",
+                  boxSizing: "border-box",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={modal.animationImageSrcs[activeImageIndex]}
+                  alt={`${modal.title} preview`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                    borderRadius: "12px",
+                    boxShadow: "0 18px 48px rgba(0, 0, 0, 0.28)",
+                    transform: "scale(1.12)",
+                  }}
+                />
+              </div>
+            ) : modal.animationVariant === "investor-calendar" ? (
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "linear-gradient(135deg, #ffffff 0%, #eef7fb 100%)",
+                  padding: "32px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    maxWidth: "480px",
+                    aspectRatio: "16 / 10",
+                    background: "#ffffff",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    boxShadow: "0 18px 48px rgba(0, 0, 0, 0.24)",
+                  }}
+                >
+                  <InvestorCalendarPreview />
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Play icon */}
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    border: "1px solid rgba(0, 173, 240, 0.4)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 0,
+                      height: 0,
+                      borderTop: "8px solid transparent",
+                      borderBottom: "8px solid transparent",
+                      borderLeft: "14px solid rgba(0, 173, 240, 0.7)",
+                      marginLeft: "4px",
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
+                    lineHeight: "var(--lh-base)",
+                    letterSpacing: "1.2px",
+                    color: "rgba(255, 255, 255, 0.28)",
+                    textTransform: "uppercase",
+                    textAlign: "center",
+                  }}
+                >
+                  ANIMATION AREA
+                </div>
+                <div
+                  style={{
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
+                    lineHeight: "var(--lh-sm)",
+                    letterSpacing: "0.01em",
+                    color: "rgba(255, 255, 255, 0.18)",
+                    textAlign: "center",
+                  }}
+                >
+                  {modal.title}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         {/* RIGHT PANEL — white, 608px */}
         <div
+          className="tool-modal-content-panel"
           style={{
             flex: 1,
             background: "rgb(255, 255, 255)",
-            padding: "44px 40px",
+            padding: "48px 40px",
             display: "flex",
             flexDirection: "column",
             overflowY: "auto",
@@ -234,13 +426,13 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             {/* Eyebrow: 12px/700/24px/0.96px, color:rgb(156,163,175) */}
             <div
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
-                lineHeight: "24px",
+                fontSize: "var(--fs-sm)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.96px",
                 color: "rgb(156, 163, 175)",
                 textTransform: "uppercase",
-                marginBottom: "4px",
+                marginBottom: "16px",
               }}
             >
               {modal.eyebrow}
@@ -248,12 +440,12 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             {/* Title: 20px/400/28px/0.1px — from typography-export row 55 */}
             <h4 className="type-h6"
               style={{
-                fontSize: "20px",
-                fontWeight: 400,
-                lineHeight: "28px",
+                fontSize: "var(--fs-md)",
+                fontWeight: 600,
+                lineHeight: "var(--lh-md)",
                 letterSpacing: "0.1px",
                 color: "rgb(13, 31, 45)",
-                margin: "0 0 8px 0",
+                margin: "0 0 16px 0",
               }}
             >
               {modal.title}
@@ -261,9 +453,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             {/* Subtitle: 16px/400/24px/0.16px */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(71, 85, 105)",
                 margin: 0,
@@ -276,7 +468,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
           {/* Divider bar: 36×2px, bg:rgb(0,173,240), border-radius:4px */}
           <div
             style={{
-              width: "36px",
+              width: "25%",
               height: "2px",
               background: "rgb(0, 173, 240)",
               borderRadius: "4px",
@@ -287,13 +479,13 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
           {/* KEY FEATURES label: 12px/700/24px/0.96px, color:rgb(156,163,175) */}
           <div
             style={{
-              fontSize: "12px",
-              fontWeight: 500,
-              lineHeight: "24px",
+              fontSize: "var(--fs-sm)",
+              fontWeight: 400,
+              lineHeight: "var(--lh-base)",
               letterSpacing: "0.96px",
               color: "rgb(156, 163, 175)",
               textTransform: "uppercase",
-              marginBottom: "8px",
+              marginBottom: "16px",
             }}
           >
             KEY FEATURES
@@ -318,9 +510,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
                   flexDirection: "row",
                   alignItems: "center",
                   gap: "12px",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 400,
-                  lineHeight: "20px",
+                  lineHeight: "var(--lh-sm)",
                   letterSpacing: "0.01em",
                   color: "rgb(55, 65, 81)",
                 }}
@@ -332,7 +524,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
                     width: "8px",
                     height: "8px",
                     borderRadius: "50%",
-                    background: "rgb(0, 107, 163)",
+                    background: "rgb(0, 116, 217)",
                     flexShrink: 0,
                   }}
                 />
@@ -344,13 +536,13 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
           {/* IMPACT label */}
           <div
             style={{
-              fontSize: "12px",
-              fontWeight: 500,
-              lineHeight: "24px",
+              fontSize: "var(--fs-sm)",
+              fontWeight: 400,
+              lineHeight: "var(--lh-base)",
               letterSpacing: "0.96px",
               color: "rgb(156, 163, 175)",
               textTransform: "uppercase",
-              marginBottom: "8px",
+              marginBottom: "16px",
             }}
           >
             IMPACT
@@ -361,7 +553,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             style={{
               listStyle: "none",
               padding: 0,
-              margin: "0 0 24px 0",
+              margin: "0 0 32px 0",
               display: "flex",
               flexDirection: "column",
               gap: "8px",
@@ -375,9 +567,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
                   flexDirection: "row",
                   alignItems: "center",
                   gap: "12px",
-                  fontSize: "12px",
+                fontSize: "var(--fs-xs)",
                   fontWeight: 400,
-                  lineHeight: "20px",
+                  lineHeight: "var(--lh-sm)",
                   letterSpacing: "0.01em",
                   color: "rgb(55, 65, 81)",
                 }}
@@ -413,7 +605,47 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
       <style>{`
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 767px) {
+          .tool-modal-card {
+            width: calc(100vw - 24px) !important;
+            max-width: calc(100vw - 24px) !important;
+            height: auto !important;
+            max-height: 92vh !important;
+            flex-direction: column !important;
+            overflow-y: auto !important;
+          }
+          .tool-modal-media-panel {
+            width: 100% !important;
+            height: 260px !important;
+            padding: 16px !important;
+          }
+          .tool-modal-animation {
+            width: 100% !important;
+            height: 100% !important;
+          }
+          .tool-modal-content-panel {
+            padding: 32px 24px !important;
+            overflow: visible !important;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+          .tool-modal-card {
+            width: calc(100vw - 48px) !important;
+          }
+          .tool-modal-media-panel {
+            width: 48% !important;
+            padding: 32px 24px !important;
+          }
+          .tool-modal-animation {
+            width: 100% !important;
+            height: 100% !important;
+          }
+          .tool-modal-content-panel {
+            padding: 32px 32px !important;
+          }
+        }
       `}</style>
     </div>
   );
 }
+

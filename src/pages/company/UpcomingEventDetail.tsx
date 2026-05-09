@@ -39,11 +39,11 @@ const EVENTS = [
     date: "25 Mar 2026",
     typeLabel: "Webinar",
     about:
-      "A practical, hands-on webinar for IR professionals exploring how purpose-built AI tools can accelerate earnings drafting, improve disclosure consistency, and save IR teams significant time each quarter.",
+      "A practical, hands-on webinar for IR professionals exploring how purpose-built AI search can improve access to Investor Relations content and help stakeholders verify information at the source.",
     agenda: [
-      "Introduction to AI in investor relations",
-      "Live demonstration: AI-assisted earnings release drafting",
-      "Compliance guardrails: what IR-specific AI does differently",
+      "Introduction to AI in Investor Relations",
+      "Live demonstration: AI-powered IR search",
+      "Source references: helping users verify AI-powered IR search results",
       "Q&A with the Euroland IR product team",
     ],
   },
@@ -58,7 +58,7 @@ const EVENTS = [
     date: "8 Apr 2026",
     typeLabel: "Conference",
     about:
-      "The IR Magazine Europe Awards recognise the best investor relations programmes across European listed companies. Euroland IR will be present to connect with IR teams and discuss best-practice digital IR.",
+      "The IR Magazine Europe Awards recognise the best Investor Relations operations across European listed companies. Euroland IR will be present to connect with IR teams and discuss best-practice digital IR.",
     agenda: [
       "Awards ceremony and keynote presentations",
       "Networking reception with IR professionals",
@@ -96,10 +96,10 @@ const EVENTS = [
     date: "15 May 2026",
     typeLabel: "Conference",
     about:
-      "The NIRI Annual Conference is the premier event for investor relations professionals in North America. Euroland IR will be exhibiting and hosting sessions on AI-powered IR workflows and digital disclosure.",
+      "The NIRI Annual Conference is the premier event for Investor Relations professionals in North America. Euroland IR will be exhibiting and hosting sessions on AI-powered IR workflows and digital disclosure.",
     agenda: [
       "Euroland IR booth and product demonstrations",
-      "Session: AI in investor relations — practical applications",
+      "Session: AI in Investor Relations — practical applications",
       "Roundtable: cross-border IR communication challenges",
       "Networking dinner for IR technology partners",
     ],
@@ -132,10 +132,10 @@ function getOtherEvents(currentSlug: string) {
 
 // ── Tag colour map ─────────────────────────────────────────────────────────────
 const TAG_COLORS: Record<string, string> = {
-  WEBINAR:    "rgb(0, 107, 163)",
-  CONFERENCE: "rgb(0, 107, 163)",
+  WEBINAR:    "rgb(0, 116, 217)",
+  CONFERENCE: "rgb(0, 116, 217)",
   WORKSHOP:   "rgb(234, 88, 12)",
-  FORUM:      "rgb(0, 107, 163)",
+  FORUM:      "rgb(0, 116, 217)",
 };
 
 export default function UpcomingEventDetail() {
@@ -143,7 +143,7 @@ export default function UpcomingEventDetail() {
   const slug = params?.slug || EVENTS[0].slug;
   const event = EVENTS.find((e) => e.slug === slug) || EVENTS[0];
   const others = getOtherEvents(event.slug);
-  const tagColor = TAG_COLORS[event.type] || "rgb(0, 107, 163)";
+  const tagColor = TAG_COLORS[event.type] || "rgb(0, 116, 217)";
 
   return (
     <PageWrapper>
@@ -160,8 +160,8 @@ export default function UpcomingEventDetail() {
             maxWidth: "1536px",
             margin: "0 auto",
             padding: "0 48px",
-            paddingTop: "96px",
-            paddingBottom: "96px",
+            paddingTop: "64px",
+            paddingBottom: "64px",
           }}
         >
           {/* Breadcrumb — y:108 h:24 w:126 */}
@@ -170,9 +170,9 @@ export default function UpcomingEventDetail() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                fontSize: "14px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgba(255, 255, 255, 0.6)",
                 textDecoration: "none",
                 marginBottom: "32px",
@@ -200,15 +200,15 @@ export default function UpcomingEventDetail() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                paddingTop: "4px",
+                paddingTop: "0px",
               }}
             >
               {/* Day — y:190 h:48 */}
               <div
                 style={{
-                  fontSize: "40px",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 300,
-                  lineHeight: "48px",
+                  lineHeight: "var(--lh-2xl)",
                   color: "rgb(255, 255, 255)",
                   letterSpacing: "-0.4px",
                 }}
@@ -218,12 +218,12 @@ export default function UpcomingEventDetail() {
               {/* Month — y:242 h:24 */}
               <div
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 500,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(0, 173, 240)",
+                  color: "var(--label-blue-dark)",
                 }}
               >
                 {event.month}
@@ -238,16 +238,16 @@ export default function UpcomingEventDetail() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "10px",
-                  marginBottom: "12px",
+                  marginBottom: "16px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-sm)",
+                    fontWeight: 400,
                     letterSpacing: "0.96px",
                     textTransform: "uppercase" as const,
-                    color: "rgb(91, 200, 245)",
+                    color: "var(--label-blue-light)",
                   }}
                 >
                   {event.type}
@@ -264,12 +264,12 @@ export default function UpcomingEventDetail() {
               {/* H2 — y:212 h:40 w:1312 */}
               <h2 className="type-h4"
                 style={{
-                  fontSize: "32px",
+                  fontSize: "var(--fs-xl)",
                   fontWeight: 400,
-                  lineHeight: "40px",
+                  lineHeight: "var(--lh-xl)",
                   letterSpacing: "0.01em",
                   color: "rgb(255, 255, 255)",
-                  margin: "0 0 20px",
+                  margin: "0 0 16px",
                 }}
               >
                 {event.title}
@@ -290,9 +290,9 @@ export default function UpcomingEventDetail() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "6px",
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgba(255, 255, 255, 0.6)",
                   }}
                 >
@@ -308,9 +308,9 @@ export default function UpcomingEventDetail() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "6px",
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgba(255, 255, 255, 0.6)",
                   }}
                 >
@@ -328,9 +328,9 @@ export default function UpcomingEventDetail() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "6px",
-                    fontSize: "14px",
+                    fontSize: "var(--fs-base)",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     color: "rgba(255, 255, 255, 0.6)",
                   }}
                 >
@@ -350,7 +350,7 @@ export default function UpcomingEventDetail() {
       <section
         style={{
           backgroundColor: "rgb(255, 255, 255)",
-          padding: "80px 0",
+          padding: "64px 0",
         }}
       >
         <div
@@ -376,12 +376,12 @@ export default function UpcomingEventDetail() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                marginBottom: "40px",
+                marginBottom: "32px",
               }}
             >
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
@@ -395,12 +395,12 @@ export default function UpcomingEventDetail() {
             {/* h4 "About this event" — y:780 h:40 */}
             <h4 className="type-h5"
               style={{
-                fontSize: "24px",
+                fontSize: "var(--fs-lg)",
                 fontWeight: 500,
-                lineHeight: "32px",
+                lineHeight: "var(--lh-lg)",
                 letterSpacing: "0.01em",
                 color: "rgb(13, 27, 42)",
-                margin: "0 0 24px",
+                margin: "0 0 32px",
               }}
             >
               About this event
@@ -409,9 +409,9 @@ export default function UpcomingEventDetail() {
             {/* Body paragraph — y:844 h:64 */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "28px",
+                lineHeight: "var(--lh-md)",
                 color: "rgb(13, 27, 42)",
                 margin: "0 0 48px",
               }}
@@ -422,12 +422,12 @@ export default function UpcomingEventDetail() {
             {/* h4 "Agenda highlights" — y:948 h:40 */}
             <h4 className="type-h5"
               style={{
-                fontSize: "24px",
+                fontSize: "var(--fs-lg)",
                 fontWeight: 500,
-                lineHeight: "32px",
+                lineHeight: "var(--lh-lg)",
                 letterSpacing: "0.01em",
                 color: "rgb(13, 27, 42)",
-                margin: "0 0 24px",
+                margin: "0 0 32px",
               }}
             >
               Agenda highlights
@@ -470,9 +470,9 @@ export default function UpcomingEventDetail() {
                   {/* Text span — y:1029 h:24 */}
                   <span
                     style={{
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(13, 27, 42)",
                     }}
                   >
@@ -507,12 +507,12 @@ export default function UpcomingEventDetail() {
               {/* Label — y:492 h:24 */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
                   color: "rgba(255, 255, 255, 0.7)",
-                  marginBottom: "12px",
+                  marginBottom: "16px",
                 }}
               >
                 REGISTER INTEREST
@@ -520,11 +520,11 @@ export default function UpcomingEventDetail() {
               {/* h5 — y:528 h:32 */}
               <h5 className="type-h6"
                 style={{
-                  fontSize: "20px",
+                  fontSize: "var(--fs-md)",
                   fontWeight: 500,
-                  lineHeight: "28px",
+                  lineHeight: "var(--lh-md)",
                   color: "rgb(255, 255, 255)",
-                  margin: "0 0 24px",
+                  margin: "0 0 32px",
                 }}
               >
                 Join us at this event
@@ -535,10 +535,10 @@ export default function UpcomingEventDetail() {
                 style={{
                   display: "block",
                   width: "100%",
-                  padding: "12px 24px",
-                  backgroundColor: "rgb(0, 173, 240)",
+                  padding: "16px 24px",
+                  backgroundColor: "var(--button-blue)",
                   color: "rgb(255, 255, 255)",
-                  fontSize: "12px",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 500,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
@@ -559,18 +559,18 @@ export default function UpcomingEventDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "28px",
+                padding: "32px",
               }}
             >
               {/* EVENT DETAILS label — y:705 h:24 */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
                   color: "rgb(13, 27, 42)",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                 }}
               >
                 EVENT DETAILS
@@ -587,7 +587,7 @@ export default function UpcomingEventDetail() {
                   borderBottom: "1px solid rgb(229, 231, 235)",
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "5px", flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "16px", flexShrink: 0 }}>
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
                   <line x1="8" y1="2" x2="8" y2="6" />
@@ -596,9 +596,9 @@ export default function UpcomingEventDetail() {
                 <div>
                   <div
                     style={{
-                      fontSize: "11px",
+                      fontSize: "var(--fs-xs)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(58, 74, 88)",
                     }}
                   >
@@ -606,9 +606,9 @@ export default function UpcomingEventDetail() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 500,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(13, 27, 42)",
                     }}
                   >
@@ -628,16 +628,16 @@ export default function UpcomingEventDetail() {
                   borderBottom: "1px solid rgb(229, 231, 235)",
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "5px", flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "16px", flexShrink: 0 }}>
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
                 <div>
                   <div
                     style={{
-                      fontSize: "11px",
+                      fontSize: "var(--fs-xs)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(58, 74, 88)",
                     }}
                   >
@@ -645,9 +645,9 @@ export default function UpcomingEventDetail() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 500,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(13, 27, 42)",
                     }}
                   >
@@ -664,16 +664,16 @@ export default function UpcomingEventDetail() {
                   gap: "12px",
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "5px", flexShrink: 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(100,116,139)" strokeWidth="2" style={{ marginTop: "16px", flexShrink: 0 }}>
                   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
                   <line x1="7" y1="7" x2="7.01" y2="7" />
                 </svg>
                 <div>
                   <div
                     style={{
-                      fontSize: "11px",
+                      fontSize: "var(--fs-xs)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(58, 74, 88)",
                     }}
                   >
@@ -681,9 +681,9 @@ export default function UpcomingEventDetail() {
                   </div>
                   <div
                     style={{
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 500,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(13, 27, 42)",
                     }}
                   >
@@ -699,18 +699,18 @@ export default function UpcomingEventDetail() {
                 backgroundColor: "rgb(255, 255, 255)",
                 border: "1px solid rgb(229, 231, 235)",
                 borderRadius: "4px",
-                padding: "28px",
+                padding: "32px",
               }}
             >
               {/* OTHER EVENTS label — y:998 h:24 */}
               <div
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
                   color: "rgb(13, 27, 42)",
-                  marginBottom: "20px",
+                  marginBottom: "16px",
                 }}
               >
                 OTHER EVENTS
@@ -724,7 +724,7 @@ export default function UpcomingEventDetail() {
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "12px",
-                        padding: "12px 0",
+                        padding: "16px 0",
                         borderBottom:
                           i < others.length - 1 ? "1px solid rgb(229, 231, 235)" : "none",
                         textDecoration: "none",
@@ -749,9 +749,9 @@ export default function UpcomingEventDetail() {
                         {/* Day — y:1046 h:20 */}
                         <div
                           style={{
-                            fontSize: "16px",
+                            fontSize: "var(--fs-base)",
                             fontWeight: 300,
-                            lineHeight: "20px",
+                            lineHeight: "var(--lh-sm)",
                             color: "rgb(255, 255, 255)",
                           }}
                         >
@@ -760,12 +760,12 @@ export default function UpcomingEventDetail() {
                         {/* Month — y:1066 h:24 */}
                         <div
                           style={{
-                            fontSize: "10px",
-                            fontWeight: 700,
-                            lineHeight: "12px",
+                            fontSize: "var(--fs-sm)",
+                            fontWeight: 400,
+                            lineHeight: "var(--lh-xs)",
                             letterSpacing: "0.08em",
                             textTransform: "uppercase" as const,
-                            color: "rgb(0, 173, 240)",
+                            color: "var(--label-blue-dark)",
                           }}
                         >
                           {other.month}
@@ -775,9 +775,9 @@ export default function UpcomingEventDetail() {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 400,
-                            lineHeight: "24px",
+                            lineHeight: "var(--lh-base)",
                             color: "rgb(58, 74, 88)",
                           }}
                         >
@@ -785,9 +785,9 @@ export default function UpcomingEventDetail() {
                         </div>
                         <div
                           style={{
-                            fontSize: "13px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 500,
-                            lineHeight: "20px",
+                            lineHeight: "var(--lh-sm)",
                             color: "rgb(13, 27, 42)",
                           }}
                         >
@@ -831,11 +831,11 @@ export default function UpcomingEventDetail() {
             >
               <span
                 style={{
-                  fontSize: "10px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-sm)",
+                  fontWeight: 400,
                   letterSpacing: "0.96px",
                   textTransform: "uppercase" as const,
-                  color: "rgb(91, 200, 245)",
+                  color: "var(--label-blue-light)",
                 }}
               >
                 EVENTS
@@ -851,9 +851,9 @@ export default function UpcomingEventDetail() {
             {/* H3 — y:1517 h:48 */}
             <h3
               style={{
-                fontSize: "40px",
+                fontSize: "var(--fs-2xl)",
                 fontWeight: 300,
-                lineHeight: "48px",
+                lineHeight: "var(--lh-2xl)",
                 letterSpacing: "0.005em",
                 color: "rgb(255, 255, 255)",
                 margin: "0 0 16px",
@@ -864,9 +864,9 @@ export default function UpcomingEventDetail() {
             {/* Subtitle — y:1581 h:24 */}
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "var(--fs-base)",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "var(--lh-base)",
                 color: "rgba(255, 255, 255, 0.7)",
                 margin: 0,
               }}
@@ -880,10 +880,10 @@ export default function UpcomingEventDetail() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "12px 24px",
-                backgroundColor: "rgb(0, 173, 240)",
+                padding: "16px 24px",
+                backgroundColor: "var(--button-blue)",
                 color: "rgb(255, 255, 255)",
-                fontSize: "12px",
+                fontSize: "var(--fs-sm)",
                 fontWeight: 500,
                 letterSpacing: "0.96px",
                 textTransform: "uppercase" as const,
@@ -900,3 +900,5 @@ export default function UpcomingEventDetail() {
     </PageWrapper>
   );
 }
+
+

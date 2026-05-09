@@ -15,6 +15,8 @@ import { PageWrapper } from "@/components/Layout";
 import BannerHero from "@/components/layout/BannerHero";
 import { Clock } from "lucide-react";
 import EnglishOnlyGuard from "@/components/EnglishOnlyGuard";
+import { BLOG_CATEGORIES, BLOG_POSTS, BlogCategory } from "@/data/blogPosts";
+import LangLink from "@/components/LangLink";
 
 function useFadeUp() {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,75 +31,10 @@ function useFadeUp() {
   return ref;
 }
 
-type Category = "All" | "Best Practice" | "AI & Technology" | "Regulation" | "ESG" | "IPO";
-
-interface BlogPost {
-  category: Category;
-  title: string;
-  desc: string;
-  date: string;
-  readTime: string;
-  featured?: boolean;
-  slug: string;
-}
-
-const POSTS: BlogPost[] = [
-  {
-    category: "Best Practice",
-    title: "How to build an IR platform that investors actually use",
-    desc: "The most effective IR platforms share five structural qualities. Here's what separates best-practice IR from the average.",
-    date: "12 Mar 2026",
-    readTime: "6 min read",
-    featured: true,
-    slug: "how-to-build-an-ir-website",
-  },
-  {
-    category: "AI & Technology",
-    title: "Purpose-built AI vs generic LLMs: what IR teams need to know",
-    desc: "Not all AI is created equal. We explain why IR-specific training data and compliance guardrails matter for investor communications.",
-    date: "5 Mar 2026",
-    readTime: "8 min read",
-    slug: "purpose-built-ai-vs-generic-llms",
-  },
-  {
-    category: "Regulation",
-    title: "MAR compliance in 2026: key changes and what they mean for IR teams",
-    desc: "A practical overview of the latest Market Abuse Regulation updates and how to adapt your disclosure workflows.",
-    date: "28 Feb 2026",
-    readTime: "7 min read",
-    slug: "mar-compliance-2026",
-  },
-  {
-    category: "ESG",
-    title: "ESG reporting: from obligation to competitive advantage",
-    desc: "Companies that treat ESG as a communication opportunity — not just a compliance burden — are winning investor trust.",
-    date: "20 Feb 2026",
-    readTime: "5 min read",
-    slug: "esg-reporting-competitive-advantage",
-  },
-  {
-    category: "IPO",
-    title: "The IR checklist every company should complete before listing",
-    desc: "From website infrastructure to investor CRM, here are the twelve IR foundations every company should have in place before IPO.",
-    date: "14 Feb 2026",
-    readTime: "9 min read",
-    slug: "ir-checklist-before-listing",
-  },
-  {
-    category: "Best Practice",
-    title: "Earnings season preparation: a week-by-week IR calendar",
-    desc: "A structured timeline for preparing, distributing, and following up on quarterly earnings communications.",
-    date: "7 Feb 2026",
-    readTime: "6 min read",
-    slug: "earnings-season-preparation",
-  },
-];
-
-const CATEGORIES: Category[] = ["All", "Best Practice", "AI & Technology", "Regulation", "ESG", "IPO"];
 
 // Kicker colour per category
 const KICKER_COLORS: Record<string, string> = {
-  "Best Practice":   "rgb(0, 107, 163)",
+  "Best Practice":   "rgb(0, 116, 217)",
   "AI & Technology": "rgb(91, 107, 122)",
   "Regulation":      "rgb(58, 74, 88)",
   "ESG":             "rgb(0, 150, 81)",
@@ -108,13 +45,13 @@ function Kicker({ cat }: { cat: string }) {
   return (
     <div
       style={{
-        fontSize: "10px",
-        fontWeight: 700,
-        lineHeight: "24px",
-        letterSpacing: "0.10em",
+        fontSize: "var(--fs-sm)",
+        fontWeight: 400,
+        lineHeight: "var(--lh-base)",
+        letterSpacing: "var(--ls-label)",
         textTransform: "uppercase",
         color: KICKER_COLORS[cat] ?? "rgb(0,107,163)",
-        marginBottom: "8px",
+        marginBottom: "16px",
       }}
     >
       {cat}
@@ -123,11 +60,11 @@ function Kicker({ cat }: { cat: string }) {
 }
 
 function BlogInner() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeCategory, setActiveCategory] = useState<BlogCategory>("All");
   const f1 = useFadeUp();
 
-  const featured = POSTS.find((p) => p.featured)!;
-  const rest = POSTS.filter((p) => !p.featured);
+  const featured = BLOG_POSTS.find((p) => p.featured)!;
+  const rest = BLOG_POSTS.filter((p) => !p.featured);
 
   const filteredFeatured = activeCategory === "All" || activeCategory === featured.category ? featured : null;
   const filteredRest = activeCategory === "All"
@@ -141,7 +78,7 @@ function BlogInner() {
         variant="resources"
         label="Resources"
         title="IR Insights & Best Practice"
-        subtitle="Expert perspectives on investor relations strategy, ESG disclosure, regulatory compliance, and the future of IR technology — written for IR professionals at listed companies."
+        subtitle="Expert perspectives on Investor Relations strategy, ESG disclosure, regulatory compliance, and the future of IR technology — written for IR professionals at listed companies."
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
@@ -150,7 +87,7 @@ function BlogInner() {
 {/* ── S2: CONTENT ──────────────────────────────────────────────────────── */}
       <section
         className="section"
-        style={{ background: "rgb(255, 255, 255)", paddingTop: "80px", paddingBottom: "80px" }}
+        style={{ background: "rgb(255, 255, 255)", paddingTop: "64px", paddingBottom: "64px" }}
       >
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
 
@@ -164,18 +101,18 @@ function BlogInner() {
               borderBottom: "2px solid rgb(221, 224, 230)",
             }}
           >
-            {CATEGORIES.map((cat) => {
+            {BLOG_CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
               return (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   style={{
-                    padding: "8px 20px",
+                    padding: "16px 20px",
                     height: "42px",
-                    fontSize: "13px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: isActive ? 600 : 400,
-                    lineHeight: "24px",
+                    lineHeight: "var(--lh-base)",
                     letterSpacing: "0.01em",
                     border: "none",
                     borderRadius: isActive ? "4px 4px 0 0" : "0",
@@ -197,7 +134,7 @@ function BlogInner() {
 
             {/* Featured card: full-width horizontal, 1440×310px */}
             {filteredFeatured && (
-              <a
+              <LangLink
                 href={`/resources/ir-blog/${filteredFeatured.slug}`}
                 style={{ textDecoration: "none", display: "block", marginBottom: "32px" }}
               >
@@ -223,8 +160,8 @@ function BlogInner() {
                   >
                     <span
                       style={{
-                        fontSize: "10px",
-                        fontWeight: 700,
+                        fontSize: "var(--fs-sm)",
+                        fontWeight: 400,
                         letterSpacing: "0.12em",
                         textTransform: "uppercase",
                         color: "rgba(255,255,255,0.30)",
@@ -237,7 +174,7 @@ function BlogInner() {
                   {/* Right: content */}
                   <div
                     style={{
-                      padding: "40px 40px",
+                      padding: "32px 40px",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
@@ -249,9 +186,9 @@ function BlogInner() {
                     {/* Title: 32px/500/40px/rgb(13,27,42) */}
                     <h4
                       style={{
-                        fontSize: "32px",
+                        fontSize: "var(--fs-xl)",
                         fontWeight: 500,
-                        lineHeight: "40px",
+                        lineHeight: "var(--lh-xl)",
                         letterSpacing: "0.01em",
                         color: "rgb(13, 27, 42)",
                         margin: "0 0 16px",
@@ -263,11 +200,11 @@ function BlogInner() {
                     {/* Desc: 16px/400/24px/rgb(58,74,88) */}
                     <p
                       style={{
-                        fontSize: "16px",
+                        fontSize: "var(--fs-base)",
                         fontWeight: 400,
-                        lineHeight: "24px",
+                        lineHeight: "var(--lh-base)",
                         color: "rgb(58, 74, 88)",
-                        margin: "0 0 24px",
+                        margin: "0 0 32px",
                       }}
                     >
                       {filteredFeatured.desc}
@@ -283,7 +220,7 @@ function BlogInner() {
                     >
                       <span
                         style={{
-                          fontSize: "12px",
+                          fontSize: "var(--fs-sm)",
                           color: "rgba(58,74,88,0.60)",
                           display: "flex",
                           alignItems: "center",
@@ -295,14 +232,14 @@ function BlogInner() {
                       </span>
                       <span
                         className="btn-link"
-                        style={{ fontSize: "12px", fontWeight: 600, color: "rgb(0,107,163)" }}
+                        style={{ fontSize: "var(--fs-sm)", fontWeight: 600, color: "rgb(0,107,163)" }}
                       >
-                        READ ARTICLE →
+                        Read article
                       </span>
                     </div>
                   </div>
                 </div>
-              </a>
+              </LangLink>
             )}
 
             {/* 3-col grid of article cards: 464×414px each */}
@@ -314,7 +251,7 @@ function BlogInner() {
                 }}
               >
                 {filteredRest.map((post) => (
-                  <a
+                  <LangLink
                     key={post.slug}
                     href={`/resources/ir-blog/${post.slug}`}
                     style={{ textDecoration: "none" }}
@@ -343,8 +280,8 @@ function BlogInner() {
                       >
                         <span
                           style={{
-                            fontSize: "10px",
-                            fontWeight: 700,
+                            fontSize: "var(--fs-sm)",
+                            fontWeight: 400,
                             letterSpacing: "0.12em",
                             textTransform: "uppercase",
                             color: "rgba(58,74,88,0.30)",
@@ -357,7 +294,7 @@ function BlogInner() {
                       {/* Content area: 462×252px */}
                       <div
                         style={{
-                          padding: "24px",
+                          padding: "32px",
                           flex: 1,
                           display: "flex",
                           flexDirection: "column",
@@ -368,12 +305,12 @@ function BlogInner() {
                         {/* Title: 20px/600/32px/rgb(13,27,42) */}
                         <h5 className="type-h6"
                           style={{
-                            fontSize: "20px",
+                            fontSize: "var(--fs-md)",
                             fontWeight: 600,
-                            lineHeight: "32px",
+                            lineHeight: "var(--lh-lg)",
                             letterSpacing: "0.01em",
                             color: "rgb(13, 27, 42)",
-                            margin: "0 0 12px",
+                            margin: "0 0 16px",
                             flex: 1,
                           }}
                         >
@@ -383,9 +320,9 @@ function BlogInner() {
                         {/* Desc: 12px/400/20px/rgb(58,74,88) */}
                         <p
                           style={{
-                            fontSize: "12px",
+                            fontSize: "var(--fs-sm)",
                             fontWeight: 400,
-                            lineHeight: "20px",
+                            lineHeight: "var(--lh-sm)",
                             color: "rgb(58, 74, 88)",
                             margin: "0 0 16px",
                           }}
@@ -403,7 +340,7 @@ function BlogInner() {
                         >
                           <span
                             style={{
-                              fontSize: "12px",
+                              fontSize: "var(--fs-sm)",
                               color: "rgba(58,74,88,0.60)",
                               display: "flex",
                               alignItems: "center",
@@ -415,14 +352,14 @@ function BlogInner() {
                           </span>
                           <span
                             className="btn-link"
-                            style={{ fontSize: "12px", fontWeight: 600, color: "rgb(0,107,163)" }}
+                            style={{ fontSize: "var(--fs-sm)", fontWeight: 600, color: "rgb(0,107,163)" }}
                           >
-                            READ ARTICLE →
+                            Read article
                           </span>
                         </div>
                       </div>
                     </article>
-                  </a>
+                  </LangLink>
                 ))}
               </div>
             )}
@@ -431,10 +368,10 @@ function BlogInner() {
             {!filteredFeatured && filteredRest.length === 0 && (
               <div
                 style={{
-                  padding: "80px 0",
+                  padding: "64px 0",
                   textAlign: "center",
                   color: "rgb(91,107,122)",
-                  fontSize: "16px",
+                  fontSize: "var(--fs-base)",
                 }}
               >
                 No articles in this category yet.
@@ -456,3 +393,4 @@ export default function Blog() {
     </EnglishOnlyGuard>
   );
 }
+

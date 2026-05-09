@@ -11,7 +11,7 @@ const SECTIONS = [
   },
   {
     title: "2. Description of Services",
-    content: `Euroland IR provides investor relations software, IR platform solutions, disclosure management tools, and related services to publicly listed companies. The specific features and functionality available to you depend on your subscription plan and the terms of your client agreement.`,
+    content: `Euroland IR provides Investor Relations software, IR platform solutions, disclosure management tools, and related services to publicly listed companies. The specific features and functionality available to you depend on your subscription plan and the terms of your client agreement.`,
   },
   {
     title: "3. User Accounts",
@@ -80,23 +80,23 @@ export default function Legal() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 lg:px-8" style={{ maxWidth: "1536px" }}>
           <div className="max-w-3xl">
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
+            <p style={{ fontSize: "var(--fs-sm)", fontWeight: 600, letterSpacing: "0.48px", color: "rgb(58, 74, 88)", marginBottom: "32px", paddingBottom: "16px", borderBottom: "1px solid rgb(221, 224, 230)" }}>
               Last updated: April 2025
             </p>
             {SECTIONS.map((section, i) => (
-              <div key={i} style={{ marginBottom: "40px" }}>
-                <h3 className="type-h6" style={{ fontSize: "18px", fontWeight: 600, lineHeight: "28px", color: "rgb(13, 27, 42)", marginBottom: "12px" }}>
+              <div key={i} style={{ marginBottom: "32px" }}>
+                <h3 className="type-h6" style={{ fontSize: "var(--fs-md)", fontWeight: 600, lineHeight: "var(--lh-md)", color: "rgb(13, 27, 42)", marginBottom: "16px" }}>
                   {section.title}
                 </h3>
                 {section.content && (
-                  <p style={{ fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: section.list ? "12px" : "0", whiteSpace: "pre-line" }}>
+                  <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: section.list ? "12px" : "0", whiteSpace: "pre-line" }}>
                     {section.content}
                   </p>
                 )}
                 {section.list && (
                   <ul style={{ paddingLeft: "20px", margin: 0 }}>
                     {section.list.map((item, j) => (
-                      <li key={j} style={{ fontSize: "15px", lineHeight: "26px", color: "rgb(58, 74, 88)", marginBottom: "6px" }}>
+                      <li key={j} style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", marginBottom: "16px" }}>
                         {item}
                       </li>
                     ))}

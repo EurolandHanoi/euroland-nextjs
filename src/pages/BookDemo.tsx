@@ -14,55 +14,36 @@ export default function BookDemo() {
   const pathname = usePathname();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [interests, setInterests] = useState<string[]>([]);
 
   const features = useMemo(
     () => [
       {
         icon: Sparkles,
-        title: t("demo_feature_1_title", "A demo tailored to your IR priorities"),
+        title: t("demo_feature_1_title", "Core features walkthrough"),
         desc: t(
           "demo_feature_1_desc",
-          "See the workflows most relevant to your team, from earnings reporting and IR websites to AI-assisted investor communication."
+          "Walk through core features for disclosure, IR platforms, and investor communication."
         ),
       },
       {
         icon: ShieldCheck,
-        title: t("demo_feature_2_title", "Security, governance, and implementation clarity"),
+        title: t("demo_feature_2_title", "Security & governance"),
         desc: t(
           "demo_feature_2_desc",
-          "Discuss data governance, operational ownership, and what rollout looks like for listed and pre-IPO companies."
+          "Discuss security, governance, and workflow requirements for listed and pre-IPO companies."
         ),
       },
       {
         icon: Users,
-        title: t("demo_feature_3_title", "Relevant proof points, not a generic tour"),
+        title: t("demo_feature_3_title", "Best-practice examples"),
         desc: t(
           "demo_feature_3_desc",
-          "We will show real platform capabilities, buyer-relevant examples, and the parts of the product that matter for your market and team structure."
+          "Receive best-practice examples from peers in your market and industry."
         ),
       },
     ],
     [t]
   );
-
-  const options = useMemo(
-    () => [
-      t("demo_interest_1", "Platform overview"),
-      t("demo_interest_2", "Stock and financial data"),
-      t("demo_interest_3", "Purpose-built AI"),
-      t("demo_interest_4", "Analytics and earnings"),
-      t("demo_interest_5", "IR apps"),
-      t("demo_interest_6", "ESG and sustainability reporting"),
-      t("demo_interest_7", "IPO readiness"),
-      t("demo_interest_8", "Investor communications"),
-    ],
-    [t]
-  );
-
-  const toggleInterest = (item: string) => {
-    setInterests((previous) => (previous.includes(item) ? previous.filter((entry) => entry !== item) : [...previous, item]));
-  };
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -82,14 +63,13 @@ export default function BookDemo() {
         role: String(formData.get("role") || ""),
         phone: String(formData.get("phone") || ""),
         message: String(formData.get("message") || ""),
-        interests,
+        interests: [],
         locale: lang,
         sourcePath: pathname ?? undefined,
         website: String(formData.get("website") || ""),
       });
       setStatus("success");
       form.reset();
-      setInterests([]);
     } catch (error) {
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : t("demo_form_generic_error", "We could not submit your request right now."));
@@ -98,28 +78,60 @@ export default function BookDemo() {
 
   return (
     <PageWrapper>
-      <section className="hero-navy banner-hero-section" style={{ minHeight: "440px", display: "flex", alignItems: "center" }}>
-        <div className="container" style={{ paddingTop: "120px", paddingBottom: "80px" }}>
-          <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>
+      <section
+        className="hero-navy banner-hero-section"
+        style={{
+          height: "500px",
+          display: "flex",
+          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src="/banner-water.jpg"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            zIndex: 0,
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(8, 43, 69, 0.78)",
+            zIndex: 1,
+          }}
+        />
+        <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px", position: "relative", zIndex: 2 }}>
+          <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)" }}>
             {t("book_demo", "Book a Demo")}
           </div>
           <h1 className="type-h2"
             style={{
-              fontSize: "48px",
-              fontWeight: 300,
-              lineHeight: "64px",
+              fontSize: "var(--fs-3xl)",
+              fontWeight: 600,
+              lineHeight: "var(--lh-3xl)",
               letterSpacing: "-0.01em",
               color: "white",
               marginBottom: "var(--sp-6)",
               maxWidth: "720px",
             }}
           >
-            {t("demo_hero_title", "See Euroland IR in action")}
+            {t("demo_hero_title", "Book a demo")}
           </h1>
           <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "var(--fs-md)", maxWidth: "640px", marginBottom: "var(--sp-6)" }}>
             {t(
               "demo_hero_subtitle",
-              "Schedule a tailored walkthrough with an IR specialist and see how Euroland IR supports disclosure, investor communication, AI-assisted workflows, and listed-company reporting in one managed platform."
+              "Schedule a personalised demo with one of our Investor Relations specialists and discover how Euroland IR can transform your IR communications, ESG reporting, and shareholder engagement."
             )}
           </p>
           <p className="form-help" style={{ color: "rgba(255,255,255,0.70)", margin: 0 }}>
@@ -132,30 +144,30 @@ export default function BookDemo() {
         <div className="container">
           <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-16)", alignItems: "start" }}>
             <div>
-              <h2 className="type-h3" style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
-                {t("demo_section_heading", "A serious demo for serious IR teams")}
+              <h2 className="type-h3" style={{ color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
+                {t("demo_section_heading", "See the platform in action")}
               </h2>
               <p style={{ marginBottom: "var(--sp-8)", maxWidth: "560px" }}>
                 {t(
                   "demo_section_body",
-                  "Tell us what matters most to your team and we will tailor the session around your investor website, reporting workflows, market data requirements, and buyer questions."
+                  "Share a few details about your team and we will tailor the session to your IR, finance, and corporate communications needs."
                 )}
               </p>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "var(--sp-6)", marginBottom: "var(--sp-10)" }}>
                 {features.map((feature) => (
                   <li key={feature.title} style={{ display: "flex", gap: "var(--sp-3)", alignItems: "flex-start" }}>
-                    <feature.icon size={18} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "2px" }} />
+                    <feature.icon size={18} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "16px" }} />
                     <div>
                       <div style={{ fontSize: "var(--fs-sm)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "var(--sp-1)" }}>{feature.title}</div>
-                      <div style={{ fontSize: "var(--fs-sm)", color: "var(--text-secondary)" }}>{feature.desc}</div>
+                      <div style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-secondary)" }}>{feature.desc}</div>
                     </div>
                   </li>
                 ))}
               </ul>
-              <div style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "var(--sp-4)" }}>
+              <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "var(--sp-4)" }}>
                 {t("demo_trusted_label", "Trusted by listed companies worldwide")}
               </div>
-              <div style={{ overflow: "hidden", padding: "8px 0", width: "420px", maxWidth: "100%" }}>
+              <div style={{ overflow: "hidden", padding: "16px 0", width: "420px", maxWidth: "100%" }}>
                 {lang === "ja" ? (
                   <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
                     <img src="/client-logos-ja.webp" alt="Euroland IR clients" style={{ height: "30px", width: "auto", display: "block", maxWidth: "100%" }} />
@@ -168,7 +180,7 @@ export default function BookDemo() {
                           key={copy}
                           src={lang === "zh" || lang === "zh-TW" ? "/client-logos-zh.webp" : "/client-logos.webp"}
                           alt="Euroland IR clients"
-                          style={{ height: "30px", width: "auto", display: "block", flexShrink: 0 }}
+                          style={{ height: "48px", width: "auto", display: "block", flexShrink: 0 }}
                         />
                       ))}
                     </div>
@@ -181,7 +193,7 @@ export default function BookDemo() {
               {status === "success" ? (
                 <div style={{ textAlign: "center", padding: "var(--sp-12) 0" }}>
                   <CheckCircle2 size={48} color="#28628F" strokeWidth={1.5} style={{ marginBottom: "var(--sp-6)" }} />
-                  <h2 className="type-h5" style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
+                  <h2 className="type-h4" style={{ color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
                     {t("demo_form_success_title", "Thank you. Your demo request has been sent.")}
                   </h2>
                   <p style={{ marginBottom: "var(--sp-3)" }}>
@@ -193,11 +205,11 @@ export default function BookDemo() {
                 </div>
               ) : (
                 <>
-                  <h2 className="type-h5" style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-2)" }}>
+                  <h2 className="type-h4" style={{ color: "var(--text-primary)", marginBottom: "var(--sp-2)" }}>
                     {t("demo_form_heading", "Schedule your demo")}
                   </h2>
-                  <p style={{ fontSize: "var(--fs-sm)", marginBottom: "var(--sp-8)" }}>
-                    {t("demo_form_instructions", "Complete the form and we will follow up within one business day.")} <span style={{ color: "#e53e3e" }}>*</span> {t("demo_form_required", "Required fields.")}
+                  <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", marginBottom: "var(--sp-8)" }}>
+                    {t("demo_form_instructions", "Complete the form and we'll be in touch within one business day.")} <span style={{ color: "#e53e3e" }}>*</span> {t("demo_form_required", "are required.")}
                   </p>
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "var(--sp-5)" }}>
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true" />
@@ -235,45 +247,13 @@ export default function BookDemo() {
                     </div>
 
                     <div>
-                      <label className="form-label" style={{ marginBottom: "var(--sp-3)", display: "block" }}>
-                        {t("demo_field_interests", "What should we cover?")}
-                      </label>
-                      <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-2)" }}>
-                        {options.map((item) => {
-                          const selected = interests.includes(item);
-                          return (
-                            <label
-                              key={item}
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "var(--sp-2)",
-                                fontSize: "var(--fs-sm)",
-                                color: "var(--text-primary)",
-                                cursor: "pointer",
-                                padding: "var(--sp-2) var(--sp-3)",
-                                borderRadius: "6px",
-                                border: `1.5px solid ${selected ? "#28628F" : "var(--border)"}`,
-                                background: selected ? "rgba(0,107,163,0.06)" : "transparent",
-                                transition: "all 0.15s ease",
-                              }}
-                            >
-                              <input type="checkbox" checked={selected} onChange={() => toggleInterest(item)} style={{ accentColor: "#28628F", width: "14px", height: "14px" }} />
-                              {item}
-                            </label>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    <div>
                       <label className="form-label" htmlFor="demo-message">{t("demo_field_message", "Anything specific you would like to cover?")}</label>
                       <textarea
                         className="form-input"
                         id="demo-message"
                         name="message"
                         rows={4}
-                        placeholder={t("demo_field_message_placeholder", "For example: we are reviewing our IR website, earnings workflow, and AI options.")}
+                        placeholder={t("demo_field_message_placeholder", "E.g. We're looking to improve our earnings reporting workflow and investor FAQ page...")}
                         style={{ resize: "vertical", minHeight: "96px" }}
                       />
                     </div>
@@ -304,3 +284,4 @@ export default function BookDemo() {
     </PageWrapper>
   );
 }
+

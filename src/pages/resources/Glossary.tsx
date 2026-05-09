@@ -9,7 +9,7 @@
  * Layout:
  *  - Hero section: dark navy, 544px tall (y:0–544)
  *    - eyebrow "RESOURCES" (u-label-dark)
- *    - H2 "Financial Glossary" (48px/300/56px/-0.48px)
+ *    - H2 "Financial Glossary" (--fs-3xl/300/--lh-3xl/-0.48px)
  *    - subtitle (16px/400/24px, 520px wide)
  *  - Search + alphabet bar: white bg, 86px tall (y:544–630)
  *    - Search input (560px wide) + "Search" btn (87px wide, btn-primary)
@@ -76,7 +76,7 @@ const GLOSSARY_TERMS: { term: string; definition: string }[] = [
   { term: "Initial Public Offering (IPO)", definition: "The process by which a private company offers shares to the public for the first time in order to raise equity capital from public investors." },
   { term: "Insider trading", definition: "The buying or selling of a publicly traded company's stock by someone who has non-public, material information about that stock." },
   { term: "Institutional investor", definition: "A non-bank person or organisation that trades securities in large enough share quantities or dollar amounts that they qualify for preferential treatment and lower commissions." },
-  { term: "Investor relations (IR)", definition: "A strategic management responsibility that integrates finance, communication, marketing and securities law compliance to enable the most effective two-way communication between a company, the financial community, and other constituencies." },
+  { term: "Investor Relations (IR)", definition: "A strategic management responsibility that integrates finance, communication, marketing and securities law compliance to enable the most effective two-way communication between a company, the financial community, and other constituencies." },
   // L
   { term: "Liquidity", definition: "The degree to which an asset or security can be quickly bought or sold in the market without affecting the asset's price." },
   { term: "Listed company", definition: "A company whose shares are traded on a regulated stock exchange. Listed companies are subject to ongoing disclosure and governance obligations." },
@@ -160,7 +160,7 @@ export default function Glossary() {
         variant="resources"
         label="Resources"
         title="Financial Glossary"
-        subtitle="A comprehensive reference of financial and investor relations terms used by listed companies and capital markets professionals."
+        subtitle="A comprehensive reference of financial and Investor Relations terms used by listed companies and capital markets professionals."
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
@@ -171,7 +171,7 @@ export default function Glossary() {
         style={{
           background: "rgb(255, 255, 255)",
           borderBottom: "1px solid rgb(221, 224, 230)",
-          padding: "12px 0 0",
+          padding: "16px 0 0",
         }}
       >
         <div
@@ -179,7 +179,7 @@ export default function Glossary() {
           style={{ maxWidth: "1536px", padding: "0 48px" }}
         >
           {/* Search row — node[40] geo:282,544 560x42 + node[44] geo:755,544 87x42 */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
             <div
               style={{
                 display: "flex",
@@ -204,9 +204,9 @@ export default function Glossary() {
                   flex: 1,
                   border: "none",
                   outline: "none",
-                  fontSize: "14px",
+                  fontSize: "var(--fs-base)",
                   fontWeight: 400,
-                  lineHeight: "24px",
+                  lineHeight: "var(--lh-base)",
                   color: "rgb(13, 27, 42)",
                   background: "transparent",
                 }}
@@ -215,7 +215,7 @@ export default function Glossary() {
             <button
               onClick={handleSearch}
               className="btn-primary"
-              style={{ height: "42px", padding: "0 20px", fontSize: "13px" }}
+              style={{ height: "42px", padding: "0 20px", fontSize: "var(--fs-sm)" }}
             >
               Search
             </button>
@@ -241,9 +241,9 @@ export default function Glossary() {
                       : hasTerms
                       ? "rgb(13, 27, 42)"
                       : "rgb(180, 190, 200)",
-                    fontSize: "13px",
+                    fontSize: "var(--fs-sm)",
                     fontWeight: isActive ? 600 : 400,
-                    lineHeight: "32px",
+                    lineHeight: "var(--lh-lg)",
                     cursor: hasTerms ? "pointer" : "default",
                     transition: "background 150ms ease, color 150ms ease",
                     flexShrink: 0,
@@ -258,12 +258,12 @@ export default function Glossary() {
       </div>
 
       {/* ── GLOSSARY TERMS (y:630–1423) ───────────────────────────────────── */}
-      <section style={{ background: "rgb(255, 255, 255)", padding: "48px 0 80px" }}>
+      <section style={{ background: "rgb(255, 255, 255)", padding: "64px 0" }}>
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px" }}>
           {/* Inner: 764px wide, offset 338px from left — node[72] geo:620,702 764x... */}
           <div style={{ marginLeft: "338px", width: "764px" }}>
             {filteredTerms.length === 0 ? (
-              <div style={{ padding: "64px 0", fontSize: "16px", color: "rgb(90, 106, 122)" }}>
+              <div style={{ padding: "64px 0", fontSize: "var(--fs-base)", color: "rgb(90, 106, 122)" }}>
                 No terms found{searchQuery ? ` for "${searchQuery}"` : ""}.
               </div>
             ) : (
@@ -281,9 +281,9 @@ export default function Glossary() {
                     style={{
                       width: "200px",
                       flexShrink: 0,
-                      fontSize: "14px",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 600,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(13, 27, 42)",
                       paddingRight: "24px",
                     }}
@@ -294,9 +294,9 @@ export default function Glossary() {
                   <div
                     style={{
                       width: "540px",
-                      fontSize: "12px",
+                      fontSize: "var(--fs-sm)",
                       fontWeight: 400,
-                      lineHeight: "24px",
+                      lineHeight: "var(--lh-base)",
                       color: "rgb(58, 74, 88)",
                     }}
                   >
@@ -312,3 +312,4 @@ export default function Glossary() {
     </PageWrapper>
   );
 }
+

@@ -29,7 +29,7 @@ function getRegions(t: TFunction) {
     {
       region: "ASIA PACIFIC",
       offices: [
-        { country: "CHINA", city: "Shanghai", address: "Jiaxing Building, Dongfang Road 877, Shanghai 200122, China", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=Dongfang+Road+877+Shanghai+200122" },
+        { country: "CHINA", city: "Shanghai", address: "Jiaxing Building, Dongfang Road 877, Shanghai 200122, China", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=Dongfang+Road+877+Shanghai+250122" },
         { country: "HONG KONG", city: "Hong Kong", address: "7B One Capital Place, 18 Luard Road, Wanchai, Hong Kong", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=18+Luard+Road+Wanchai+Hong+Kong" },
         { country: "JAPAN", city: "Tokyo", address: "Nippo Kanda Awajicho Cross, 3rd Floor, 1-1-7 Kanda Awajicho, Chiyoda-ku, Tokyo 101-0063, Japan", phone: "", mapsUrl: "https://maps.google.com/?q=1-1-7+Kanda+Awajicho+Chiyoda-ku+Tokyo" },
       ],
@@ -81,7 +81,8 @@ export default function ContactUs() {
       <BannerHero
         variant="resources"
         label={t("contactus_contact", "Contact")}
-        title={t("contactus_get_in_touch", "Talk to the Euroland IR team")}
+        title={t("contactus_get_in_touch", "Contact us")}
+        backgroundImage="/banner-water.jpg"
         subtitle={
           <>
             <span>
@@ -101,10 +102,10 @@ export default function ContactUs() {
         <div className="container">
           <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
             <div>
-              <h2 className="type-h3" style={{ color: "var(--text-primary)", fontWeight: 400, fontSize: "40px", lineHeight: "48px", letterSpacing: "0.005em", marginBottom: "24px" }}>
+              <h2 className="type-h3" style={{ color: "var(--text-primary)", fontWeight: 400, fontSize: "var(--fs-2xl)", lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", marginBottom: "32px" }}>
                 {t("contactus_get_in_touch_with_our_team", "Get in touch with our team")}
               </h2>
-              <p style={{ fontSize: "16px", lineHeight: "24px", letterSpacing: "0.01em", color: "var(--text-secondary)", marginBottom: "32px", maxWidth: "560px" }}>
+              <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "var(--text-secondary)", marginBottom: "32px", maxWidth: "560px" }}>
                 {t(
                   "contactus_clients_relationship",
                   "Euroland IR supports listed companies and IR teams with managed software, specialist guidance, and global delivery across investor communications, disclosure, and shareholder engagement."
@@ -117,55 +118,40 @@ export default function ContactUs() {
                   { icon: LifeBuoy, text: t("contactus_best_practice_examples", "Clear next steps whether you need a product consultation, a project conversation, or helpdesk support.") },
                 ].map((item) => (
                   <li key={item.text} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <item.icon size={16} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "4px" }} />
-                    <span style={{ fontSize: "14px", lineHeight: "24px", color: "var(--text-primary)" }}>{item.text}</span>
+                    <item.icon size={16} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "16px" }} />
+                    <span style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-primary)" }}>{item.text}</span>
                   </li>
                 ))}
               </ul>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "32px" }}>
                 <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
                   <Mail size={14} color="#28628F" />
-                  <a href="mailto:info@euroland.com" style={{ fontSize: "14px", lineHeight: "24px", color: "#28628F", textDecoration: "none" }}>info@euroland.com</a>
+                  <a href="mailto:info@euroland.com" style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "#0074D9", textDecoration: "none" }}>info@euroland.com</a>
                 </div>
                 <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
                   <Phone size={14} color="rgb(58, 74, 88)" />
-                  <span style={{ fontSize: "14px", lineHeight: "24px", color: "rgb(58, 74, 88)" }}>+45 33 12 34 56</span>
+                  <span style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)" }}>+45 33 12 34 56</span>
                 </div>
               </div>
 
-              <div id="helpdesk" className="card" style={{ scrollMarginTop: "96px", background: "rgb(247, 248, 250)" }}>
-                <div className="u-label" style={{ marginBottom: "12px" }}>{t("contactus_helpdesk_label", "Helpdesk")}</div>
-                <h3 className="type-h5" style={{ fontSize: "24px", lineHeight: "32px", fontWeight: 500, color: "var(--text-primary)", marginBottom: "12px" }}>
-                  {t("contactus_helpdesk_heading", "Need product or client support?")}
-                </h3>
-                <p style={{ marginBottom: "16px", maxWidth: "520px" }}>
-                  {t(
-                    "contactus_helpdesk_body",
-                    "Existing clients can use this contact point for product questions, ongoing project support, or helpdesk assistance. Include your company name and a short description so we can route your request quickly."
-                  )}
-                </p>
-                <a href="https://helpdesk.euroland.com/support/home" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ display: "inline-flex" }}>
-                  {t("contactus_helpdesk_cta", "Email the helpdesk")}
-                </a>
-              </div>
             </div>
 
             <div className="card">
               {status === "success" ? (
                 <div style={{ textAlign: "center", padding: "64px 0" }}>
-                  <CheckCircle2 size={48} color="#28628F" strokeWidth={1.5} style={{ marginBottom: "24px" }} />
-                  <h2 className="type-h5" style={{ color: "var(--text-primary)", marginBottom: "16px", fontSize: "24px", fontWeight: 500, lineHeight: "32px" }}>
+                  <CheckCircle2 size={48} color="#28628F" strokeWidth={1.5} style={{ marginBottom: "32px" }} />
+                  <h2 className="type-h5" style={{ color: "var(--text-primary)", marginBottom: "16px", fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)" }}>
                     {t("contactus_message_sent", "Thank you. Your message has been sent.")}
                   </h2>
-                  <p style={{ color: "var(--text-secondary)", marginBottom: "12px" }}>{t("contactus_message_sent_body", "We will respond within one business day.")}</p>
+                  <p style={{ color: "var(--text-secondary)", marginBottom: "16px" }}>{t("contactus_message_sent_body", "We will respond within one business day.")}</p>
                   <p className="form-help" style={{ margin: 0 }}>{t("contactus_message_sent_context", "Your enquiry will be routed to the most relevant team.")}</p>
                 </div>
               ) : (
                 <>
-                  <h2 className="type-h4" style={{ color: "var(--text-primary)", fontSize: "32px", lineHeight: "40px", fontWeight: 400, marginBottom: "8px" }}>
+                  <h2 className="type-h4" style={{ color: "var(--text-primary)", fontSize: "var(--fs-xl)", lineHeight: "var(--lh-xl)", fontWeight: 400, marginBottom: "16px" }}>
                     {t("contactus_share_your_details", "Share your details")}
                   </h2>
-                  <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--text-secondary)", marginBottom: "32px" }}>
+                  <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-secondary)", marginBottom: "32px" }}>
                     {t("contactus_most_enquiries_response", "Most enquiries receive a response within one business day.")} Fields marked <span style={{ color: "#e53e3e" }}>*</span> are required.
                   </p>
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -219,8 +205,8 @@ export default function ContactUs() {
                       )}
                     </p>
 
-                    <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center", height: "48px", letterSpacing: "0.96px" }} disabled={status === "submitting"}>
-                      {status === "submitting" ? t("contactus_send_loading", "Sending message...") : t("contactus_send_message", "Send Message")}
+                    <button type="submit" className="btn-primary" style={{ width: "100%" }} disabled={status === "submitting"}>
+                      {status === "submitting" ? t("contactus_send_loading", "Submitting...") : t("contactus_send_message", "Submit")}
                     </button>
                   </form>
                 </>
@@ -230,34 +216,34 @@ export default function ContactUs() {
         </div>
       </section>
 
-      <section style={{ background: "rgb(247, 248, 250)", padding: "80px 0" }}>
+      <section style={{ background: "rgb(247, 248, 250)", padding: "64px 0" }}>
         <div className="container">
           <div className="u-label" style={{ marginBottom: "16px" }}>{t("contactus_global_offices", "Global offices")}</div>
-          <h2 className="type-h3" style={{ color: "var(--text-primary)", fontWeight: 400, fontSize: "40px", lineHeight: "48px", letterSpacing: "0.005em", marginBottom: "48px" }}>
+          <h2 className="type-h3" style={{ color: "var(--text-primary)", fontWeight: 400, fontSize: "var(--fs-2xl)", lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", marginBottom: "48px" }}>
             {t("contactus_find_us_worldwide", "Find us worldwide")}
           </h2>
 
           {regions.map((region) => (
             <div key={region.region} style={{ marginBottom: "48px" }}>
-              <div style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "rgb(13, 27, 42)", marginBottom: "16px", paddingBottom: "8px", borderBottom: "1px solid rgb(229, 231, 235)" }}>
+              <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "rgb(13, 27, 42)", marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid rgb(229, 231, 235)" }}>
                 {region.region}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
                 {region.offices.map((office) => (
                   <div key={`${region.region}-${office.city}`} className="card" style={{ width: "275px", flexShrink: 0 }}>
-                    <div style={{ fontSize: "10px", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "#28628F", marginBottom: "16px" }}>{office.country}</div>
-                    <h3 className="type-h5" style={{ color: "var(--text-primary)", fontSize: "24px", lineHeight: "32px", fontWeight: 500, marginBottom: "16px" }}>{office.city}</h3>
-                    <div style={{ display: "flex", gap: "8px", alignItems: "flex-start", marginBottom: "8px" }}>
-                      <MapPin size={14} color="rgb(58, 74, 88)" style={{ flexShrink: 0, marginTop: "3px" }} />
-                      <p style={{ fontSize: "13px", lineHeight: "20px", color: "rgb(58, 74, 88)", margin: 0 }}>{office.address}</p>
+                    <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)", marginBottom: "16px" }}>{office.country}</div>
+                    <h3 className="type-h5" style={{ color: "var(--text-primary)", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 500, marginBottom: "16px" }}>{office.city}</h3>
+                    <div style={{ display: "flex", gap: "8px", alignItems: "flex-start", marginBottom: "16px" }}>
+                      <MapPin size={14} color="rgb(58, 74, 88)" style={{ flexShrink: 0, marginTop: "16px" }} />
+                      <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-sm)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.address}</p>
                     </div>
                     {office.phone && (
                       <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "16px" }}>
                         <Phone size={14} color="rgb(58, 74, 88)" />
-                        <p style={{ fontSize: "13px", lineHeight: "24px", color: "rgb(58, 74, 88)", margin: 0 }}>{office.phone}</p>
+                        <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.phone}</p>
                       </div>
                     )}
-                    <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "13px", fontWeight: 500, lineHeight: "24px", color: "#28628F", textDecoration: "none" }}>
+                    <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "var(--fs-sm)", fontWeight: 500, lineHeight: "var(--lh-base)", color: "#0074D9", textDecoration: "none" }}>
                       {t("contactus_view_on_google_maps", "View on Google Maps")} <ExternalLink size={12} />
                     </a>
                   </div>
@@ -270,3 +256,5 @@ export default function ContactUs() {
     </PageWrapper>
   );
 }
+
+

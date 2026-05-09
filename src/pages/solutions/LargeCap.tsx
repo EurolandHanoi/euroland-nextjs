@@ -10,7 +10,7 @@ export default function LargeCap() {
       breadcrumbLabel="For Listed Companies"
       heroLabel="Large Cap Companies"
       heroTitle="Enterprise IR infrastructure, at scale"
-      heroSubtitle="The governance controls, reliability, and enterprise-grade integrations that large cap IR programmes demand. Trusted by some of the world's most complex listed companies."
+      heroSubtitle="The governance controls, reliability, and enterprise-grade integrations that large cap IR Operations demand. Trusted by some of the world's most complex listed companies."
       challengesLabel="The Challenges"
       challengesTitle="What large cap companies face"
       challenges={[
@@ -21,7 +21,7 @@ export default function LargeCap() {
       ]}
       howWeHelpLabel="How We Help"
       howWeHelpTitle="Enterprise-grade IR, without compromise"
-      howWeHelpIntro="Euroland IR's enterprise offering is built for the demands of large cap IR programmes. From custom integrations to dedicated SLAs, we provide the infrastructure and support that complex IR operations require."
+      howWeHelpIntro="Euroland IR's enterprise offering is built for the demands of large cap IR Operations. From custom integrations to dedicated SLAs, we provide the infrastructure and support that complex IR operations require."
       howWeHelpBullets={[
         "Enterprise SLA with 99.9% uptime guarantee",
         "Custom integrations with ERP, CRM, and data systems",
@@ -31,7 +31,7 @@ export default function LargeCap() {
         "Full CSRD, ESG, and sustainability reporting suite",
       ]}
       capabilitiesLabel="What You Can Do"
-      capabilitiesTitle="Run a world-class IR programme"
+      capabilitiesTitle="Run a world-class IR Operation"
       capabilities={[
         {
           icon: "",
@@ -55,8 +55,8 @@ export default function LargeCap() {
         },
         {
           icon: "",
-          title: "Leverage AI across your IR workflow",
-          description: "Use AI-powered drafting, analysis, and automation to reduce manual effort and improve the quality of every investor communication.",
+          title: "Improve investor access with AI-powered IR search",
+          description: "Use AI-powered IR search to help stakeholders find relevant company information across reports, presentations, financial statements, and public disclosures.",
         },
         {
           icon: "",
@@ -74,9 +74,6 @@ export default function LargeCap() {
         { step: "05", title: "", description: "" },
         { step: "06", title: "", description: "" },
       ]}
-      testimonialQuote="Euroland IR gives us the enterprise-grade reliability we need, with the flexibility to adapt to our complex, multi-market IR programme. The platform has become central to how we manage our investor relationships."
-      testimonialAuthor="Global Head of Investor Relations"
-      testimonialRole="Large cap company, FTSE 100"
     />
   );
 }

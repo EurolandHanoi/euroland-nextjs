@@ -47,16 +47,16 @@ function getEvents(t: TFunction) {
 
 function getPressReleases(t: TFunction) {
   return [
-    { date: "12 Mar 2026", title: t("newsroom_euroland_ir_expands_best_practice_platform_with_new_ai_disclosure_tools", "Euroland IR expands best-practice platform with new AI disclosure tools"), excerpt: t("newsroom_new_ai_assisted_drafting_and_disclosure_management_capabilities", "New AI-assisted drafting and disclosure management capabilities now available to all 1,400+ listed clients.") },
+    { date: "12 Mar 2026", title: t("newsroom_euroland_ir_expands_best_practice_platform_with_new_ai_disclosure_tools", "Euroland IR expands best-practice platform with AI-powered IR search"), excerpt: t("newsroom_new_ai_assisted_drafting_and_disclosure_management_capabilities", "New AI-powered IR search capabilities help stakeholders access verified Investor Relations information across websites and IR apps.") },
     { date: "5 Mar 2026", title: t("newsroom_euroland_ir_announces_partnership_with_leading_nordic_stock_exchange", "Euroland IR announces partnership with leading Nordic stock exchange"), excerpt: t("newsroom_strategic_partnership_to_deliver_enhanced_real_time_data_and_compliance_tools", "Strategic partnership to deliver enhanced real-time data and compliance tools for Nordic-listed companies.") },
-    { date: "21 Feb 2026", title: t("newsroom_euroland_ir_wins_ir_magazine_award_for_best_digital_ir_innovation", "Euroland IR wins IR Magazine Award for Best Digital IR Innovation"), excerpt: t("newsroom_recognised_for_outstanding_contribution_to_digital_investor_relations", "Recognised for outstanding contribution to digital investor relations and technology-driven client outcomes.") },
+    { date: "21 Feb 2026", title: t("newsroom_euroland_ir_wins_ir_magazine_award_for_best_digital_ir_innovation", "Euroland IR recognised for award-winning digital IR innovation"), excerpt: t("newsroom_recognised_for_outstanding_contribution_to_digital_investor_relations", "Recognised for outstanding contribution to digital Investor Relations and technology-driven client outcomes.") },
     { date: "14 Feb 2026", title: t("newsroom_new_esg_reporting_module_launched_for_listed_companies", "New ESG reporting module launched for listed companies"), excerpt: t("newsroom_comprehensive_esg_data_presentation_tools_aligned_with_gri_tcf_and_sasb", "Comprehensive ESG data presentation tools aligned with GRI, TCFD, and SASB frameworks now available.") },
   ];
 }
 
 function getMediaCoverage(t: TFunction) {
   return [
-    { source: "Financial Times", date: "10 Mar 2026", title: t("newsroom_how_ai_is_transforming_investor_relations_for_public_companies", "How AI is transforming investor relations for public companies"), excerpt: t("newsroom_a_deep_dive_into_the_tools_and_workflows", "A deep dive into the tools and workflows that are saving IR teams hundreds of hours per quarter.") },
+    { source: "Financial Times", date: "10 Mar 2026", title: t("newsroom_how_ai_is_transforming_investor_relations_for_public_companies", "How AI is transforming Investor Relations for public companies"), excerpt: t("newsroom_a_deep_dive_into_the_tools_and_workflows", "A closer look at the tools and workflows helping IR teams reduce manual work and improve disclosure consistency.") },
     { source: "IR Magazine", date: "3 Mar 2026", title: t("newsroom_best_practice_ir_websites_what_separates_the_leaders", "Best practice IR platforms: what separates the leaders from the rest"), excerpt: t("newsroom_an_analysis_of_500_ir_websites_reveals_five_structural_qualities", "An analysis of 500 IR platforms reveals five structural qualities that drive investor engagement.") },
     { source: "Bloomberg", date: "18 Feb 2026", title: t("newsroom_nordic_ir_technology_firms_lead_global_expansion", "Nordic IR technology firms lead global expansion"), excerpt: t("newsroom_scandinavian_ir_software_providers_are_winning_market_share", "Scandinavian IR software providers are winning market share across Europe and North America.") },
   ];
@@ -75,13 +75,13 @@ export default function Newsroom() {
     <PageWrapper>
       {/* ── HERO ── */}
       <section className="hero-navy banner-hero-section" style={{ minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}>
-        <div className="container" style={{ paddingTop: "120px", paddingBottom: "80px" }}>
-          <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>{t("newsroom_newsroom", "Newsroom")}</div>
-          <h2 style={{ fontSize: "48px", fontWeight: 300, lineHeight: "64px", letterSpacing: "-0.01em", color: "white", marginBottom: "var(--sp-6)", maxWidth: "640px" }}>
+        <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
+          <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)" }}>{t("newsroom_newsroom", "Newsroom")}</div>
+          <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "white", marginBottom: "var(--sp-6)", maxWidth: "640px" }}>
             {t("newsroom_newsroom", "Newsroom")}
           </h2>
           <p style={{ color: "rgba(255,255,255,0.70)", fontSize: "var(--fs-md)", maxWidth: "560px" }}>
-            {t("newsroom_hero_description", "The latest press releases, investor relations product updates, and award announcements from Euroland IR — trusted IR technology for 1,400+ listed companies.")}
+            {t("newsroom_hero_description", "The latest press releases, Investor Relations product updates, and award announcements from Euroland IR — trusted IR technology for 1,400+ listed companies.")}
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function Newsroom() {
             <div ref={f1} className="fade-up" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "var(--sp-10)" }}>
               <div>
                 <div className="u-label" style={{ marginBottom: "var(--sp-3)" }}>{t("newsroom_product", "Product")}</div>
-                <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_events_and_highlights", "Events & Highlights")}</h3>
+                <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_events_and_highlights", "Events & Highlights")}</h3>
               </div>
               <ImageIcon size={20} color="var(--text-tertiary)" />
             </div>
@@ -119,7 +119,7 @@ export default function Newsroom() {
                 >
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
                   <div style={{ position: "relative" }}>
-                    <div style={{ fontSize: "var(--fs-xs)", fontWeight: 500, color: "#327AB1", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "var(--sp-1)" }}>{item.tag}</div>
+                    <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, color: "#0074D9", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "var(--sp-1)" }}>{item.tag}</div>
                     <div style={{ fontSize: "var(--fs-sm)", fontWeight: 600, color: "white" }}>{item.title}</div>
                   </div>
                 </div>
@@ -131,11 +131,11 @@ export default function Newsroom() {
 
       {/* ── UPCOMING EVENTS ── */}
       {
-        <section style={{ background: "var(--slate)", padding: "80px 0" }}>
+        <section style={{ background: "var(--slate)", padding: "64px 0" }}>
           <div className="container">
             <div ref={f2} className="fade-up" style={{ marginBottom: "var(--sp-10)" }}>
               <div className="u-label" style={{ marginBottom: "var(--sp-3)" }}>{t("newsroom_events", "Events")}</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_upcoming_events", "Upcoming Events")}</h3>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_upcoming_events", "Upcoming Events")}</h3>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-3)" }}>
               {EVENTS.map((event) => (
@@ -145,8 +145,8 @@ export default function Newsroom() {
                   style={{ display: "grid", gridTemplateColumns: "80px 1fr", gap: "var(--sp-6)", alignItems: "center", cursor: "pointer" }}
                 >
                   <div style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "var(--fs-xl)", fontWeight: 300, color: "var(--navy)", lineHeight: "32px" }}>{event.date.split(" ")[0]}</div>
-                    <div style={{ fontSize: "var(--fs-xs)", fontWeight: 500, color: "#327AB1", letterSpacing: "0.06em", textTransform: "uppercase" }}>{event.date.split(" ")[1]}</div>
+                    <div style={{ fontSize: "var(--fs-xl)", fontWeight: 300, color: "var(--navy)", lineHeight: "var(--lh-lg)" }}>{event.date.split(" ")[0]}</div>
+                    <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, color: "#0074D9", letterSpacing: "0.06em", textTransform: "uppercase" }}>{event.date.split(" ")[1]}</div>
                   </div>
                   <div>
                     <div className="kicker" style={{ marginBottom: "var(--sp-2)" }}>{event.type}</div>
@@ -166,7 +166,7 @@ export default function Newsroom() {
           <div className="container">
             <div ref={f3} className="fade-up" style={{ marginBottom: "var(--sp-10)" }}>
               <div className="u-label" style={{ marginBottom: "var(--sp-3)" }}>{t("newsroom_press", "Press")}</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_press_releases", "Press Releases")}</h3>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_press_releases", "Press Releases")}</h3>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               {PRESS_RELEASES.map((pr) => (
@@ -186,7 +186,7 @@ export default function Newsroom() {
                   <div style={{ fontSize: "var(--fs-xs)", fontWeight: 600, color: "var(--text-tertiary)", letterSpacing: "0.04em" }}>{pr.date}</div>
                   <div>
                     <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-2)" }}>{pr.title}</h5>
-                    <p style={{ fontSize: "var(--fs-sm)", margin: 0 }}>{pr.excerpt}</p>
+                    <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", margin: 0 }}>{pr.excerpt}</p>
                   </div>
                   <span className="btn-link" style={{ fontSize: "var(--fs-xs)", whiteSpace: "nowrap" }}>{t("newsroom_read_more", "Read more")}</span>
                 </div>
@@ -198,16 +198,16 @@ export default function Newsroom() {
 
       {/* ── MEDIA COVERAGE ── */}
       {
-        <section style={{ background: "var(--slate)", padding: "80px 0" }}>
+        <section style={{ background: "var(--slate)", padding: "64px 0" }}>
           <div className="container">
             <div ref={f4} className="fade-up" style={{ marginBottom: "var(--sp-10)" }}>
               <div className="u-label" style={{ marginBottom: "var(--sp-3)" }}>{t("newsroom_media_coverage", "Media Coverage")}</div>
-              <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_euroland_in_the_news", "Euroland in the News")}</h3>
+              <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "var(--text-primary)", margin: 0 }}>{t("newsroom_euroland_in_the_news", "Euroland in the News")}</h3>
             </div>
             <div className="grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "var(--sp-6)" }}>
               {MEDIA_COVERAGE.map((article) => (
                 <article key={article.title} className="nr-card">
-                  <div className="nr-card-media" style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-tertiary)", fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                  <div className="nr-card-media" style={{ display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-tertiary)", fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {article.source}
                   </div>
                   <div style={{ padding: "var(--sp-6)" }}>
@@ -216,7 +216,7 @@ export default function Newsroom() {
                       <span style={{ fontSize: "var(--fs-xs)", color: "var(--text-tertiary)", fontWeight: 600 }}>{article.date}</span>
                     </div>
                     <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-3)" }}>{article.title}</h5>
-                    <p style={{ fontSize: "var(--fs-sm)", marginBottom: "var(--sp-5)" }}>{article.excerpt}</p>
+                    <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", marginBottom: "var(--sp-5)" }}>{article.excerpt}</p>
                     <span className="btn-link" style={{ fontSize: "var(--fs-xs)" }}>{t("newsroom_read_more", "Read more")}</span>
                   </div>
                 </article>
@@ -231,7 +231,7 @@ export default function Newsroom() {
         <div className="container">
           <div ref={f5} className="fade-up card" style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center", padding: "var(--sp-12)" }}>
             <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("newsroom_newsletter", "Newsletter")}</div>
-            <h5 style={{ fontSize: "24px", fontWeight: 500, lineHeight: "32px", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{t("newsroom_stay_ahead_in_ir", "Stay ahead in IR")}</h5>
+            <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>{t("newsroom_stay_ahead_in_ir", "Stay ahead in IR")}</h5>
             <p style={{ marginBottom: "var(--sp-8)" }}>
               {t("newsroom_newsletter_description", "Monthly insights on best practice IR, regulatory updates, and technology trends — delivered to your inbox.")}
             </p>
@@ -245,7 +245,7 @@ export default function Newsroom() {
                 placeholder={t("newsroom_work_email_address", "Work email address")}
                 style={{
                   flex: 1,
-                  padding: "10px 16px",
+                  padding: "16px 16px",
                   border: "1px solid var(--border-light)",
                   borderRadius: "6px",
                   fontSize: "var(--fs-sm)",
@@ -263,16 +263,18 @@ export default function Newsroom() {
       <div className="cta-band">
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "var(--sp-12)", alignItems: "center" }}>
           <div>
-            <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>{t("newsroom_media_enquiries", "Media Enquiries")}</div>
-            <h3 style={{ fontSize: "40px", fontWeight: 400, lineHeight: "52px", letterSpacing: "0.005em", color: "white", margin: 0 }}>{t("newsroom_press_contact", "Press contact")}</h3>
+            <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)" }}>{t("newsroom_media_enquiries", "Media Enquiries")}</div>
+            <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "white", margin: 0 }}>{t("newsroom_press_contact", "Press contact")}</h3>
             <p style={{ color: "rgba(255,255,255,0.70)", marginTop: "var(--sp-4)", marginBottom: 0 }}>
               {t("newsroom_press_contact_description", "For press enquiries, interview requests, or media resources, please contact our communications team.")}
             </p>
           </div>
-          <LangLink href="/contact" className="btn-secondary" style={{ whiteSpace: "nowrap" }}>{t("newsroom_send_message", "Send Message")}</LangLink>
+          <LangLink href="/contact" className="btn-secondary" style={{ whiteSpace: "nowrap" }}>{t("newsroom_send_message", "Submit")}</LangLink>
         </div>
       </div>
       <div style={{ height: "60px", background: "#fff" }} />
     </PageWrapper>
   );
 }
+
+

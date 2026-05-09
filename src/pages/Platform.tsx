@@ -1,10 +1,16 @@
 "use client";
 import LangLink from "@/components/LangLink";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PageWrapper } from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 type TFunction = (key: string, fallback?: string) => string;
+
+type ModuleMedia =
+  | { type: "video"; src: string }
+  | { type: "image"; src: string; alt: string }
+  | { type: "carousel"; srcs: string[]; alt: string }
+  | { type: "calendar" };
 
 function getWhyCards(t: TFunction) {
   return [
@@ -12,32 +18,32 @@ function getWhyCards(t: TFunction) {
       icon: "⬡",
       title: t("platform_why_card_1_title", "Built exclusively for IR"),
       desc: t(
-        "platform_why_card_1_desc",
-        "Not a generic CMS adapted for investor relations — a platform designed from the ground up for listed companies, with every feature shaped by 20+ years of IR expertise."
+        "platform_why_card_1_short_desc",
+        "Purpose-built for listed-company IR teams."
       ),
     },
     {
       icon: "◈",
       title: t("platform_why_card_2_title", "One vendor, zero integration headaches"),
       desc: t(
-        "platform_why_card_2_desc",
-        "Every module — data, AI, website, apps, alerts, ESG — works together out of the box. One contract, one support team, one platform that just works."
+        "platform_why_card_2_short_desc",
+        "One managed model across tools, data, and support."
       ),
     },
     {
       icon: "◎",
       title: t("platform_why_card_3_title", "IR specialists, not generalists"),
       desc: t(
-        "platform_why_card_3_desc",
-        "Our team understands investor relations from the inside. Every implementation, every support interaction, and every product decision is informed by deep IR domain knowledge."
+        "platform_why_card_3_short_desc",
+        "Support from teams that understand IR workflows."
       ),
     },
     {
       icon: "◉",
-      title: t("platform_why_card_4_title", "Proven at every market cap tier"),
+      title: t("platform_why_card_4_title", "Proven across every market-cap tier"),
       desc: t(
-        "platform_why_card_4_desc",
-        "From small cap companies managing IR with a lean team, to large-cap operations with complex governance requirements — Euroland IR is trusted across 60+ markets worldwide."
+        "platform_why_card_4_short_desc",
+        "Trusted across markets, teams, and company sizes."
       ),
     },
   ];
@@ -49,7 +55,7 @@ function getModules(t: TFunction) {
       label: t("platform_module_stock_label", "Stock & Financial Data"),
       title: t(
         "platform_module_stock_title",
-        "Real-time financial data, built for investor relations"
+        "Real-time financial data, built for Investor Relations"
       ),
       body: t(
         "platform_module_stock_body",
@@ -59,6 +65,7 @@ function getModules(t: TFunction) {
       ctaHref: "/platform/stock-data",
       imageLeft: false,
       bg: "bg-white",
+      media: { type: "video", src: "/share-graph.mp4" } as ModuleMedia,
     },
     {
       label: t("platform_module_ai_label", "AI-Powered Tools"),
@@ -74,6 +81,7 @@ function getModules(t: TFunction) {
       ctaHref: "/ai",
       imageLeft: true,
       bg: "bg-subtle",
+      media: { type: "video", src: "/ai-popup.mp4" } as ModuleMedia,
     },
     {
       label: t("platform_module_calendar_label", "IR Calendar & Alerts"),
@@ -86,39 +94,51 @@ function getModules(t: TFunction) {
         "A fully managed financial calendar covering earnings dates, AGMs, capital markets days, dividend events, and roadshows — with automated email and push notification alerts that keep your investor base informed without adding to your team's workload."
       ),
       cta: t("platform_module_calendar_cta", "See calendar & alerts in action"),
-      ctaHref: "/platform/analytics-earnings",
+      ctaHref: "/contact",
       imageLeft: false,
       bg: "bg-white",
+      media: { type: "video", src: "/ir-calendar-demo.mp4" } as ModuleMedia,
     },
     {
-      label: t("platform_module_website_label", "IR Platform"),
+      label: t("platform_module_website_label", "Interactive analytics tools"),
       title: t(
         "platform_module_website_title",
-        "A best-practice IR platform, fully managed"
+        "Interactive analytics tools"
       ),
       body: t(
         "platform_module_website_body",
-        "Euroland IR builds and manages investor relations websites designed to meet the disclosure requirements of every major exchange — and the expectations of institutional investors, analysts, and ESG rating agencies. Responsive, accessible, multi-language, and always up to date."
+        "Euroland IR builds and manages Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges - and the expectations of institutional investors, analysts, and ESG rating agencies. Responsive, accessible, multi-language, and managed for ongoing accuracy."
       ),
       cta: t("platform_module_website_cta", "See IR platform capabilities"),
       ctaHref: "/platform",
       imageLeft: true,
       bg: "bg-subtle",
+      media: { type: "image", src: "/webpages-showcase_cbbd263f.png", alt: "Euroland IR platform showcase" } as ModuleMedia,
     },
     {
       label: t("platform_module_apps_label", "IR Apps"),
       title: t(
         "platform_module_apps_title",
-        "Your IR programme in every investor's pocket"
+        "Your IR Operation in every investor's pocket"
       ),
       body: t(
         "platform_module_apps_body",
-        "Native iOS and Android investor relations apps that give your investors real-time access to financial data, news, events, and company documents — wherever they are. Fully branded, fully managed, and integrated with the rest of your Euroland IR platform."
+        "Native iOS and Android Investor Relations apps that give your investors real-time access to financial data, news, events, and company documents — wherever they are. Fully branded, fully managed, and integrated with the rest of your Euroland IR platform."
       ),
       cta: t("platform_module_apps_cta", "See IR apps in action"),
       ctaHref: "/platform/ir-apps",
       imageLeft: false,
       bg: "bg-white",
+      media: {
+        type: "carousel",
+        srcs: [
+          "/myirapp/myirapp-1.png",
+          "/myirapp/myirapp-2.png",
+          "/myirapp/myirapp-3.png",
+          "/myirapp/myirapp-4.png",
+        ],
+        alt: "IR app preview",
+      } as ModuleMedia,
     },
     {
       label: t("platform_module_esg_label", "ESG Solutions"),
@@ -134,8 +154,183 @@ function getModules(t: TFunction) {
       ctaHref: "/solutions/sustainability-reporting",
       imageLeft: true,
       bg: "bg-subtle",
+      media: { type: "video", src: "/esg-popup.mp4" } as ModuleMedia,
     },
   ];
+}
+
+function InvestorCalendarPreview() {
+  const months = ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"];
+  const events = [
+    ["29/04/2026", "Year 2026 3-month interim report"],
+    ["22/07/2026", "Year 2026 6-month half-year financial report"],
+    ["29/10/2026", "Year 2026 9-month interim report"],
+  ];
+
+  return (
+    <div style={{ width: "100%", height: "100%", background: "#fff", padding: "32px", boxSizing: "border-box", overflow: "hidden", fontFamily: "Arial, sans-serif" }}>
+      <h3 style={{ margin: "0 0 14px", textAlign: "center", color: "#c94a00", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 800, letterSpacing: "0.06em" }}>
+        INVESTOR CALENDAR
+      </h3>
+      <div style={{ fontSize: "var(--fs-xs)", lineHeight: "var(--lh-sm)", marginBottom: "16px" }}>
+        <strong style={{ display: "block", marginBottom: "16px" }}>Next Event:</strong>
+        <strong style={{ display: "block" }}>29/04/2026</strong>
+        <span>Year 2026 3-month interim report</span>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", border: "1px solid #e5e7eb", marginBottom: "16px" }}>
+        {months.map((month) => (
+          <div key={month} style={{ height: "32px", display: "flex", alignItems: "center", justifyContent: "center", borderRight: "1px solid #e5e7eb", background: month === "Apr" ? "#e8e8e8" : "#fff", fontSize: "var(--fs-xs)", position: "relative" }}>
+            {month}
+            {["Mar", "Apr", "Jul", "Oct"].includes(month) && <span style={{ position: "absolute", bottom: "4px", width: "4px", height: "4px", borderRadius: "50%", background: "#0057b8" }} />}
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
+        <div>
+          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Download all upcoming events</strong>
+          <div style={{ width: "24px", height: "24px", borderRadius: "4px", background: "#d7e8ef", display: "flex", alignItems: "center", justifyContent: "center", color: "#3b82f6", fontSize: "var(--fs-base)" }}>▦</div>
+        </div>
+        <div style={{ textAlign: "center" }}>
+          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Subscribe for events</strong>
+          <button style={{ border: 0, background: "#092b67", color: "#fff", padding: "16px 12px", fontSize: "var(--fs-xs)", fontWeight: 700 }}>Subscribe</button>
+        </div>
+      </div>
+      <div style={{ borderBottom: "1px solid #6b7280", display: "flex", gap: "8px", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>
+        <span style={{ border: "1px solid #6b7280", borderBottom: 0, padding: "16px 12px", color: "#4b5563" }}>Upcoming Events</span>
+        <span style={{ padding: "16px 12px", color: "#05245c" }}>Past Events</span>
+      </div>
+      <div style={{ fontSize: "var(--fs-xs)" }}>
+        {events.map(([date, label]) => (
+          <div key={date} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "12px", borderBottom: "1px solid #e5e7eb", padding: "16px 0" }}>
+            <div>
+              <strong style={{ display: "block", marginBottom: "16px" }}>{date}</strong>
+              <span>{label}</span>
+            </div>
+            <strong style={{ alignSelf: "center" }}>Results</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (media.type !== "carousel") return;
+    setActiveImageIndex(0);
+    const interval = window.setInterval(() => {
+      setActiveImageIndex((index) => (index + 1) % media.srcs.length);
+    }, 3000);
+    return () => window.clearInterval(interval);
+  }, [media]);
+
+  return (
+    <div
+      style={{
+        background: media.type === "carousel" ? "rgb(8, 43, 69)" : "rgb(248, 250, 252)",
+        borderRadius: "16px",
+        aspectRatio: "16/10",
+        position: "relative",
+        overflow: "hidden",
+        boxShadow: "0 16px 48px rgba(8, 43, 69, 0.16)",
+        border: "1px solid rgba(8, 43, 69, 0.10)",
+      }}
+    >
+      {media.type === "video" && (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            padding: "32px",
+            boxSizing: "border-box",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(135deg, #ffffff 0%, #eef7fb 100%)",
+          }}
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              objectPosition: "center",
+              display: "block",
+              borderRadius: "12px",
+              background: "#ffffff",
+              boxShadow: "0 12px 32px rgba(8, 43, 69, 0.14)",
+            }}
+          >
+            <source src={media.src} type="video/mp4" />
+          </video>
+        </div>
+      )}
+      {media.type === "image" && (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(135deg, #ffffff 0%, #f4f8fb 100%)",
+            padding: "32px",
+            boxSizing: "border-box",
+          }}
+        >
+          <img
+            src={media.src}
+            alt={media.alt}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              objectPosition: "center",
+              display: "block",
+              borderRadius: "12px",
+              boxShadow: "0 12px 32px rgba(8, 43, 69, 0.14)",
+            }}
+          />
+        </div>
+      )}
+      {media.type === "carousel" && (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "radial-gradient(circle at 50% 25%, rgba(0,173,240,0.16), rgba(8,43,69,0) 42%), rgb(8, 43, 69)",
+            padding: "32px",
+            boxSizing: "border-box",
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src={media.srcs[activeImageIndex]}
+            alt={media.alt}
+            style={{
+              width: "auto",
+              height: "92%",
+              maxWidth: "58%",
+              objectFit: "contain",
+              display: "block",
+              borderRadius: "16px",
+              boxShadow: "0 24px 56px rgba(0, 0, 0, 0.34)",
+            }}
+          />
+        </div>
+      )}
+      {media.type === "calendar" && <InvestorCalendarPreview />}
+    </div>
+  );
 }
 
 export default function Platform() {
@@ -150,190 +345,173 @@ export default function Platform() {
 
   return (
     <PageWrapper>
-      {/* ── HERO + WHY WRAPPER (shared water background) ── */}
-      <div style={{ backgroundImage: "url('/banner-water.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", position: "relative" }}>
-        {/* Shared dark overlay */}
-        <div style={{ position: "absolute", inset: 0, background: "rgba(8, 43, 69, 0.78)", pointerEvents: "none", zIndex: 0 }} />
-      {/* ── 1. HERO ── */}
-      <section
-        className="hero-navy banner-hero-section"
+      {/* ── HERO + WHY WRAPPER (single centred introduction) ── */}
+      <div
         style={{
-          minHeight: "440px",
-          display: "flex",
-          alignItems: "center",
-          background: "transparent",
           position: "relative",
+          overflow: "hidden",
+          width: "100%",
+          isolation: "isolate",
         }}
       >
-        <div
-          className="container banner-hero-container inner-container"
-          style={{ maxWidth: "1536px", padding: "120px 48px 80px", position: "relative", zIndex: 1 }}
+        <section
+          className="banner-hero-section"
+          style={{
+            minHeight: "calc(100vh - 64px)",
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: "#082b45",
+            backgroundImage:
+              "linear-gradient(180deg, rgba(8, 43, 69, 0.70) 0%, rgba(8, 43, 69, 0.58) 52%, rgba(8, 43, 69, 0.66) 100%), url('/overview-banner.avif')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            color: "#ffffff",
+            position: "relative",
+            zIndex: 2,
+            padding: "128px 0 128px",
+            overflow: "hidden",
+          }}
         >
-          <div style={{ maxWidth: "720px" }}>
-            <SectionLabel light>{t("platform_hero_label", "The Platform")}</SectionLabel>
-            <h1
-              className="banner-hero-title type-h2"
-              style={{
-                fontSize: "48px",
-                fontWeight: 300,
-                lineHeight: "64px",
-                letterSpacing: "-0.01em",
-                color: "#ffffff",
-                margin: "0 0 24px",
-                maxWidth: "720px",
-              }}
-            >
-              {t("platform_hero_heading", "Everything your IR programme needs. One platform.")}
-            </h1>
-            <div
-              className="banner-hero-subtitle"
-              style={{
-                fontSize: "20px",
-                fontWeight: 400,
-                lineHeight: "28px",
-                letterSpacing: "0.01em",
-                color: "#ffffff",
-                maxWidth: "560px",
-                margin: "0 0 32px",
-              }}
-            >
-              {t(
-                "platform_hero_body",
-                "Euroland IR is a unified investor relations platform — combining financial data, AI, compliance tools, shareholder engagement, and investor-facing products in a single, fully managed solution for public companies."
-              )}
-            </div>
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
-              <LangLink href="/book-demo" className="btn-primary">
-                {t("platform_hero_cta_primary", "Book a Demo")}
-              </LangLink>
-              <LangLink href="/contact" className="btn-secondary">
-                {t("platform_hero_cta_secondary", "Talk to Us")}
-              </LangLink>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 2. WHY EUROLAND IR ── */}
-      <section style={{ background: "transparent", color: "var(--white)", padding: "96px 0", position: "relative", zIndex: 1 }}>
-        <div className="container">
-          {/* Centred heading block */}
-          <div style={{ textAlign: "center", marginBottom: "56px" }}>
-            <span className="u-label" style={{ color: "var(--blue)" }}>
-              {t("platform_why_label", "Why Euroland IR")}
-            </span>
-            <h3 className="type-h2"
-              style={{
-                fontSize: "var(--fs-3xl)",
-                lineHeight: "var(--lh-3xl)",
-                fontWeight: 300,
-                color: "var(--white)",
-                letterSpacing: "-0.01em",
-                margin: "20px auto 16px",
-                maxWidth: "600px",
-              }}
-            >
-              {t("platform_why_heading", "The IR platform built for IR")}
-            </h3>
-            <p
-              style={{
-                fontSize: "var(--fs-base)",
-                lineHeight: "var(--lh-base)",
-                color: "rgba(255,255,255,0.65)",
-                maxWidth: "560px",
-                margin: "0 auto",
-              }}
-            >
-              {t(
-                "platform_why_body",
-                "Most IR teams piece together tools from different vendors. Euroland IR is different — one platform, one team, one point of accountability."
-              )}
-            </p>
-          </div>
-
-          {/* 4-column feature cards */}
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "24px",
-            }}
+            className="container banner-hero-container inner-container"
+            style={{ maxWidth: "1180px", padding: "0 48px", position: "relative", zIndex: 1 }}
           >
-            {WHY_CARDS.map((card) => (
-              <div
-                key={card.title}
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  borderRadius: "16px",
-                  padding: "32px 28px",
-                  transition: "background 200ms ease",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLDivElement).style.background =
-                    "rgba(255,255,255,0.10)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLDivElement).style.background =
-                    "rgba(255,255,255,0.06)")
-                }
-              >
-                <div
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "12px",
-                    background: "rgba(0,173,240,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "20px",
-                    fontSize: "20px",
-                    color: "var(--blue)",
-                  }}
-                >
-                  {card.icon}
-                </div>
-                <h5 className="type-h6"
-                  style={{
-                    fontSize: "var(--fs-base)",
-                    fontWeight: 600,
-                    color: "var(--white)",
-                    marginBottom: "12px",
-                    lineHeight: "var(--lh-base)",
-                  }}
-                >
-                  {card.title}
-                </h5>
-                <p
-                  style={{
-                    fontSize: "var(--fs-sm)",
-                    lineHeight: "20px",
-                    color: "rgba(255,255,255,0.60)",
-                    margin: 0,
-                  }}
-                >
-                  {card.desc}
-                </p>
+            <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
+              <div style={{ width: "fit-content", margin: "0 auto" }}>
+                <SectionLabel light centered>{t("platform_why_label", "Why Euroland IR")}</SectionLabel>
               </div>
-            ))}
+              <h1
+                className="banner-hero-title type-h2"
+                style={{
+                  fontSize: "var(--fs-3xl)",
+                  fontWeight: 600,
+                  lineHeight: "var(--lh-3xl)",
+                  letterSpacing: "-0.02em",
+                  color: "#ffffff",
+                  margin: "16px auto 16px",
+                  maxWidth: "780px",
+                }}
+              >
+                {t("platform_hero_heading", "Built for Investor Relations teams")}
+              </h1>
+              <div
+                className="banner-hero-subtitle"
+                style={{
+                  fontSize: "var(--fs-md)",
+                  fontWeight: 400,
+                  lineHeight: "var(--lh-md)",
+                  letterSpacing: "0.01em",
+                  color: "rgba(255,255,255,0.72)",
+                  maxWidth: "760px",
+                  margin: "0 auto 32px",
+                }}
+              >
+                {t(
+                  "platform_hero_body",
+                  "Euroland IR brings together financial data, investor communications, AI-powered search, ESG presentation, alerts, and investor-facing tools in one managed platform for listed-company IR teams."
+                )}
+              </div>
+            </div>
+
+            <div
+              className="platform-hero-proof-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                gap: "24px",
+                margin: "40px auto 0",
+                maxWidth: "1032px",
+              }}
+            >
+              {WHY_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.24)",
+                    borderRadius: "12px",
+                    padding: "20px",
+                    transition: "background 200ms ease, transform 200ms ease",
+                    textAlign: "left",
+                    minHeight: "152px",
+                    backdropFilter: "blur(12px)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.16)";
+                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.12)";
+                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "8px",
+                      background: "rgba(0,173,240,0.20)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: "12px",
+                      fontSize: "var(--fs-base)",
+                      color: "var(--white)",
+                    }}
+                  >
+                    {card.icon}
+                  </div>
+                  <h5
+                    className="type-h6 platform-hero-proof-title"
+                    style={{
+                      fontSize: "var(--fs-base)",
+                      fontWeight: 600,
+                      color: "var(--white)",
+                      marginBottom: "12px",
+                      lineHeight: "var(--lh-lg)",
+                    }}
+                  >
+                    {card.title}
+                  </h5>
+                  <p
+                    style={{
+                      fontSize: "var(--fs-base)",
+                      lineHeight: "var(--lh-base)",
+                      color: "rgba(255,255,255,0.72)",
+                      margin: 0,
+                    }}
+                  >
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-      </div>{/* end hero+why wrapper */}
+        </section>
+      </div>
       {/* ── 3–8. ALTERNATING MODULE SECTIONS ── */}
       {MODULES.map((mod) => {
         const textBlock = (
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <span className="u-label">{mod.label}</span>
+            <span
+              className="type-label"
+              style={{
+                color: "var(--label-blue-light)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
+              }}
+            >
+              {mod.label}
+            </span>
             <h3
               style={{
                 fontSize: "var(--fs-2xl)",
                 lineHeight: "var(--lh-2xl)",
-                fontWeight: 300,
+                fontWeight: 600,
                 color: "var(--text-primary)",
                 letterSpacing: "-0.01em",
-                margin: "20px 0 20px",
+                margin: "16px 0 16px",
               }}
             >
               {mod.title}
@@ -355,14 +533,14 @@ export default function Platform() {
                 alignItems: "center",
                 gap: "8px",
                 fontSize: "var(--fs-sm)",
-                fontWeight: 600,
+                fontWeight: 400,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--blue)",
                 textDecoration: "none",
                 transition: "gap 160ms ease",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "14px")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "16px")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "8px")}
             >
               {mod.cta} →
@@ -370,57 +548,13 @@ export default function Platform() {
           </div>
         );
 
-        const videoBlock = (
-          <div
-            style={{
-              background: "var(--navy)",
-              borderRadius: "16px",
-              aspectRatio: "16/10",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "16px",
-              cursor: "pointer",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            {/* Play button */}
-            <div
-              style={{
-                width: "56px",
-                height: "56px",
-                borderRadius: "50%",
-                background: "rgba(0,173,240,0.20)",
-                border: "2px solid rgba(0,173,240,0.50)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M6 4l12 6-12 6V4z" fill="var(--blue)" />
-              </svg>
-            </div>
-            <span
-              style={{
-                fontSize: "var(--fs-xs)",
-                fontWeight: 600,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.50)",
-              }}
-            >
-              {mod.cta.toUpperCase()}
-            </span>
-          </div>
-        );
+        const mediaBlock = <ModuleMediaPreview media={mod.media} />;
 
         return (
           <section key={mod.label} className={`section ${mod.bg}`}>
             <div className="container">
               <div
+                className="grid-2col"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
@@ -430,13 +564,13 @@ export default function Platform() {
               >
                 {mod.imageLeft ? (
                   <>
-                    {videoBlock}
+                    {mediaBlock}
                     {textBlock}
                   </>
                 ) : (
                   <>
                     {textBlock}
-                    {videoBlock}
+                    {mediaBlock}
                   </>
                 )}
               </div>
@@ -449,23 +583,23 @@ export default function Platform() {
       <section className="cta-band">
         <div className="container">
           <div style={{ textAlign: "center" }}>
-            <span className="u-label" style={{ color: "var(--blue)" }}>
+            <span className="u-label u-label-dark">
               {t("platform_cta_band_label", "Get Started")}
             </span>
             <h3
               style={{
                 fontSize: "var(--fs-2xl)",
                 lineHeight: "var(--lh-2xl)",
-                fontWeight: 300,
+                fontWeight: 600,
                 color: "var(--white)",
                 letterSpacing: "-0.01em",
-                margin: "20px auto 16px",
+                margin: "16px auto 16px",
                 maxWidth: "600px",
               }}
             >
               {t(
                 "platform_cta_band_heading",
-                "Ready to transform your investor relations?"
+                "Ready to transform your Investor Relations?"
               )}
             </h3>
             <p
@@ -473,9 +607,9 @@ export default function Platform() {
                 fontSize: "var(--fs-base)",
                 lineHeight: "var(--lh-base)",
                 color: "rgba(255,255,255,0.70)",
-                marginBottom: "40px",
+                marginBottom: "32px",
                 maxWidth: "480px",
-                margin: "0 auto 40px",
+                margin: "0 auto 32px",
               }}
             >
               {t(
@@ -494,8 +628,8 @@ export default function Platform() {
               <LangLink href="/book-demo" className="btn-primary">
                 {t("platform_cta_band_btn_book_demo", "Book a Demo")}
               </LangLink>
-              <LangLink href="/contact" className="btn-secondary">
-                {t("platform_cta_band_btn_contact_us", "Talk to Us")}
+              <LangLink href="/platform" className="btn-secondary">
+                {t("platform_cta_band_btn_contact_us", "Explore our tools")}
               </LangLink>
             </div>
           </div>
@@ -505,3 +639,4 @@ export default function Platform() {
     </PageWrapper>
   );
 }
+

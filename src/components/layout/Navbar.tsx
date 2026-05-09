@@ -37,11 +37,10 @@ export default function Navbar() {
   const langDisplay = lang === "zh-TW" ? "ZH" : lang.toUpperCase().slice(0, 2);
 
   const platformLinks = [
-    { label: t("nav_ir_software_tools", "IR Software Tools"), href: "/platform" },
+    { label: t("nav_overview", "Overview"), href: "/platform" },
     { label: t("nav_ai_solutions", "Purpose Built AI"), href: "/ai" },
     { label: t("nav_stock_data", "Stock & Financial Data"), href: "/platform/stock-data" },
     { label: t("nav_ir_apps", "IR App"), href: "/platform/ir-apps" },
-    { label: t("nav_analytics_earnings", "Analytics & Earnings"), href: "/platform/analytics-earnings" },
     { label: t("nav_investor_comms", "Investor Communications"), href: "/platform/investor-comms" },
   ];
 
@@ -94,7 +93,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <div key={item.key} className="relative">
                 <button
-                  className="flex items-center gap-1 px-3 py-2 text-xs font-medium text-[#082b45] hover:text-[#28628F] transition-colors uppercase tracking-wide"
+                  className="flex items-center gap-1 px-3 py-2 text-xs font-medium text-[#082b45] hover:text-[#035F88] hover:bg-[#f8f9fa] transition-colors uppercase tracking-wide rounded"
                   onMouseEnter={() => setActiveDropdown(item.key)}
                   onMouseLeave={() => setActiveDropdown(null)}
                   onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
@@ -115,7 +114,7 @@ export default function Navbar() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="block px-4 py-2 text-[13px] font-normal no-underline transition-colors text-[#22252b] hover:text-[#28628F] hover:bg-[#f8f9fa]"
+                          className="block px-4 py-2 text-[13px] font-normal no-underline transition-colors text-[#22252b] hover:text-[#035F88] hover:bg-[#f8f9fa]"
                         >
                           {link.label}
                         </a>
@@ -125,8 +124,8 @@ export default function Navbar() {
                         href={link.href}
                         className={`block px-4 py-2 text-[13px] font-normal no-underline transition-colors ${
                           location === `/${lang}${link.href}`
-                            ? "text-[#28628F] font-medium bg-[#f0f7ff]"
-                            : "text-[#22252b] hover:text-[#28628F] hover:bg-[#f8f9fa]"
+                            ? "text-[#035F88] font-medium bg-[#f0f7ff]"
+                            : "text-[#22252b] hover:text-[#035F88] hover:bg-[#f8f9fa]"
                         }`}
                       >
                         {link.label}
@@ -142,7 +141,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <div className="relative">
               <button
-                className="flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-semibold tracking-[0.48px] uppercase text-[#082b45]/70 hover:text-[#082b45] border border-[#082b45]/20 hover:border-[#082b45]/40 rounded transition-colors duration-150"
+                className="flex h-9 items-center gap-1.5 px-4 py-0 text-[12px] font-semibold tracking-[0.48px] uppercase text-[#082b45]/70 hover:text-[#035F88] border border-[#082b45]/20 hover:border-[#035F88]/40 rounded transition-colors duration-150"
                 onClick={(e) => { e.stopPropagation(); setLangOpen(prev => !prev); }}
               >
                 <Globe size={14} />
@@ -156,19 +155,19 @@ export default function Navbar() {
                       key={language.code}
                       className={`w-full flex items-center justify-between px-4 py-2.5 text-[14px] transition-colors duration-100 ${
                         language.code === lang
-                          ? "text-[#28628F] font-medium bg-[#f0f7ff]"
-                          : "text-[#22252b] hover:bg-[#f8f9fa]"
+                          ? "text-[#035F88] font-medium bg-[#f0f7ff]"
+                          : "text-[#22252b] hover:text-[#035F88] hover:bg-[#f8f9fa]"
                       }`}
                       onClick={() => { setLang(language.code as LangCode); setLangOpen(false); }}
                     >
                       <span>{language.nativeLabel}</span>
-                      {language.code === lang && <Check size={14} className="text-[#28628F]" />}
+                      {language.code === lang && <Check size={14} className="text-[#035F88]" />}
                     </button>
                   ))}
                 </div>
               )}
             </div>
-            <LangLink href="/book-demo" className="btn-primary no-underline">
+            <LangLink href="/book-demo" className="btn-primary nav-cta no-underline">
               {t("nav_book_demo", "Book a Demo")}
             </LangLink>
           </div>
@@ -193,8 +192,8 @@ export default function Navbar() {
                 key={language.code}
                 className={`px-3 py-1 text-[11px] font-bold border rounded transition-colors ${
                   language.code === lang
-                    ? "border-[#28628F] bg-[#28628F] text-white"
-                    : "border-[#082b45]/20 text-[#082b45]/60 hover:border-[#082b45]/50 hover:text-[#082b45]"
+                    ? "border-[#035F88] bg-[#035F88] text-white"
+                    : "border-[#082b45]/20 text-[#082b45]/60 hover:border-[#035F88]/50 hover:text-[#035F88]"
                 }`}
                 onClick={() => { setLang(language.code as LangCode); setMobileOpen(false); }}
               >
@@ -205,7 +204,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <div key={item.key} className="border-b border-[#dde0e6]/50">
               <button
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[#082b45]"
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-[#082b45] hover:text-[#035F88] hover:bg-[#f8f9fa] transition-colors"
                 onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
               >
                 {item.label}
@@ -215,11 +214,11 @@ export default function Navbar() {
                 <div className="bg-[#f8f9fa] pb-2">
                   {item.links.map((link) => (
                     (link as any).external ? (
-                      <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-6 py-2 text-sm text-[#22252b] hover:text-[#28628F] no-underline">
+                      <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-6 py-2 text-sm text-[#22252b] hover:text-[#035F88] hover:bg-[#f8f9fa] transition-colors no-underline">
                         {link.label}
                       </a>
                     ) : (
-                    <LangLink key={link.href} href={link.href} className="block px-6 py-2 text-sm text-[#22252b] hover:text-[#28628F] no-underline">
+                    <LangLink key={link.href} href={link.href} className="block px-6 py-2 text-sm text-[#22252b] hover:text-[#035F88] hover:bg-[#f8f9fa] transition-colors no-underline">
                       {link.label}
                     </LangLink>
                     )
@@ -229,7 +228,7 @@ export default function Navbar() {
             </div>
           ))}
           <div className="p-4">
-            <LangLink href="/book-demo" className="btn-primary text-center justify-center no-underline w-full block">
+            <LangLink href="/book-demo" className="btn-primary nav-cta text-center justify-center no-underline w-full">
               {t("nav_book_demo", "Book a Demo")}
             </LangLink>
           </div>

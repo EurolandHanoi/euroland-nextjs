@@ -78,18 +78,18 @@ function getToolModals(t: TFunction): Record<string, ModalData> {
       title: t("irtools_advanced_ai_solutions", "Advanced AI Solutions"),
       subtitle: t("irtools_advanced_ai_solutions_subtitle", "Purpose-built AI for Investor Relations"),
       features: [
-        t("irtools_document_analysis_and_extraction", "Document analysis and extraction"),
-        t("irtools_sentiment_analysis_on_communications", "Sentiment analysis on communications"),
-        t("irtools_automated_content_tagging", "Automated content tagging"),
-        t("irtools_qa_automation_with_high_accuracy", "Q&A automation with high accuracy"),
-        t("irtools_time_saving_workflow_automation", "Time-saving workflow automation"),
-        t("irtools_purpose_built_ir_training_data", "Purpose-built IR training data"),
-        t("irtools_compliance_aware_outputs", "Compliance-aware outputs"),
-        t("irtools_natural_language_processing", "Natural language processing"),
+        t("irtools_document_analysis_and_extraction", "AI-powered IR search"),
+        t("irtools_sentiment_analysis_on_communications", "Search across public IR content"),
+        t("irtools_automated_content_tagging", "Context-aware answers"),
+        t("irtools_qa_automation_with_high_accuracy", "Source references for verification"),
+        t("irtools_time_saving_workflow_automation", "Multilingual information access"),
+        t("irtools_purpose_built_ir_training_data", "Website and IR app integration"),
+        t("irtools_compliance_aware_outputs", "Links, document names, and PDF page references"),
+        t("irtools_natural_language_processing", "Natural language investor queries"),
       ],
       benefits: [
-        t("irtools_70_percent_time_savings_on_routine_tasks", "70%+ time savings on routine tasks"),
-        t("irtools_95_percent_accuracy_in_document_processing", "95%+ accuracy in document processing"),
+        t("irtools_70_percent_time_savings_on_routine_tasks", "Significant time savings on routine tasks"),
+        t("irtools_95_percent_accuracy_in_document_processing", "Verifiable source-referenced answers"),
         t("irtools_enhanced_investor_communication", "Enhanced investor communication"),
         t("irtools_scalable_ir_operations", "Scalable IR operations"),
       ],
@@ -258,12 +258,12 @@ export default function IRTools() {
       {/* Hero */}
       <section className="hero-dark banner-hero-section" style={{ minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}>
         <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
-          <div className="u-label" style={{ marginBottom: "var(--sp-4)" }}>{t("irtools_ir_software_tools", "IR Software Tools")}</div>
+          <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)" }}>{t("irtools_ir_software_tools", "IR Software Tools")}</div>
           <h2 style={{ color: "white", fontWeight: 300, marginBottom: "var(--sp-6)", maxWidth: "720px" }}>
             {t("irtools_every_ir_tool_your_team_needs", "Every IR tool your team needs")}
           </h2>
           <p style={{ color: "rgba(255,255,255,0.70)", fontSize: "var(--fs-md)", maxWidth: "560px", marginBottom: "var(--sp-10)" }}>
-            {t("irtools_hero_body", "From stock performance and financial data to IR apps and ESG reporting — our complete platform covers every aspect of modern investor relations.")}
+            {t("irtools_hero_body", "From stock performance and financial data to IR apps and ESG reporting — our complete platform covers every aspect of modern Investor Relations.")}
           </p>
           <div style={{ display: "flex", gap: "var(--sp-3)" }}>
             <LangLink href="/book-demo" className="btn-primary">{t("common_book_demo", "Book a Demo")}</LangLink>
@@ -277,14 +277,14 @@ export default function IRTools() {
         <div className="container">
           <div className="grid-4col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "var(--sp-8)" }}>
             {[
-              { stat: "1,400+", label: t("irtools_clients", "Clients") },
+              { stat: "1,400+", label: t("irtools_clients", "Listed Companies") },
               { stat: "60+", label: t("irtools_stock_exchanges", "Stock Exchanges") },
               { stat: "20+", label: t("irtools_ir_tools", "IR Tools") },
               { stat: "24/7", label: t("irtools_support_and_service", "Support & Service") },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "var(--fs-2xl)", fontWeight: 300, color: "white", lineHeight: "48px" }}>{s.stat}</div>
-                <div style={{ fontSize: "var(--fs-xs)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "var(--fs-2xl)", fontWeight: 300, color: "white", lineHeight: "var(--lh-2xl)" }}>{s.stat}</div>
+                <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginTop: "16px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -296,7 +296,7 @@ export default function IRTools() {
         <section
           key={cat.id}
           id={cat.id}
-          style={{ background: idx % 2 === 0 ? "white" : "var(--slate)", padding: "80px 0" }}
+          style={{ background: idx % 2 === 0 ? "white" : "var(--slate)", padding: "64px 0" }}
         >
           <div className="container">
             <div style={{ marginBottom: "var(--sp-12)" }}>
@@ -311,9 +311,9 @@ export default function IRTools() {
                   style={{ cursor: tool.modalId ? "pointer" : "default" }}
                   onClick={() => { if (tool.modalId) setActiveModal(TOOL_MODALS[tool.modalId]); }}
                 >
-                  <tool.icon size={24} color="#327AB1" strokeWidth={1.5} style={{ marginBottom: "var(--sp-4)" }} />
+                  <tool.icon size={24} color="#00ADF0" strokeWidth={1.5} style={{ marginBottom: "var(--sp-4)" }} />
                   <h5 style={{ color: "var(--text-primary)", marginBottom: "var(--sp-3)" }}>{tool.name}</h5>
-                  <p style={{ fontSize: "var(--fs-sm)", marginBottom: tool.modalId ? "var(--sp-4)" : 0 }}>{tool.desc}</p>
+                  <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", marginBottom: tool.modalId ? "var(--sp-4)" : 0 }}>{tool.desc}</p>
                   {tool.modalId && (
                     <span className="btn-link" style={{ fontSize: "var(--fs-xs)" }}>{t("irtools_learn_more", "Learn more")}</span>
                   )}
@@ -328,9 +328,9 @@ export default function IRTools() {
       <div className="cta-band">
         <div className="container" style={{ textAlign: "center" }}>
           <div ref={f3} className="fade-up">
-            <div className="u-label" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("irtools_get_started", "Get Started")}</div>
+            <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("irtools_get_started", "Get Started")}</div>
             <h3 style={{ color: "white", fontWeight: 300, marginBottom: "var(--sp-8)", maxWidth: "600px", margin: "0 auto var(--sp-8)" }}>
-              {t("irtools_ready_to_transform_your_investor_relations", "Ready to transform your investor relations?")}
+              {t("irtools_ready_to_transform_your_investor_relations", "Ready to transform your Investor Relations?")}
             </h3>
             <div style={{ display: "flex", gap: "var(--sp-3)", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">{t("irtools_book_a_demo", "Book a Demo")}</LangLink>
@@ -345,3 +345,4 @@ export default function IRTools() {
     </PageWrapper>
   );
 }
+
