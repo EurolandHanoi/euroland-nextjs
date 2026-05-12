@@ -1122,66 +1122,85 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ai-section-flex" style={{ backgroundColor: "rgb(8, 43, 69)", minHeight: "480px", padding: "64px 0", alignItems: "center", gap: "64px", flexDirection: "row-reverse" }}>
+      <section
+        style={{
+          backgroundColor: "rgb(8, 43, 69)",
+          minHeight: "480px",
+          padding: "64px 0",
+        }}
+      >
         <div
+          className="inner-container ai-section-flex"
           style={{
-            flex: "1 1 auto",
-            minHeight: "480px",
-            flexShrink: 0,
-            overflow: "hidden",
-            display: "flex",
+            maxWidth: "1536px",
+            margin: "0 auto",
+            padding: "0 48px",
             alignItems: "center",
-            justifyContent: "flex-end",
-            paddingLeft: "48px",
-            paddingRight: "0",
-            boxSizing: "border-box",
+            justifyContent: "space-between",
+            gap: "64px",
+            flexDirection: "row-reverse",
           }}
         >
           <div
-            className="home-ai-video-frame"
             style={{
+              flex: "0 1 760px",
               width: "100%",
-              maxWidth: "973px",
-              aspectRatio: "973 / 547",
-              borderRadius: "8px",
+              maxWidth: "760px",
+              minWidth: 0,
+              minHeight: "480px",
               overflow: "hidden",
-              boxShadow: "0 16px 40px rgba(0,0,0,0.22)",
-              backgroundColor: "rgba(255,255,255,0.04)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              boxSizing: "border-box",
             }}
           >
-            <video
-              autoPlay
-              muted
-              playsInline
+            <div
+              className="home-ai-video-frame"
               style={{
                 width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
+                maxWidth: "760px",
+                aspectRatio: "973 / 547",
+                borderRadius: "8px",
+                overflow: "hidden",
+                boxShadow: "0 16px 40px rgba(0,0,0,0.22)",
+                backgroundColor: "rgba(255,255,255,0.04)",
               }}
             >
-              <source src="/ai-solutions-bg.mp4" type="video/mp4" />
-            </video>
+              <video
+                autoPlay
+                muted
+                playsInline
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              >
+                <source src="/ai-solutions-bg.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
-        </div>
 
-        <div
-          ref={fadeAI}
-          className="fade-up"
-          style={{
-            flex: lang === "ar" ? "0 0 calc((min(100vw, 1536px) - 96px - 48px) / 2)" : "0 0 calc((min(100vw, 1536px) - 96px - 64px) / 2)",
-            maxWidth: lang === "ar" ? "736px" : "688px",
-            marginLeft: "max(48px, calc((100vw - 1536px) / 2 + 48px))",
-            paddingRight: lang === "ar" ? "48px" : 0,
-            paddingLeft: lang === "ar" ? "16px" : 0,
-            backgroundColor: "rgb(8, 43, 69)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: lang === "ar" ? "right" : "left",
-            width: "100%",
-          }}
-        >
+          <div
+            ref={fadeAI}
+            className="fade-up"
+            style={{
+              flex: "0 1 600px",
+              maxWidth: lang === "ar" ? "640px" : "600px",
+              minWidth: 0,
+              marginLeft: 0,
+              paddingRight: lang === "ar" ? "16px" : 0,
+              paddingLeft: 0,
+              backgroundColor: "rgb(8, 43, 69)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: lang === "ar" ? "right" : "left",
+              width: "100%",
+            }}
+          >
           <span
             className="u-label u-label-dark"
             style={{
@@ -1321,10 +1340,16 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", justifyContent: lang === "ar" ? "flex-end" : "flex-start" }}>
-            <LangLink href="/ai" className="btn-secondary">
-              {t("home_ai_cta", "Explore AI Solutions")}
-            </LangLink>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: lang === "ar" ? "flex-end" : "flex-start",
+              }}
+            >
+              <LangLink href="/ai" className="btn-secondary">
+                {t("home_ai_cta", "Explore AI Solutions")}
+              </LangLink>
+            </div>
           </div>
         </div>
       </section>
