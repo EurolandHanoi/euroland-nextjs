@@ -128,7 +128,7 @@ function getModules(t: TFunction) {
       ),
       body: t(
         "platform_module_website_body",
-        "Euroland IR builds and manages Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges - and the expectations of institutional investors, analysts, and ESG rating agencies. Responsive, accessible, multi-language, and managed for ongoing accuracy."
+        "Euroland IR builds and manages Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges - and the expectations of institutional investors, analysts, and ESG rating agencies. Responsive, accessible, and managed for ongoing accuracy."
       ),
       cta: t("platform_module_website_cta", "See IR platform capabilities"),
       ctaHref: "/platform",

@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-// Euroland IR — Language / i18n Context
+// Euroland IR Language / i18n Context
 // Supports 10 locales loaded lazily from local JSON files in /public/locales.
 // Language is driven by the [lang] URL segment; switching language navigates to /{newLang}/...
 // Usage: const { t, lang, setLang, loading } = useLanguage();
@@ -34,20 +34,20 @@ export interface Language {
 
 export const LANGUAGES: Language[] = [
   { code: "en", nativeLabel: "English" },
-  { code: "fr", nativeLabel: "Français" },
-  { code: "es", nativeLabel: "Español" },
-  { code: "pt", nativeLabel: "Português" },
+  { code: "fr", nativeLabel: "Fran\u00E7ais" },
+  { code: "es", nativeLabel: "Espa\u00F1ol" },
+  { code: "pt", nativeLabel: "Portugu\u00EAs" },
   { code: "de", nativeLabel: "Deutsch" },
-  { code: "ar", nativeLabel: "العربية", dir: "rtl" },
-  { code: "zh", nativeLabel: "中文 (简体)" },
-  { code: "zh-TW", nativeLabel: "中文 (繁體)" },
-  { code: "ko", nativeLabel: "한국어" },
-  { code: "ja", nativeLabel: "日本語" },
+  { code: "ar", nativeLabel: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", dir: "rtl" },
+  { code: "zh", nativeLabel: "\u4E2D\u6587 (\u7B80\u4F53)" },
+  { code: "zh-TW", nativeLabel: "\u4E2D\u6587 (\u7E41\u9AD4)" },
+  { code: "ko", nativeLabel: "\uD55C\uAD6D\uC5B4" },
+  { code: "ja", nativeLabel: "\u65E5\u672C\u8A9E" },
 ];
 
 export const SUPPORTED_LANG_CODES = LANGUAGES.map(l => l.code);
 
-const LOCALE_V = "11";
+const LOCALE_V = "16";
 const LOCALE_URLS: Record<LangCode, string> = {
   en: `/locales/en.json?v=${LOCALE_V}`,
   fr: `/locales/fr.json?v=${LOCALE_V}`,
@@ -117,11 +117,13 @@ export function LanguageProvider({
     try {
       const res = await fetch(LOCALE_URLS[code]);
       const data: Translations = await res.json();
-      const merged = { ...data, ...(localLocaleOverrides[code] ?? {}) };
+      const overrideSource =
+        code === "en" ? (localLocaleOverrides[code] ?? {}) : {};
+      const merged = { ...data, ...overrideSource };
       cache[ck] = merged;
       setTranslations(merged);
     } catch (e) {
-      const fallback = localLocaleOverrides[code] ?? {};
+      const fallback = code === "en" ? (localLocaleOverrides[code] ?? {}) : {};
       if (Object.keys(fallback).length) {
         cache[ck] = fallback;
         setTranslations(fallback);
@@ -144,7 +146,7 @@ export function LanguageProvider({
     if (code === lang) return;
     setLangState(code);
     // Replace the current lang segment in the URL
-    // pathname is like /en/solutions → /de/solutions
+    // pathname is like /en/solutions -> /de/solutions
     const segments = (pathname ?? "/").split("/");
     // segments[0] = "", segments[1] = lang code, segments[2..] = rest
     if (segments.length >= 2 && SUPPORTED_LANG_CODES.includes(segments[1] as LangCode)) {

@@ -1,13 +1,13 @@
-"use client";
+﻿"use client";
 
 /**
- * IR SERVICES PAGE — Euroland IR
+ * IR SERVICES PAGE â€” Euroland IR
  * Typography spec:
- *   h2: 48px/300/-0.01em — hero banner headline
- *   h3: 40px/400/0.005em — section headings (services grid, why euroland)
- *   h5: 24px/500/0.005em — service card titles
- *   h6: 20px/500/0.01em  — contact panel heading
- *   p:  16px/400/0.01em  — body text
+ *   h2: 48px/300/-0.01em â€” hero banner headline
+ *   h3: 40px/400/0.005em â€” section headings (services grid, why euroland)
+ *   h5: 24px/500/0.005em â€” service card titles
+ *   h6: 20px/500/0.01em  â€” contact panel heading
+ *   p:  16px/400/0.01em  â€” body text
  */
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
@@ -22,23 +22,23 @@ function getServices(t: TFunction) {
   return [
     {
       num: "01",
-      icon: "ðŸŒ",
+      icon: "\uD83C\uDF10",
       title: t("irservices_ir_website_design_build", "IR Platform Design & Build"),
       desc: t(
         "irservices_ir_website_desc",
-        "Best-practice Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges. Responsive, accessible, multi-language, and managed for ongoing accuracy."
+        "Best-practice Investor Relations websites designed to support disclosure requirements across 60+ stock exchanges. Responsive, accessible, and managed for ongoing accuracy."
       ),
       features: [
         t("irservices_feature_custom_ir_website_design", "Custom IR platform design aligned to your brand"),
         t("irservices_feature_compliant_exchange_requirements", "Compliant with exchange disclosure requirements"),
-        t("irservices_feature_multilanguage_support", "Multi-language support for global investor bases"),
+        t("irservices_feature_multilanguage_support", "Clear investor access across digital channels"),
         t("irservices_feature_fully_managed_hosting", "Fully managed hosting and maintenance"),
         t("irservices_feature_integrated_euroland_ir_data", "Integrated with Euroland IR data feeds"),
       ],
     },
     {
       num: "02",
-      icon: "ðŸ“‹",
+      icon: "\uD83D\uDCCB",
       title: t("irservices_ir_strategy_consulting", "IR Strategy & Consulting"),
       desc: t(
         "irservices_ir_strategy_desc",
@@ -54,23 +54,23 @@ function getServices(t: TFunction) {
     },
     {
       num: "03",
-      icon: "ðŸ“Š",
+      icon: "\uD83D\uDCCA",
       title: t("irservices_annual_report_production", "Annual Report Production"),
       desc: t(
         "irservices_annual_report_desc",
-        "End-to-end annual report production services — from content strategy and copywriting to design, print, and digital delivery. Aligned with CSRD, TCFD, and GRI frameworks."
+        "End-to-end annual report production services â€” from content strategy and copywriting to design, print, and digital delivery. Aligned with CSRD, TCFD, and GRI frameworks."
       ),
       features: [
         t("irservices_feature_content_strategy", "Content strategy and editorial planning"),
         t("irservices_feature_copywriting_proofreading", "Copywriting and proofreading"),
         t("irservices_feature_design_layout", "Design and layout for print and digital"),
         t("irservices_feature_integrated_sustainability_reporting", "Integrated and sustainability reporting"),
-        t("irservices_feature_translation_multiple_languages", "Translation into multiple languages"),
+        t("irservices_feature_translation_multiple_languages", "Editorial and localisation support"),
       ],
     },
     {
       num: "04",
-      icon: "ðŸŽ¯",
+      icon: "\uD83C\uDFAF",
       title: t("irservices_investor_targeting", "Investor Targeting"),
       desc: t(
         "irservices_investor_targeting_desc",
@@ -86,11 +86,11 @@ function getServices(t: TFunction) {
     },
     {
       num: "05",
-      icon: "ðŸ“±",
+      icon: "\uD83D\uDCF1",
       title: t("irservices_digital_ir_communications", "Digital IR Communications"),
       desc: t(
         "irservices_digital_ir_desc",
-        "Digital-first investor communications that keep your investor base informed and engaged — from earnings webcasts and press releases to email alerts and social media."
+        "Digital-first investor communications that keep your investor base informed and engaged â€” from earnings webcasts and press releases to email alerts and social media."
       ),
       features: [
         t("irservices_feature_earnings_webcast_production", "Earnings webcast production and hosting"),
@@ -102,11 +102,11 @@ function getServices(t: TFunction) {
     },
     {
       num: "06",
-      icon: "ðŸŒ¿",
+      icon: "\uD83C\uDF3F",
       title: t("irservices_esg_sustainability_reporting", "ESG & Sustainability Reporting"),
       desc: t(
         "irservices_esg_desc",
-        "Structured ESG disclosure services to help listed companies present sustainability data clearly and credibly — aligned with CSRD, TCFD, GRI, and SASB frameworks."
+        "Structured ESG disclosure services to help listed companies present sustainability data clearly and credibly â€” aligned with CSRD, TCFD, GRI, and SASB frameworks."
       ),
       features: [
         t("irservices_feature_esg_data_collection", "ESG data collection and structuring"),
@@ -125,19 +125,19 @@ export default function IRServices() {
 
   return (
     <PageWrapper>
-      {/* ── Hero ── h2: 48px/300/-0.01em */}
+      {/* â”€â”€ Hero â”€â”€ h2: 48px/300/-0.01em */}
       <section style={{ backgroundColor: "#082b45", minHeight: "440px", overflow: "hidden", display: "flex", alignItems: "flex-start" }}>
         <div className="container" style={{ paddingTop: "96px", paddingBottom: "96px" }}>
           <div style={{ maxWidth: "640px" }}>
             <SectionLabel light>{t("irservices_ir_services", "IR Services")}</SectionLabel>
-            {/* h2 — banner headline: 48px/300/-0.01em */}
+            {/* h2 â€” banner headline: 48px/300/-0.01em */}
             <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px" }}>
               {t("irservices_investor_relations_services_for_listed_companies", "Investor Relations Services for Listed Companies")}
             </h2>
             <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgba(255,255,255,0.70)", margin: "0 0 32px", letterSpacing: "0.01em" }}>
               {t(
                 "irservices_hero_body",
-                "From IR platform design and strategy to annual report production and ESG reporting — Euroland IR provides the full range of Investor Relations services to support every aspect of your investor communications programme."
+                "From IR platform design and strategy to annual report production and ESG reporting â€” Euroland IR provides the full range of Investor Relations services to support every aspect of your investor communications programme."
               )}
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
@@ -152,12 +152,12 @@ export default function IRServices() {
         </div>
       </section>
 
-      {/* ── Services Grid ── h3: 40px/400/0.005em, h5: 24px/500/0.005em */}
+      {/* â”€â”€ Services Grid â”€â”€ h3: 40px/400/0.005em, h5: 24px/500/0.005em */}
       <section style={{ padding: "64px 0", backgroundColor: "#ffffff" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div style={{ display: "flex", justifyContent: "center" }}><SectionLabel centered>{t("irservices_our_services", "Our Services")}</SectionLabel></div>
-            {/* h3 — section heading: 40px/400/0.005em */}
+            {/* h3 â€” section heading: 40px/400/0.005em */}
             <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "16px 0 32px" }}>
               {t("irservices_full_service_investor_relations_support", "Full-service Investor Relations support")}
             </h3>
@@ -177,7 +177,7 @@ export default function IRServices() {
               >
                 <div style={{ fontSize: "var(--fs-xl)", marginBottom: "16px" }}>{service.icon}</div>
                 <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--label-blue-light)", marginBottom: "16px" }}>{service.num}</div>
-                {/* h5 — card title: 24px/500/0.005em */}
+                {/* h5 â€” card title: 24px/500/0.005em */}
                 <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 16px" }}>
                   {service.title}
                 </h5>
@@ -198,13 +198,13 @@ export default function IRServices() {
         </div>
       </section>
 
-      {/* ── Why Euroland ── h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
+      {/* â”€â”€ Why Euroland â”€â”€ h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
       <section style={{ padding: "64px 0", backgroundColor: "#f2f4f6" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
             <div>
               <SectionLabel>{t("irservices_why_euroland_ir", "Why Euroland IR")}</SectionLabel>
-              {/* h3 — section heading: 40px/400/0.005em */}
+              {/* h3 â€” section heading: 40px/400/0.005em */}
               <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "16px 0 32px" }}>
                 {t("irservices_years_of_investor_relations_expertise", "25+ years of Investor Relations expertise")}
               </h3>
@@ -229,7 +229,7 @@ export default function IRServices() {
               </div>
             </div>
             <div style={{ backgroundColor: "#ffffff", padding: "48px", border: "1px solid #dde0e6", borderRadius: "4px" }}>
-              {/* h6 — panel heading: 20px/500/0.01em */}
+              {/* h6 â€” panel heading: 20px/500/0.01em */}
               <h6 style={{ fontSize: "var(--fs-md)", fontWeight: 500, lineHeight: "var(--lh-md)", letterSpacing: "0.01em", color: "#0f1e2b", margin: "0 0 16px" }}>
                 {t("irservices_speak_with_our_ir_services_team", "Speak with our IR Services team")}
               </h6>
@@ -252,10 +252,10 @@ export default function IRServices() {
         </div>
       </section>
 
-      {/* ── CTA ── h3: 40px/400/0.005em */}
+      {/* â”€â”€ CTA â”€â”€ h3: 40px/400/0.005em */}
       <section style={{ padding: "96px 0", backgroundColor: "#082b45" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box", textAlign: "center" }}>
-          {/* h3 — CTA heading: 40px/400/0.005em */}
+          {/* h3 â€” CTA heading: 40px/400/0.005em */}
           <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#ffffff", margin: "0 0 16px" }}>
             {t("irservices_ready_to_elevate_your_investor_relations_programme", "Ready to elevate your Investor Relations operation?")}
           </h3>

@@ -37,7 +37,7 @@ function getMicrositeBullets(t: TFunction) {
     t("ipopage_structured_content", "Structured content for investors, analysts and media"),
     t("ipopage_document_library", "Document library with version control and audit trails"),
     t("ipopage_timetable_alerts", "Timetable, alerts and announcements for real-time updates"),
-    t("ipopage_multi_language", "Multi-language pages and clear contact paths"),
+    t("ipopage_multi_language", "Clear contact paths and investor-ready content"),
   ];
 }
 

@@ -636,8 +636,8 @@ export default function Home() {
         setMobileClientLogoIdx(nextIdx);
         setIncomingMobileClientLogoIdx(null);
         setMobileClientLogoPhase("steady");
-      }, 600);
-    }, 4800);
+      }, 760);
+    }, 5200);
 
     return () => {
       window.clearInterval(interval);
@@ -861,54 +861,68 @@ export default function Home() {
                   overflow: "hidden",
                 }}
               >
-                <div
-                  className="home-client-carousel-mobile-track"
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "20px",
-                    alignItems: "center",
-                    transition: "opacity 560ms ease, transform 560ms ease",
-                    opacity: mobileClientLogoPhase === "transitioning" ? 0 : 1,
-                    transform:
-                      mobileClientLogoPhase === "transitioning"
-                        ? "translateX(-40px)"
-                        : "translateX(0)",
-                  }}
-                >
-                  {activeMobileClientLogos.map((logo) => (
-                    <div
-                      key={`active-${logo.src}`}
-                      className="home-client-logo-slot"
-                      style={{
-                        height: "72px",
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: "0 6px",
-                        boxSizing: "border-box",
-                      }}
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="home-client-logo-mark"
+                {incomingMobileClientLogos.length > 0 ? (
+                  <div
+                    className="home-client-carousel-mobile-slider"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      display: "grid",
+                      gridTemplateColumns: "264px 264px",
+                      width: "528px",
+                      alignItems: "stretch",
+                      transition: "transform 760ms cubic-bezier(0.22, 1, 0.36, 1)",
+                      willChange: "transform, opacity",
+                      transform:
+                        mobileClientLogoPhase === "transitioning"
+                          ? "translateX(-264px)"
+                          : "translateX(0)",
+                    }}
+                  >
+                    {[activeMobileClientLogos, incomingMobileClientLogos].map((logoPair, pairIndex) => (
+                      <div
+                        key={`pair-${pairIndex}`}
                         style={{
-                          maxWidth: "96px",
-                          width: "96px",
-                          height: "28px",
-                          maxHeight: "28px",
-                          objectFit: "contain",
-                          display: "block",
+                          width: "264px",
+                          display: "grid",
+                          gridTemplateColumns: "1fr 1fr",
+                          gap: "20px",
+                          alignItems: "center",
                         }}
-                      />
-                    </div>
-                  ))}
-                </div>
-                {incomingMobileClientLogos.length > 0 && (
+                      >
+                        {logoPair.map((logo) => (
+                          <div
+                            key={`${pairIndex}-${logo.src}`}
+                            className="home-client-logo-slot"
+                            style={{
+                              height: "72px",
+                              width: "100%",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "0 6px",
+                              boxSizing: "border-box",
+                            }}
+                          >
+                            <img
+                              src={logo.src}
+                              alt={logo.alt}
+                              className="home-client-logo-mark"
+                              style={{
+                                maxWidth: "96px",
+                                width: "96px",
+                                height: "28px",
+                                maxHeight: "28px",
+                                objectFit: "contain",
+                                display: "block",
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
                   <div
                     className="home-client-carousel-mobile-track"
                     style={{
@@ -918,17 +932,11 @@ export default function Home() {
                       gridTemplateColumns: "1fr 1fr",
                       gap: "20px",
                       alignItems: "center",
-                      transition: "opacity 560ms ease, transform 560ms ease",
-                      opacity: mobileClientLogoPhase === "transitioning" ? 1 : 0,
-                      transform:
-                        mobileClientLogoPhase === "transitioning"
-                          ? "translateX(0)"
-                          : "translateX(40px)",
                     }}
                   >
-                    {incomingMobileClientLogos.map((logo) => (
+                    {activeMobileClientLogos.map((logo) => (
                       <div
-                        key={`incoming-${logo.src}`}
+                        key={`active-${logo.src}`}
                         className="home-client-logo-slot"
                         style={{
                           height: "72px",
@@ -957,6 +965,46 @@ export default function Home() {
                     ))}
                   </div>
                 )}
+              </div>
+            </div>
+            <div className="home-client-carousel-tablet" style={{ display: "none" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                  gap: "24px 32px",
+                  alignItems: "center",
+                  justifyItems: "center",
+                  width: "100%",
+                  maxWidth: "760px",
+                  margin: "0 auto",
+                }}
+              >
+                {MOBILE_CLIENT_LOGOS.map((logo) => (
+                  <div
+                    key={`tablet-${logo.src}`}
+                    style={{
+                      width: "100%",
+                      minHeight: "56px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      style={{
+                        width: "148px",
+                        maxWidth: "148px",
+                        height: "40px",
+                        maxHeight: "40px",
+                        objectFit: "contain",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div
@@ -1002,9 +1050,10 @@ export default function Home() {
           style={{ maxWidth: "1536px", margin: "0 auto", padding: "0 48px" }}
         >
           <div className="grid-2col" style={{ alignItems: "center" }}>
-            <div className="mobile-full-w" style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "16/9" }}>
+            <div className="home-equity-visual" style={{ width: "100%", borderRadius: "8px", overflow: "hidden", aspectRatio: "16/9" }}>
               <img
                 src="/tell-your-equity-story.png"
+                className="home-equity-visual-image"
                 alt={t(
                   "home_platform_image_alt",
                   "Award-winning IR platform showcase"
@@ -1089,6 +1138,7 @@ export default function Home() {
           }}
         >
           <div
+            className="home-ai-video-frame"
             style={{
               width: "100%",
               maxWidth: "973px",
@@ -1202,10 +1252,10 @@ export default function Home() {
                 ),
               },
               {
-                title: t("home_ai_feature_3_title", "Multilingual Investor Access"),
+                title: t("home_ai_feature_3_title", "Website and App Integration"),
                 body: t(
                   "home_ai_feature_3_body",
-                  "Support multilingual IR information access, including English and Nordic languages, directly within the corporate website and IR mobile app."
+                  "Integrate AI-powered IR search directly into the corporate website and IR mobile app."
                 ),
               },
             ].map(item => (
@@ -1791,7 +1841,7 @@ export default function Home() {
             ref={fadeCTA}
             className="fade-up cta-grid"
           >
-            <div>
+            <div className="cta-grid-copy">
               <div
                 className="u-label"
                 style={{ marginBottom: "16px" }}
@@ -1830,6 +1880,7 @@ export default function Home() {
                 )}
               </p>
               <div
+                className="cta-grid-actions"
                 style={{ display: "flex", gap: "12px", alignItems: "center" }}
               >
                 <LangLink
@@ -1843,32 +1894,42 @@ export default function Home() {
                 </LangLink>
               </div>
             </div>
-
             <div
               className="cta-grid-image"
               style={{
                 width: "100%",
                 height: "288px",
+                position: "relative",
+                borderRadius: "8px",
+                overflow: "hidden",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 16px 40px rgba(0,0,0,0.18)",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "rgba(255, 255, 255, 0.04)",
-                borderRadius: "8px",
-                border: "1px dashed rgba(255, 255, 255, 0.15)",
               }}
             >
-              <span
+              <img
+                src="/banner-purpose-built-ai.jpg"
+                alt="AI solutions preview"
                 style={{
-                  fontSize: "var(--fs-sm)",
-                  fontWeight: 400,
-                  lineHeight: "var(--lh-base)",
-                  color: "rgba(255, 255, 255, 0.35)",
-                  letterSpacing: "0.96px",
-                  textTransform: "uppercase",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
                 }}
-              >
-                {t("home_cta_preview_label", "Mobile app preview")}
-              </span>
+              />
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(135deg, rgba(8,43,69,0.42) 0%, rgba(8,43,69,0.24) 45%, rgba(8,43,69,0.48) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -1968,6 +2029,12 @@ export default function Home() {
           }
         }
         @media (max-width: 767px) {
+          .home-client-carousel-shell {
+            width: 264px !important;
+            min-width: 264px !important;
+            max-width: 264px !important;
+            margin: 0 auto !important;
+          }
           .hero-cycler-text {
             width: 12ch;
             min-width: 12ch;
@@ -1998,6 +2065,17 @@ export default function Home() {
           }
           .home-member-logos-mobile {
             display: flex !important;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1279px) {
+          .home-client-carousel-tablet {
+            display: block !important;
+          }
+          .home-client-carousel-mobile {
+            display: none !important;
+          }
+          .home-client-carousel-desktop {
+            display: none !important;
           }
         }
       `}</style>

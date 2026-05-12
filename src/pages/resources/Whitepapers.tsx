@@ -71,7 +71,7 @@ const PAPERS: Whitepaper[] = [
     date: "December 2025",
     pages: "24 pages",
     title: "AI in Investor Relations: A Practical Adoption Guide",
-    desc: "A framework for IR teams evaluating AI-powered IR search, source-referenced answers, multilingual access, and corporate website or IR app integration.",
+    desc: "A framework for IR teams evaluating AI-powered IR search, source-referenced answers, and corporate website or IR app integration.",
   },
   {
     category: "Investor Engagement",

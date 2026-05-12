@@ -26,7 +26,7 @@ export default function LargeCap() {
         "Enterprise SLA with 99.9% uptime guarantee",
         "Custom integrations with ERP, CRM, and data systems",
         "Dedicated account management and technical support",
-        "Multi-market, multi-language IR platform management",
+        "Multi-market IR platform management",
         "Advanced analytics and investor intelligence",
         "Full CSRD, ESG, and sustainability reporting suite",
       ]}
@@ -46,7 +46,7 @@ export default function LargeCap() {
         {
           icon: "",
           title: "Coordinate IR globally",
-          description: "Manage multi-market, multi-language IR platforms from a single centralised hub, with local teams having the access they need.",
+          description: "Manage multi-market IR platforms from a single centralised hub, with local teams having the access they need.",
         },
         {
           icon: "",

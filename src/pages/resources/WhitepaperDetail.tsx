@@ -30,7 +30,7 @@ const WHITEPAPER = {
     "How to structure an IR platform around investor tasks rather than internal organisation charts.",
     "Which trust signals matter most when public companies present financial, governance, and ESG information online.",
     "Why market data, documents, events, and investor communications work better inside one governed platform.",
-    "What makes multilingual IR delivery feel credible rather than partially translated.",
+    "What makes digital IR delivery feel credible, accurate, and easy to navigate.",
     "Where accessibility, usability, and content governance directly affect investor perception.",
     "How managed delivery can reduce operational burden for lean IR teams.",
   ],

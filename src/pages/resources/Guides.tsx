@@ -60,7 +60,7 @@ const GUIDES = [
     num: "04",
     tag: "AI & TECHNOLOGY",
     title: "A Practical Guide to AI in Investor Relations",
-    desc: "AI is changing how stakeholders access Investor Relations information. This guide explains how AI-powered IR search, source references, and multilingual access can improve the digital investor experience.",
+    desc: "AI is changing how stakeholders access Investor Relations information. This guide explains how AI-powered IR search, source references, and workflow integration can improve the digital investor experience.",
     readTime: "8 min read",
     href: "/ai",
   },

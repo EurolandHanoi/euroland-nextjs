@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-// Euroland IR — About page
+// Euroland IR â€” About page
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -13,7 +13,7 @@ type TFunction = (key: string, fallback?: string) => string;
 function getValues(t: TFunction) {
   return [
     {
-      icon: "ðŸŽ¯",
+      icon: "\uD83C\uDFAF",
       title: t("about_values_client_centricity", "Client-Centricity"),
       desc: t(
         "about_values_client_centricity_desc",
@@ -21,7 +21,7 @@ function getValues(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸ”’",
+      icon: "\uD83D\uDD12",
       title: t("about_values_reliability", "Reliability"),
       desc: t(
         "about_values_reliability_desc",
@@ -29,19 +29,19 @@ function getValues(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸŒ",
+      icon: "\uD83C\uDF0D",
       title: t("about_values_global_reach", "Global Reach"),
       desc: t(
         "about_values_global_reach_desc",
-        "IR is a global discipline. Our platform supports 10 languages and companies listed across 60+ stock exchanges."
+        "IR is a global discipline. Our platform supports companies listed across 60+ stock exchanges and major capital markets."
       ),
     },
     {
-      icon: "ðŸš€",
+      icon: "\uD83D\uDE80",
       title: t("about_values_continuous_innovation", "Continuous Innovation"),
       desc: t(
         "about_values_continuous_innovation_desc",
-        "We invest heavily in R&D — from AI-powered workflows to real-time data infrastructure."
+        "We invest heavily in R&D â€” from AI-powered workflows to real-time data infrastructure."
       ),
     },
   ];
@@ -121,8 +121,8 @@ export default function About() {
                   <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_years_experience", "Years Experience")}</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#082b45]">10</div>
-                  <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_languages", "Languages")}</div>
+                  <div className="text-2xl font-bold text-[#082b45]">40+</div>
+                  <div className="text-xs text-[#5a6a7a] uppercase tracking-wide">{t("about_mission_languages", "Markets")}</div>
                 </div>
               </div>
             </div>

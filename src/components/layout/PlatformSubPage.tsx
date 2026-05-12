@@ -1,13 +1,13 @@
-"use client";
+﻿"use client";
 
 /**
- * PlatformSubPage — Shared layout for all Platform sub-pages
+ * PlatformSubPage â€” Shared layout for all Platform sub-pages
  * Typography spec (corrected):
- *   h2: 48px/300/-0.01em — hero banner headline ONLY
- *   h3: 40px/400/0.005em — section headings (overview, capabilities, steps, CTA)
- *   h6: 20px/500/0.01em  — card/step titles within grids
- *   p:  16px/400/0.01em  — body text
- *   labels: 12px/600/0.08em uppercase — eyebrows
+ *   h2: 48px/300/-0.01em â€” hero banner headline ONLY
+ *   h3: 40px/400/0.005em â€” section headings (overview, capabilities, steps, CTA)
+ *   h6: 20px/500/0.01em  â€” card/step titles within grids
+ *   p:  16px/400/0.01em  â€” body text
+ *   labels: 12px/600/0.08em uppercase â€” eyebrows
  */
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
@@ -93,7 +93,7 @@ export default function PlatformSubPage({
       `}</style>
       <main className="flex-1">
 
-        {/* ── HERO ── h2: 48px/300/-0.01em (banner headline) */}
+        {/* â”€â”€ HERO â”€â”€ h2: 48px/300/-0.01em (banner headline) */}
         <section
           className="psp-hero"
           style={{ backgroundColor: "#082b45", height: "500px", overflow: "hidden", display: "flex", alignItems: "flex-start", position: "relative" }}
@@ -120,7 +120,7 @@ export default function PlatformSubPage({
                 <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>
                   {label}
                 </div>
-                {/* h2 — banner headline: 48px/300/-0.01em */}
+                {/* h2 â€” banner headline: 48px/300/-0.01em */}
                 <h2 style={{ fontSize: "var(--fs-3xl)", fontWeight: 300, lineHeight: "var(--lh-3xl)", letterSpacing: "-0.01em", color: "#ffffff", margin: "0 0 32px", maxWidth: "600px" }}>
                   {title}
                 </h2>
@@ -141,7 +141,7 @@ export default function PlatformSubPage({
                 )}
               </div>
 
-              {/* Right: related nav — hidden on tablet/mobile via CSS */}
+              {/* Right: related nav â€” hidden on tablet/mobile via CSS */}
               <div className="psp-hero-nav" style={{ border: "1px solid rgba(255,255,255,0.10)", overflow: "hidden", backgroundColor: "rgba(255,255,255,0.04)" }}>
                 <div style={{ padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.10)" }}>
                   <span style={{ fontSize: "var(--fs-sm)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.30)" }}>Platform</span>
@@ -167,7 +167,7 @@ export default function PlatformSubPage({
           </div>
         </section>
 
-        {/* ── BENEFITS STRIP ── stat numbers: 40px/300 */}
+        {/* â”€â”€ BENEFITS STRIP â”€â”€ stat numbers: 40px/300 */}
         <section style={{ padding: "48px 0", borderBottom: "1px solid #dde0e6", backgroundColor: "#f7f9fc" }}>
           <div className="psp-section-pad" style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
             <div className="psp-benefits-grid grid-4col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", borderLeft: "1px solid #dde0e6" }}>
@@ -181,13 +181,13 @@ export default function PlatformSubPage({
           </div>
         </section>
 
-        {/* ── OVERVIEW ── h3: 40px/400/0.005em (section heading) */}
+        {/* â”€â”€ OVERVIEW â”€â”€ h3: 40px/400/0.005em (section heading) */}
         <section className="psp-section" style={{ padding: "64px 0", backgroundColor: "#ffffff" }}>
           <div className="psp-section-pad" style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
             <div className="psp-overview-grid grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
               <div>
                 <div className="u-label" style={{ marginBottom: "16px" }}>Overview</div>
-                {/* h3 — section heading: 40px/400/0.005em */}
+                {/* h3 â€” section heading: 40px/400/0.005em */}
                 <h3 className="psp-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: "0 0 32px" }}>
                   {overviewTitle}
                 </h3>
@@ -204,7 +204,7 @@ export default function PlatformSubPage({
                 ) : (
                   <div style={{ textAlign: "center" }}>
                     <div style={{ width: "64px", height: "64px", margin: "0 auto 16px", backgroundColor: "#082b45", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ fontSize: "var(--fs-lg)" }}>ðŸ“Š</span>
+                      <span style={{ fontSize: "var(--fs-lg)" }}>{"\uD83D\uDCCA"}</span>
                     </div>
                     <div style={{ fontSize: "var(--fs-sm)", color: "#8a9aaa", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>{label}</div>
                   </div>
@@ -214,12 +214,12 @@ export default function PlatformSubPage({
           </div>
         </section>
 
-        {/* ── CAPABILITIES GRID ── h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
+        {/* â”€â”€ CAPABILITIES GRID â”€â”€ h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
         <section className="psp-section" style={{ padding: "64px 0", backgroundColor: "#f2f4f6" }}>
           <div className="psp-section-pad" style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <div className="u-label" style={{ marginBottom: "16px" }}>Capabilities</div>
-              {/* h3 — section heading: 40px/400/0.005em */}
+              {/* h3 â€” section heading: 40px/400/0.005em */}
               <h3 className="psp-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: 0 }}>
                 {capabilitiesTitle}
               </h3>
@@ -228,7 +228,7 @@ export default function PlatformSubPage({
               {capabilities.map((cap, i) => (
                 <div key={i} style={{ backgroundColor: "#ffffff", padding: "32px", border: "1px solid #dde0e6", borderRadius: "4px" }}>
                   <div style={{ fontSize: "var(--fs-lg)", marginBottom: "16px" }}>{cap.icon}</div>
-                  {/* h6 — card title: 20px/500/0.01em */}
+                  {/* h6 â€” card title: 20px/500/0.01em */}
                   <h6 style={{ fontSize: "var(--fs-md)", fontWeight: 500, lineHeight: "var(--lh-md)", letterSpacing: "0.01em", color: "#0f1e2b", margin: "0 0 16px" }}>
                     {cap.title}
                   </h6>
@@ -241,12 +241,12 @@ export default function PlatformSubPage({
           </div>
         </section>
 
-        {/* ── HOW IT WORKS ── h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
+        {/* â”€â”€ HOW IT WORKS â”€â”€ h3: 40px/400/0.005em, h6: 20px/500/0.01em */}
         <section className="psp-section" style={{ padding: "64px 0", backgroundColor: "#ffffff" }}>
           <div className="psp-section-pad" style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
             <div style={{ textAlign: "center", marginBottom: "48px" }}>
               <div className="u-label" style={{ marginBottom: "16px" }}>Process</div>
-              {/* h3 — section heading: 40px/400/0.005em */}
+              {/* h3 â€” section heading: 40px/400/0.005em */}
               <h3 className="psp-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#0f1e2b", margin: 0 }}>
                 {stepsTitle}
               </h3>
@@ -268,7 +268,7 @@ export default function PlatformSubPage({
                   }}>
                     {step.num}
                   </div>
-                  {/* h6 — step title: 20px/500/0.01em */}
+                  {/* h6 â€” step title: 20px/500/0.01em */}
                   <h6 style={{ fontSize: "var(--fs-md)", fontWeight: 500, lineHeight: "var(--lh-md)", letterSpacing: "0.01em", color: "#0f1e2b", margin: "0 0 16px" }}>
                     {step.title}
                   </h6>
@@ -281,10 +281,10 @@ export default function PlatformSubPage({
           </div>
         </section>
 
-        {/* ── CTA ── h3: 40px/400/0.005em */}
+        {/* â”€â”€ CTA â”€â”€ h3: 40px/400/0.005em */}
         <section className="psp-section" style={{ padding: "96px 0", backgroundColor: "#082b45" }}>
           <div className="psp-section-pad" style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box", textAlign: "center" }}>
-            {/* h3 — CTA heading: 40px/400/0.005em */}
+            {/* h3 â€” CTA heading: 40px/400/0.005em */}
             <h3 className="psp-h3" style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "#ffffff", margin: "0 0 16px" }}>
               Ready to see {title} in action?
             </h3>

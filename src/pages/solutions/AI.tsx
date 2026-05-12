@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-// Euroland IR — AI Solutions page
+// Euroland IR â€” AI Solutions page
 
 import Link from "next/link";
 import LangLink from "@/components/LangLink";
@@ -18,7 +18,7 @@ const CDN = {
 function getAiCapabilities(t: TFunction) {
   return [
     {
-      icon: "✍️",
+      icon: "\u270D\uFE0F",
       title: t("solutions_ai_ai_drafting", "AI-Powered IR Search"),
       desc: t(
         "solutions_ai_ai_drafting_desc",
@@ -26,7 +26,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸ“Š",
+      icon: "\uD83D\uDCCA",
       title: t("solutions_ai_earnings_analysis", "Verified Answers"),
       desc: t(
         "solutions_ai_earnings_analysis_desc",
@@ -34,15 +34,15 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸŽ¯",
-      title: t("solutions_ai_investor_sentiment", "Multilingual Access"),
+      icon: "\uD83C\uDFAF",
+      title: t("solutions_ai_investor_sentiment", "Workflow Integration"),
       desc: t(
         "solutions_ai_investor_sentiment_desc",
-        "Support multilingual IR information access, including English and Nordic languages, for international investor audiences."
+        "Fit AI-powered search naturally into your wider IR workflow and investor experience."
       ),
     },
     {
-      icon: "ðŸ”",
+      icon: "\uD83D\uDD0D",
       title: t("solutions_ai_disclosure_review", "Website Integration"),
       desc: t(
         "solutions_ai_disclosure_review_desc",
@@ -50,7 +50,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸŒ",
+      icon: "\uD83C\uDF10",
       title: t("solutions_ai_translation_localisation", "IR App Integration"),
       desc: t(
         "solutions_ai_translation_localisation_desc",
@@ -58,7 +58,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "ðŸ¤–",
+      icon: "\uD83E\uDD16",
       title: t("solutions_ai_workflow_automation", "Investor Self-Service"),
       desc: t(
         "solutions_ai_workflow_automation_desc",
@@ -129,10 +129,10 @@ export default function AI() {
                   ),
                 },
                 {
-                  label: t("solutions_ai_consistent_with_your_voice", "Supports multilingual access"),
+                  label: t("solutions_ai_consistent_with_your_voice", "Fits existing IR workflows"),
                   desc: t(
                     "solutions_ai_learns_your_companys_tone_and_style_over_time",
-                    "Including English and Nordic languages"
+                    "Website, app, and content workflow integration"
                   ),
                 },
                 {

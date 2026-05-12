@@ -36,7 +36,7 @@ function getFeatures(t: TFunction) {
     { num: "02", title: t("aipage_feature_source_references", "Verified Source References"), desc: t("aipage_feature_source_references_desc", "Provide answers with links, document names, and PDF page references so investors can verify information quickly.") },
     { num: "03", title: t("aipage_feature_ir_content_coverage", "IR Content Coverage"), desc: t("aipage_feature_ir_content_coverage_desc", "Search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures.") },
     { num: "04", title: t("aipage_feature_website_app_integration", "Website and App Integration"), desc: t("aipage_feature_website_app_integration_desc", "Integrate the AI search experience directly into the corporate website and IR mobile app.") },
-    { num: "05", title: t("aipage_feature_multilingual_functionality", "Multilingual Functionality"), desc: t("aipage_feature_multilingual_functionality_desc", "Support multilingual IR information access, including English and Nordic languages.") },
+    { num: "05", title: t("aipage_feature_multilingual_functionality", "Workflow Integration"), desc: t("aipage_feature_multilingual_functionality_desc", "Embed AI search and drafting tools directly into your IR workflow.") },
     { num: "06", title: t("aipage_feature_context_aware_answers", "Context-Aware Answers"), desc: t("aipage_feature_context_aware_answers_desc", "Understand user intent and deliver relevant answers based on the company's Investor Relations materials.") },
   ];
 }

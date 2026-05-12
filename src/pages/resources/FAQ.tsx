@@ -68,8 +68,8 @@ const FAQ_CATEGORIES: FAQCategory[] = [
         a: "Yes. All Euroland IR tools can be embedded into your existing IR platform using our widget library. This allows you to add real-time stock charts, financial data tables, earnings calendars, and more without rebuilding your site.",
       },
       {
-        q: "Does the platform support multiple languages?",
-        a: "Yes. The platform supports 10 languages: English, German, French, Spanish, Italian, Swedish, Norwegian, Danish, Chinese (Simplified), and Japanese. Content can be managed separately for each language.",
+        q: "How is IR content managed?",
+        a: "Content can be managed centrally across reports, news, filings, and IR pages, helping teams keep information accurate and current.",
       },
       {
         q: "Is there a mobile app for investors?",

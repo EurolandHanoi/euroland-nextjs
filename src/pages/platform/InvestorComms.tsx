@@ -34,13 +34,10 @@ function useFadeIn() {
   return ref;
 }
 
-function VideoPlaceholder({ label, height }: { label: string; height: number }) {
+function PlatformImage({ src, alt, height }: { src: string; alt: string; height: number }) {
   return (
-    <div style={{ width: "100%", height: `${height}px`, background: "rgb(13, 27, 42)", borderRadius: "12px", border: "1px solid rgba(0, 173, 240, 0.2)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px" }}>
-      <div style={{ width: "48px", height: "48px", borderRadius: "50%", border: "2px solid rgb(0, 116, 217)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="rgb(0, 116, 217)"><polygon points="5 3 19 12 5 21 5 3" /></svg>
-      </div>
-      <p style={{ fontSize: "var(--fs-base)", fontWeight: 500, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(255, 255, 255)", margin: 0 }}>{label}</p>
+    <div style={{ width: "100%", height: `${height}px`, borderRadius: "12px", border: "1px solid rgba(0, 173, 240, 0.16)", overflow: "hidden", background: "#f2f4f6", boxShadow: "0 16px 40px rgba(8, 43, 69, 0.12)" }}>
+      <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
     </div>
   );
 }
@@ -63,7 +60,7 @@ export default function InvestorComms() {
   const TOOL_CARDS = [
     { num: "01", title: t("comms_tool_1_title", "Investor Email Campaigns"), desc: t("comms_tool_1_desc", "Professionally designed, compliance-ready email campaigns for earnings releases, dividend announcements, and investor events, delivered directly to your shareholder database.") },
     { num: "02", title: t("comms_tool_2_title", "Regulatory News Distribution"), desc: t("comms_tool_2_desc", "Automated distribution of regulatory announcements to stock exchanges, news wires, and investor databases, ensuring simultaneous, compliant disclosure across all channels.") },
-    { num: "03", title: t("comms_tool_3_title", "Multilingual IR Communications"), desc: t("comms_tool_3_desc", "Automated translation and localisation of IR communications, ensuring your investor messages reach international shareholders in their native language.") },
+    { num: "03", title: t("comms_tool_3_title", "Investor Communications Workflows"), desc: t("comms_tool_3_desc", "Structured communications workflows that help IR teams manage investor outreach accurately and consistently.") },
     { num: "04", title: t("comms_tool_4_title", "Investor Alert Subscriptions"), desc: t("comms_tool_4_desc", "A self-service investor alert system allowing shareholders to subscribe to specific announcement categories, including share price alerts, results, dividends, and regulatory news.") },
     { num: "05", title: t("comms_tool_5_title", "AGM & Event Invitations"), desc: t("comms_tool_5_desc", "Structured invitation and registration workflows for AGMs, capital markets days, and investor roadshows, with automated reminders and attendance tracking.") },
     { num: "06", title: t("comms_tool_6_title", "Communications Analytics"), desc: t("comms_tool_6_desc", "Detailed open rates, click-through rates, and engagement metrics for every investor communication, giving your IR team the data to optimise future outreach.") },
@@ -93,7 +90,7 @@ export default function InvestorComms() {
               <div style={{ width: "25%", height: "2px", background: "var(--label-blue-light)", marginTop: "16px" }} />
             </div>
             <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "16px 0 16px" }}>{t("comms_challenge_heading", "IR communications must be accurate, timely, and global")}</h3>
-            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "560px", margin: "0 auto" }}>{t("comms_challenge_body", "Regulatory disclosure requirements demand simultaneous distribution. International investor bases demand multilingual content. Euroland IR Investor Communications delivers both, automatically, at scale, and with full audit trail.")}</p>
+            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "560px", margin: "0 auto" }}>{t("comms_challenge_body", "Regulatory disclosure requirements demand simultaneous distribution, accurate records, and clear investor delivery. Euroland IR Investor Communications supports that workflow at scale with full audit trail.")}</p>
           </div>
         </div>
       </section>
@@ -101,7 +98,7 @@ export default function InvestorComms() {
       <section style={{ width: "100%", padding: "64px 0", background: "#ffffff" }}>
         <div ref={demoRef} style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
-            <VideoPlaceholder label={t("comms_demo_video_label", "Investor Communications, Live Demo")} height={387} />
+            <PlatformImage src="/investor-comms-map.jpg" alt={t("comms_demo_video_label", "Investor Communications platform preview")} height={387} />
             <div>
               <div style={{ marginBottom: "16px" }}>
                 <div style={{ display: "inline-block", width: "fit-content" }}>
@@ -110,7 +107,7 @@ export default function InvestorComms() {
                 </div>
               </div>
               <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "0 0 32px" }}>{t("comms_demo_heading", "One platform for every investor communication channel")}</h3>
-              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", margin: "0 0 32px" }}>{t("comms_demo_body", "Euroland IR Investor Communications manages your entire outreach workflow, from regulatory announcement distribution to multilingual email campaigns and investor alert subscriptions. Every communication is tracked, archived, and available for compliance audit at any time.")}</p>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", margin: "0 0 32px" }}>{t("comms_demo_body", "Euroland IR Investor Communications manages your entire outreach workflow, from regulatory announcement distribution to investor email campaigns and alert subscriptions. Every communication is tracked, archived, and available for compliance audit at any time.")}</p>
               <LangLink href="/book-demo" style={{ fontSize: "var(--fs-sm)", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "#0074D9", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px" }}>{t("comms_demo_link", "See Investor Communications in action →")}</LangLink>
             </div>
           </div>
@@ -127,7 +124,7 @@ export default function InvestorComms() {
               </div>
             </div>
             <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "0 0 32px" }}>{t("comms_suite_heading", "Every communications tool your Investor Relations team needs")}</h3>
-            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "480px", margin: 0 }}>{t("comms_suite_body", "From regulatory distribution to multilingual email campaigns and investor alert subscriptions, all managed, tracked, and archived in one compliant platform.")}</p>
+            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "480px", margin: 0 }}>{t("comms_suite_body", "From regulatory distribution to investor email campaigns and alert subscriptions, all managed, tracked, and archived in one compliant platform.")}</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px" }}>
             {TOOL_CARDS.map((card, i) => (<ToolCard key={i} card={card} />))}
