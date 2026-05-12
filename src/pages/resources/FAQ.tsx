@@ -43,11 +43,11 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "What is Euroland IR and who is it for?",
-        a: "Euroland IR is a comprehensive Investor Relations platform built for publicly listed companies. It provides everything from IR platforms and real-time stock data to earnings management, investor communications, ESG/CSRD communication, AI-powered IR search, and investor-facing mobile access. It is designed for IR professionals, CFOs, and company secretaries at listed companies of all sizes.",
+        a: "Euroland IR is a comprehensive investor relations platform built for publicly listed companies. It provides everything from IR platforms and real-time stock data to earnings management, investor communications, ESG/CSRD communication, AI-powered IR search, and investor-facing mobile access. It is designed for IR professionals, CFOs, and company secretaries at listed companies of all sizes.",
       },
       {
         q: "How quickly can we get started?",
-        a: "Most clients are live within a few days for standard setups. More complex implementations with custom integrations or data migrations typically take 2–4 weeks. Our onboarding team will guide you through every step.",
+        a: "Most clients are live within a few days for standard setups. More complex implementations with custom integrations or data migrations typically take 2 to 4 weeks. Our onboarding team will guide you through every step.",
       },
       {
         q: "Do we need technical expertise to use the platform?",
@@ -91,7 +91,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "Are there setup or implementation fees?",
-        a: "Standard setups are included in your subscription. For complex custom implementations — such as bespoke data integrations or white-label configurations — a one-time implementation fee may apply. This will be discussed and agreed before any work begins.",
+        a: "Standard setups are included in your subscription. For complex custom implementations, such as bespoke data integrations or white-label configurations, a one-time implementation fee may apply. This will be discussed and agreed before any work begins.",
       },
       {
         q: "What contract lengths are available?",
@@ -121,7 +121,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         q: "What AI features does Euroland IR offer?",
-        a: "Euroland IR offers purpose-built AI-powered search for Investor Relations. It helps stakeholders search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures, with source references such as links, document names, and PDF page numbers where available.",
+        a: "Euroland IR offers purpose-built AI-powered search for investor relations. It helps stakeholders search across earnings materials, financial statements, IR presentations, reports, and publicly available disclosures, with source references such as links, document names, and PDF page numbers where available.",
       },
     ],
   },
@@ -167,7 +167,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "Does Euroland IR support CSRD reporting?",
-        a: "Yes. Our CSRD Reporting Solution provides a structured, investor-friendly presentation of your CSRD disclosures — surfacing key insights, communicating double materiality assessments clearly, and making it easier for both retail and institutional investors to understand your ESRS-aligned sustainability position.",
+        a: "Yes. Our CSRD Reporting Solution provides a structured, investor-friendly presentation of your CSRD disclosures, surfacing key insights, communicating double materiality assessments clearly, and making it easier for both retail and institutional investors to understand your ESRS-aligned sustainability position.",
       },
       {
         q: "What is the Sustainability IAT?",
@@ -175,7 +175,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         q: "What is the difference between the CSRD Reporting Solution and the Sustainability IAT?",
-        a: "The CSRD Reporting Solution is designed for formal CSRD and ESG disclosure communication — presenting structured documents in an accessible format. The Sustainability IAT is designed for dynamic, ongoing stakeholder engagement — providing a live, always-current view of your sustainability performance.",
+        a: "The CSRD Reporting Solution is designed for formal CSRD and ESG disclosure communication, presenting structured documents in an accessible format. The Sustainability IAT is designed for dynamic, ongoing stakeholder engagement, providing a live, always-current view of your sustainability performance.",
       },
       {
         q: "Can Euroland IR help with ESG investor communication?",
@@ -189,7 +189,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     items: [
       {
         q: "What does Euroland IR include in an IR platform?",
-        a: "Our IR platform solution includes a fully managed, branded Investor Relations website with real-time stock data, financial reports, governance documents, press releases, earnings calendar, ESG section, and investor contact tools — all in a single, compliant platform.",
+        a: "Our IR platform solution includes a fully managed, branded investor relations website with real-time stock data, financial reports, governance documents, press releases, earnings calendar, ESG section, and investor contact tools, all in a single, compliant platform.",
       },
       {
         q: "Can we manage our IR platform content ourselves?",
@@ -201,7 +201,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         q: "Can the IR platform be integrated with other Euroland IR tools?",
-        a: "Yes. The IR platform is fully integrated with all other Euroland IR modules — stock data, earnings tools, ESG reporting, investor communications, and AI analytics — providing a single, coherent investor experience.",
+        a: "Yes. The IR platform is fully integrated with all other Euroland IR modules, including stock data, earnings tools, ESG reporting, investor communications, and AI analytics, providing a single, coherent investor experience.",
       },
     ],
   },
@@ -219,12 +219,13 @@ function AccordionItem({ q, a }: FAQItem) {
     >
       <button
         onClick={() => setOpen(!open)}
+        className="faq-question-button"
         style={{
           width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "16px 0",
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1fr) auto",
+          alignItems: "flex-start",
+          padding: "20px 0",
           background: "none",
           border: "none",
           cursor: "pointer",
@@ -234,12 +235,19 @@ function AccordionItem({ q, a }: FAQItem) {
       >
         {/* Question: 16px/400/24px/rgb(13,27,42) — node[63] */}
         <span
+          className="faq-question-text"
           style={{
-            fontSize: "var(--fs-base)",
+            display: "block",
+            fontSize: "16px",
             fontWeight: 400,
-            lineHeight: "var(--lh-base)",
+            lineHeight: "24px",
             color: "rgb(13, 27, 42)",
             flex: 1,
+            minWidth: 0,
+            width: "100%",
+            whiteSpace: "normal",
+            overflowWrap: "anywhere",
+            wordBreak: "break-word",
           }}
         >
           {q}
@@ -247,9 +255,9 @@ function AccordionItem({ q, a }: FAQItem) {
         {/* + icon: 16px, rgb(0,107,163) */}
         <span
           style={{
-            fontSize: "var(--fs-base)",
+            fontSize: "16px",
             fontWeight: 400,
-            color: "rgb(0, 116, 217)",
+            color: "rgb(0, 107, 163)",
             flexShrink: 0,
             transition: "transform 200ms ease",
             transform: open ? "rotate(45deg)" : "rotate(0deg)",
@@ -262,10 +270,10 @@ function AccordionItem({ q, a }: FAQItem) {
       {open && (
         <div
           style={{
-            paddingBottom: "16px",
-            fontSize: "var(--fs-base)",
+            paddingBottom: "20px",
+            fontSize: "14px",
             fontWeight: 400,
-            lineHeight: "var(--lh-base)",
+            lineHeight: "24px",
             color: "rgb(58, 74, 88)",
           }}
         >
@@ -313,35 +321,90 @@ export default function FAQ() {
 
   return (
     <PageWrapper>
+      <style>{`
+        @media (max-width: 767px) {
+          .faq-page-hero .banner-hero-title {
+            font-size: 17px !important;
+            line-height: 24px !important;
+            max-width: calc(100vw - 48px) !important;
+            width: calc(100vw - 48px) !important;
+          }
+          .faq-page-hero .banner-hero-subtitle {
+            font-size: 15px !important;
+            line-height: 22px !important;
+            max-width: calc(100vw - 48px) !important;
+            width: calc(100vw - 48px) !important;
+          }
+          .faq-page-shell {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .faq-search-shell {
+            height: 48px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+          }
+          .faq-tabs-scroll {
+            height: 52px !important;
+          }
+          .faq-tab-button {
+            height: 52px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+            font-size: 12px !important;
+            line-height: 20px !important;
+          }
+          .faq-content-shell {
+            max-width: 100% !important;
+          }
+          .faq-category-header {
+            height: 36px !important;
+            gap: 8px !important;
+          }
+          .faq-question-text {
+            font-size: 15px !important;
+            line-height: 22px !important;
+          }
+          .faq-question-button {
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+            gap: 12px !important;
+          }
+        }
+      `}</style>
 
+            <div className="faq-page-hero">
             <BannerHero
         variant="resources"
         label={t("resources_label", "Resources")}
         title={t("faq_hero_title", "Investor Relations Platform FAQs for Listed Companies")}
-        subtitle={<><span>{t("faq_hero_subtitle", "Everything you need to know about the Euroland IR platform, our Investor Relations software, pricing, and support.")}{" "}</span><LangLink href="/contact" style={{ color: "rgba(255,255,255,0.92)", textDecoration: "underline", textUnderlineOffset: "4px" }}>{t("contact_us", "Contact us.")}</LangLink></> as React.ReactNode}
+        subtitle={<><span>{t("faq_hero_subtitle", "Everything you need to know about the Euroland IR platform, our investor relations software, pricing, and support.")}{" "}</span><LangLink href="/contact" style={{ color: "rgba(255,255,255,0.92)", textDecoration: "underline", textUnderlineOffset: "4px" }}>{t("contact_us", "Contact us.")}</LangLink></> as React.ReactNode}
         minHeight="440px"
         titleMaxWidth="640px"
         subtitleMaxWidth="560px"
       />
+      </div>
 
 {/* ── SEARCH BAR (y:480–550, h:70) ─────────────────────────────────── */}
       <div
         style={{
           background: "rgb(255, 255, 255)",
           borderBottom: "1px solid rgb(221, 224, 230)",
-          padding: "16px 0",
+          padding: "12px 0",
         }}
       >
         <div
-          className="container"
+          className="container faq-page-shell"
           style={{ maxWidth: "1536px", padding: "0 48px" }}
         >
           <div
+            className="faq-search-shell"
             style={{
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              width: "860px",
+              width: "100%",
+              maxWidth: "860px",
               height: "44px",
               border: "1px solid rgb(221, 224, 230)",
               borderRadius: "4px",
@@ -359,9 +422,9 @@ export default function FAQ() {
                 flex: 1,
                 border: "none",
                 outline: "none",
-                fontSize: "var(--fs-base)",
+                fontSize: "14px",
                 fontWeight: 400,
-                lineHeight: "var(--lh-base)",
+                lineHeight: "24px",
                 color: "rgb(13, 27, 42)",
                 background: "transparent",
               }}
@@ -381,10 +444,11 @@ export default function FAQ() {
         }}
       >
         <div
-          className="container"
+          className="container faq-page-shell"
           style={{ maxWidth: "1536px", padding: "0 48px" }}
         >
           <div
+            className="faq-tabs-scroll"
             style={{
               display: "flex",
               alignItems: "center",
@@ -396,6 +460,7 @@ export default function FAQ() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
+                className="faq-tab-button"
                 style={{
                   padding: "0 16px",
                   height: "57px",
@@ -405,9 +470,9 @@ export default function FAQ() {
                     : "2px solid transparent",
                   background: "none",
                   cursor: "pointer",
-                  fontSize: "var(--fs-sm)",
+                  fontSize: "13px",
                   fontWeight: activeCategory === tab.id ? 600 : 400,
-                  lineHeight: "var(--lh-base)",
+                  lineHeight: "24px",
                   color: activeCategory === tab.id
                     ? "rgb(13, 27, 42)"
                     : "rgb(90, 106, 122)",
@@ -426,21 +491,21 @@ export default function FAQ() {
       <section
         style={{
           background: "rgb(255, 255, 255)",
-          padding: "64px 0",
+          padding: "48px 0 80px",
         }}
       >
         <div
-          className="container"
+          className="container faq-page-shell"
           style={{ maxWidth: "1536px", padding: "0 48px" }}
         >
           {/* Inner: 860px wide, centered — node[57] geo:572,639 860x2642 */}
-          <div style={{ width: "860px", margin: "0 auto" }}>
+          <div className="faq-content-shell" style={{ width: "100%", maxWidth: "860px", margin: "0 auto" }}>
             {filteredCategories.length === 0 ? (
               <div
                 style={{
                   padding: "64px 0",
                   textAlign: "center",
-                  fontSize: "var(--fs-base)",
+                  fontSize: "16px",
                   color: "rgb(90, 106, 122)",
                 }}
               >
@@ -451,6 +516,7 @@ export default function FAQ() {
                 <div key={cat.id} style={{ marginBottom: "32px" }}>
                   {/* Category header: 10px/700/24px/rgb(58,74,88) uppercase — node[59] geo:620,639 764x43 */}
                   <div
+                    className="faq-category-header"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -462,9 +528,9 @@ export default function FAQ() {
                   >
                     <span
                       style={{
-                        fontSize: "var(--fs-sm)",
-                        fontWeight: 400,
-                        lineHeight: "var(--lh-base)",
+                        fontSize: "10px",
+                        fontWeight: 700,
+                        lineHeight: "24px",
                         letterSpacing: "0.10em",
                         textTransform: "uppercase",
                         color: "rgb(58, 74, 88)",
@@ -501,6 +567,40 @@ export default function FAQ() {
             justifyContent: "space-between",
           }}
         >
+          {/* Left: eyebrow + H3 + subtitle — node[242] geo:282,3457 1252x140 */}
+          <div>
+            {/* Eyebrow: u-label-dark — node[243] geo:282,3459 147x34 */}
+            <div className="u-label u-label-dark" style={{ marginBottom: "16px" }}>
+              Still have questions?
+            </div>
+            {/* H3: 40px/300/48px/rgb(255,255,255) — node[244] geo:282,3509 1252x48 */}
+            <h3
+              style={{
+                fontSize: "40px",
+                fontWeight: 400,
+                lineHeight: "48px",
+                letterSpacing: "0.005em",
+                color: "rgb(255, 255, 255)",
+                margin: "0 0 24px",
+              }}
+            >
+              Speak with our team
+            </h3>
+            {/* Subtitle: 16px/400/24px/rgba(255,255,255,0.70) — node[245] geo:282,3573 1252x24 */}
+            <p
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "24px",
+                color: "rgba(255, 255, 255, 0.70)",
+                margin: 0,
+              }}
+            >
+              Our IR specialists are happy to answer any questions about the platform and help you find the right solution for your company.
+            </p>
+          </div>
+
+          {/* Right: buttons — node[246] geo:1582,3472 140x110 */}
           <div
             style={{
               display: "flex",
@@ -512,10 +612,10 @@ export default function FAQ() {
             }}
           >
             <LangLink href="/book-demo" className="btn-primary" style={{ textAlign: "center" }}>
-              {t("common_book_demo", "Book a Demo")}
+              Book a Demo
             </LangLink>
             <LangLink href="/contact" className="btn-secondary" style={{ textAlign: "center" }}>
-              {t("common_talk_to_us", "Talk to Us")}
+              Talk to Us
             </LangLink>
           </div>
         </div>
@@ -525,4 +625,3 @@ export default function FAQ() {
     </PageWrapper>
   );
 }
-

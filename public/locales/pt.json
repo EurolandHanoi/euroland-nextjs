@@ -1600,5 +1600,11 @@
   "demo_submit_button": "Agendar Demonstração",
   "resources_label": "Recursos",
   "faq_hero_title": "Perguntas Frequentes sobre a Plataforma de Relações com Investidores para Empresas Listadas",
-  "faq_hero_subtitle": "Tudo o que você precisa saber sobre a plataforma Euroland IR, nosso software de relações com investidores, preços e suporte."
+  "faq_hero_subtitle": "Tudo o que você precisa saber sobre a plataforma Euroland IR, nosso software de relações com investidores, preços e suporte.",
+  "demo_field_first_name_placeholder": "João",
+  "demo_field_last_name_placeholder": "Silva",
+  "demo_field_email_placeholder": "nome@empresa.com",
+  "demo_field_company_placeholder": "Empresa Exemplo",
+  "demo_field_role_placeholder": "Responsável de RI",
+  "demo_field_phone_placeholder": "+351 21 000 0000"
 }

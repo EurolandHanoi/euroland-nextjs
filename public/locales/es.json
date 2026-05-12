@@ -1600,5 +1600,11 @@
   "demo_submit_button": "Reservar demostración",
   "resources_label": "Recursos",
   "faq_hero_title": "Preguntas frecuentes sobre la plataforma de relaciones con inversores para empresas cotizadas",
-  "faq_hero_subtitle": "Todo lo que necesita saber sobre la plataforma Euroland IR, nuestro software de relaciones con inversores, precios y soporte."
+  "faq_hero_subtitle": "Todo lo que necesita saber sobre la plataforma Euroland IR, nuestro software de relaciones con inversores, precios y soporte.",
+  "demo_field_first_name_placeholder": "Juan",
+  "demo_field_last_name_placeholder": "García",
+  "demo_field_email_placeholder": "nombre@empresa.com",
+  "demo_field_company_placeholder": "Empresa Ejemplo",
+  "demo_field_role_placeholder": "Responsable de RI",
+  "demo_field_phone_placeholder": "+34 600 000 000"
 }

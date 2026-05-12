@@ -39,7 +39,7 @@ export default function AboutUs() {
         variant="resources"
         label={t("aboutus_hero_label", "Company")}
         title={t("aboutus_hero_title", "About Euroland IR")}
-        subtitle={t("aboutus_hero_subtitle", "Award-winning IR solutions, best-practice Investor Relations tools, and purpose-built AI for listed companies worldwide.")}
+        subtitle={t("aboutus_hero_subtitle", "Award-winning IR Solutions, best practice IR tools, and purpose built AI for listed companies worldwide.")}
         backgroundImage="/hero-bg_c3bbfd60.jpg"
       />
 
@@ -133,7 +133,6 @@ export default function AboutUs() {
           </h3>
           <div className="flex-wrap-mobile" style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
             <LangLink href="/book-demo" className="btn-primary">{t("common_book_demo", "Book a Demo")}</LangLink>
-            <LangLink href="/contact" className="btn-secondary">{t("common_talk_to_us", "Talk to Us")}</LangLink>
           </div>
         </div>
       </div>

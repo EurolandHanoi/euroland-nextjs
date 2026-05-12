@@ -12,14 +12,27 @@ type ModuleMedia =
   | { type: "carousel"; srcs: string[]; alt: string }
   | { type: "calendar" };
 
+const MODULE_MEDIA_FRAME = {
+  width: "100%",
+  maxWidth: "920px",
+  aspectRatio: "46/33",
+  borderRadius: "16px",
+  padding: "24px",
+  boxShadow: "0 16px 48px rgba(8, 43, 69, 0.16)",
+  border: "1px solid rgba(8, 43, 69, 0.10)",
+} as const;
+
+const MODULE_GRID_GAP = "80px";
+const OVERVIEW_GRID_UNIT = "4px";
+
 function getWhyCards(t: TFunction) {
   return [
     {
       icon: "⬡",
-      title: t("platform_why_card_1_title", "Built exclusively for IR"),
+      title: t("platform_why_card_1_title", "Built for IR"),
       desc: t(
         "platform_why_card_1_short_desc",
-        "Purpose-built for listed-company IR teams."
+        "Purpose built for listed company IR teams."
       ),
     },
     {
@@ -55,23 +68,27 @@ function getModules(t: TFunction) {
       label: t("platform_module_stock_label", "Stock & Financial Data"),
       title: t(
         "platform_module_stock_title",
-        "Real-time financial data, built for Investor Relations"
+        "Financial data, built for Investor Relations"
       ),
       body: t(
         "platform_module_stock_body",
-        "Euroland IR sources share price data, key financials, analyst consensus, and ownership analytics directly from exchanges and regulatory feeds — and delivers them in real time across your IR platform, apps, and investor alerts. No manual updates. No data delays. No third-party integrations to manage."
+        "Euroland IR sources share price data, key financials, analyst consensus, and ownership analytics directly from exchanges and regulatory feeds across your IR platform, apps, and investor alerts. No third-party integrations to manage."
       ),
       cta: t("platform_module_stock_cta", "See stock data tools in action"),
       ctaHref: "/platform/stock-data",
       imageLeft: false,
       bg: "bg-white",
-      media: { type: "video", src: "/share-graph.mp4" } as ModuleMedia,
+      media: {
+        type: "image",
+        src: "/overview-share-price-experian.png",
+        alt: "Experian share price graph",
+      } as ModuleMedia,
     },
     {
       label: t("platform_module_ai_label", "AI-Powered Tools"),
       title: t(
         "platform_module_ai_title",
-        "Purpose-built AI that works with your IR content"
+        "Purpose built AI that works with your IR content"
       ),
       body: t(
         "platform_module_ai_body",
@@ -81,7 +98,7 @@ function getModules(t: TFunction) {
       ctaHref: "/ai",
       imageLeft: true,
       bg: "bg-subtle",
-      media: { type: "video", src: "/ai-popup.mp4" } as ModuleMedia,
+      media: { type: "video", src: "/overview-ai-tools.mp4" } as ModuleMedia,
     },
     {
       label: t("platform_module_calendar_label", "IR Calendar & Alerts"),
@@ -97,7 +114,11 @@ function getModules(t: TFunction) {
       ctaHref: "/contact",
       imageLeft: false,
       bg: "bg-white",
-      media: { type: "video", src: "/ir-calendar-demo.mp4" } as ModuleMedia,
+      media: {
+        type: "image",
+        src: "/overview-ir-calendar-nordea.png",
+        alt: "Nordea investor calendar",
+      } as ModuleMedia,
     },
     {
       label: t("platform_module_website_label", "Interactive analytics tools"),
@@ -119,7 +140,7 @@ function getModules(t: TFunction) {
       label: t("platform_module_apps_label", "IR Apps"),
       title: t(
         "platform_module_apps_title",
-        "Your IR Operation in every investor's pocket"
+        "Investor Relations in every investor's pocket"
       ),
       body: t(
         "platform_module_apps_body",
@@ -216,6 +237,7 @@ function InvestorCalendarPreview() {
 
 function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const isOverviewAiVideo = media.type === "video" && media.src === "/overview-ai-tools.mp4";
 
   useEffect(() => {
     if (media.type !== "carousel") return;
@@ -229,13 +251,15 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
   return (
     <div
       style={{
+        width: MODULE_MEDIA_FRAME.width,
+        maxWidth: MODULE_MEDIA_FRAME.maxWidth,
         background: media.type === "carousel" ? "rgb(8, 43, 69)" : "rgb(248, 250, 252)",
-        borderRadius: "16px",
-        aspectRatio: "16/10",
+        borderRadius: MODULE_MEDIA_FRAME.borderRadius,
+        aspectRatio: MODULE_MEDIA_FRAME.aspectRatio,
         position: "relative",
         overflow: "hidden",
-        boxShadow: "0 16px 48px rgba(8, 43, 69, 0.16)",
-        border: "1px solid rgba(8, 43, 69, 0.10)",
+        boxShadow: MODULE_MEDIA_FRAME.boxShadow,
+        border: MODULE_MEDIA_FRAME.border,
       }}
     >
       {media.type === "video" && (
@@ -243,7 +267,7 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
           style={{
             width: "100%",
             height: "100%",
-            padding: "32px",
+            padding: MODULE_MEDIA_FRAME.padding,
             boxSizing: "border-box",
             display: "flex",
             alignItems: "center",
@@ -257,9 +281,10 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
             loop
             playsInline
             style={{
-              width: "100%",
+              width: isOverviewAiVideo ? "110%" : "100%",
               height: "100%",
-              objectFit: "contain",
+              maxWidth: "none",
+              objectFit: isOverviewAiVideo ? "contain" : "contain",
               objectPosition: "center",
               display: "block",
               borderRadius: "12px",
@@ -280,7 +305,7 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
             alignItems: "center",
             justifyContent: "center",
             background: "linear-gradient(135deg, #ffffff 0%, #f4f8fb 100%)",
-            padding: "32px",
+            padding: MODULE_MEDIA_FRAME.padding,
             boxSizing: "border-box",
           }}
         >
@@ -308,7 +333,7 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
             alignItems: "center",
             justifyContent: "center",
             background: "radial-gradient(circle at 50% 25%, rgba(0,173,240,0.16), rgba(8,43,69,0) 42%), rgb(8, 43, 69)",
-            padding: "32px",
+            padding: MODULE_MEDIA_FRAME.padding,
             boxSizing: "border-box",
             overflow: "hidden",
           }}
@@ -317,10 +342,11 @@ function ModuleMediaPreview({ media }: { media: ModuleMedia }) {
             src={media.srcs[activeImageIndex]}
             alt={media.alt}
             style={{
-              width: "auto",
-              height: "92%",
-              maxWidth: "58%",
+              width: "100%",
+              height: "100%",
+              maxWidth: "100%",
               objectFit: "contain",
+              objectPosition: "center",
               display: "block",
               borderRadius: "16px",
               boxShadow: "0 24px 56px rgba(0, 0, 0, 0.34)",
@@ -338,6 +364,7 @@ export default function Platform() {
 
   const WHY_CARDS = getWhyCards(t);
   const MODULES = getModules(t);
+  const orderedModules = [MODULES[0], MODULES[1], MODULES[4], MODULES[5], MODULES[2], MODULES[3]];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -345,6 +372,46 @@ export default function Platform() {
 
   return (
     <PageWrapper>
+      <style>{`
+        .platform-page-hero-shell > *,
+        .platform-hero-proof-grid > * {
+          min-width: 0;
+        }
+        .platform-page-hero-shell p,
+        .platform-page-hero-shell span,
+        .platform-hero-proof-grid p,
+        .platform-hero-proof-grid h5 {
+          overflow-wrap: anywhere;
+        }
+        @media (max-width: 767px) {
+          .platform-page-hero {
+            min-height: auto !important;
+            padding: 72px 0 40px !important;
+          }
+          .platform-page-hero-shell {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .platform-page-hero-title {
+            font-size: var(--fs-lg) !important;
+            line-height: var(--lh-lg) !important;
+            margin-top: 12px !important;
+            margin-bottom: 12px !important;
+            max-width: min(100%, 12ch) !important;
+          }
+          .platform-page-hero-subtitle {
+            font-size: var(--fs-base) !important;
+            line-height: var(--lh-base) !important;
+            margin-bottom: 24px !important;
+            max-width: min(100%, 34ch) !important;
+          }
+          .platform-page-module-link {
+            font-size: 12px !important;
+            line-height: 20px !important;
+            letter-spacing: 0.06em !important;
+          }
+        }
+      `}</style>
       {/* ── HERO + WHY WRAPPER (single centred introduction) ── */}
       <div
         style={{
@@ -355,7 +422,7 @@ export default function Platform() {
         }}
       >
         <section
-          className="banner-hero-section"
+          className="banner-hero-section platform-page-hero"
           style={{
             minHeight: "calc(100vh - 64px)",
             display: "flex",
@@ -374,7 +441,7 @@ export default function Platform() {
           }}
         >
           <div
-            className="container banner-hero-container inner-container"
+            className="container banner-hero-container inner-container platform-page-hero-shell"
             style={{ maxWidth: "1180px", padding: "0 48px", position: "relative", zIndex: 1 }}
           >
             <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
@@ -382,7 +449,7 @@ export default function Platform() {
                 <SectionLabel light centered>{t("platform_why_label", "Why Euroland IR")}</SectionLabel>
               </div>
               <h1
-                className="banner-hero-title type-h2"
+                className="banner-hero-title type-h2 platform-page-hero-title"
                 style={{
                   fontSize: "var(--fs-3xl)",
                   fontWeight: 600,
@@ -396,7 +463,7 @@ export default function Platform() {
                 {t("platform_hero_heading", "Built for Investor Relations teams")}
               </h1>
               <div
-                className="banner-hero-subtitle"
+                className="banner-hero-subtitle platform-page-hero-subtitle"
                 style={{
                   fontSize: "var(--fs-md)",
                   fontWeight: 400,
@@ -404,7 +471,7 @@ export default function Platform() {
                   letterSpacing: "0.01em",
                   color: "rgba(255,255,255,0.72)",
                   maxWidth: "760px",
-                  margin: "0 auto 32px",
+                  margin: "0 auto 48px",
                 }}
               >
                 {t(
@@ -419,8 +486,8 @@ export default function Platform() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                gap: "24px",
-                margin: "40px auto 0",
+                gap: `calc(${OVERVIEW_GRID_UNIT} * 6)`,
+                margin: "0 auto",
                 maxWidth: "1032px",
               }}
             >
@@ -434,7 +501,7 @@ export default function Platform() {
                     padding: "20px",
                     transition: "background 200ms ease, transform 200ms ease",
                     textAlign: "left",
-                    minHeight: "152px",
+                    minHeight: "168px",
                     backdropFilter: "blur(12px)",
                   }}
                   onMouseEnter={(e) => {
@@ -491,7 +558,7 @@ export default function Platform() {
         </section>
       </div>
       {/* ── 3–8. ALTERNATING MODULE SECTIONS ── */}
-      {MODULES.map((mod) => {
+      {orderedModules.map((mod) => {
         const textBlock = (
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <span
@@ -526,8 +593,9 @@ export default function Platform() {
             >
               {mod.body}
             </p>
-            <a
+            <LangLink
               href={mod.ctaHref}
+              className="platform-page-module-link"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -544,7 +612,7 @@ export default function Platform() {
               onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.gap = "8px")}
             >
               {mod.cta} →
-            </a>
+            </LangLink>
           </div>
         );
 
@@ -558,7 +626,7 @@ export default function Platform() {
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  gap: "80px",
+                  gap: MODULE_GRID_GAP,
                   alignItems: "center",
                 }}
               >
@@ -627,9 +695,6 @@ export default function Platform() {
             >
               <LangLink href="/book-demo" className="btn-primary">
                 {t("platform_cta_band_btn_book_demo", "Book a Demo")}
-              </LangLink>
-              <LangLink href="/platform" className="btn-secondary">
-                {t("platform_cta_band_btn_contact_us", "Explore our tools")}
               </LangLink>
             </div>
           </div>

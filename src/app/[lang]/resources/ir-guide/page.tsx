@@ -1,3 +1,5 @@
-import Guides from "@/pages/resources/Guides";
+import { notFound } from "next/navigation";
 
-export default Guides;
+export default function Page() {
+  notFound();
+}

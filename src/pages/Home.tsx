@@ -34,12 +34,12 @@ function getTestimonials(t: TFunction) {
   return [
     {
       quote: t(
-        "home_testimonial_1_quote",
-        "Euroland.com's expertise, friendly service and fast delivery of the tools tailored to our needs made an impression on us. The tools are looking great and functioning very well also on mobile devices, which we think is an important point regarding communications with IR target groups."
+        "home_testimonial_5_quote",
+        "I am very happy to recommend Euroland. The three most important criteria, quality, trustworthiness and price, were all at an excellent level, so it was quite easy for us to choose Euroland."
       ),
-      name: t("home_testimonial_1_name", "Liisa-Maija Seppänen"),
-      role: t("home_testimonial_1_role", "Investor Relations Manager"),
-      company: t("home_testimonial_1_company", "SSAB"),
+      name: t("home_testimonial_5_name", "Olli Turunen"),
+      role: t("home_testimonial_5_role", "Head of Investor Relations"),
+      company: t("home_testimonial_5_company", "Sanoma"),
     },
     {
       quote: t(
@@ -67,15 +67,6 @@ function getTestimonials(t: TFunction) {
       name: t("home_testimonial_4_name", ""),
       role: t("home_testimonial_4_role", "Head of Investor Relations"),
       company: t("home_testimonial_4_company", "First Abu Dhabi Bank"),
-    },
-    {
-      quote: t(
-        "home_testimonial_5_quote",
-        "I am very happy to recommend Euroland. The three most important criteria — quality, trustworthiness and price — were all at an excellent level, so it was quite easy for us to choose Euroland."
-      ),
-      name: t("home_testimonial_5_name", "Olli Turunen"),
-      role: t("home_testimonial_5_role", "Head of Investor Relations"),
-      company: t("home_testimonial_5_company", "Sanoma"),
     },
   ];
 }
@@ -117,7 +108,7 @@ function getSolutionCards(t: TFunction) {
       title: t("feat_services_title", "IR Services"),
       body: t(
         "feat_services_desc",
-        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your IR Operation."
+        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your Investor Relations programme."
       ),
       link: "/platform",
       label: t("learn_more", "Learn more"),
@@ -140,7 +131,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
     "ir-software": {
       id: "ir-software",
       iconLabel: t("feat_ir_title", "IR Software Tools"),
-      eyebrow: t("feat_ir_title", "IR Software Tools"),
+      eyebrow: t("home_modal_ir_label", "Tools"),
       title: t("feat_ir_title", "IR Software Tools"),
       subtitle: t(
         "feat_ir_desc",
@@ -157,10 +148,6 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         ),
         t("home_modal_ir_feature_3", "Peer and sector comparison views"),
         t("home_modal_ir_feature_4", "Automated financial data integration"),
-        t(
-          "home_modal_ir_feature_5",
-          "Grade-level financial tools and IR Calendar"
-        ),
       ],
       impact: [
         t(
@@ -179,12 +166,12 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         t("home_modal_ir_impact_3", "Build trust through transparency"),
       ],
       learnMoreHref: "/platform/stock-data",
-      animationVideoSrc: "/share-graph.mp4",
+      animationImageSrcs: ["/overview-share-price-experian.png"],
     },
     "ai-solutions": {
       id: "ai-solutions",
       iconLabel: t("feat_ai_title", "AI Solutions"),
-      eyebrow: t("feat_ai_title", "AI Solutions"),
+      eyebrow: t("home_modal_ai_label", "AI"),
       title: t("feat_ai_title", "AI Solutions"),
       subtitle: t(
         "feat_ai_desc",
@@ -201,7 +188,6 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         ),
         t("home_modal_ai_feature_3", "Context-aware answers to stakeholder questions"),
         t("home_modal_ai_feature_4", "Links, document names, and PDF page references for verification"),
-        t("home_modal_ai_feature_5", "Multilingual support, including English and Nordic languages"),
       ],
       impact: [
         t("home_modal_ai_impact_1", "Help investors find verified IR information faster"),
@@ -219,7 +205,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
     "ir-apps": {
       id: "ir-apps",
       iconLabel: t("feat_apps_title", "IR Apps"),
-      eyebrow: t("feat_apps_title", "IR Apps"),
+      eyebrow: t("home_modal_apps_label", "Apps"),
       title: t("feat_apps_title", "IR Apps"),
       subtitle: t(
         "feat_apps_desc",
@@ -233,10 +219,6 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         t("home_modal_apps_feature_2", "Interactive stock charts and data"),
         t("home_modal_apps_feature_3", "Secure document library"),
         t("home_modal_apps_feature_4", "Customisable branding and layout"),
-        t(
-          "home_modal_apps_feature_5",
-          "Usage analytics and engagement tracking"
-        ),
       ],
       impact: [
         t("home_modal_apps_impact_1", "Increase investor engagement"),
@@ -265,11 +247,11 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
     "ir-services": {
       id: "ir-services",
       iconLabel: t("feat_services_title", "IR Services"),
-      eyebrow: t("feat_services_title", "IR Services"),
+      eyebrow: t("home_modal_services_label", "Services"),
       title: t("feat_services_title", "IR Services"),
       subtitle: t(
         "feat_services_desc",
-        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your IR Operation."
+        "Investor Relations services, including website design, strategy, and more, supporting every aspect of your Investor Relations programme."
       ),
       features: [
         t("home_modal_services_feature_1", "IR platform design and development"),
@@ -282,7 +264,6 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
           "Annual report design and production"
         ),
         t("home_modal_services_feature_4", "Roadshow preparation and support"),
-        t("home_modal_services_feature_5", "Ongoing IR Operation management"),
       ],
       impact: [
         t(
@@ -306,7 +287,7 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
     "esg-solutions": {
       id: "esg-solutions",
       iconLabel: t("feat_esg_title", "ESG Solutions"),
-      eyebrow: t("feat_esg_title", "ESG Solutions"),
+      eyebrow: t("home_modal_esg_label", "ESG"),
       title: t("feat_esg_title", "ESG Solutions"),
       subtitle: t(
         "feat_esg_desc",
@@ -320,7 +301,6 @@ function getHomeModals(t: TFunction): Record<string, ModalData> {
         ),
         t("home_modal_esg_feature_3", "Stakeholder engagement tools"),
         t("home_modal_esg_feature_4", "Accessible data visualisations"),
-        t("home_modal_esg_feature_5", "Compliance-ready document generation"),
       ],
       impact: [
         t("home_modal_esg_impact_1", "Simplify complex ESG reporting"),
@@ -391,7 +371,7 @@ function getBottomStats(t: TFunction) {
       label: t("stat_exchanges_label", "Stock Exchanges"),
       body: t(
         "home_stats_strip_2_body",
-        "We support listed companies across major global exchanges with best-practice IR platforms and tools."
+        "We support listed companies across major global exchanges with Best Practice IR platforms and tools."
       ),
     },
     {
@@ -407,7 +387,7 @@ function getBottomStats(t: TFunction) {
       label: t("home_stats_strip_4_label", "Security"),
       body: t(
         "home_stats_strip_4_body",
-        "We use robust security protocols and resilient infrastructure to protect corporate systems and sensitive data."
+        "We use robust security protocols and resilient infrastructure to protect corporate systems and data."
       ),
     },
   ];
@@ -448,6 +428,18 @@ const MEMBER_LOGOS = [
   },
 ];
 
+const MOBILE_CLIENT_LOGOS = [
+  { src: "/client-logo-assa-abloy.svg", alt: "Assa Abloy" },
+  { src: "/client-logo-hydro.svg", alt: "Hydro" },
+  { src: "/client-logo-hyundai.svg", alt: "Hyundai Motor Company" },
+  { src: "/client-logo-nordea.svg", alt: "Nordea" },
+  { src: "/client-logo-renault.svg", alt: "Renault" },
+  { src: "/client-logo-samsung-black.svg", alt: "Samsung" },
+  { src: "/client-logo-shell.svg", alt: "Shell" },
+  { src: "/client-logo-standard-chartered.svg", alt: "Standard Chartered" },
+  { src: "/client-logo-volkswagen.svg", alt: "Volkswagen Group" },
+] as const;
+
 /** Parse a stat string like "1,400+", "60+", "24/7", "25+" into { value, suffix } */
 function parseStatNum(raw: string): { value: number; suffix: string } {
   // Handle special cases like "24/7" — no numeric count-up, just display as-is
@@ -462,14 +454,15 @@ function parseStatNum(raw: string): { value: number; suffix: string } {
 /** Count-up hook — returns the animated display string, starts when `active` becomes true */
 function useCountUp(raw: string, active: boolean, duration = 2000): string {
   const { value, suffix } = parseStatNum(raw);
-  const [display, setDisplay] = useState(value === -1 ? raw : `0${suffix}`);
+  const [display, setDisplay] = useState(raw);
   const frameRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!active || value === -1) {
-      if (value === -1) setDisplay(raw);
+      setDisplay(raw);
       return;
     }
+    setDisplay(`0${suffix}`);
     const start = performance.now();
     function tick(now: number) {
       const elapsed = now - start;
@@ -571,11 +564,13 @@ function HeroCycler() {
 
   return (
     <span
+      className="hero-cycler-text"
       style={{
         color: "#00ADF0",
         transition: "opacity 300ms ease",
-        opacity: visible ? 1 : 0,
+        opacity: visible ? 1 : 0.32,
         display: "inline-block",
+        minHeight: "1.15em",
       }}
     >
       {phrases[idx]}
@@ -587,6 +582,10 @@ export default function Home() {
   const { t, lang } = useLanguage();
   const [testimonialIdx, setTestimonialIdx] = useState(0);
   const [activeModal, setActiveModal] = useState<ModalData | null>(null);
+  const [memberLogoIdx, setMemberLogoIdx] = useState(0);
+  const [mobileClientLogoIdx, setMobileClientLogoIdx] = useState(0);
+  const [incomingMobileClientLogoIdx, setIncomingMobileClientLogoIdx] = useState<number | null>(null);
+  const [mobileClientLogoPhase, setMobileClientLogoPhase] = useState<"steady" | "transitioning">("steady");
 
   const fadeHero = useFadeUp();
   const fadePlatform = useFadeUp();
@@ -603,6 +602,49 @@ export default function Home() {
   const topStats = getTopStats(t);
   const bottomStats = getBottomStats(t);
   const activeTestimonial = testimonials[testimonialIdx];
+  const activeMemberLogo = MEMBER_LOGOS[memberLogoIdx % MEMBER_LOGOS.length];
+  const activeMobileClientLogos = [
+    MOBILE_CLIENT_LOGOS[mobileClientLogoIdx % MOBILE_CLIENT_LOGOS.length],
+    MOBILE_CLIENT_LOGOS[(mobileClientLogoIdx + 1) % MOBILE_CLIENT_LOGOS.length],
+  ];
+  const incomingMobileClientLogos =
+    incomingMobileClientLogoIdx === null
+      ? []
+      : [
+          MOBILE_CLIENT_LOGOS[incomingMobileClientLogoIdx % MOBILE_CLIENT_LOGOS.length],
+          MOBILE_CLIENT_LOGOS[(incomingMobileClientLogoIdx + 1) % MOBILE_CLIENT_LOGOS.length],
+        ];
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setMemberLogoIdx((index) => (index + 1) % MEMBER_LOGOS.length);
+    }, 2500);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let transitionStartTimeout: number | undefined;
+    let transitionEndTimeout: number | undefined;
+
+    const interval = window.setInterval(() => {
+      const nextIdx = (mobileClientLogoIdx + 2) % MOBILE_CLIENT_LOGOS.length;
+      setIncomingMobileClientLogoIdx(nextIdx);
+      transitionStartTimeout = window.setTimeout(() => {
+        setMobileClientLogoPhase("transitioning");
+      }, 40);
+      transitionEndTimeout = window.setTimeout(() => {
+        setMobileClientLogoIdx(nextIdx);
+        setIncomingMobileClientLogoIdx(null);
+        setMobileClientLogoPhase("steady");
+      }, 600);
+    }, 4800);
+
+    return () => {
+      window.clearInterval(interval);
+      if (transitionStartTimeout) window.clearTimeout(transitionStartTimeout);
+      if (transitionEndTimeout) window.clearTimeout(transitionEndTimeout);
+    };
+  }, [mobileClientLogoIdx]);
 
   return (
     <PageWrapper>
@@ -635,7 +677,7 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(90deg, rgba(8,43,69,0.92) 0%, rgba(8,43,69,0.75) 50%, rgba(8,43,69,0.40) 100%)",
+              "linear-gradient(90deg, rgba(8,43,69,0.90) 0%, rgba(8,43,69,0.72) 50%, rgba(8,43,69,0.37) 100%)",
             pointerEvents: "none",
           }}
         />
@@ -649,7 +691,7 @@ export default function Home() {
                 className="u-label u-label-dark"
                 style={{ marginBottom: "var(--sp-6)" }}
               >
-                  {t("home_hero_label", "Best-Practice Investor Relations")}
+                  {t("home_hero_label", "Best Practice IR")}
               </div>
               <h1
                 className="type-hero"
@@ -673,7 +715,7 @@ export default function Home() {
               >
                 {t(
                   "home_hero_sub",
-        "Best-practice Investor Relations solutions and purpose-built AI for IR teams. Trusted by more than 1,400 publicly listed companies across 60+ stock exchanges worldwide."
+        "Best Practice IR solutions and purpose built AI for IR teams. Trusted by more than 1,400 publicly listed companies across 60+ stock exchanges worldwide."
                 )}
               </p>
               <div
@@ -721,7 +763,7 @@ export default function Home() {
                   {t("home_hero_proof_label", "What you will see")}
                 </div>
                 <p style={{ color: "rgba(255,255,255,0.84)", margin: 0, fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)" }}>
-                  {t("home_hero_proof_body", "Investor website modules, market data, disclosure workflows, and purpose-built AI in one managed IR platform.")}
+                  {t("home_hero_proof_body", "Investor website modules, market data, disclosure workflows, and purpose built AI in one managed IR platform.")}
                 </p>
               </div>
             </div>
@@ -740,19 +782,24 @@ export default function Home() {
           <div className="stats-bar-grid">
             {topStats.map(item => (
               <div key={item.label} className="stat-block" style={{ color: "rgb(255, 255, 255)" }}>
-                <AnimatedStatNum
-                  raw={item.num}
-                  static={lang === "ja"}
+                <div
                   className="stat-number"
                   style={{
-                    fontSize: "var(--fs-2xl)",
+                    fontSize:
+                      lang === "ja" && item.num.length > 6
+                        ? "24px"
+                        : "var(--fs-2xl)",
                     fontWeight: 300,
                     lineHeight: "var(--lh-2xl)",
+                    whiteSpace:
+                      lang === "ja" && item.num.length > 6 ? "nowrap" : undefined,
                     color: "rgb(255, 255, 255)",
                     margin: 0,
                     padding: 0,
                   }}
-                />
+                >
+                  {item.num}
+                </div>
                 <div
                   className="stat-label"
                   style={{
@@ -800,8 +847,120 @@ export default function Home() {
             />
           </div>
         ) : (
-          <div style={{ width: "100%", position: "relative" }}>
+          <div className="home-client-carousel-shell" style={{ width: "100%", position: "relative" }}>
+            <div className="home-client-carousel-mobile" style={{ display: "none" }}>
+              <div
+                className="home-client-carousel-mobile-viewport"
+                style={{
+                  width: "264px",
+                  minWidth: "264px",
+                  maxWidth: "264px",
+                  height: "72px",
+                  margin: "0 auto",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  className="home-client-carousel-mobile-track"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "20px",
+                    alignItems: "center",
+                    transition: "opacity 560ms ease, transform 560ms ease",
+                    opacity: mobileClientLogoPhase === "transitioning" ? 0 : 1,
+                    transform:
+                      mobileClientLogoPhase === "transitioning"
+                        ? "translateX(-40px)"
+                        : "translateX(0)",
+                  }}
+                >
+                  {activeMobileClientLogos.map((logo) => (
+                    <div
+                      key={`active-${logo.src}`}
+                      className="home-client-logo-slot"
+                      style={{
+                        height: "72px",
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "0 6px",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="home-client-logo-mark"
+                        style={{
+                          maxWidth: "96px",
+                          width: "96px",
+                          height: "28px",
+                          maxHeight: "28px",
+                          objectFit: "contain",
+                          display: "block",
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {incomingMobileClientLogos.length > 0 && (
+                  <div
+                    className="home-client-carousel-mobile-track"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: "20px",
+                      alignItems: "center",
+                      transition: "opacity 560ms ease, transform 560ms ease",
+                      opacity: mobileClientLogoPhase === "transitioning" ? 1 : 0,
+                      transform:
+                        mobileClientLogoPhase === "transitioning"
+                          ? "translateX(0)"
+                          : "translateX(40px)",
+                    }}
+                  >
+                    {incomingMobileClientLogos.map((logo) => (
+                      <div
+                        key={`incoming-${logo.src}`}
+                        className="home-client-logo-slot"
+                        style={{
+                          height: "72px",
+                          width: "100%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "0 6px",
+                          boxSizing: "border-box",
+                        }}
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="home-client-logo-mark"
+                          style={{
+                            maxWidth: "96px",
+                            width: "96px",
+                            height: "28px",
+                            maxHeight: "28px",
+                            objectFit: "contain",
+                            display: "block",
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
             <div
+              className="home-client-carousel-desktop home-client-carousel-track"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -845,15 +1004,16 @@ export default function Home() {
           <div className="grid-2col" style={{ alignItems: "center" }}>
             <div className="mobile-full-w" style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "16/9" }}>
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/webpages-showcase_cbbd263f.png"
+                src="/tell-your-equity-story.png"
                 alt={t(
                   "home_platform_image_alt",
                   "Award-winning IR platform showcase"
                 )}
                 style={{
-                  width: "100%",
-                  height: "100%",
+                  width: "115%",
+                  height: "115%",
                   objectFit: "cover",
+                  objectPosition: "center",
                   display: "block",
                 }}
               />
@@ -995,7 +1155,7 @@ export default function Home() {
               textAlign: lang === "ar" ? "right" : "left",
             }}
           >
-            {t("home_ai_title", "Purpose-built AI for Investor Relations")}
+            {t("home_ai_title", "Purpose built AI for Investor Relations")}
           </h3>
           <p
             style={{
@@ -1156,13 +1316,19 @@ export default function Home() {
             >
               {t(
                 "home_solutions_subtitle",
-                "Transform your IR Operation with a complete suite of tools, services, and technology built specifically for listed companies."
+                "Strengthen your Investor Relations presence with IR tools and solutions that combine data, AI, and clear digital communication."
               )}
             </p>
           </div>
 
           <div
             className="solutions-grid"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "24px",
+            }}
           >
             {solutionCards.map(card => {return (
               <div
@@ -1172,7 +1338,9 @@ export default function Home() {
                   setActiveModal(homeModals[SOLUTION_MODAL_IDS[card.num]])
                 }
                 style={{
-                  width: "100%",
+                  width: "calc((100% - 48px) / 3)",
+                  minWidth: "280px",
+                  maxWidth: "464px",
                   height: "264px",
                   padding: "32px",
                   backgroundColor: "rgb(255, 255, 255)",
@@ -1251,75 +1419,6 @@ export default function Home() {
             );})}
 
             {/* 6th card — discovery prompt */}
-            <LangLink href="/platform"
-              className="card-fixed"
-              style={{
-                width: "100%",
-                height: "264px",
-                padding: "32px",
-                backgroundColor: "rgb(245, 250, 255)",
-                border: "2px solid rgb(0, 116, 217)",
-                borderRadius: "16px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                cursor: "pointer",
-                textDecoration: "none",
-                transition: "box-shadow 250ms ease, background-color 250ms ease, transform 250ms ease",
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 32px rgba(0,107,163,0.18)";
-                (e.currentTarget as HTMLElement).style.backgroundColor = "rgb(235, 245, 255)";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                (e.currentTarget as HTMLElement).style.backgroundColor = "rgb(245, 250, 255)";
-                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "var(--fs-3xl)",
-                  fontWeight: 700,
-                  lineHeight: "var(--lh-3xl)",
-                  color: "rgb(0, 116, 217)",
-                  marginBottom: "16px",
-                }}
-              >
-                35+
-              </div>
-              <p
-                style={{
-                  fontSize: "var(--fs-base)",
-                  fontWeight: 500,
-                  lineHeight: "var(--lh-base)",
-                  color: "rgb(13, 27, 42)",
-                  marginBottom: "16px",
-                }}
-              >
-                More solutions available
-              </p>
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "4px",
-                  fontSize: "var(--fs-sm)",
-                  fontWeight: 400,
-                  lineHeight: "var(--lh-base)",
-                  letterSpacing: "0.08em",
-                  color: "#0074D9",
-                  textTransform: "uppercase",
-                  width: "100%",
-                }}
-              >
-                Explore all <ArrowRight size={14} strokeWidth={2.5} />
-              </span>
-            </LangLink>
           </div>
 
           <div style={{ marginTop: "48px", textAlign: "center" }}>
@@ -1430,7 +1529,7 @@ export default function Home() {
                   marginBottom: "32px",
                 }}
               >
-                “{activeTestimonial.quote}”
+                "{activeTestimonial.quote}"
               </p>
               {activeTestimonial.name && (
                 <div
@@ -1727,7 +1826,7 @@ export default function Home() {
               >
                 {t(
                   "home_cta_subtitle",
-                  "Trusted by 1,400+ listed companies across 60+ exchanges. Speak with our team to find the right solution for your IR Operation."
+                  "Trusted by 1,400+ listed companies across 60+ exchanges. Speak with our team to find the right solution for your Investor Relations needs."
                 )}
               </p>
               <div
@@ -1799,6 +1898,7 @@ export default function Home() {
               {t("home_member_label", "Proud member of")}
             </div>
             <div
+              className="home-member-logos-desktop"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -1828,6 +1928,32 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <div className="home-member-logos-mobile" style={{ display: "none", width: "100%", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: "100%",
+                  maxWidth: "280px",
+                  height: "112px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "16px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <img
+                  src={activeMemberLogo.src}
+                  alt={activeMemberLogo.alt}
+                  style={{
+                    height: "64px",
+                    width: "auto",
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1839,6 +1965,39 @@ export default function Home() {
           }
           100% {
             transform: translateX(-33.333333%);
+          }
+        }
+        @media (max-width: 767px) {
+          .hero-cycler-text {
+            width: 12ch;
+            min-width: 12ch;
+            min-height: 1.2em;
+          }
+          .home-client-carousel-mobile {
+            display: block !important;
+            width: 264px !important;
+            min-width: 264px !important;
+            max-width: 264px !important;
+            margin: 0 auto !important;
+            overflow: hidden !important;
+          }
+          .home-client-logo-slot {
+            justify-self: center;
+          }
+          .home-client-logo-mark {
+            width: 96px !important;
+            max-width: 96px !important;
+            height: 28px !important;
+            max-height: 28px !important;
+          }
+          .home-client-carousel-desktop {
+            display: none !important;
+          }
+          .home-member-logos-desktop {
+            display: none !important;
+          }
+          .home-member-logos-mobile {
+            display: flex !important;
           }
         }
       `}</style>

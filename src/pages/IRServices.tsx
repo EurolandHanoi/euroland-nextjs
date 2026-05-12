@@ -22,7 +22,7 @@ function getServices(t: TFunction) {
   return [
     {
       num: "01",
-      icon: "🌐",
+      icon: "ðŸŒ",
       title: t("irservices_ir_website_design_build", "IR Platform Design & Build"),
       desc: t(
         "irservices_ir_website_desc",
@@ -38,14 +38,14 @@ function getServices(t: TFunction) {
     },
     {
       num: "02",
-      icon: "📋",
+      icon: "ðŸ“‹",
       title: t("irservices_ir_strategy_consulting", "IR Strategy & Consulting"),
       desc: t(
         "irservices_ir_strategy_desc",
         "Expert Investor Relations strategy and consulting to help you build a compelling equity story, target the right investors, and communicate effectively with the market."
       ),
       features: [
-        t("irservices_feature_ir_programme_assessment", "IR Operation assessment and benchmarking"),
+        t("irservices_feature_ir_programme_assessment", "Investor Relations assessment and benchmarking"),
         t("irservices_feature_equity_story_development", "Equity story development and messaging"),
         t("irservices_feature_investor_targeting_studies", "Investor targeting and perception studies"),
         t("irservices_feature_annual_report_review", "Annual report and results presentation review"),
@@ -54,7 +54,7 @@ function getServices(t: TFunction) {
     },
     {
       num: "03",
-      icon: "📊",
+      icon: "ðŸ“Š",
       title: t("irservices_annual_report_production", "Annual Report Production"),
       desc: t(
         "irservices_annual_report_desc",
@@ -70,7 +70,7 @@ function getServices(t: TFunction) {
     },
     {
       num: "04",
-      icon: "🎯",
+      icon: "ðŸŽ¯",
       title: t("irservices_investor_targeting", "Investor Targeting"),
       desc: t(
         "irservices_investor_targeting_desc",
@@ -86,7 +86,7 @@ function getServices(t: TFunction) {
     },
     {
       num: "05",
-      icon: "📱",
+      icon: "ðŸ“±",
       title: t("irservices_digital_ir_communications", "Digital IR Communications"),
       desc: t(
         "irservices_digital_ir_desc",
@@ -102,7 +102,7 @@ function getServices(t: TFunction) {
     },
     {
       num: "06",
-      icon: "🌿",
+      icon: "ðŸŒ¿",
       title: t("irservices_esg_sustainability_reporting", "ESG & Sustainability Reporting"),
       desc: t(
         "irservices_esg_desc",
@@ -164,7 +164,7 @@ export default function IRServices() {
             <p style={{ fontSize: "var(--fs-base)", color: "#3a4a58", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", maxWidth: "640px", margin: "0 auto" }}>
               {t(
                 "irservices_services_intro",
-                "Whether you need a complete IR Operation or targeted support in a specific area, our team of Investor Relations specialists is here to help."
+                "Whether you need complete Investor Relations support or targeted help in a specific area, our team of Investor Relations specialists is here to help."
               )}
             </p>
           </div>

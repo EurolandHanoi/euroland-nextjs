@@ -50,11 +50,7 @@ export default function Navbar() {
     { label: t("nav_sustainability_reporting", "Sustainability Reporting"), href: "/solutions/esg" },
   ];
 
-  const isEnglish = lang === 'en';
   const resourcesLinks = [
-    ...(isEnglish ? [{ label: t("nav_guides", "IR Guide"), href: "/resources/ir-guide" }] : []),
-    ...(isEnglish ? [{ label: t("nav_whitepapers", "Whitepapers"), href: "/resources/whitepapers" }] : []),
-    ...(isEnglish ? [{ label: t("nav_ir_blog", "IR Blog"), href: "/resources/ir-blog" }] : []),
     { label: t("nav_faq", "FAQ"), href: "/resources/faq" },
     { label: t("nav_glossary", "Financial Glossary"), href: "/resources/glossary" },
   ];
@@ -68,7 +64,6 @@ export default function Navbar() {
 
   const contactLinks = [
     { label: t("nav_contact_us", "Contact Us"), href: "/contact" },
-    { label: t("nav_helpdesk", "Helpdesk"), href: "https://helpdesk.euroland.com/support/home", external: true },
   ];
 
   const navItems = [

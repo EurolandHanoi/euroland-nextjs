@@ -1,3 +1,5 @@
-import BlogDetail from "@/pages/resources/BlogDetail";
+import { notFound } from "next/navigation";
 
-export default BlogDetail;
+export default function Page() {
+  notFound();
+}

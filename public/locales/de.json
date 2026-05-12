@@ -1600,5 +1600,11 @@
   "demo_submit_button": "Demo buchen",
   "resources_label": "Ressourcen",
   "faq_hero_title": "FAQs zur Investor-Relations-Plattform für börsennotierte Unternehmen",
-  "faq_hero_subtitle": "Alles, was Sie über die Euroland IR Plattform, unsere Investor-Relations-Software, Preise und Support wissen müssen."
+  "faq_hero_subtitle": "Alles, was Sie über die Euroland IR Plattform, unsere Investor-Relations-Software, Preise und Support wissen müssen.",
+  "demo_field_first_name_placeholder": "Max",
+  "demo_field_last_name_placeholder": "Müller",
+  "demo_field_email_placeholder": "name@unternehmen.de",
+  "demo_field_company_placeholder": "Beispiel AG",
+  "demo_field_role_placeholder": "Leiter Investor Relations",
+  "demo_field_phone_placeholder": "+49 30 000000"
 }

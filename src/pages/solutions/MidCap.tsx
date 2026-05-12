@@ -21,7 +21,7 @@ export default function MidCap() {
       ]}
       howWeHelpLabel="How We Help"
       howWeHelpTitle="Sophisticated IR, built to scale"
-      howWeHelpIntro="Mid cap companies need more than the basics — but don't want the overhead of enterprise-level complexity. Euroland IR gives you a full-featured IR operation that your team can run efficiently, with the depth to satisfy institutional investors and analysts."
+      howWeHelpIntro="Mid cap companies need more than the basics, but do not want the overhead of enterprise-level complexity. Euroland IR gives you a full-featured IR operation that your team can run efficiently, with the depth to satisfy institutional investors and analysts."
       howWeHelpBullets={[
         "Full IR platform with advanced content management",
         "Institutional investor targeting and CRM",
@@ -36,7 +36,7 @@ export default function MidCap() {
         {
           icon: "",
           title: "Engage institutional investors at scale",
-          description: "Identify, target, and manage relationships with institutional investors across multiple markets — all from a single CRM.",
+          description: "Identify, target, and manage relationships with institutional investors across multiple markets, all from a single CRM.",
         },
         {
           icon: "",

@@ -89,7 +89,7 @@ export default function BookDemo() {
         }}
       >
         <img
-          src="/banner-water.jpg"
+          src="/banner-contact-demo.jpg"
           alt=""
           aria-hidden="true"
           style={{
@@ -115,7 +115,7 @@ export default function BookDemo() {
           <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)" }}>
             {t("book_demo", "Book a Demo")}
           </div>
-          <h1 className="type-h2"
+          <h1 className="type-h2 book-demo-hero-title"
             style={{
               fontSize: "var(--fs-3xl)",
               fontWeight: 600,
@@ -128,21 +128,69 @@ export default function BookDemo() {
           >
             {t("demo_hero_title", "Book a demo")}
           </h1>
-          <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "var(--fs-md)", maxWidth: "640px", marginBottom: "var(--sp-6)" }}>
+          <p className="book-demo-hero-subtitle" style={{ color: "rgba(255,255,255,0.78)", fontSize: "var(--fs-md)", maxWidth: "640px", marginBottom: "var(--sp-6)" }}>
             {t(
               "demo_hero_subtitle",
               "Schedule a personalised demo with one of our Investor Relations specialists and discover how Euroland IR can transform your IR communications, ESG reporting, and shareholder engagement."
             )}
           </p>
-          <p className="form-help" style={{ color: "rgba(255,255,255,0.70)", margin: 0 }}>
-            {t("demo_hero_helper", "Most requests receive a response within one business day. We only use your details to follow up on your enquiry.")}
-          </p>
         </div>
+        <style>{`
+          .book-demo-main-grid > *,
+          .book-demo-form-grid > * {
+            min-width: 0;
+          }
+          .book-demo-main-grid p,
+          .book-demo-main-grid span,
+          .book-demo-main-grid a,
+          .book-demo-main-grid div {
+            overflow-wrap: anywhere;
+          }
+          @media (max-width: 767px) {
+            .book-demo-hero-title {
+              font-size: var(--fs-lg) !important;
+              line-height: var(--lh-lg) !important;
+              max-width: min(100%, 12ch) !important;
+              width: 100% !important;
+              display: block !important;
+              overflow-wrap: anywhere;
+            }
+            .book-demo-hero-subtitle {
+              font-size: var(--fs-base) !important;
+              line-height: var(--lh-base) !important;
+              max-width: min(100%, 34ch) !important;
+              width: 100% !important;
+              display: block !important;
+              overflow-wrap: anywhere;
+            }
+            .book-demo-main-grid,
+            .book-demo-form-grid {
+              grid-template-columns: 1fr !important;
+              gap: 24px !important;
+            }
+          }
+          @media (max-width: 390px) {
+            .book-demo-hero-title {
+              max-width: min(100%, 10ch) !important;
+            }
+            .book-demo-hero-subtitle,
+            .book-demo-main-grid p,
+            .book-demo-main-grid div {
+              max-width: 28ch !important;
+            }
+            .book-demo-main-grid .card,
+            .book-demo-main-grid .card p,
+            .book-demo-main-grid .card div,
+            .book-demo-main-grid .card label {
+              max-width: 100% !important;
+            }
+          }
+        `}</style>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-16)", alignItems: "start" }}>
+          <div className="book-demo-main-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-16)", alignItems: "start" }}>
             <div>
               <h2 className="type-h3" style={{ color: "var(--text-primary)", marginBottom: "var(--sp-4)" }}>
                 {t("demo_section_heading", "See the platform in action")}
@@ -156,37 +204,35 @@ export default function BookDemo() {
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "var(--sp-6)", marginBottom: "var(--sp-10)" }}>
                 {features.map((feature) => (
                   <li key={feature.title} style={{ display: "flex", gap: "var(--sp-3)", alignItems: "flex-start" }}>
-                    <feature.icon size={18} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "16px" }} />
-                    <div>
+                    <feature.icon size={18} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "4px" }} />
+                    <div style={{ minWidth: 0, flex: "1 1 0" }}>
                       <div style={{ fontSize: "var(--fs-sm)", fontWeight: 700, color: "var(--text-primary)", marginBottom: "var(--sp-1)" }}>{feature.title}</div>
                       <div style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-secondary)" }}>{feature.desc}</div>
                     </div>
                   </li>
                 ))}
               </ul>
-              <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-tertiary)", marginBottom: "var(--sp-4)" }}>
-                {t("demo_trusted_label", "Trusted by listed companies worldwide")}
-              </div>
-              <div style={{ overflow: "hidden", padding: "16px 0", width: "420px", maxWidth: "100%" }}>
-                {lang === "ja" ? (
-                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
-                    <img src="/client-logos-ja.webp" alt="Euroland IR clients" style={{ height: "30px", width: "auto", display: "block", maxWidth: "100%" }} />
+              {lang !== "ja" && (
+                <>
+                  <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--button-blue)", marginBottom: "var(--sp-4)" }}>
+                    {t("demo_trusted_label", "Trusted by listed companies worldwide")}
                   </div>
-                ) : (
+                  <div style={{ overflow: "hidden", padding: "8px 0", width: "100%", maxWidth: "420px" }}>
                   <div style={{ width: "100%", position: "relative", overflow: "hidden" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0px", width: "max-content", animation: "marquee 60s linear infinite" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0px", width: "max-content", animation: "marquee 200s linear infinite" }}>
                       {[1, 2].map((copy) => (
                         <img
                           key={copy}
-                          src={lang === "zh" || lang === "zh-TW" ? "/client-logos-zh.webp" : "/client-logos.webp"}
+                          src={lang === "zh" || lang === "zh-TW" ? "/client-logos-zh.svg" : lang === "ar" ? "/client-logos-ar.svg" : "/client-logos.svg"}
                           alt="Euroland IR clients"
-                          style={{ height: "48px", width: "auto", display: "block", flexShrink: 0 }}
+                          style={{ height: "32px", width: "auto", display: "block", flexShrink: 0 }}
                         />
                       ))}
                     </div>
                   </div>
-                )}
-              </div>
+                  </div>
+                </>
+              )}
             </div>
 
             <div className="card">
@@ -209,40 +255,40 @@ export default function BookDemo() {
                     {t("demo_form_heading", "Schedule your demo")}
                   </h2>
                   <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", marginBottom: "var(--sp-8)" }}>
-                    {t("demo_form_instructions", "Complete the form and we'll be in touch within one business day.")} <span style={{ color: "#e53e3e" }}>*</span> {t("demo_form_required", "are required.")}
+                    <span style={{ color: "#e53e3e" }}>*</span> {t("demo_form_required", "are required.")}
                   </p>
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "var(--sp-5)" }}>
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true" />
 
-                    <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-4)" }}>
+                    <div className="book-demo-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-4)" }}>
                       <div>
                         <label className="form-label" htmlFor="demo-first-name">{t("demo_field_first_name", "First name")} <span style={{ color: "#e53e3e" }}>*</span></label>
-                        <input className="form-input" id="demo-first-name" name="firstName" type="text" placeholder="John" required />
+                        <input className="form-input" id="demo-first-name" name="firstName" type="text" placeholder={t("demo_field_first_name_placeholder", "John")} required />
                       </div>
                       <div>
                         <label className="form-label" htmlFor="demo-last-name">{t("demo_field_last_name", "Last name")} <span style={{ color: "#e53e3e" }}>*</span></label>
-                        <input className="form-input" id="demo-last-name" name="lastName" type="text" placeholder="Smith" required />
+                        <input className="form-input" id="demo-last-name" name="lastName" type="text" placeholder={t("demo_field_last_name_placeholder", "Smith")} required />
                       </div>
                     </div>
 
                     <div>
                       <label className="form-label" htmlFor="demo-email">{t("demo_field_email", "Work email")} <span style={{ color: "#e53e3e" }}>*</span></label>
-                      <input className="form-input" id="demo-email" name="email" type="email" placeholder="name@company.com" required />
+                      <input className="form-input" id="demo-email" name="email" type="email" placeholder={t("demo_field_email_placeholder", "name@company.com")} required />
                     </div>
 
                     <div>
                       <label className="form-label" htmlFor="demo-company">{t("demo_field_company", "Company")} <span style={{ color: "#e53e3e" }}>*</span></label>
-                      <input className="form-input" id="demo-company" name="company" type="text" placeholder="Example Corporation" required />
+                      <input className="form-input" id="demo-company" name="company" type="text" placeholder={t("demo_field_company_placeholder", "Example Corporation")} required />
                     </div>
 
-                    <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-4)" }}>
+                    <div className="book-demo-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--sp-4)" }}>
                       <div>
                         <label className="form-label" htmlFor="demo-role">{t("demo_field_role", "Your role")} <span style={{ color: "#e53e3e" }}>*</span></label>
-                        <input className="form-input" id="demo-role" name="role" type="text" placeholder="Head of IR" required />
+                        <input className="form-input" id="demo-role" name="role" type="text" placeholder={t("demo_field_role_placeholder", "Head of IR")} required />
                       </div>
                       <div>
                         <label className="form-label" htmlFor="demo-phone">{t("demo_field_phone", "Phone number")}</label>
-                        <input className="form-input" id="demo-phone" name="phone" type="tel" placeholder="+1 555 000 0000" />
+                        <input className="form-input" id="demo-phone" name="phone" type="tel" placeholder={t("demo_field_phone_placeholder", "+1 555 000 0000")} />
                       </div>
                     </div>
 
@@ -253,7 +299,6 @@ export default function BookDemo() {
                         id="demo-message"
                         name="message"
                         rows={4}
-                        placeholder={t("demo_field_message_placeholder", "E.g. We're looking to improve our earnings reporting workflow and investor FAQ page...")}
                         style={{ resize: "vertical", minHeight: "96px" }}
                       />
                     </div>
@@ -263,13 +308,6 @@ export default function BookDemo() {
                         {errorMessage}
                       </p>
                     )}
-
-                    <p className="form-help" style={{ margin: 0 }}>
-                      {t(
-                        "demo_form_privacy_note",
-                        "By submitting this form, you agree that Euroland IR may contact you about your enquiry. We do not use this form for unrelated marketing."
-                      )}
-                    </p>
 
                     <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }} disabled={status === "submitting"}>
                       {status === "submitting" ? t("demo_submit_loading", "Sending request...") : t("demo_submit_button", "Book Demo")}

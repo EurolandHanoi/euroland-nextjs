@@ -1,3 +1,5 @@
-import WhitepaperDetail from "@/pages/resources/WhitepaperDetail";
+import { notFound } from "next/navigation";
 
-export default WhitepaperDetail;
+export default function Page() {
+  notFound();
+}

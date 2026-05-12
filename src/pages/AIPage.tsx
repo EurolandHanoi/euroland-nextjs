@@ -68,7 +68,7 @@ export default function AIPage() {
           "aipage_hero_paragraph",
           "A generative AI-powered search solution that turns your corporate website and IR app into an intelligent information hub for shareholders and stakeholders."
         )}
-        backgroundImage="/ai-banner.jpg"
+        backgroundImage="/banner-purpose-built-ai.jpg"
         primaryCtaLabel={t("aipage_hero_btn_book_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("common_talk_to_us", "Talk to Us")}
@@ -192,14 +192,16 @@ export default function AIPage() {
       {/* ── CTA ── */}
       <div className="cta-band">
         <div className="container" style={{ textAlign: "center" }}>
-          <div ref={f6} className="fade-up">
+          <div ref={f6} className="fade-up" style={{ maxWidth: "720px", margin: "0 auto" }}>
             <div className="u-label u-label-dark" style={{ marginBottom: "var(--sp-4)", display: "inline-block" }}>{t("aipage_cta_label", "Get Started")}</div>
             <h3 style={{ color: "white", fontWeight: 300, marginBottom: "var(--sp-8)", maxWidth: "600px", margin: "0 auto var(--sp-8)" }}>
               {t("aipage_cta_heading", "Ready to put AI to work for your IR team?")}
             </h3>
+            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgba(255,255,255,0.72)", maxWidth: "560px", margin: "0 auto 32px" }}>
+              {t("aipage_cta_subtitle", "See how purpose built AI can support your Investor Relations workflow, with clear answers, controlled outputs, and faster execution.")}
+            </p>
             <div style={{ display: "flex", gap: "var(--sp-3)", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">{t("aipage_cta_btn_book_demo", "Book a Demo")}</LangLink>
-              <LangLink href="/contact" className="btn-secondary">{t("common_talk_to_us", "Talk to Us")}</LangLink>
             </div>
           </div>
         </div>

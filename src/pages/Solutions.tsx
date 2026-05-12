@@ -36,11 +36,11 @@ const SOLUTIONS = [
 const BUYER_NEEDS = [
   {
     title: "One platform, one accountable partner",
-    body: "Bring market data, investor communications, disclosure workflows, IR apps, ESG presentation, and purpose-built AI together through one managed service model.",
+    body: "Bring market data, investor communications, disclosure workflows, IR apps, ESG presentation, and purpose built AI together through one managed service model.",
   },
   {
-    title: "Purpose-built for Investor Relations",
-    body: "Euroland IR solutions are built around listed-company workflows, capital markets content, financial data, and the expectations of investors, analysts, and communications teams.",
+    title: "Purpose built for Investor Relations",
+    body: "Euroland IR Solutions are built around listed-company workflows, capital markets content, financial data, and the expectations of investors, analysts, and communications teams.",
   },
   {
     title: "Service-minded implementation and support",
@@ -76,11 +76,11 @@ export default function Solutions() {
   const buyerNeeds = [
     {
       title: t("solutions_page_need_1_title", "One platform, one accountable partner"),
-      body: t("solutions_page_need_1_body", "Bring market data, investor communications, disclosure workflows, IR apps, ESG presentation, and purpose-built AI together through one managed service model."),
+      body: t("solutions_page_need_1_body", "Bring market data, investor communications, disclosure workflows, IR apps, ESG presentation, and purpose built AI together through one managed service model."),
     },
     {
-      title: t("solutions_page_need_2_title", "Purpose-built for Investor Relations"),
-      body: t("solutions_page_need_2_body", "Euroland IR solutions are built around listed-company workflows, capital markets content, financial data, and the expectations of investors, analysts, and communications teams."),
+      title: t("solutions_page_need_2_title", "Purpose built for Investor Relations"),
+      body: t("solutions_page_need_2_body", "Euroland IR Solutions are built around listed-company workflows, capital markets content, financial data, and the expectations of investors, analysts, and communications teams."),
     },
     {
       title: t("solutions_page_need_3_title", "Service-minded implementation and support"),
@@ -93,7 +93,7 @@ export default function Solutions() {
         variant="solutions"
         label={t("nav_solutions", "Solutions")}
         title={t("solutions_page_hero_title", "Solutions built around listed-company needs")}
-        subtitle={t("solutions_page_hero_subtitle", "Explore best-practice IR solutions for listed companies, IPO readiness, and sustainability communication - all supported by the Euroland IR platform and specialist service team.")}
+        subtitle={t("solutions_page_hero_subtitle", "Explore best practice IR Solutions for listed companies, IPO readiness, and sustainability communication, all supported by the Euroland IR platform and specialist service team.")}
         primaryCtaLabel={t("common_book_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("common_talk_to_us", "Talk to Us")}
@@ -145,7 +145,7 @@ export default function Solutions() {
                 {t("solutions_page_support_title", "Platform capabilities, applied to specific IR needs")}
               </h2>
               <p style={{ maxWidth: "640px", marginBottom: "32px" }}>
-                {t("solutions_page_support_body", "Euroland IR combines award-winning technology, managed data, purpose-built AI, and client support to help listed companies present information clearly and maintain a reliable digital Investor Relations presence.")}
+                {t("solutions_page_support_body", "Euroland IR combines award-winning technology, managed data, purpose built AI, and client support to help listed companies present information clearly and maintain a reliable digital Investor Relations presence.")}
               </p>
               <LangLink href="/platform" className="btn-outline">
                 {t("solutions_page_support_cta", "View Platform Overview")}
@@ -174,7 +174,6 @@ export default function Solutions() {
           </p>
           <div className="flex-wrap-mobile" style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
             <LangLink href="/book-demo" className="btn-primary">{t("common_book_demo", "Book a Demo")}</LangLink>
-            <LangLink href="/contact" className="btn-secondary">{t("common_talk_to_us", "Talk to Us")}</LangLink>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function LargeCap() {
       breadcrumbLabel="For Listed Companies"
       heroLabel="Large Cap Companies"
       heroTitle="Enterprise IR infrastructure, at scale"
-      heroSubtitle="The governance controls, reliability, and enterprise-grade integrations that large cap IR Operations demand. Trusted by some of the world's most complex listed companies."
+      heroSubtitle="The governance controls, reliability, and enterprise-grade integrations that large-cap Investor Relations teams demand. Trusted by some of the world's most complex listed companies."
       challengesLabel="The Challenges"
       challengesTitle="What large cap companies face"
       challenges={[
@@ -21,7 +21,7 @@ export default function LargeCap() {
       ]}
       howWeHelpLabel="How We Help"
       howWeHelpTitle="Enterprise-grade IR, without compromise"
-      howWeHelpIntro="Euroland IR's enterprise offering is built for the demands of large cap IR Operations. From custom integrations to dedicated SLAs, we provide the infrastructure and support that complex IR operations require."
+      howWeHelpIntro="Euroland IR's enterprise offering is built for the demands of large-cap Investor Relations teams. From custom integrations to dedicated SLAs, we provide the infrastructure and support that complex Investor Relations programmes require."
       howWeHelpBullets={[
         "Enterprise SLA with 99.9% uptime guarantee",
         "Custom integrations with ERP, CRM, and data systems",
@@ -31,7 +31,7 @@ export default function LargeCap() {
         "Full CSRD, ESG, and sustainability reporting suite",
       ]}
       capabilitiesLabel="What You Can Do"
-      capabilitiesTitle="Run a world-class IR Operation"
+      capabilitiesTitle="Run world-class Investor Relations"
       capabilities={[
         {
           icon: "",
@@ -41,7 +41,7 @@ export default function LargeCap() {
         {
           icon: "",
           title: "Connect IR to your existing systems",
-          description: "Integrate with your ERP, CRM, and data infrastructure so your IR team works from a single source of truth — not a silo.",
+          description: "Integrate with your ERP, CRM, and data infrastructure so your IR team works from a single source of truth, not a silo.",
         },
         {
           icon: "",
@@ -51,7 +51,7 @@ export default function LargeCap() {
         {
           icon: "",
           title: "Handle high-stakes events with confidence",
-          description: "Run results days, AGMs, and capital markets days on infrastructure built for peak traffic — with dedicated support on standby.",
+          description: "Run results days, AGMs, and capital markets days on infrastructure built for peak traffic, with dedicated support on standby.",
         },
         {
           icon: "",

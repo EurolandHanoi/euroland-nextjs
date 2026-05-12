@@ -104,30 +104,25 @@ export default function Careers() {
                 borderRadius: "12px",
                 overflow: "hidden",
                 border: "1px solid rgb(221, 224, 230)",
-                background: "rgb(245, 247, 250)",
-                padding: "16px",
+                background: "#082b45",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "520px",
+                padding: "48px",
               }}
             >
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "16px" }}>
-                {[
-                  ["/ceo_d3df1106.jpg", "Leadership portrait"],
-                  ["/cto_716bac62.jpg", "Team member portrait"],
-                  ["/cfo_b4d91152.jpg", "Team member portrait"],
-                  ["/coo_260eeaf2.jpg", "Team member portrait"],
-                  ["/vp-client_9dce3ea9.jpg", "Team member portrait"],
-                  ["/vp-sales_5e9bd62a.jpg", "Team member portrait"],
-                ].map(([src, alt]) => (
-                  <div key={src} style={{ aspectRatio: "1 / 1.15", borderRadius: "8px", overflow: "hidden", background: "#d9e2ec" }}>
-                    <img src={src} alt={alt} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  </div>
-                ))}
-              </div>
-              <div style={{ padding: "0 4px" }}>
-                <div className="u-label" style={{ marginBottom: "16px" }}>Global team</div>
-                <p style={{ margin: 0, fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)" }}>
-                  Work with a distributed team serving listed companies across Europe, Asia Pacific, and the Middle East.
-                </p>
-              </div>
+              <img
+                src="/careers-euroland-logo.jpeg"
+                alt="Euroland logo"
+                style={{
+                  width: "100%",
+                  maxWidth: "460px",
+                  height: "auto",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
             </div>
           </div>
         </div>
@@ -285,28 +280,29 @@ export default function Careers() {
                 maxWidth: "520px",
               }}
             >
-              Discover your next career opportunity with Euroland Investor Growth Solutions.
+              Discover career opportunities at Euroland IR.
             </p>
           </div>
 
-          {/* Empty state card — node[87] geo:282,1957 1440x318 */}
           <div
             style={{
+              maxWidth: "760px",
+              margin: "0 auto",
               border: "1px solid rgb(221, 224, 230)",
-              padding: "0 48px",
+              borderRadius: "12px",
+              background: "rgb(245, 247, 250)",
+              padding: "48px",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               textAlign: "center",
-              marginBottom: "32px",
+              gap: "24px",
             }}
           >
-            {/* Icon — node[88] geo:978,2022 48x48 */}
             <div
               style={{
                 width: "48px",
                 height: "48px",
-                marginBottom: "32px",
                 color: "rgb(0, 116, 217)",
               }}
             >
@@ -317,7 +313,6 @@ export default function Careers() {
                 <line x1="10" y1="14" x2="14" y2="14" />
               </svg>
             </div>
-            {/* Title — node[90] geo:347,2094 1310x32 — 24px/500/32px/0.16px/rgb(13,27,42) */}
             <h4 className="type-h5"
               style={{
                 fontSize: "var(--fs-lg)",
@@ -325,12 +320,11 @@ export default function Careers() {
                 lineHeight: "var(--lh-lg)",
                 letterSpacing: "0.01em",
                 color: "rgb(13, 27, 42)",
-                margin: "0 0 16px",
+                margin: 0,
               }}
             >
               No open positions at the moment
             </h4>
-            {/* Body — node[91] geo:792,2138 420x72 — 16px/400/24px/0.16px/rgb(58,74,88) */}
             <p
               style={{
                 fontSize: "var(--fs-base)",
@@ -339,16 +333,19 @@ export default function Careers() {
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
                 margin: 0,
-                maxWidth: "420px",
+                maxWidth: "560px",
               }}
             >
               We are not actively hiring right now, but we are always interested in hearing from talented people. Send us your CV and we will be in touch when a suitable role opens up.
             </p>
-          </div>
-
-          {/* Bottom note + Apply CTA — node[92] geo:282,2306 1440x88 */}
-          <div style={{ textAlign: "center" }}>
-            {/* Note — node[93] geo:282,2306 1440x24 — 14px/400/24px/0.16px/rgb(58,74,88) */}
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "560px",
+                height: "1px",
+                background: "rgb(221, 224, 230)",
+              }}
+            />
             <p
               style={{
                 fontSize: "var(--fs-base)",
@@ -356,12 +353,12 @@ export default function Careers() {
                 lineHeight: "var(--lh-base)",
                 letterSpacing: "0.01em",
                 color: "rgb(58, 74, 88)",
-                margin: "0 0 16px",
+                margin: 0,
+                maxWidth: "560px",
               }}
             >
               {t("careers_apply_note", "We're always looking for exceptional talent. Send us your CV and we'll be in touch when the right opportunity arises.")}
             </p>
-            {/* Apply button — node[94] geo:956,2346 93x48 */}
             <a href="mailto:careers@eurolandir.com" className="btn-primary">
               {t("careers_apply_cta", "Apply")}
             </a>

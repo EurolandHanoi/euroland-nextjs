@@ -13,7 +13,7 @@ type TFunction = (key: string, fallback?: string) => string;
 function getValues(t: TFunction) {
   return [
     {
-      icon: "🎯",
+      icon: "ðŸŽ¯",
       title: t("about_values_client_centricity", "Client-Centricity"),
       desc: t(
         "about_values_client_centricity_desc",
@@ -21,7 +21,7 @@ function getValues(t: TFunction) {
       ),
     },
     {
-      icon: "🔒",
+      icon: "ðŸ”’",
       title: t("about_values_reliability", "Reliability"),
       desc: t(
         "about_values_reliability_desc",
@@ -29,7 +29,7 @@ function getValues(t: TFunction) {
       ),
     },
     {
-      icon: "🌍",
+      icon: "ðŸŒ",
       title: t("about_values_global_reach", "Global Reach"),
       desc: t(
         "about_values_global_reach_desc",
@@ -37,7 +37,7 @@ function getValues(t: TFunction) {
       ),
     },
     {
-      icon: "🚀",
+      icon: "ðŸš€",
       title: t("about_values_continuous_innovation", "Continuous Innovation"),
       desc: t(
         "about_values_continuous_innovation_desc",
@@ -181,12 +181,6 @@ export default function About() {
       <section className="py-24" style={{ backgroundColor: "#f2f4f6" }}>
         <div className="container mx-auto px-4 lg:px-8 text-center" style={{ maxWidth: "1536px" }}>
           <h2 className="type-h5 text-2xl font-bold text-[#0f1e2b] mb-4">{t("about_cta_title", "Work with us")}</h2>
-          <p className="text-[#3a4a58] mb-8 max-w-xl mx-auto">
-            {t(
-              "about_cta_text",
-              "Whether you are a listed company looking for a stronger IR platform or a professional interested in joining our team, we would be pleased to hear from you."
-            )}
-          </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <LangLink href="/book-demo" className="btn-primary">
               {t("common_book_demo", "Book a Demo")} <ArrowRight size={16} />

@@ -37,9 +37,6 @@ const NAV_ITEMS: NavItem[] = [
     labelKey: "nav_resources",
     fallback: "Resources",
     children: [
-      { labelKey: "nav_guides", fallback: "IR Guide", href: "/resources/ir-guide", englishOnly: true },
-      { labelKey: "nav_whitepapers", fallback: "Whitepapers", href: "/resources/whitepapers", englishOnly: true },
-      { labelKey: "nav_ir_blog", fallback: "IR Blog", href: "/resources/ir-blog", englishOnly: true },
       { labelKey: "nav_faq", fallback: "FAQ", href: "/resources/faq" },
       { labelKey: "nav_glossary", fallback: "Financial Glossary", href: "/resources/glossary" },
     ],
@@ -59,7 +56,6 @@ const NAV_ITEMS: NavItem[] = [
     fallback: "Contact",
     children: [
       { labelKey: "nav_contact_us", fallback: "Contact Us", href: "/contact" },
-      { labelKey: "nav_helpdesk", fallback: "Helpdesk", href: "/contact#helpdesk" },
     ],
   },
 ];
@@ -105,13 +101,13 @@ export function Nav() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
-      <div className="container flex h-full items-center justify-between gap-8">
+      <div className="container header-shell flex h-full items-center justify-between gap-4">
         <LangLink
           href="/"
           aria-label="Euroland IR home"
-          className="inline-flex items-center no-underline transition-opacity duration-200 hover:opacity-90"
+          className="header-brand inline-flex items-center no-underline transition-opacity duration-200 hover:opacity-90"
         >
-          <img src="/euroland-ir-logo.svg" alt="Euroland IR" style={{ height: "24px", width: "266px" }} />
+          <img className="site-logo" src="/euroland-ir-logo.svg" alt="Euroland IR" style={{ height: "24px", width: "266px" }} />
         </LangLink>
 
         <nav className="hidden flex-1 items-center gap-1 lg:flex" aria-label="Primary">
@@ -208,7 +204,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="p-2 text-[#082b45] lg:hidden"
+          className="mobile-menu-button shrink-0 p-2 text-[#082b45] lg:hidden"
           onClick={() => setMobileOpen((previous) => !previous)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-navigation"
@@ -309,9 +305,6 @@ export function Footer() {
     {
       heading: t("nav_resources", "Resources"),
       links: [
-        ...(isEnglish ? [{ label: t("nav_guides", "IR Guide"), href: "/resources/ir-guide" }] : []),
-        ...(isEnglish ? [{ label: t("nav_whitepapers", "Whitepapers"), href: "/resources/whitepapers" }] : []),
-        ...(isEnglish ? [{ label: t("nav_ir_blog", "IR Blog"), href: "/resources/ir-blog" }] : []),
         { label: t("nav_faq", "FAQ"), href: "/resources/faq" },
         { label: t("nav_glossary", "Financial Glossary"), href: "/resources/glossary" },
       ],
@@ -342,7 +335,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid grid gap-12 border-b border-white/10 pb-16" style={{ gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr" }}>
           <div>
-            <img src="/euroland-footer-logo.webp" alt="Euroland IR" style={{ height: "20px", width: "auto", marginBottom: "16px", display: "block" }} />
+            <img className="footer-brand-logo" src="/euroland-footer-logo.webp" alt="Euroland IR" style={{ width: "220px", height: "auto", maxWidth: "100%", marginBottom: "16px", display: "block" }} />
             <p className="mb-8 text-[12px] leading-[20px] text-white" style={{ maxWidth: "280px" }}>
               {t("footer_tagline", "Best-practice Investor Relations technology for listed companies across 60+ stock exchanges.")}
             </p>
@@ -363,7 +356,7 @@ export function Footer() {
                 className="flex h-8 w-8 items-center justify-center rounded border border-white/20 text-[12px] text-white/60 no-underline transition-colors duration-150 hover:border-[#00ADF0] hover:text-[#00ADF0]"
                 aria-label="Euroland IR on X"
               >
-                𝕏
+                X
               </a>
             </div>
           </div>
@@ -385,8 +378,8 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 pt-8 md:flex-row">
-          <p className="m-0 text-[12px] text-white">{t("footer_copyright", `© ${new Date().getFullYear()} Euroland IR. All rights reserved.`)}</p>
-          <div className="flex gap-6">
+          <p className="m-0 text-[12px] text-white">{t("footer_copyright", `\u00A9 ${new Date().getFullYear()} Euroland IR. All rights reserved.`)}</p>
+          <div className="footer-legal-links flex gap-6">
             <LangLink href="/legal/privacy" className="text-[12px] text-white no-underline transition-colors duration-150 hover:text-[#00ADF0]">
               {t("footer_privacy", "Privacy Policy")}
             </LangLink>

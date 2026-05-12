@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 /**
  * Analytics & Earnings — Platform Sub-Page
@@ -49,33 +49,14 @@ export default function AnalyticsEarnings() {
   const challengeRef = useFadeIn();
   const demoRef = useFadeIn();
   const toolSuiteRef = useFadeIn();
-
-  const CHALLENGE_CARDS = [
-    {
-      icon: (<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00ADF0" strokeWidth="1.5"><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>),
-      title: t("ae_challenge_1_title", "Earnings data buried in PDFs"),
-      desc: t("ae_challenge_1_desc", "Financial results are published as static PDF documents, making it impossible for investors to interact with the data, compare periods, or build their own models in real time."),
-    },
-    {
-      icon: (<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00ADF0" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>),
-      title: t("ae_challenge_2_title", "No visibility into investor behaviour"),
-      desc: t("ae_challenge_2_desc", "IR teams have no insight into which analysts are engaging with results, which pages are being read, or how investors are responding to earnings disclosures in real time."),
-    },
-    {
-      icon: (<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00ADF0" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></svg>),
-      title: t("ae_challenge_3_title", "Fragmented reporting workflows"),
-      desc: t("ae_challenge_3_desc", "Earnings preparation spans multiple tools — Excel models, presentation software, webcast platforms, and IR platforms — creating version control risks and last-minute errors."),
-    },
-  ];
-
   const TOOL_CARDS = [
-    { num: "01", title: t("ae_tool_1_title", "Interactive Earnings Dashboard"), desc: t("ae_tool_1_desc", "A live, interactive earnings dashboard that transforms your results announcement into a structured, navigable experience — with charts, KPIs, and segment breakdowns.") },
-    { num: "02", title: t("ae_tool_2_title", "Consensus Estimates Tracker"), desc: t("ae_tool_2_desc", "Real-time consensus estimates from leading financial data providers, displayed alongside your actual results — giving investors instant context for performance assessment.") },
+    { num: "01", title: t("ae_tool_1_title", "Interactive Earnings Dashboard"), desc: t("ae_tool_1_desc", "A live, interactive earnings dashboard that transforms your results announcement into a structured, navigable experience, with charts, KPIs, and segment breakdowns.") },
+    { num: "02", title: t("ae_tool_2_title", "Consensus Estimates Tracker"), desc: t("ae_tool_2_desc", "Real-time consensus estimates from leading financial data providers, displayed alongside your actual results, giving investors instant context for performance assessment.") },
     { num: "03", title: t("ae_tool_3_title", "Financial Model Builder"), desc: t("ae_tool_3_desc", "An interactive financial model tool that allows analysts and investors to build and stress-test their own projections directly from your published financial data.") },
-    { num: "04", title: t("ae_tool_4_title", "Earnings Webcast Integration"), desc: t("ae_tool_4_desc", "Seamless integration with Euroland IR's webcast platform — embedding live and on-demand earnings calls directly within your results page for a unified investor experience.") },
-    { num: "05", title: t("ae_tool_5_title", "Analyst Coverage Tracker"), desc: t("ae_tool_5_desc", "A structured, up-to-date directory of analyst coverage — including target prices, ratings, and report summaries — maintained automatically from your IR data layer.") },
+    { num: "04", title: t("ae_tool_4_title", "Earnings Webcast Integration"), desc: t("ae_tool_4_desc", "Seamless integration with Euroland IR's webcast platform, embedding live and on-demand earnings calls directly within your results page for a unified investor experience.") },
+    { num: "05", title: t("ae_tool_5_title", "Analyst Coverage Tracker"), desc: t("ae_tool_5_desc", "A structured, up-to-date directory of analyst coverage, including target prices, ratings, and report summaries, maintained automatically from your IR data layer.") },
     { num: "06", title: t("ae_tool_6_title", "Results Archive & Comparisons"), desc: t("ae_tool_6_desc", "A searchable archive of all historical results, with side-by-side period comparisons, trend charts, and downloadable data tables for in-depth financial analysis.") },
-    { num: "07", title: t("ae_tool_7_title", "Earnings Engagement Analytics"), desc: t("ae_tool_7_desc", "Detailed analytics on investor engagement with your results pages — page views, time on page, document downloads, and webcast attendance — delivered to your IR team.") },
+    { num: "07", title: t("ae_tool_7_title", "Earnings Engagement Analytics"), desc: t("ae_tool_7_desc", "Detailed analytics on investor engagement with your results pages, including page views, time on page, document downloads, and webcast attendance, delivered to your IR team.") },
   ];
 
   return (
@@ -84,7 +65,7 @@ export default function AnalyticsEarnings() {
         variant="platform"
         label={t("ae_hero_label", "Analytics & Earnings")}
         title={t("ae_hero_title", "Interactive earnings and analytics that investors trust")}
-        subtitle={t("ae_hero_subtitle", "Transform your results announcements into live, interactive experiences — with real-time consensus data, financial model tools, and engagement analytics for your IR team.")}
+        subtitle={t("ae_hero_subtitle", "Transform your results announcements into live, interactive experiences, with real-time consensus data, financial model tools, and engagement analytics for your IR team.")}
         primaryCtaLabel={t("book_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("see_it_live", "See It Live")}
@@ -95,22 +76,13 @@ export default function AnalyticsEarnings() {
 
       <section style={{ width: "100%", padding: "64px 0", background: "rgb(245, 245, 245)" }}>
         <div ref={challengeRef} style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
-          <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <div style={{ display: "inline-block" }}>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ display: "inline-block", width: "fit-content" }}>
               <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)" }}>{t("the_challenge", "The Challenge")}</span>
               <div style={{ width: "25%", height: "2px", background: "var(--label-blue-light)", marginTop: "16px" }} />
             </div>
             <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "16px 0 16px" }}>{t("ae_challenge_heading", "Earnings data is only valuable when it's interactive")}</h3>
             <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "560px", margin: "0 auto" }}>{t("ae_challenge_body", "Static PDF results and disconnected webcast tools create friction for investors and blind spots for IR teams. Euroland IR Analytics & Earnings replaces the PDF with a live, structured, and trackable results experience.")}</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "24px" }}>
-            {CHALLENGE_CARDS.map((card, i) => (
-              <div key={i} style={{ height: "246px", padding: "32px", background: "#ffffff", border: "1px solid rgb(221, 224, 230)", borderRadius: "16px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "16px", boxShadow: "rgba(13, 27, 42, 0.07) 0px 1px 3px 0px, rgba(13, 27, 42, 0.05) 0px 4px 12px 0px" }}>
-                <div>{card.icon}</div>
-                <h5 style={{ fontSize: "var(--fs-lg)", fontWeight: 500, lineHeight: "var(--lh-lg)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: 0 }}>{card.title}</h5>
-                <p style={{ fontSize: "var(--fs-sm)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", margin: 0 }}>{card.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -122,17 +94,17 @@ export default function AnalyticsEarnings() {
               <div style={{ width: "48px", height: "48px", borderRadius: "50%", border: "2px solid rgb(0, 116, 217)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="rgb(0, 116, 217)"><polygon points="5 3 19 12 5 21 5 3" /></svg>
               </div>
-              <p style={{ fontSize: "var(--fs-base)", fontWeight: 500, color: "#fff", margin: 0 }}>{t("ae_demo_video_label", "Earnings Dashboard — Live Demo")}</p>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 500, color: "#fff", margin: 0 }}>{t("ae_demo_video_label", "Earnings Dashboard, Live Demo")}</p>
             </div>
             <div>
               <div style={{ marginBottom: "16px" }}>
-                <div style={{ display: "inline-block" }}>
+                <div style={{ display: "inline-block", width: "fit-content" }}>
                   <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)" }}>{t("ae_demo_label", "Interactive Earnings")}</span>
                   <div style={{ width: "25%", height: "2px", background: "var(--label-blue-light)", marginTop: "16px" }} />
                 </div>
               </div>
               <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "0 0 32px" }}>{t("ae_demo_heading", "Results pages that analysts and investors actually use")}</h3>
-              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", margin: "0 0 32px" }}>{t("ae_demo_body", "Euroland IR transforms your earnings announcement into a structured, interactive results page — with live KPI dashboards, consensus comparison charts, segment breakdowns, and integrated webcast replay. Published automatically on results day, with no manual intervention required.")}</p>
+              <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", margin: "0 0 32px" }}>{t("ae_demo_body", "Euroland IR transforms your earnings announcement into a structured, interactive results page, with live KPI dashboards, consensus comparison charts, segment breakdowns, and integrated webcast replay. Published automatically on results day, with no manual intervention required.")}</p>
               <LangLink href="/book-demo" style={{ fontSize: "var(--fs-sm)", fontWeight: 500, letterSpacing: "0.96px", textTransform: "uppercase", color: "#0074D9", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px" }}>{t("ae_demo_link", "See Analytics & Earnings in action →")}</LangLink>
             </div>
           </div>
@@ -143,13 +115,13 @@ export default function AnalyticsEarnings() {
         <div ref={toolSuiteRef} style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box" }}>
           <div style={{ marginBottom: "48px" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "16px" }}>
-              <div style={{ display: "inline-block" }}>
+              <div style={{ display: "inline-block", width: "fit-content" }}>
                 <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)" }}>{t("full_analytics_suite", "Full Analytics Suite")}</span>
                 <div style={{ width: "25%", height: "2px", background: "var(--label-blue-light)" }} />
               </div>
             </div>
-            <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "0 0 32px" }}>{t("ae_suite_heading", "Every analytics tool your IR Operation needs")}</h3>
-            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "480px", margin: 0 }}>{t("ae_suite_body", "From interactive earnings dashboards to consensus trackers and engagement analytics — all integrated, automated, and delivered through your Euroland IR platform.")}</p>
+            <h3 style={{ fontSize: "var(--fs-2xl)", fontWeight: 400, lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", color: "rgb(13, 27, 42)", margin: "0 0 32px" }}>{t("ae_suite_heading", "Every analytics tool your Investor Relations team needs")}</h3>
+            <p style={{ fontSize: "var(--fs-base)", fontWeight: 400, lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "rgb(58, 74, 88)", maxWidth: "480px", margin: 0 }}>{t("ae_suite_body", "From interactive earnings dashboards to consensus trackers and engagement analytics, all integrated, automated, and delivered through your Euroland IR platform.")}</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px" }}>
             {TOOL_CARDS.map((card, i) => (<ToolCard key={i} card={card} />))}
@@ -160,7 +132,7 @@ export default function AnalyticsEarnings() {
       <section style={{ width: "100%", padding: "64px 0", backgroundImage: "linear-gradient(160deg, rgb(13, 27, 42), rgb(14, 45, 74) 60%, rgb(8, 43, 69))" }}>
         <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto", padding: "0 48px", boxSizing: "border-box", textAlign: "center" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "16px", alignItems: "center" }}>
-            <div style={{ display: "inline-block" }}>
+            <div style={{ display: "inline-block", width: "fit-content" }}>
               <span style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-dark)" }}>{t("get_started", "Get Started")}</span>
               <div style={{ width: "25%", height: "2px", background: "var(--label-blue-dark)" }} />
             </div>

@@ -1,11 +1,11 @@
 "use client";
 
-// Euroland IR — Footer
+// Euroland IR ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Footer
 // Design: Navy (#082b45) background, white/muted text, green accents
 // Columns: Brand | Solutions | Company | Resources | Legal
 // Bottom bar: copyright + Privacy Policy | Terms of Use | Cookies
 
-import Link from "next/link";
+
 import LangLink from "@/components/LangLink";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -33,16 +33,12 @@ export default function Footer() {
         { label: t("footer_about_us", "About Us"), href: "/about" },
         { label: t("footer_leadership", "Leadership"), href: "/leadership" },
         { label: t("footer_newsroom", "Newsroom"), href: "/newsroom" },
-        { label: t("footer_ir_blog", "IR Blog"), href: "/ir-blog" },
         { label: t("footer_careers", "Careers"), href: "/careers" },
       ],
     },
     {
       title: t("nav_resources", "Resources"),
       links: [
-        { label: t("footer_ir_guides", "IR Guide"), href: "/resources/ir-guide" },
-        { label: t("footer_whitepapers", "Whitepapers"), href: "/resources/whitepapers" },
-        { label: t("footer_ir_blog", "IR Blog"), href: "/resources/ir-blog" },
         { label: t("footer_faq", "FAQ"), href: "/resources/faq" },
         { label: t("footer_financial_glossary", "Financial Glossary"), href: "/resources/glossary" },
       ],
@@ -87,7 +83,11 @@ export default function Footer() {
                 className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm font-bold"
                 aria-label="LinkedIn"
               >
-                in
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
               </a>
               <a
                 href="https://x.com"
@@ -96,7 +96,7 @@ export default function Footer() {
                 className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm font-bold"
                 aria-label="X (Twitter)"
               >
-                𝕏
+                ÃƒÂ°Ã‚ÂÃ¢â‚¬Â¢Ã‚Â
               </a>
               <a
                 href="https://youtube.com"
@@ -105,7 +105,7 @@ export default function Footer() {
                 className="inline-flex items-center px-2 py-1 -mx-2 rounded text-white/50 hover:text-[#035F88] hover:bg-white/10 transition-colors text-sm"
                 aria-label="YouTube"
               >
-                ▶
+                ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¶
               </a>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            © {year} Euroland IR. {t("footer_all_rights_reserved", "All rights reserved.")}
+            {"\u00A9"} {year} Euroland IR. {t("footer_all_rights_reserved", "All rights reserved.")}
           </p>
           <div className="flex flex-wrap gap-4">
             {bottomLinks.map((link) => (

@@ -1,5 +1,5 @@
-import redirectTo from "@/app/[lang]/_helpers/redirectPage";
+import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
-  return redirectTo(params, (lang) => `/${lang}/resources/ir-blog`);
+export default function Page() {
+  notFound();
 }

@@ -18,7 +18,7 @@
  * ======
  * Available Libraries and Core Features:
  * -------------------------------
- * 📍 MARKER (from `marker` library)
+ * ðŸ“ MARKER (from `marker` library)
  * - Attaches to map using { map, position }
  * new google.maps.marker.AdvancedMarkerElement({
  *   map,
@@ -27,7 +27,7 @@
  * });
  *
  * -------------------------------
- * 🏢 PLACES (from `places` library)
+ * ðŸ¢ PLACES (from `places` library)
  * - Does not attach directly to map; use data with your map manually.
  * const place = new google.maps.places.Place({ id: PLACE_ID });
  * await place.fetchFields({ fields: ["displayName", "location"] });
@@ -35,7 +35,7 @@
  * new google.maps.marker.AdvancedMarkerElement({ map, position: place.location });
  *
  * -------------------------------
- * 🧭 GEOCODER (from `geocoding` library)
+ * ðŸ§­ GEOCODER (from `geocoding` library)
  * - Standalone service; manually apply results to map.
  * const geocoder = new google.maps.Geocoder();
  * geocoder.geocode({ address: "New York" }, (results, status) => {
@@ -49,12 +49,12 @@
  * });
  *
  * -------------------------------
- * 📐 GEOMETRY (from `geometry` library)
+ * ðŸ“ GEOMETRY (from `geometry` library)
  * - Pure utility functions; not attached to map.
  * const dist = google.maps.geometry.spherical.computeDistanceBetween(p1, p2);
  *
  * -------------------------------
- * 🛣️ ROUTES (from `routes` library)
+ * ðŸ›£ï¸ ROUTES (from `routes` library)
  * - Combines DirectionsService (standalone) + DirectionsRenderer (map-attached)
  * const directionsService = new google.maps.DirectionsService();
  * const directionsRenderer = new google.maps.DirectionsRenderer({ map });
@@ -64,7 +64,7 @@
  * );
  *
  * -------------------------------
- * 🌦️ MAP LAYERS (attach directly to map)
+ * ðŸŒ¦ï¸ MAP LAYERS (attach directly to map)
  * - new google.maps.TrafficLayer().setMap(map);
  * - new google.maps.TransitLayer().setMap(map);
  * - new google.maps.BicyclingLayer().setMap(map);
@@ -84,7 +84,7 @@ import { cn } from "@/lib/utils";
 
 declare global {
   interface Window {
-    google?: typeof google;
+    google?: unknown;
   }
 }
 

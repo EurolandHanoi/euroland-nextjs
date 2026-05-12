@@ -29,7 +29,7 @@ const SECTIONS: SiteSection[] = [
   {
     heading: "Main",
     color: "#082b45",
-    icon: "🏠",
+    icon: "ðŸ ",
     pages: [
       { label: "Home", href: "/", description: "Main landing page" },
       { label: "Book a Demo", href: "/book-demo", description: "Request a product demonstration" },
@@ -51,14 +51,14 @@ const SECTIONS: SiteSection[] = [
   {
     heading: "Solutions",
     color: "#0074D9",
-    icon: "💡",
+    icon: "ðŸ’¡",
     pages: [
       { label: "For Listed Companies", href: "/solutions/listed-companies", description: "Solutions by company size" },
-      { label: "Micro Cap companies", href: "/solutions/listed-companies/micro-cap", description: "IR solutions for micro-cap issuers" },
-      { label: "Small-Cap Companies", href: "/solutions/listed-companies/small-cap", description: "IR solutions for small-cap issuers" },
-      { label: "Mid-Cap Companies", href: "/solutions/listed-companies/mid-cap", description: "IR solutions for mid-cap issuers" },
-      { label: "Large-Cap Companies", href: "/solutions/listed-companies/large-cap", description: "IR solutions for large-cap issuers" },
-      { label: "IPO Readiness", href: "/ipo", description: "Pre-IPO and IPO IR solutions" },
+      { label: "Micro Cap companies", href: "/solutions/listed-companies/micro-cap", description: "IR Solutions for micro-cap issuers" },
+      { label: "Small-Cap Companies", href: "/solutions/listed-companies/small-cap", description: "IR Solutions for small-cap issuers" },
+      { label: "Mid-Cap Companies", href: "/solutions/listed-companies/mid-cap", description: "IR Solutions for mid-cap issuers" },
+      { label: "Large-Cap Companies", href: "/solutions/listed-companies/large-cap", description: "IR Solutions for large-cap issuers" },
+      { label: "IPO Readiness", href: "/ipo", description: "Pre-IPO and IPO IR Solutions" },
       { label: "Sustainability Reporting", href: "/solutions/sustainability-reporting", description: "ESG and CSRD reporting tools" },
       { label: "Platform Overview", href: "/platform", description: "Product overview, capabilities, and managed delivery" },
     ],
@@ -66,11 +66,8 @@ const SECTIONS: SiteSection[] = [
   {
     heading: "Resources",
     color: "#1a6fa8",
-    icon: "📚",
+    icon: "ðŸ“š",
     pages: [
-      { label: "IR Guide", href: "/resources/ir-guide", description: "Best-practice Investor Relations guides" },
-      { label: "Whitepapers", href: "/resources/whitepapers", description: "In-depth research and whitepapers" },
-      { label: "IR Blog", href: "/resources/ir-blog", description: "Latest IR insights and articles" },
       { label: "FAQ", href: "/resources/faq", description: "Frequently asked questions" },
       { label: "Financial Glossary", href: "/resources/glossary", description: "IR and finance terminology" },
     ],
@@ -78,7 +75,7 @@ const SECTIONS: SiteSection[] = [
   {
     heading: "Company",
     color: "#2c3e50",
-    icon: "🏢",
+    icon: "ðŸ¢",
     pages: [
       { label: "About Us", href: "/about", description: "Our story, mission, and values" },
       { label: "Leadership", href: "/company/leadership", description: "Meet the leadership team" },

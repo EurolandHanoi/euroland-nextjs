@@ -80,7 +80,7 @@ export const EVENT_HIGHLIGHTS: EventHighlight[] = [
     body: [
       "We are proud to announce a partnership between Euroland IR and Ubhar Capital, underscoring a strategic commitment to strengthening digital IR communication and investor engagement across Oman.",
       "The agreement was signed in the presence of Muscat Stock Exchange S.A.O.C's CEO, Haitham Al Salmi, and signed by Ubhar Capital's CEO, Abdulaziz Al-Saadi, and Euroland IR CEO and Founder, Lisa Marklund. The signing ceremony was attended by Team Euroland IR, as well as CFOs and Investor Relations Officers from leading listed Omani companies.",
-      "By combining Ubhar Capital's deep local market expertise with Euroland IR's award-winning IR solutions and purpose-built AI for IR, the partnership will elevate investor outreach for Omani issuers, enhance transparency and accessibility in capital markets communication, strengthen investor trust through interactive financial storytelling, and expand regional and international visibility.",
+      "By combining Ubhar Capital's deep local market expertise with Euroland IR's award-winning IR Solutions and purpose-built AI for IR, the partnership will elevate investor outreach for Omani issuers, enhance transparency and accessibility in capital markets communication, strengthen investor trust through interactive financial storytelling, and expand regional and international visibility.",
       "Aligned with Oman Vision 2040, this partnership reinforces Oman's strategic ambition to enhance global visibility and deepen international investor engagement within its capital markets. Euroland IR looks forward to partnering with issuers and driving long-term value creation for issuers and investors alike.",
     ],
     photoCredit: "",

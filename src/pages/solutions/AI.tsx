@@ -12,7 +12,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 type TFunction = (key: string, fallback?: string) => string;
 
 const CDN = {
-  aiHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/ai-hero_2d1f5b6a.jpg",
+  aiHero: "/banner-purpose-built-ai.jpg",
 };
 
 function getAiCapabilities(t: TFunction) {
@@ -26,7 +26,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "📊",
+      icon: "ðŸ“Š",
       title: t("solutions_ai_earnings_analysis", "Verified Answers"),
       desc: t(
         "solutions_ai_earnings_analysis_desc",
@@ -34,7 +34,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "🎯",
+      icon: "ðŸŽ¯",
       title: t("solutions_ai_investor_sentiment", "Multilingual Access"),
       desc: t(
         "solutions_ai_investor_sentiment_desc",
@@ -42,7 +42,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "🔍",
+      icon: "ðŸ”",
       title: t("solutions_ai_disclosure_review", "Website Integration"),
       desc: t(
         "solutions_ai_disclosure_review_desc",
@@ -50,7 +50,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "🌐",
+      icon: "ðŸŒ",
       title: t("solutions_ai_translation_localisation", "IR App Integration"),
       desc: t(
         "solutions_ai_translation_localisation_desc",
@@ -58,7 +58,7 @@ function getAiCapabilities(t: TFunction) {
       ),
     },
     {
-      icon: "🤖",
+      icon: "ðŸ¤–",
       title: t("solutions_ai_workflow_automation", "Investor Self-Service"),
       desc: t(
         "solutions_ai_workflow_automation_desc",

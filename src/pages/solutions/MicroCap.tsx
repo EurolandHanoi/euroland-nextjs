@@ -21,7 +21,7 @@ export default function MicroCap() {
       ]}
       howWeHelpLabel="How We Help"
       howWeHelpTitle="The essentials, done properly"
-      howWeHelpIntro="Euroland IR gives micro cap companies a professional IR foundation — without the complexity or cost of enterprise tools. Everything is pre-configured for best practice, so you can focus on running your business."
+      howWeHelpIntro="Euroland IR gives micro cap companies a professional IR foundation, without the complexity or cost of enterprise tools. Everything is pre-configured for best practice, so you can focus on running your business."
       howWeHelpBullets={[
         "Professional IR platform, live within days",
         "Regulatory disclosure management with audit trail",
@@ -46,7 +46,7 @@ export default function MicroCap() {
         {
           icon: "",
           title: "Keep investors informed automatically",
-          description: "Let investors subscribe to alerts so they never miss a material announcement — without any manual effort from you.",
+          description: "Let investors subscribe to alerts so they never miss a material announcement, without any manual effort from you.",
         },
         {
           icon: "",
@@ -61,7 +61,7 @@ export default function MicroCap() {
         {
           icon: "",
           title: "Scale without switching platforms",
-          description: "Start with what you need today and add capabilities as your company grows — all on the same platform.",
+          description: "Start with what you need today and add capabilities as your company grows, all on the same platform.",
         },
       ]}
       processLabel="Getting Started"

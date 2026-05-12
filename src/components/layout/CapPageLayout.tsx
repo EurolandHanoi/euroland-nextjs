@@ -293,7 +293,7 @@ export default function CapPageLayout({
 
       <div className="cta-band">
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px", textAlign: "center" }}>
-          <div ref={f3} className="fade-up">
+          <div ref={f3} className="fade-up" style={{ maxWidth: "720px", margin: "0 auto" }}>
             <div
               className="u-label u-label-dark"
               style={{
@@ -316,15 +316,25 @@ export default function CapPageLayout({
                 maxWidth: "600px",
               }}
             >
-              {t("home_cta_title", "Ready to elevate your IR Operation?")}
+              {t("home_cta_title", "Ready to elevate your Investor Relations?")}
             </h3>
+            <p
+              style={{
+                fontSize: "var(--fs-base)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
+                letterSpacing: "0.01em",
+                color: "rgba(255,255,255,0.72)",
+                maxWidth: "560px",
+                margin: "0 auto 32px",
+              }}
+            >
+              {t("simple_page_cta_subtitle", "See how a fully managed IR platform can reduce manual work, improve investor communication, and strengthen trust with the market.")}
+            </p>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">
                 {t("common_book_demo", "Book a Demo")}
-              </LangLink>
-              <LangLink href="/platform" className="btn-secondary">
-                {t("common_talk_to_us", "Explore our tools")}
               </LangLink>
             </div>
           </div>

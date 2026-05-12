@@ -21,7 +21,7 @@ export default function SmallCap() {
       ]}
       howWeHelpLabel="How We Help"
       howWeHelpTitle="Everything you need, nothing you don't"
-      howWeHelpIntro="Euroland IR gives small cap companies a professional, centralised IR operation — without the overhead of enterprise tools. The platform is designed to be managed by a single person, without sacrificing quality or compliance."
+      howWeHelpIntro="Euroland IR gives small cap companies a professional, centralised IR operation, without the overhead of enterprise tools. The platform is designed to be managed by a single person, without sacrificing quality or compliance."
       howWeHelpBullets={[
         "Professional IR platform with full content management",
         "Earnings management: presentations, webcasts, and Q&A",
@@ -31,12 +31,12 @@ export default function SmallCap() {
         "ESG and sustainability reporting",
       ]}
       capabilitiesLabel="What You Can Do"
-      capabilitiesTitle="Run a full IR Operation with a small team"
+      capabilitiesTitle="Run full Investor Relations with a small team"
       capabilities={[
         {
           icon: "",
           title: "Manage your full IR calendar",
-          description: "Handle results day, roadshows, and investor events from a single platform — without needing to juggle multiple tools or agencies.",
+          description: "Handle results day, roadshows, and investor events from a single platform, without needing to juggle multiple tools or agencies.",
         },
         {
           icon: "",
@@ -51,7 +51,7 @@ export default function SmallCap() {
         {
           icon: "",
           title: "Publish results with confidence",
-          description: "Manage earnings presentations, webcasts, and analyst Q&A in one place — and distribute them to the right audiences automatically.",
+          description: "Manage earnings presentations, webcasts, and analyst Q&A in one place, and distribute them to the right audiences automatically.",
         },
         {
           icon: "",

@@ -671,7 +671,7 @@ export default function EventsHighlightsDetail() {
               <div style={{ display: "flex", gap: "12px" }}>
                 {[
                   { label: "IN", title: "Share on LinkedIn" },
-                  { label: "𝕏", title: "Share on X" },
+                  { label: "ð•", title: "Share on X" },
                   { label: "✉", title: "Share by email" },
                 ].map((btn) => (
                   <button

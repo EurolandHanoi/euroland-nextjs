@@ -204,7 +204,7 @@ export default function PlatformSubPage({
                 ) : (
                   <div style={{ textAlign: "center" }}>
                     <div style={{ width: "64px", height: "64px", margin: "0 auto 16px", backgroundColor: "#082b45", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ fontSize: "var(--fs-lg)" }}>📊</span>
+                      <span style={{ fontSize: "var(--fs-lg)" }}>ðŸ“Š</span>
                     </div>
                     <div style={{ fontSize: "var(--fs-sm)", color: "#8a9aaa", letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 700 }}>{label}</div>
                   </div>

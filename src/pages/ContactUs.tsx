@@ -11,29 +11,14 @@ import { submitLead } from "@/lib/leadApi";
 type TFunction = (key: string, fallback?: string) => string;
 type Status = "idle" | "submitting" | "success" | "error";
 
-function getRegions(t: TFunction) {
+function getOffices() {
   return [
-    {
-      region: "EUROPE",
-      offices: [
-        { country: "ESTONIA", city: "Tallinn", address: "Turi 10c, 11313 Tallinn, Estonia", phone: "+372 6788 400", mapsUrl: "https://maps.google.com/?q=Turi+10c+11313+Tallinn+Estonia" },
-        { country: "SWEDEN", city: "Gothenburg", address: "Kronhusgatan 2d, Gothenburg, Sweden", phone: "+46 31 105 600", mapsUrl: "https://maps.google.com/?q=Kronhusgatan+2d+Gothenburg" },
-      ],
-    },
-    {
-      region: "MIDDLE EAST",
-      offices: [
-        { country: "UAE", city: "Dubai", address: "Indigo Icon Tower, Jumeirah Lake Towers, 634305 Dubai, UAE", phone: "+971 44362374", mapsUrl: "https://maps.google.com/?q=Indigo+Icon+Tower+Jumeirah+Lake+Towers+Dubai" },
-      ],
-    },
-    {
-      region: "ASIA PACIFIC",
-      offices: [
-        { country: "CHINA", city: "Shanghai", address: "Jiaxing Building, Dongfang Road 877, Shanghai 200122, China", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=Dongfang+Road+877+Shanghai+250122" },
-        { country: "HONG KONG", city: "Hong Kong", address: "7B One Capital Place, 18 Luard Road, Wanchai, Hong Kong", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=18+Luard+Road+Wanchai+Hong+Kong" },
-        { country: "JAPAN", city: "Tokyo", address: "Nippo Kanda Awajicho Cross, 3rd Floor, 1-1-7 Kanda Awajicho, Chiyoda-ku, Tokyo 101-0063, Japan", phone: "", mapsUrl: "https://maps.google.com/?q=1-1-7+Kanda+Awajicho+Chiyoda-ku+Tokyo" },
-      ],
-    },
+    { country: "SWEDEN", city: "Gothenburg", address: "Kronhusgatan 2d, Gothenburg, Sweden", phone: "+46 31 105 600", mapsUrl: "https://maps.google.com/?q=Kronhusgatan+2d+Gothenburg" },
+    { country: "ESTONIA", city: "Tallinn", address: "Turi 10c, 11313 Tallinn, Estonia", phone: "+372 6788 400", mapsUrl: "https://maps.google.com/?q=Turi+10c+11313+Tallinn+Estonia" },
+    { country: "UAE", city: "Dubai", address: "Indigo Icon Tower, Jumeirah Lake Towers, 634305 Dubai, UAE", phone: "+971 44362374", mapsUrl: "https://maps.google.com/?q=Indigo+Icon+Tower+Jumeirah+Lake+Towers+Dubai" },
+    { country: "CHINA", city: "Shanghai", address: "Jiaxing Building, Dongfang Road 877, Shanghai 200122, China", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=Dongfang+Road+877+Shanghai+250122" },
+    { country: "HONG KONG", city: "Hong Kong", address: "7B One Capital Place, 18 Luard Road, Wanchai, Hong Kong", phone: "+86 21 6881 3591", mapsUrl: "https://maps.google.com/?q=18+Luard+Road+Wanchai+Hong+Kong" },
+    { country: "JAPAN", city: "Tokyo", address: "Nippo Kanda Awajicho Cross, 3rd Floor, 1-1-7 Kanda Awajicho, Chiyoda-ku, Tokyo 101-0063, Japan", phone: "", mapsUrl: "https://maps.google.com/?q=1-1-7+Kanda+Awajicho+Chiyoda-ku+Tokyo" },
   ];
 }
 
@@ -43,7 +28,7 @@ export default function ContactUs() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const regions = getRegions(t);
+  const offices = getOffices();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -82,7 +67,7 @@ export default function ContactUs() {
         variant="resources"
         label={t("contactus_contact", "Contact")}
         title={t("contactus_get_in_touch", "Contact us")}
-        backgroundImage="/banner-water.jpg"
+        backgroundImage="/banner-contact-demo.jpg"
         subtitle={
           <>
             <span>
@@ -100,26 +85,26 @@ export default function ContactUs() {
 
       <section className="section" style={{ backgroundColor: "rgb(255, 255, 255)" }}>
         <div className="container">
-          <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
+          <div className="contact-main-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "start" }}>
             <div>
               <h2 className="type-h3" style={{ color: "var(--text-primary)", fontWeight: 400, fontSize: "var(--fs-2xl)", lineHeight: "var(--lh-2xl)", letterSpacing: "0.005em", marginBottom: "32px" }}>
-                {t("contactus_get_in_touch_with_our_team", "Get in touch with our team")}
+                {t("contactus_get_in_touch_with_our_team", "Talk to our team")}
               </h2>
               <p style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", letterSpacing: "0.01em", color: "var(--text-secondary)", marginBottom: "32px", maxWidth: "560px" }}>
                 {t(
                   "contactus_clients_relationship",
-                  "Euroland IR supports listed companies and IR teams with managed software, specialist guidance, and global delivery across investor communications, disclosure, and shareholder engagement."
+                  "Euroland IR supports listed companies with Investor Relations platforms, disclosure workflows, and investor communication tools."
                 )}
               </p>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
                 {[
-                  { icon: CheckCircle2, text: t("contactus_dedicated_support", "Dedicated support for disclosure, IR platforms, and investor communication.") },
-                  { icon: ShieldCheck, text: t("contactus_security_governance", "Security, governance, and workflow conversations for listed and pre-IPO companies.") },
-                  { icon: LifeBuoy, text: t("contactus_best_practice_examples", "Clear next steps whether you need a product consultation, a project conversation, or helpdesk support.") },
+                  { icon: CheckCircle2, text: t("contactus_dedicated_support", "Support for disclosure, IR platforms, and investor communication.") },
+                  { icon: ShieldCheck, text: t("contactus_security_governance", "Platform, governance, and workflow support for listed and pre-IPO companies.") },
+                  { icon: LifeBuoy, text: t("contactus_best_practice_examples", "Practical guidance based on market and peer expectations.") },
                 ].map((item) => (
                   <li key={item.text} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <item.icon size={16} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "16px" }} />
-                    <span style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-primary)" }}>{item.text}</span>
+                    <item.icon size={16} color="#28628F" strokeWidth={2} style={{ flexShrink: 0, marginTop: "4px" }} />
+                    <span style={{ fontSize: "var(--fs-base)", lineHeight: "var(--lh-base)", color: "var(--text-primary)", flex: "1 1 0", minWidth: 0 }}>{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -157,7 +142,7 @@ export default function ContactUs() {
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true" />
 
-                    <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div className="contact-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div>
                         <label className="form-label" htmlFor="contact-first-name">{t("contactus_first_name", "First name")} <span style={{ color: "#e53e3e" }}>*</span></label>
                         <input className="form-input" id="contact-first-name" name="firstName" type="text" placeholder={t("contactus_first_name_placeholder", "John")} required />
@@ -178,7 +163,7 @@ export default function ContactUs() {
                       <input className="form-input" id="contact-company" name="company" type="text" placeholder={t("contactus_company_placeholder", "Example Corporation")} required />
                     </div>
 
-                    <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div className="contact-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div>
                         <label className="form-label" htmlFor="contact-role">{t("contactus_role", "Your role")}</label>
                         <input className="form-input" id="contact-role" name="role" type="text" placeholder="Head of IR" />
@@ -223,36 +208,61 @@ export default function ContactUs() {
             {t("contactus_find_us_worldwide", "Find us worldwide")}
           </h2>
 
-          {regions.map((region) => (
-            <div key={region.region} style={{ marginBottom: "48px" }}>
-              <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "rgb(13, 27, 42)", marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px solid rgb(229, 231, 235)" }}>
-                {region.region}
-              </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
-                {region.offices.map((office) => (
-                  <div key={`${region.region}-${office.city}`} className="card" style={{ width: "275px", flexShrink: 0 }}>
-                    <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)", marginBottom: "16px" }}>{office.country}</div>
-                    <h3 className="type-h5" style={{ color: "var(--text-primary)", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 500, marginBottom: "16px" }}>{office.city}</h3>
-                    <div style={{ display: "flex", gap: "8px", alignItems: "flex-start", marginBottom: "16px" }}>
-                      <MapPin size={14} color="rgb(58, 74, 88)" style={{ flexShrink: 0, marginTop: "16px" }} />
-                      <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-sm)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.address}</p>
-                    </div>
-                    {office.phone && (
-                      <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "16px" }}>
-                        <Phone size={14} color="rgb(58, 74, 88)" />
-                        <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.phone}</p>
-                      </div>
-                    )}
-                    <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "var(--fs-sm)", fontWeight: 500, lineHeight: "var(--lh-base)", color: "#0074D9", textDecoration: "none" }}>
-                      {t("contactus_view_on_google_maps", "View on Google Maps")} <ExternalLink size={12} />
-                    </a>
+          <div className="office-cards-grid">
+            {offices.map((office) => (
+              <div key={`${office.country}-${office.city}`} className="card office-card">
+                <div style={{ fontSize: "var(--fs-sm)", fontWeight: 400, letterSpacing: "0.96px", textTransform: "uppercase", color: "var(--label-blue-light)", marginBottom: "16px" }}>{office.country}</div>
+                <h3 className="type-h5" style={{ color: "var(--text-primary)", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 500, marginBottom: "16px" }}>{office.city}</h3>
+                <div style={{ display: "flex", gap: "8px", alignItems: "flex-start", marginBottom: "16px" }}>
+                  <MapPin size={14} color="rgb(58, 74, 88)" style={{ flexShrink: 0, marginTop: "4px" }} />
+                  <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-sm)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.address}</p>
+                </div>
+                {office.phone && (
+                  <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "16px" }}>
+                    <Phone size={14} color="rgb(58, 74, 88)" />
+                    <p style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-base)", color: "rgb(58, 74, 88)", margin: 0 }}>{office.phone}</p>
                   </div>
-                ))}
+                )}
+                <a href={office.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "4px", fontSize: "var(--fs-sm)", fontWeight: 500, lineHeight: "var(--lh-base)", color: "#0074D9", textDecoration: "none" }}>
+                  {t("contactus_view_on_google_maps", "View on Google Maps")} <ExternalLink size={12} />
+                </a>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
+      <style>{`
+        .contact-main-grid > *,
+        .contact-form-grid > * {
+          min-width: 0;
+        }
+        .contact-main-grid p,
+        .contact-main-grid span,
+        .contact-main-grid a {
+          overflow-wrap: anywhere;
+        }
+        @media (max-width: 767px) {
+          .contact-main-grid,
+          .contact-form-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+        }
+        @media (max-width: 390px) {
+          .contact-main-grid > div:first-child p,
+          .contact-main-grid > div:first-child span,
+          .contact-main-grid > div:first-child a,
+          .contact-main-grid > div:first-child div {
+            max-width: 28ch !important;
+          }
+          .contact-main-grid .card,
+          .contact-main-grid .card p,
+          .contact-main-grid .card div,
+          .contact-main-grid .card label {
+            max-width: 100% !important;
+          }
+        }
+      `}</style>
     </PageWrapper>
   );
 }

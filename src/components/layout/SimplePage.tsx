@@ -65,24 +65,26 @@ export default function SimplePage({ label, title, subtitle, children, showCta =
         <div>{children}</div>
 
         {showCta && (
-          <section style={{ backgroundColor: "#f2f4f6", padding: "96px 0" }}>
+          <section style={{ backgroundColor: "#f2f4f6", padding: "80px 0" }}>
             <div className="container" style={{ textAlign: "center" }}>
-              <h2 style={{ color: "#0f1e2b", marginBottom: "16px" }}>
-                {t("home_cta_title", "Ready to elevate your IR Operation?")}
-              </h2>
-              <p style={{ color: "#3a4a58", marginBottom: "32px", maxWidth: "560px", margin: "0 auto 32px" }}>
-                {t(
-                  "simple_page_cta_subtitle",
-                  "See how a fully managed IR platform can reduce manual work, improve investor communication, and strengthen trust with the market."
-                )}
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
-                <LangLink href="/book-demo" className="btn-primary">
-                  {t("common_book_demo", "Book a Demo")} <ArrowRight size={16} />
-                </LangLink>
-                <LangLink href="/contact" className="btn-outline">
-                  {t("common_talk_to_us", "Talk to Us")}
-                </LangLink>
+              <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+                <div className="u-label" style={{ marginBottom: "16px", display: "inline-block" }}>
+                  {t("common_get_started", "GET STARTED")}
+                </div>
+                <h2 style={{ color: "#0f1e2b", margin: "0 0 16px" }}>
+                  {t("home_cta_title", "Ready to elevate your Investor Relations?")}
+                </h2>
+                <p style={{ color: "#3a4a58", maxWidth: "560px", margin: "0 auto 32px" }}>
+                  {t(
+                    "simple_page_cta_subtitle",
+                    "See how a fully managed IR platform can reduce manual work, improve investor communication, and strengthen trust with the market."
+                  )}
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
+                  <LangLink href="/book-demo" className="btn-primary">
+                    {t("common_book_demo", "Book a Demo")} <ArrowRight size={16} />
+                  </LangLink>
+                </div>
               </div>
             </div>
           </section>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* ── Myriad Pro — self-hosted via CDN ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Myriad Pro Ã¢â‚¬â€ self-hosted via CDN Ã¢â€â‚¬Ã¢â€â‚¬ */
 @font-face {
   font-family: "Myriad Pro";
   src: url("https://d2xsxph8kpxj0f.cloudfront.net/310519663310772351/J2iCYA6arZjci5hVrUBhtU/MyriadPro-Light_be03cb94.otf") format("opentype");
@@ -96,11 +96,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   EUROLAND IR — NORDIC DESIGN SYSTEM
+   EUROLAND IR Ã¢â‚¬â€ NORDIC DESIGN SYSTEM
    Design Philosophy: Nordic Minimalism
    - Deep navy-black hero, single #00ADF0 accent
    - Myriad Pro (self-hosted) + Source Sans 3 fallback
-   - Major Third scale (×1.25) anchored at 16px
+   - Major Third scale (Ãƒâ€”1.25) anchored at 16px
    - Strict 4px grid for ALL spacing, heights, radii
    - Generous whitespace as active design ingredient
    - Hairline borders, flat surfaces, restrained motion
@@ -132,7 +132,7 @@
 }
 
 :root {
-  /* ── Brand Colours ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Brand Colours Ã¢â€â‚¬Ã¢â€â‚¬ */
   --navy:          #082b45;
   --navy-dark:     #082b45;   /* footer uses same navy */
   --navy-medium:   #0b2743;
@@ -148,22 +148,22 @@
   --button-blue-active: #005FA8;
   --button-focus: #00ADF0;
 
-  /* ── Text ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Text Ã¢â€â‚¬Ã¢â€â‚¬ */
   --text-primary:   #22252b;
   --text-secondary: #3a4a58;
   --text-tertiary:  #5a6a7a;
   --text-light:     #f9fbff;
 
-  /* ── Borders ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Borders Ã¢â€â‚¬Ã¢â€â‚¬ */
   --border-light:   #dde0e6;
   --border-hairline: rgba(8,43,69,0.10);
 
-  /* ── Shadows ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Shadows Ã¢â€â‚¬Ã¢â€â‚¬ */
   --shadow-card:  0 4px 12px rgba(8,43,69,0.08);
   --shadow-hover: 0 8px 24px rgba(8,43,69,0.14);
   --shadow-btn:   0 4px 12px rgba(0,100,181,0.28);
 
-  /* ── Typography: Complete Netlify System (Source Sans 3) ──
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Typography: Complete Netlify System (Source Sans 3) Ã¢â€â‚¬Ã¢â€â‚¬
      All values extracted via getComputedStyle on euroland-mockup.netlify.app
      -----------------------------------------------------------------------
      ELEMENT            SIZE    WEIGHT  LINE-H  LETTER-S  TRANSFORM
@@ -186,7 +186,7 @@
      section label      12px    600     24px    +0.96px   uppercase
      ------------------------------------------------------------------ */
 
-  /* ── Font sizes — spec-aligned ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Font sizes Ã¢â‚¬â€ spec-aligned Ã¢â€â‚¬Ã¢â€â‚¬ */
   --fs-xs:   10px;
   --fs-sm:   12px;
   --fs-base: 16px;
@@ -208,7 +208,7 @@
   --lh-3xl:  56px;
   --lh-4xl:  72px;
 
-  /* ── Letter spacing — spec-aligned ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Letter spacing Ã¢â‚¬â€ spec-aligned Ã¢â€â‚¬Ã¢â€â‚¬ */
   --ls-h1:      -0.01em;  /* H1/H2 hero: -0.01em */
   --ls-h2:      -0.01em;  /* H2 banners */
   --ls-h3:       0.005em; /* H3/H4 section heads */
@@ -218,11 +218,11 @@
   --ls-label:    0.08em;  /* labels/buttons/microcopy */
   --ls-footer-h: 0.08em;  /* footer column headings */
 
-  /* Legacy aliases — keep for backward compat */
+  /* Legacy aliases Ã¢â‚¬â€ keep for backward compat */
   --ls-hero:    -0.01em;
   --ls-heading:  0.005em;
 
-  /* ── 4px spacing grid ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ 4px spacing grid Ã¢â€â‚¬Ã¢â€â‚¬ */
   --sp-1:   4px;
   --sp-2:   8px;
   --sp-3:  12px;
@@ -240,7 +240,7 @@
   --sp-28: 112px;
   --sp-30: 120px;
 
-  /* ── Tailwind semantic tokens ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Tailwind semantic tokens Ã¢â€â‚¬Ã¢â€â‚¬ */
   --radius: 12px;
   --background: #ffffff;
   --foreground: #22252b;
@@ -262,7 +262,7 @@
   --ring: #00ADF0;
 }
 
-/* ── Base reset ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Base reset Ã¢â€â‚¬Ã¢â€â‚¬ */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -312,23 +312,23 @@
     letter-spacing: 0;
   }
 
-  /* ── Heading scale — optimised for Myriad Pro ── */
-  /* H1: 52px/64px/600 — inner page hero. Landing page uses .type-hero at 60px. */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Heading scale Ã¢â‚¬â€ optimised for Myriad Pro Ã¢â€â‚¬Ã¢â€â‚¬ */
+  /* H1: 52px/64px/600 Ã¢â‚¬â€ inner page hero. Landing page uses .type-hero at 60px. */
   h1 { font-size: var(--fs-4xl) !important; line-height: var(--lh-4xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h1) !important; margin: 0; text-rendering: optimizeLegibility; }
-  /* H2: 40px/52px/600 — major section headings */
+  /* H2: 40px/52px/600 Ã¢â‚¬â€ major section headings */
   h2 { font-size: var(--fs-3xl) !important; line-height: var(--lh-3xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h3) !important; margin: 0; text-rendering: optimizeLegibility; }
-  /* H3: 32px/40px/600 — subsection headings */
+  /* H3: 32px/40px/600 Ã¢â‚¬â€ subsection headings */
   h3 { font-size: var(--fs-2xl) !important; line-height: var(--lh-2xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h3) !important; margin: 0; }
-  /* H4: 24px/32px/600 — card/feature headings */
+  /* H4: 24px/32px/600 Ã¢â‚¬â€ card/feature headings */
   h4 { font-size: var(--fs-xl)  !important; line-height: var(--lh-xl)  !important; font-weight: 600 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
-  /* H5: 24px/32px/600 — sub-headings, card titles */
+  /* H5: 24px/32px/600 Ã¢â‚¬â€ sub-headings, card titles */
   h5 { font-size: var(--fs-lg)  !important; line-height: var(--lh-lg)  !important; font-weight: 600 !important; letter-spacing: var(--ls-h4) !important; margin: 0; }
-  /* H6: 20px/28px/600 — small sub-headings, step titles */
+  /* H6: 20px/28px/600 Ã¢â‚¬â€ small sub-headings, step titles */
   h6 { font-size: var(--fs-md)  !important; line-height: var(--lh-md)  !important; font-weight: 600 !important; letter-spacing: 0 !important; margin: 0; }
   p  { font-size: var(--fs-base); line-height: var(--lh-base); font-weight: 400 !important; color: var(--text-secondary); letter-spacing: 0; margin: 0; }
   small { font-size: var(--fs-xs); line-height: var(--lh-xs); }
 
-  /* ── Typography utility classes — allow semantic headings to render the correct design-system level ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Typography utility classes Ã¢â‚¬â€ allow semantic headings to render the correct design-system level Ã¢â€â‚¬Ã¢â€â‚¬ */
   .type-hero { font-size: var(--fs-4xl) !important; line-height: var(--lh-4xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h1) !important; margin: 0; text-rendering: optimizeLegibility; }
   .type-h1 { font-size: var(--fs-4xl) !important; line-height: var(--lh-4xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h1) !important; margin: 0; text-rendering: optimizeLegibility; }
   .type-h2 { font-size: var(--fs-3xl) !important; line-height: var(--lh-3xl) !important; font-weight: 600 !important; letter-spacing: var(--ls-h3) !important; margin: 0; text-rendering: optimizeLegibility; }
@@ -338,7 +338,7 @@
   .type-h6 { font-size: var(--fs-md) !important; line-height: var(--lh-md) !important; font-weight: 600 !important; letter-spacing: 0 !important; margin: 0; }
   .type-label { font-size: var(--fs-sm) !important; line-height: var(--lh-base) !important; font-weight: 400 !important; letter-spacing: var(--ls-label) !important; text-transform: uppercase !important; color: var(--label-blue-light); margin: 0; }
 
-  /* ── Mobile heading scale (≤767px) ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Mobile heading scale (Ã¢â€°Â¤767px) Ã¢â€â‚¬Ã¢â€â‚¬ */
   @media (max-width: 767px) {
     h1 { font-size: var(--fs-2xl) !important; line-height: var(--lh-2xl) !important; }
     h2 { font-size: var(--fs-xl) !important; line-height: var(--lh-xl) !important; }
@@ -394,7 +394,7 @@ summary:focus-visible,
   border-radius: 8px;
 }
 
-/* ── Layout utilities ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Layout utilities Ã¢â€â‚¬Ã¢â€â‚¬ */
 @layer components {
   .container {
     width: 100%;
@@ -402,6 +402,7 @@ summary:focus-visible,
     margin-right: auto;
     padding-left: var(--sp-6);
     padding-right: var(--sp-6);
+    box-sizing: border-box;
     max-width: 1536px; /* 1440px content frame + 48px left/right padding */
   }
   @media (min-width: 640px) {
@@ -413,14 +414,14 @@ summary:focus-visible,
 
   .flex { min-height: 0; min-width: 0; }
 
-  /* ── Label / eyebrow ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Label / eyebrow Ã¢â€â‚¬Ã¢â€â‚¬ */
   .u-label {
     display: inline-block;
     width: fit-content;
     max-width: 100%;
     font-size: var(--fs-sm);
     font-weight: 400;
-    letter-spacing: var(--ls-label);  /* 0.96px — exact Netlify */
+    letter-spacing: var(--ls-label);  /* 0.96px Ã¢â‚¬â€ exact Netlify */
     text-transform: uppercase;
     color: var(--label-blue-light);
   }
@@ -458,7 +459,7 @@ summary:focus-visible,
     display: none;
   }
 
-  /* ── Buttons ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Buttons Ã¢â€â‚¬Ã¢â€â‚¬ */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -650,7 +651,7 @@ summary:focus-visible,
     transition: gap 160ms ease;
   }
   .btn-link:hover { gap: 12px; }
-  .btn-link::after { content: '→'; }
+  .btn-link::after { content: '\2192'; }
 
   .btn-link-light {
     display: inline-flex;
@@ -669,7 +670,7 @@ summary:focus-visible,
     gap: 12px;
     color: #ffffff;
   }
-  .btn-link-light::after { content: '→'; }
+  .btn-link-light::after { content: '\2192'; }
 
   .form-help {
     font-size: var(--fs-base);
@@ -689,7 +690,7 @@ summary:focus-visible,
     color: #14532d;
   }
 
-  /* ── Cards ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Cards Ã¢â€â‚¬Ã¢â€â‚¬ */
   .card {
     background: var(--white);
     border: 1px solid var(--border-light);
@@ -703,7 +704,7 @@ summary:focus-visible,
     transform: translateY(-4px);
   }
 
-  /* ── Section rhythm ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Section rhythm Ã¢â€â‚¬Ã¢â€â‚¬ */
   .section-micro { padding: 16px 0; }
   .section-compact { padding: 32px 0; }
   .section-medium { padding: 48px 0; }
@@ -716,14 +717,14 @@ summary:focus-visible,
   .section-sm { padding: 48px 0; }
   .section-xs { padding: 32px 0; }
 
-  /* ── Section background utilities ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Section background utilities Ã¢â€â‚¬Ã¢â€â‚¬ */
   .bg-white  { background: #ffffff; }
   .bg-subtle { background: #f2f4f6; }   /* light alternating sections */
   .bg-muted  { background: #eef0f3; }   /* slightly deeper light sections */
   .bg-dark   { background: #1a2b3c; }   /* neutral dark, non-brand */
   .bg-navy   { background: var(--navy); }
 
-  /* ── Divider ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Divider Ã¢â€â‚¬Ã¢â€â‚¬ */
   .divider {
     width: 25%;
     height: 2px;
@@ -731,7 +732,7 @@ summary:focus-visible,
     margin: var(--sp-4) 0;
   }
 
-  /* ── Fade-up animation ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Fade-up animation Ã¢â€â‚¬Ã¢â€â‚¬ */
   .fade-up {
     opacity: 0;
     transform: translateY(20px);
@@ -742,7 +743,15 @@ summary:focus-visible,
     transform: translateY(0);
   }
 
-  /* ── Stat badge ── */
+  @media (max-width: 767px) {
+    .fade-up {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Stat badge Ã¢â€â‚¬Ã¢â€â‚¬ */
   .stat-badge {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
@@ -750,7 +759,7 @@ summary:focus-visible,
     padding: var(--sp-4) var(--sp-6);
   }
 
-  /* ── Form inputs ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Form inputs Ã¢â€â‚¬Ã¢â€â‚¬ */
   .form-input {
     width: 100%;
     padding: 16px 16px;
@@ -776,7 +785,7 @@ summary:focus-visible,
     letter-spacing: 0.02em;
   }
 
-  /* ── Testimonial quote mark ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Testimonial quote mark Ã¢â€â‚¬Ã¢â€â‚¬ */
   .quote-mark {
     font-size: var(--fs-4xl);
     line-height: var(--lh-4xl);
@@ -785,7 +794,7 @@ summary:focus-visible,
     margin-bottom: var(--sp-2);
   }
 
-  /* ── Nav dropdown ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Nav dropdown Ã¢â€â‚¬Ã¢â€â‚¬ */
   .nav-dropdown {
     position: absolute;
     top: calc(100% + 8px);
@@ -821,7 +830,7 @@ summary:focus-visible,
     background: var(--slate);
   }
 
-  /* ── Feature card ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Feature card Ã¢â€â‚¬Ã¢â€â‚¬ */
   .feature-card {
     background: var(--white);
     border: 1px solid var(--border-light);
@@ -837,7 +846,7 @@ summary:focus-visible,
     transform: translateY(-4px);
   }
 
-  /* ── News card ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ News card Ã¢â€â‚¬Ã¢â€â‚¬ */
   .news-card {
     border-top: 1px solid var(--border-light);
     padding: var(--sp-8) 0;
@@ -845,7 +854,7 @@ summary:focus-visible,
   }
   .news-card:hover { border-top-color: var(--blue); }
 
-  /* ── Tab button ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Tab button Ã¢â€â‚¬Ã¢â€â‚¬ */
   .tab-btn {
     padding: 16px 20px;
     font-size: var(--fs-sm);
@@ -865,7 +874,7 @@ summary:focus-visible,
     border-color: var(--navy);
   }
 
-  /* ── Scrolling marquee ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Scrolling marquee Ã¢â€â‚¬Ã¢â€â‚¬ */
   @keyframes marquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
@@ -877,7 +886,7 @@ summary:focus-visible,
   }
   .marquee-track:hover { animation-play-state: paused; }
 
-  /* ── Page hero variants ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Page hero variants Ã¢â€â‚¬Ã¢â€â‚¬ */
   .hero-dark {
     background: var(--navy-dark);
     color: var(--white);
@@ -902,28 +911,28 @@ summary:focus-visible,
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.14);
   }
 
-  /* ── Stats bar ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Stats bar Ã¢â€â‚¬Ã¢â€â‚¬ */
   .stats-bar {
     background: var(--navy);
     color: var(--white);
-    padding: var(--sp-16) 0;  /* 64px — dense utility strip */
+    padding: var(--sp-16) 0;  /* 64px Ã¢â‚¬â€ dense utility strip */
   }
 
-  /* ── CTA band ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ CTA band Ã¢â€â‚¬Ã¢â€â‚¬ */
   .cta-band {
     background: var(--navy);
     color: var(--white);
-    padding: var(--sp-24) 0;  /* 96px — major CTA moment */
+    padding: var(--sp-24) 0;  /* 96px Ã¢â‚¬â€ major CTA moment */
   }
 
-  /* ── Footer ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Footer Ã¢â€â‚¬Ã¢â€â‚¬ */
   .site-footer {
     background: var(--navy);
     color: rgba(255,255,255,0.55);
-    padding: var(--sp-24) 0;  /* 96px — footer breathing room */
+    padding: var(--sp-24) 0;  /* 96px Ã¢â‚¬â€ footer breathing room */
   }
 
-  /* ── Numbered section label ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Numbered section label Ã¢â€â‚¬Ã¢â€â‚¬ */
   .num-label {
     font-size: var(--fs-sm);
     font-weight: 400;
@@ -933,7 +942,7 @@ summary:focus-visible,
     margin-bottom: var(--sp-4);
   }
 
-  /* ── Blog card ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Blog card Ã¢â€â‚¬Ã¢â€â‚¬ */
   .blog-card {
     background: var(--white);
     border: 1px solid var(--border-light);
@@ -990,7 +999,7 @@ summary:focus-visible,
     color: var(--white);
   }
 
-  /* ── Newsroom card ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Newsroom card Ã¢â€â‚¬Ã¢â€â‚¬ */
   .nr-card {
     background: var(--white);
     border: 1px solid var(--border-light);
@@ -1007,7 +1016,7 @@ summary:focus-visible,
     height: 200px;
   }
 
-  /* ── Kicker / eyebrow text ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Kicker / eyebrow text Ã¢â€â‚¬Ã¢â€â‚¬ */
   .kicker {
     font-size: var(--fs-sm);
     font-weight: 400;
@@ -1016,7 +1025,7 @@ summary:focus-visible,
     color: var(--blue);
   }
 
-  /* ── Prose content ── */
+  /* Ã¢â€â‚¬Ã¢â€â‚¬ Prose content Ã¢â€â‚¬Ã¢â€â‚¬ */
   .prose p { margin-bottom: var(--sp-4); }
   .prose h2 { margin-top: var(--sp-10); margin-bottom: var(--sp-4); }
   .prose h3 { margin-top: var(--sp-8); margin-bottom: var(--sp-3); }
@@ -1025,7 +1034,7 @@ summary:focus-visible,
 }
 
 
-/* ── Navy background typography normalisation ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Navy background typography normalisation Ã¢â€â‚¬Ã¢â€â‚¬ */
 .hero-dark,
 .hero-navy,
 .cta-band {
@@ -1046,10 +1055,10 @@ summary:focus-visible,
 
 /* ============================================================
    RESPONSIVE UTILITIES
-   Breakpoints: mobile ≤767px | tablet 768–1023px | desktop ≥1024px
+   Breakpoints: mobile Ã¢â€°Â¤767px | tablet 768Ã¢â‚¬â€œ1023px | desktop Ã¢â€°Â¥1024px
    ============================================================ */
 
-/* ── Responsive grid helpers ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Responsive grid helpers Ã¢â€â‚¬Ã¢â€â‚¬ */
 .resp-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1077,7 +1086,7 @@ summary:focus-visible,
   .resp-grid-4 { grid-template-columns: 1fr; gap: 20px; }
 }
 
-/* ── Hero banner responsive ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero banner responsive Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .hero-dark,
   .hero-navy {
@@ -1095,7 +1104,7 @@ summary:focus-visible,
   }
 }
 
-/* ── Section rhythm responsive ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Section rhythm responsive Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .section-standard,
   .section,
@@ -1110,7 +1119,7 @@ summary:focus-visible,
   .section-micro { padding: 16px 0; }
 }
 
-/* ── Banner content padding responsive ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Banner content padding responsive Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .hero-dark .container,
   .hero-navy .container {
@@ -1126,22 +1135,22 @@ summary:focus-visible,
   }
 }
 
-/* ── Responsive inline grid override helper ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Responsive inline grid override helper Ã¢â€â‚¬Ã¢â€â‚¬ */
 /* Pages that use inline style grids get these overrides via attribute selectors */
 @media (max-width: 1024px) {
-  /* 2-column grids → 1 column on tablet */
+  /* 2-column grids Ã¢â€ â€™ 1 column on tablet */
   [style*="grid-template-columns: 1fr 1fr"],
   [style*="gridTemplateColumns: \"1fr 1fr\""] {
     grid-template-columns: 1fr !important;
   }
-  /* 3 and 4-column grids → 2 columns on tablet */
+  /* 3 and 4-column grids Ã¢â€ â€™ 2 columns on tablet */
   [style*="grid-template-columns: repeat(4"],
   [style*="grid-template-columns: repeat(3"],
   [style*="grid-template-columns: 1fr 1fr 1fr 1fr"],
   [style*="grid-template-columns: 1fr 1fr 1fr"] {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  /* Fixed pixel column grids → 1 column on tablet */
+  /* Fixed pixel column grids Ã¢â€ â€™ 1 column on tablet */
   [style*="grid-template-columns: 688px"],
   [style*="grid-template-columns: 759px"],
   [style*="grid-template-columns: 633px"],
@@ -1178,7 +1187,7 @@ summary:focus-visible,
   }
 }
 @media (max-width: 767px) {
-  /* All multi-column grids → 1 column on mobile */
+  /* All multi-column grids Ã¢â€ â€™ 1 column on mobile */
   [style*="grid-template-columns: repeat(4"],
   [style*="grid-template-columns: repeat(3"],
   [style*="grid-template-columns: repeat(2"],
@@ -1187,7 +1196,7 @@ summary:focus-visible,
   [style*="grid-template-columns: 1fr 1fr"] {
     grid-template-columns: 1fr !important;
   }
-  /* Fixed pixel column grids → 1 column on mobile */
+  /* Fixed pixel column grids Ã¢â€ â€™ 1 column on mobile */
   [style*="grid-template-columns: 336px"],
   [style*="grid-template-columns: 688px"],
   [style*="grid-template-columns: 759px"],
@@ -1226,13 +1235,13 @@ summary:focus-visible,
     width: 100% !important;
     max-width: 100% !important;
   }
-  /* Inline flex rows → column on mobile */
+  /* Inline flex rows Ã¢â€ â€™ column on mobile */
   [style*="flexDirection: \"row\""][style*="gap"] {
     flex-direction: column !important;
   }
 }
 
-/* ── Footer responsive ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Footer responsive Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .site-footer .grid {
     grid-template-columns: 1fr 1fr 1fr !important;
@@ -1247,13 +1256,13 @@ summary:focus-visible,
   }
 }
 
-/* ── Horizontal scroll prevention ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Horizontal scroll prevention Ã¢â€â‚¬Ã¢â€â‚¬ */
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* ── Mobile padding adjustments ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Mobile padding adjustments Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .container {
     padding-left: 20px !important;
@@ -1268,7 +1277,7 @@ html, body {
    inline style attribute selectors.
    ============================================================ */
 
-/* ── Two-column grid that collapses to 1 column on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Two-column grid that collapses to 1 column on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1285,7 +1294,7 @@ html, body {
   }
 }
 
-/* ── Four-column grid that collapses on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Four-column grid that collapses on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .grid-4col {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1307,7 +1316,7 @@ html, body {
   }
 }
 
-/* ── Fixed-width element that becomes full-width on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Fixed-width element that becomes full-width on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .mobile-full-w {
   min-width: 0;
 }
@@ -1321,7 +1330,63 @@ html, body {
   }
 }
 
-/* ── AI section: flex row that becomes flex column on mobile ── */
+.site-logo {
+  width: 266px;
+  height: 24px;
+  max-width: 100%;
+}
+
+.footer-brand-logo {
+  width: auto !important;
+  height: 20px !important;
+  max-width: min(100%, 320px) !important;
+}
+
+.inner-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.listed-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.listed-company-card {
+  min-width: 0;
+}
+
+.faq-search-shell,
+.faq-content-shell {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-tabs-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+}
+
+.faq-tab-button {
+  flex: 0 0 auto;
+}
+
+.office-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.office-card {
+  width: 100% !important;
+  min-width: 0;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ AI section: flex row that becomes flex column on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .ai-section-flex {
   display: flex;
 }
@@ -1345,7 +1410,7 @@ html, body {
   }
 }
 
-/* ── Platform section inner container ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Platform section inner container Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .platform-inner {
     padding: 0 20px !important;
@@ -1357,7 +1422,7 @@ html, body {
   }
 }
 
-/* ── Newsroom grid: 3-col desktop → 1-col mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Newsroom grid: 3-col desktop Ã¢â€ â€™ 1-col mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .newsroom-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1369,7 +1434,7 @@ html, body {
   }
 }
 
-/* ── Solutions grid: 2-col desktop → 1-col mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Solutions grid: 2-col desktop Ã¢â€ â€™ 1-col mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1386,7 +1451,7 @@ html, body {
   }
 }
 
-/* ── Solution / news cards: fixed width → full width on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Solution / news cards: fixed width Ã¢â€ â€™ full width on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .card-fixed {
   flex-shrink: 0;
 }
@@ -1399,7 +1464,7 @@ html, body {
   }
 }
 
-/* ── Hero section: hide image column on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero section: hide image column on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .hero-image-col {
     display: none !important;
@@ -1409,7 +1474,7 @@ html, body {
   }
 }
 
-/* ── Stats bar: 4 columns → 2x2 on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Stats bar: 4 columns Ã¢â€ â€™ 2x2 on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .stats-bar-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1456,12 +1521,9 @@ html, body {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .platform-hero-proof-title {
-  display: -webkit-box;
-  min-height: 48px;
-  max-height: 48px;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  display: block;
+  min-height: 56px;
+  overflow: visible;
 }
 @media (max-width: 1024px) {
   .platform-hero-proof-grid {
@@ -1483,7 +1545,7 @@ html, body {
   }
 }
 
-/* ── Bottom stats: 4 columns → 2x2 on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Bottom stats: 4 columns Ã¢â€ â€™ 2x2 on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .bottom-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1492,12 +1554,22 @@ html, body {
 }
 @media (max-width: 767px) {
   .bottom-stats-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .bottom-stat-block {
+    grid-template-rows: auto auto auto !important;
+    row-gap: 12px !important;
+  }
+  .bottom-stat-block > div:first-child {
+    font-size: var(--fs-xl) !important;
+    line-height: var(--lh-xl) !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
-/* ── CTA band grid: 2 col → 1 col on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ CTA band grid: 2 col Ã¢â€ â€™ 1 col on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .cta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1514,7 +1586,7 @@ html, body {
   }
 }
 
-/* ── Footer grid: 5 col → 2 col on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Footer grid: 5 col Ã¢â€ â€™ 2 col on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr 1fr !important;
@@ -1530,7 +1602,7 @@ html, body {
   }
 }
 
-/* ── Inner container padding fix on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Inner container padding fix on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .inner-container {
     padding-left: 20px !important;
@@ -1538,7 +1610,7 @@ html, body {
   }
 }
 
-/* ── Testimonial card padding on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Testimonial card padding on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .testimonial-card {
     padding: 32px 24px !important;
@@ -1546,7 +1618,7 @@ html, body {
   }
 }
 
-/* ── Section inner container: fix 48px padding on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Section inner container: fix 48px padding on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   [style*="padding: 0px 48px"],
   [style*="padding: 0 48px"] {
@@ -1555,7 +1627,7 @@ html, body {
   }
 }
 
-/* ── Prevent horizontal overflow from any fixed-width element ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Prevent horizontal overflow from any fixed-width element Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .overflow-guard {
     overflow: hidden !important;
@@ -1563,7 +1635,7 @@ html, body {
   }
 }
 
-/* ── Hero section: reduce min-height on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero section: reduce min-height on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .hero-section-mobile {
     min-height: auto !important;
@@ -1573,7 +1645,7 @@ html, body {
   }
 }
 
-/* ── Platform section image: fix aspect ratio on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Platform section image: fix aspect ratio on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .mobile-full-w[style*="aspect-ratio"] {
     aspect-ratio: 16/9 !important;
@@ -1582,7 +1654,7 @@ html, body {
   }
 }
 
-/* ── Three-column grid that collapses on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Three-column grid that collapses on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .grid-3col {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1604,7 +1676,7 @@ html, body {
   }
 }
 
-/* ── Flex row that becomes flex column on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Flex row that becomes flex column on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .flex-col-mobile {
   display: flex;
 }
@@ -1619,7 +1691,7 @@ html, body {
   }
 }
 
-/* ── Flex row that wraps on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Flex row that wraps on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 .flex-wrap-mobile {
   display: flex;
 }
@@ -1630,7 +1702,7 @@ html, body {
   }
 }
 
-/* ── Banner hero section: fix height on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Banner hero section: fix height on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .banner-hero-section {
     height: auto !important;
@@ -1644,7 +1716,7 @@ html, body {
   }
 }
 
-/* ── Banner hero container: ensure proper top padding on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Banner hero container: ensure proper top padding on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .banner-hero-section .container {
     padding-top: 64px !important;
@@ -1663,15 +1735,147 @@ html, body {
   }
 }
 
-/* ── Container: reduce padding on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Container: reduce padding on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .container {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+
+  .header-shell {
+    position: relative;
+    padding-right: 60px !important;
+  }
+
+  .header-brand {
+    max-width: calc(100% - 60px);
+  }
+
+  .site-logo {
+    width: min(64vw, 220px);
+    height: auto;
+  }
+
+  .mobile-menu-button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .listed-cards-grid,
+  .office-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .listed-company-card {
+    min-height: 0 !important;
+    padding: 28px !important;
+  }
+
+  .faq-search-shell,
+  .faq-content-shell {
+    max-width: 100%;
+  }
+
+  .faq-tabs-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0;
+  }
+
+  .faq-tabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .faq-tab-button {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .office-card {
+    padding: 24px !important;
+  }
+
+  .footer-legal-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px !important;
+  }
 }
 
-/* ── Newsroom grid: fix the 80px 1fr and 140px 1fr auto layouts ── */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .card,
+  .feature-card {
+    padding: 24px !important;
+  }
+
+  .footer-brand-logo {
+    max-width: 220px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .card,
+  .feature-card {
+    padding: 20px !important;
+  }
+
+  .footer-brand-logo {
+    max-width: 200px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .footer-grid > *:first-child {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-logo {
+    width: min(60vw, 196px);
+  }
+
+  .stats-bar-grid,
+  .bottom-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .stat-block,
+  .bottom-stat-block {
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .listed-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .office-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Newsroom grid: fix the 80px 1fr and 140px 1fr auto layouts Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   [style*="grid-template-columns: 80px 1fr"] {
     grid-template-columns: 60px 1fr !important;
@@ -1685,7 +1889,7 @@ html, body {
   }
 }
 
-/* ── Fixed-width images: ensure they don't overflow on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Fixed-width images: ensure they don't overflow on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   img[style*="width:"],
   img[style*="width: "] {
@@ -1694,7 +1898,7 @@ html, body {
   }
 }
 
-/* ── Card grids: ensure cards don't overflow ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Card grids: ensure cards don't overflow Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .card,
   .feature-card {
@@ -1705,7 +1909,7 @@ html, body {
   }
 }
 
-/* ── Sections with fixed padding: reduce on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Sections with fixed padding: reduce on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   [style*="padding: 48px 0"],
   [style*="padding: 64px 0"],
@@ -1719,14 +1923,14 @@ html, body {
   }
 }
 
-/* ── Nav: ensure hamburger is visible and nav doesn't overflow ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Nav: ensure hamburger is visible and nav doesn't overflow Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   nav {
     overflow: visible !important;
   }
 }
 
-/* ── Press release rows: stack on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Press release rows: stack on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .press-row {
     flex-wrap: wrap !important;
@@ -1741,10 +1945,10 @@ html, body {
 
 /* ============================================================
    TABLET & SMALL-DESKTOP BREAKPOINTS
-   Extends the mobile-first utility classes for 768–1279px.
+   Extends the mobile-first utility classes for 768Ã¢â‚¬â€œ1279px.
    ============================================================ */
 
-/* ── Container: reduce padding on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Container: reduce padding on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .container {
     padding-left: 32px !important;
@@ -1759,9 +1963,14 @@ html, body {
     padding-left: 32px !important;
     padding-right: 32px !important;
   }
+  .hero-text-col,
+  .banner-hero-title,
+  .banner-hero-subtitle {
+    max-width: 100% !important;
+  }
 }
 
-/* ── Two-column grid: collapse to 1 column on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Two-column grid: collapse to 1 column on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .grid-2col {
     grid-template-columns: 1fr !important;
@@ -1769,7 +1978,7 @@ html, body {
   }
 }
 
-/* ── AI section: stack video + text on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ AI section: stack video + text on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .ai-section-flex {
     flex-direction: column !important;
@@ -1790,7 +1999,7 @@ html, body {
   }
 }
 
-/* ── Flex-col-mobile: also stack on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Flex-col-mobile: also stack on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .flex-col-mobile {
     flex-direction: column !important;
@@ -1803,7 +2012,7 @@ html, body {
   }
 }
 
-/* ── Mobile-full-w: also full-width on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Mobile-full-w: also full-width on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .mobile-full-w {
     width: 100% !important;
@@ -1814,7 +2023,7 @@ html, body {
   }
 }
 
-/* ── Card-fixed: full width on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Card-fixed: full width on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .card-fixed {
     width: 100% !important;
@@ -1824,7 +2033,7 @@ html, body {
   }
 }
 
-/* ── CTA grid: collapse on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ CTA grid: collapse on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .cta-grid {
     grid-template-columns: 1fr !important;
@@ -1835,7 +2044,7 @@ html, body {
   }
 }
 
-/* ── Hero section: auto height on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero section: auto height on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .hero-section-mobile {
     min-height: auto !important;
@@ -1850,7 +2059,7 @@ html, body {
   }
 }
 
-/* ── Stats bars: 2×2 on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Stats bars: 2Ãƒâ€”2 on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .stats-bar-grid {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -1862,7 +2071,14 @@ html, body {
   }
 }
 
-/* ── Sections: reduce vertical padding on tablet ── */
+@media (max-width: 767px) {
+  .bottom-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Sections: reduce vertical padding on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   [style*="padding: 48px 0"],
   [style*="padding: 64px 0"] {
@@ -1879,7 +2095,7 @@ html, body {
   }
 }
 
-/* ── Feature cards: ensure no overflow on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Feature cards: ensure no overflow on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .card,
   .feature-card {
@@ -1889,7 +2105,7 @@ html, body {
   }
 }
 
-/* ── Testimonial card: full width on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Testimonial card: full width on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .testimonial-card {
     max-width: 100% !important;
@@ -1897,14 +2113,14 @@ html, body {
   }
 }
 
-/* ── Press rows: wrap on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Press rows: wrap on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .press-row {
     flex-wrap: wrap !important;
   }
 }
 
-/* ── Images with fixed widths: cap on tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Images with fixed widths: cap on tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   img[style*="width:"],
   img[style*="width: "] {
@@ -1913,7 +2129,7 @@ html, body {
   }
 }
 
-/* ── Small desktop (1024–1279px): container padding ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Small desktop (1024Ã¢â‚¬â€œ1279px): container padding Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .container {
     padding-left: 40px !important;
@@ -1925,14 +2141,14 @@ html, body {
   }
 }
 
-/* ── ListedCompanies / solutions cards: 2-col at tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ ListedCompanies / solutions cards: 2-col at tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   .grid-3col.solutions-cards {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* ── Careers: fix flex children with hard-coded widths ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Careers: fix flex children with hard-coded widths Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   [style*="flex: 0 0 688px"],
   [style*="flex:0 0 688px"],
@@ -1944,7 +2160,7 @@ html, body {
   }
 }
 
-/* ── About: fix 900px quote card ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ About: fix 900px quote card Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   [style*="width: 900px"],
   [style*="maxWidth: 900px"],
@@ -1954,7 +2170,7 @@ html, body {
   }
 }
 
-/* ── Prevent any element from causing horizontal overflow at tablet ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Prevent any element from causing horizontal overflow at tablet Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1024px) {
   body {
     overflow-x: hidden;
@@ -1974,11 +2190,11 @@ html, body {
 }
 
 /* ============================================================
-   SMALL DESKTOP (1025–1280px) BREAKPOINTS
-   Handle remaining overflow at 1024–1280px viewport widths.
+   SMALL DESKTOP (1025Ã¢â‚¬â€œ1280px) BREAKPOINTS
+   Handle remaining overflow at 1024Ã¢â‚¬â€œ1280px viewport widths.
    ============================================================ */
 
-/* ── Careers: fix 688px flex children at small desktop ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Careers: fix 688px flex children at small desktop Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1400px) {
   [style*="flex: 0 0 688px"],
   [style*="flex:0 0 688px"] {
@@ -1988,7 +2204,7 @@ html, body {
   }
 }
 
-/* ── Careers: fix 342px feature cards at small desktop ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Careers: fix 342px feature cards at small desktop Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1400px) {
   .feature-card.card-fixed {
     width: auto !important;
@@ -1996,7 +2212,7 @@ html, body {
   }
 }
 
-/* ── ListedCompanies: fix 464px cards at small desktop ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ ListedCompanies: fix 464px cards at small desktop Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1400px) {
   .card-fixed {
     width: auto !important;
@@ -2004,7 +2220,7 @@ html, body {
   }
 }
 
-/* ── Home AI section: fix 953px video at small desktop ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Home AI section: fix 953px video at small desktop Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 1300px) {
   .ai-section-flex {
     flex-direction: column !important;
@@ -2025,7 +2241,7 @@ html, body {
   }
 }
 
-/* ── Newsroom: fix minor 8px overflow ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Newsroom: fix minor 8px overflow Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 400px) {
   .press-row [style*="minWidth: 140px"],
   .press-row [style*="min-width: 140px"] {
@@ -2033,7 +2249,7 @@ html, body {
   }
 }
 
-/* ── Careers intro columns: flex children ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Careers intro columns: flex children Ã¢â€â‚¬Ã¢â€â‚¬ */
 .careers-intro-col {
   min-width: 0;
 }
@@ -2046,7 +2262,7 @@ html, body {
   }
 }
 
-/* ── Subscribe form: stack on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Subscribe form: stack on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .subscribe-form {
     flex-direction: column !important;
@@ -2058,7 +2274,7 @@ html, body {
   }
 }
 
-/* ── Blog featured card: stack vertically on mobile ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Blog featured card: stack vertically on mobile Ã¢â€â‚¬Ã¢â€â‚¬ */
 @media (max-width: 767px) {
   .blog-featured-card {
     grid-template-columns: 1fr !important;

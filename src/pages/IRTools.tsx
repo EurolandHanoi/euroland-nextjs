@@ -76,7 +76,7 @@ function getToolModals(t: TFunction): Record<string, ModalData> {
       id: "ai-solutions",
       iconLabel: t("irtools_ai_solutions", "AI Solutions"),
       title: t("irtools_advanced_ai_solutions", "Advanced AI Solutions"),
-      subtitle: t("irtools_advanced_ai_solutions_subtitle", "Purpose-built AI for Investor Relations"),
+      subtitle: t("irtools_advanced_ai_solutions_subtitle", "Purpose built AI for Investor Relations"),
       features: [
         t("irtools_document_analysis_and_extraction", "AI-powered IR search"),
         t("irtools_sentiment_analysis_on_communications", "Search across public IR content"),
@@ -201,7 +201,7 @@ function getToolCategories(t: TFunction) {
       id: "ai",
       label: t("irtools_ai_solutions", "AI Solutions"),
       tools: [
-        { icon: TrendingUp, name: t("irtools_advanced_ai_solutions", "Advanced AI Solutions"), desc: t("irtools_advanced_ai_solutions_desc", "Purpose-built AI delivers best-in-class data and text completion services."), modalId: "ai-solutions" },
+        { icon: TrendingUp, name: t("irtools_advanced_ai_solutions", "Advanced AI Solutions"), desc: t("irtools_advanced_ai_solutions_desc", "Purpose built AI delivers best in class data and text completion services."), modalId: "ai-solutions" },
         { icon: FileText, name: t("irtools_corporate_factsheet", "Corporate Factsheet"), desc: t("irtools_corporate_factsheet_desc", "One-page company overview — automatically generated and always up to date."), modalId: "factsheet" },
         { icon: Megaphone, name: t("irtools_corporate_announcements", "Corporate Announcements"), desc: t("irtools_corporate_announcements_desc", "Centralized news and filings platform with advanced search and filtering."), modalId: "announcements" },
       ],
@@ -334,7 +334,6 @@ export default function IRTools() {
             </h3>
             <div style={{ display: "flex", gap: "var(--sp-3)", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">{t("irtools_book_a_demo", "Book a Demo")}</LangLink>
-              <LangLink href="/contact" className="btn-secondary">{t("irtools_contact_us", "Talk to Us")}</LangLink>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 /**
  * IPO PAGE — Euroland IR
@@ -10,12 +10,11 @@
  * S4 Platform:    section slate bg, 2-col (features list + dashboard preview)
  * S5 CTA:         cta-band, centered
  */
-import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import LangLink from "@/components/LangLink";
 import BannerHero from "@/components/layout/BannerHero";
 import { PageWrapper } from "@/components/Layout";
-import { TrendingUp, Globe, BarChart2, FileText } from "lucide-react";
+import { TrendingUp, Globe, BarChart2, FileText, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type TFunction = (key: string, fallback?: string) => string;
@@ -45,9 +44,9 @@ function getMicrositeBullets(t: TFunction) {
 function getPhases(t: TFunction) {
   return [
     { num: "01", title: t("ipopage_pre_ipo_preparation", "Pre-IPO Preparation"), desc: t("ipopage_pre_ipo_preparation_desc", "Build your IR platform, investor materials, and disclosure infrastructure before the listing date.") },
-    { num: "02", title: t("ipopage_roadshow_support", "Roadshow Support"), desc: t("ipopage_roadshow_support_desc", "Investor presentation tools, meeting scheduling, and CRM to manage your roadshow efficiently.") },
-    { num: "03", title: t("ipopage_listing_day", "Listing Day"), desc: t("ipopage_listing_day_desc", "Real-time stock data, press release distribution, and investor communication tools ready from day one.") },
-    { num: "04", title: t("ipopage_post_ipo_ir", "Post-IPO IR"), desc: t("ipopage_post_ipo_ir_desc", "Ongoing IR platform management, earnings reporting, and investor engagement analytics.") },
+    { num: "02", title: t("ipopage_listing_day", "Listing Day"), desc: t("ipopage_listing_day_desc", "Real-time stock data, press release distribution, and investor communication tools ready from day one.") },
+    { num: "03", title: t("ipopage_post_ipo_ir", "Post-IPO IR"), desc: t("ipopage_post_ipo_ir_desc", "Ongoing IR platform management, earnings reporting, and investor engagement analytics.") },
+    { num: "04", title: t("ipopage_day_one_service", "Post-Listing Support"), desc: t("ipopage_day_one_service_desc", "Ongoing IR support for disclosures, investor questions, and day-to-day needs as your team adjusts to life as a public company.") },
   ];
 }
 
@@ -62,6 +61,7 @@ function getPlatformFeatures(t: TFunction) {
 
 export default function IPOPage() {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
   const f1 = useFadeUp();
   const f2 = useFadeUp();
   const f3 = useFadeUp();
@@ -71,14 +71,43 @@ export default function IPOPage() {
   const PHASES = getPhases(t);
   const PLATFORM_FEATURES = getPlatformFeatures(t);
 
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= 767);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <PageWrapper>
+      <style>{`
+        @media (max-width: 767px) {
+          .ipo-shell {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .ipo-two-col,
+          .ipo-platform-grid,
+          .ipo-journey-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .ipo-journey-grid .feature-card {
+            min-height: 0 !important;
+            padding: 28px !important;
+          }
+          .ipo-journey-grid .feature-card h5 {
+            min-height: 0 !important;
+          }
+        }
+      `}</style>
 
             <BannerHero
         variant="solutions"
         label={t("ipopage_ipo_solutions", "IPO Solutions")}
         title={t("ipopage_ipo_readiness", "IPO Readiness")}
         subtitle={t("ipopage_ipo_readiness_subtitle", "From pre-IPO preparation and IPO readiness to post-listing Investor Relations, we provide the IR software, managed services, and capital markets communication tools you need to build investor trust from day one.")}
+        backgroundImage="/banner-ipo-readiness.jpg"
         primaryCtaLabel={t("ipopage_book_a_demo", "Book a Demo")}
         primaryCtaHref="/book-demo"
         secondaryCtaLabel={t("common_talk_to_us", "Talk to Us")}
@@ -92,21 +121,21 @@ export default function IPOPage() {
         style={{ background: "rgb(255, 255, 255)" }}
       >
         <div
-          className="container"
-          style={{ maxWidth: "1536px", padding: "0 48px" }}
+          className="container ipo-shell"
+          style={{ maxWidth: "1536px", padding: `0 ${isMobile ? "20px" : "48px"}` }}
         >
           <div
             ref={f1}
-            className="fade-up"
+            className="fade-up ipo-two-col"
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "64px",
+              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gap: isMobile ? "32px" : "80px",
               alignItems: "center",
             }}
           >
             {/* Left — content: inner content starts at x:331 (48px inset from container) */}
-            <div style={{ padding: "0 48px" }}>
+            <div>
               {/* Eyebrow: 12px/600/24px/0.96px/uppercase/rgb(0,107,163) */}
               <div
                 className="u-label"
@@ -154,7 +183,7 @@ export default function IPOPage() {
                   margin: "0 0 32px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "8px",
+                  gap: "12px",
                 }}
               >
                 {MICROSITE_BULLETS.map((b) => (
@@ -163,7 +192,7 @@ export default function IPOPage() {
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
-                      gap: "8px",
+                      gap: "12px",
                       fontSize: "var(--fs-base)",
                       fontWeight: 400,
                       lineHeight: "var(--lh-base)",
@@ -177,14 +206,14 @@ export default function IPOPage() {
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        width: "18px",
-                        height: "18px",
+                        width: "20px",
+                        height: "20px",
                         borderRadius: "50%",
                         border: "1.5px solid rgb(0, 116, 217)",
                         color: "rgb(0, 116, 217)",
                         fontSize: "var(--fs-xs)",
                         flexShrink: 0,
-                        marginTop: "16px",
+                        marginTop: "2px",
                       }}
                     >
                       ✓
@@ -226,8 +255,8 @@ export default function IPOPage() {
         style={{ background: "var(--slate)" }}
       >
         <div
-          className="container"
-          style={{ maxWidth: "1536px", padding: "0 48px" }}
+          className="container ipo-shell"
+          style={{ maxWidth: "1536px", padding: `0 ${isMobile ? "20px" : "48px"}` }}
         >
           <div ref={f2} className="fade-up">
             {/* Eyebrow: 12px/600/24px/0.96px/uppercase/rgb(0,107,163) */}
@@ -266,20 +295,30 @@ export default function IPOPage() {
                 margin: "0 0 48px",
               }}
             >
-              {t("ipopage_ir_support_body", "Our IPO readiness and Investor Relations solutions are structured around the four phases of a successful public listing — from pre-IPO preparation to ongoing post-listing IR.")}
+              {t("ipopage_ir_support_body", "Our IPO readiness and Investor Relations solutions are structured around four stages of a successful public listing, from pre-IPO preparation to ongoing post-listing IR.")}
             </p>
 
             {/* 4-col feature-card grid */}
             <div
-              className="rg-4"
+              className="ipo-journey-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                gap: "24px",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)",
+                gap: "32px",
               }}
             >
               {PHASES.map((p) => (
-                <div key={p.num} className="feature-card">
+                <div
+                  key={p.num}
+                  className="feature-card"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    minHeight: isMobile ? "0" : "280px",
+                    padding: isMobile ? "28px" : "36px",
+                    cursor: "default",
+                  }}
+                >
                   {/* num-label: 12px/700/24px/1.44px/uppercase/rgb(0,107,163) */}
                   <div
                     className="num-label"
@@ -290,7 +329,9 @@ export default function IPOPage() {
                       letterSpacing: "1.44px",
                       textTransform: "uppercase",
                       color: "#0074D9",
-                      marginBottom: "16px",
+                      marginBottom: "20px",
+                      display: "inline-flex",
+                      alignItems: "center",
                     }}
                   >
                     {p.num}
@@ -304,7 +345,8 @@ export default function IPOPage() {
                       lineHeight: "var(--lh-lg)",
                       letterSpacing: "0.01em",
                       color: "rgb(13, 27, 42)",
-                      margin: "0 0 16px",
+                      margin: "0 0 20px",
+                      minHeight: isMobile ? "0" : "72px",
                     }}
                   >
                     {p.title}
@@ -313,12 +355,13 @@ export default function IPOPage() {
                   {/* p: 12px/400/24px/0.16px/rgb(58,74,88) */}
                   <p
                     style={{
-                      fontSize: "var(--fs-sm)",
+                      fontSize: "var(--fs-base)",
                       fontWeight: 400,
                       lineHeight: "var(--lh-base)",
                       letterSpacing: "0.01em",
                       color: "rgb(58, 74, 88)",
                       margin: 0,
+                      maxWidth: "280px",
                     }}
                   >
                     {p.desc}
@@ -334,18 +377,19 @@ export default function IPOPage() {
       {/* section slate bg, 2-col: left feature list + right dashboard preview */}
       <section
         className="section"
-        style={{ background: "var(--slate)" }}
+        style={{ background: "rgb(255, 255, 255)", borderTop: "1px solid rgba(15, 30, 43, 0.08)" }}
       >
         <div
-          className="container"
-          style={{ maxWidth: "1536px", padding: "0 48px" }}
+          className="container ipo-shell"
+          style={{ maxWidth: "1536px", padding: `0 ${isMobile ? "20px" : "48px"}` }}
         >
           <div ref={f3} className="fade-up">
             <div
+              className="ipo-platform-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "64px",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+                gap: isMobile ? "32px" : "80px",
                 alignItems: "center",
               }}
             >
@@ -405,7 +449,7 @@ export default function IPOPage() {
                         {/* Feature desc: 12px/400/24px/0.16px/rgb(58,74,88) */}
                         <p
                           style={{
-                            fontSize: "var(--fs-sm)",
+                            fontSize: "var(--fs-base)",
                             fontWeight: 400,
                             lineHeight: "var(--lh-base)",
                             letterSpacing: "0.01em",
@@ -431,21 +475,27 @@ export default function IPOPage() {
                   alignItems: "center",
                   justifyContent: "center",
                   padding: "32px",
+                  boxShadow: "0 24px 48px rgba(15, 30, 43, 0.14)",
                 }}
               >
-                {/* Dashboard preview label: 12px/600/24px/0.72px/uppercase/rgba(255,255,255,0.3) */}
                 <div
                   style={{
-                    fontSize: "var(--fs-sm)",
-                    fontWeight: 400,
-                    lineHeight: "var(--lh-base)",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: "rgba(255, 255, 255, 0.3)",
-                    textAlign: "center",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "8px",
+                    background: "rgb(255, 255, 255)",
+                    overflow: "hidden",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "24px",
                   }}
                 >
-                  {t("ipopage_ipo_dashboard_preview", "IPO DASHBOARD PREVIEW")}
+                  <img
+                    src="/overview-share-price-experian.png"
+                    alt={t("ipopage_ipo_dashboard_preview", "IPO dashboard preview")}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
+                  />
                 </div>
               </div>
             </div>
@@ -456,7 +506,7 @@ export default function IPOPage() {
       {/* ── S5: CTA BAND ──────────────────────────────────────────────────────── */}
       <div className="cta-band">
         <div className="container" style={{ maxWidth: "1536px", padding: "0 48px", textAlign: "center" }}>
-          <div ref={f4} className="fade-up">
+          <div ref={f4} className="fade-up" style={{ maxWidth: "720px", margin: "0 auto" }}>
             {/* Eyebrow: 12px/600/24px/0.96px/uppercase/rgb(91,200,245) */}
             <div
               className="u-label u-label-dark"
@@ -483,10 +533,22 @@ export default function IPOPage() {
             >
               {t("ipopage_planning_listing", "Planning a listing? Let us talk.")}
             </h3>
+            <p
+              style={{
+                fontSize: "var(--fs-base)",
+                fontWeight: 400,
+                lineHeight: "var(--lh-base)",
+                letterSpacing: "0.01em",
+                color: "rgba(255,255,255,0.72)",
+                maxWidth: "560px",
+                margin: "0 auto 32px",
+              }}
+            >
+              {t("ipopage_cta_subtitle", "Walk through your IPO timeline, disclosure needs, and investor-facing setup with our team.")}
+            </p>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
               <LangLink href="/book-demo" className="btn-primary">{t("ipopage_book_a_demo", "Book a Demo")}</LangLink>
-              <LangLink href="/contact" className="btn-secondary">{t("common_talk_to_us", "Talk to Us")}</LangLink>
             </div>
           </div>
         </div>

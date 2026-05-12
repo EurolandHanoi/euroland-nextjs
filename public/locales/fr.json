@@ -1600,5 +1600,11 @@
   "demo_submit_button": "Réserver une démo",
   "resources_label": "Ressources",
   "faq_hero_title": "FAQ de la plateforme de relations investisseurs pour les entreprises cotées",
-  "faq_hero_subtitle": "Tout ce que vous devez savoir sur la plateforme Euroland IR, notre logiciel de relations investisseurs, les tarifs et le support."
+  "faq_hero_subtitle": "Tout ce que vous devez savoir sur la plateforme Euroland IR, notre logiciel de relations investisseurs, les tarifs et le support.",
+  "demo_field_first_name_placeholder": "Jean",
+  "demo_field_last_name_placeholder": "Dupont",
+  "demo_field_email_placeholder": "nom@entreprise.com",
+  "demo_field_company_placeholder": "Société Exemple",
+  "demo_field_role_placeholder": "Responsable RI",
+  "demo_field_phone_placeholder": "+33 1 00 00 00 00"
 }

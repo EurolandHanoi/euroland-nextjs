@@ -1,8 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@/globals.css";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
-  title: "Euroland IR – Best Practice IR Solutions & Purpose-Built AI for IR",
+  title: "Euroland IR - Best Practice IR Solutions & Purpose-Built AI for IR",
   description:
     "Best Practice IR Solutions and Purpose-Built AI for IR. Trusted by 1,400+ listed companies across 60+ stock exchanges worldwide.",
 };

@@ -57,7 +57,7 @@ function InvestorCalendarPreview() {
       <h3 style={{ margin: "0 0 14px", textAlign: "center", color: "#c94a00", fontSize: "var(--fs-lg)", lineHeight: "var(--lh-lg)", fontWeight: 800, letterSpacing: "0.06em" }}>
         INVESTOR CALENDAR
       </h3>
-      <div style={{ fontSize: "var(--fs-xs)", lineHeight: "var(--lh-xs)", marginBottom: "16px" }}>
+      <div style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-sm)", marginBottom: "16px" }}>
         <strong style={{ display: "block", marginBottom: "16px" }}>Next Event:</strong>
         <strong style={{ display: "block" }}>29/04/2026</strong>
         <span>Year 2026 3-month interim report</span>
@@ -73,7 +73,7 @@ function InvestorCalendarPreview() {
               justifyContent: "center",
               borderRight: "1px solid #e5e7eb",
               background: month === "Apr" ? "#e8e8e8" : "#ffffff",
-              fontSize: "var(--fs-xs)",
+              fontSize: "var(--fs-sm)",
               position: "relative",
             }}
           >
@@ -86,21 +86,21 @@ function InvestorCalendarPreview() {
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
         <div>
-          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Download all upcoming events</strong>
+          <strong style={{ display: "block", fontSize: "var(--fs-sm)", marginBottom: "16px" }}>Download all upcoming events</strong>
           <div style={{ width: "22px", height: "22px", borderRadius: "4px", background: "#d7e8ef", display: "flex", alignItems: "center", justifyContent: "center", color: "#3b82f6", fontSize: "var(--fs-sm)" }}>▦</div>
         </div>
         <div style={{ textAlign: "center" }}>
-          <strong style={{ display: "block", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>Subscribe for events</strong>
-          <button style={{ border: 0, background: "#092b67", color: "#ffffff", padding: "16px 12px", fontSize: "var(--fs-xs)", fontWeight: 700 }}>
+          <strong style={{ display: "block", fontSize: "var(--fs-sm)", marginBottom: "16px" }}>Subscribe for events</strong>
+          <button style={{ border: 0, background: "#092b67", color: "#ffffff", padding: "16px 12px", fontSize: "var(--fs-sm)", fontWeight: 700 }}>
             Subscribe
           </button>
         </div>
       </div>
-      <div style={{ borderBottom: "1px solid #6b7280", display: "flex", gap: "8px", fontSize: "var(--fs-xs)", marginBottom: "16px" }}>
+      <div style={{ borderBottom: "1px solid #6b7280", display: "flex", gap: "8px", fontSize: "var(--fs-sm)", marginBottom: "16px" }}>
         <span style={{ border: "1px solid #6b7280", borderBottom: "0", padding: "16px 10px", color: "#4b5563" }}>Upcoming Events</span>
         <span style={{ padding: "16px 10px", color: "#05245c" }}>Past Events</span>
       </div>
-      <div style={{ fontSize: "var(--fs-xs)" }}>
+      <div style={{ fontSize: "var(--fs-sm)", lineHeight: "var(--lh-sm)" }}>
         {events.map(([date, label]) => (
           <div key={date} style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "12px", borderBottom: "1px solid #e5e7eb", padding: "16px 0" }}>
             <div>
@@ -118,6 +118,7 @@ function InvestorCalendarPreview() {
 export default function ToolModal({ modal, onClose }: ToolModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const isAppsCarousel = modal?.id === "ir-apps" && Boolean(modal?.animationImageSrcs?.length);
 
   useEffect(() => {
     if (!modal) return;
@@ -157,6 +158,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflowY: "auto",
+        padding: "24px",
+        boxSizing: "border-box",
         animation: "fadeIn 160ms ease",
       }}
     >
@@ -164,10 +168,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
       <div
         className="tool-modal-card"
         style={{
-          width: "1216px",
+          width: "1248px",
           maxWidth: "calc(100vw - 48px)",
-          height: "596px",
-          maxHeight: "90vh",
+          height: "640px",
           display: "flex",
           flexDirection: "row",
           borderRadius: "16px",
@@ -180,10 +183,11 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
         <div
           className="tool-modal-media-panel"
           style={{
-            width: "608px",
+            width: "624px",
             flexShrink: 0,
+            flexBasis: "624px",
             background: "rgb(8, 43, 69)",
-            padding: "48px 40px",
+            padding: "32px",
             display: "flex",
             flexDirection: "column",
             position: "relative",
@@ -223,8 +227,9 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             style={{
               position: "relative",
               zIndex: 1,
-              width: "528px",
-              height: "508px",
+              width: "560px",
+              height: "576px",
+              flexShrink: 0,
               background: "rgba(0, 173, 240, 0.03)",
               border: "1px dashed rgba(0, 173, 240, 0.22)",
               borderRadius: "16px",
@@ -276,25 +281,42 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(0,173,240,0.04))",
+                  background: "linear-gradient(135deg, #ffffff 0%, #eef7fb 100%)",
                   padding: "16px",
                   boxSizing: "border-box",
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={modal.animationImageSrcs[activeImageIndex]}
-                  alt={`${modal.title} preview`}
+                <div
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                    display: "block",
+                    width: isAppsCarousel ? "72%" : "100%",
+                    height: isAppsCarousel ? "72%" : "100%",
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     borderRadius: "12px",
-                    boxShadow: "0 18px 48px rgba(0, 0, 0, 0.28)",
-                    transform: "scale(1.12)",
+                    background: "#ffffff",
+                    boxShadow: "0 18px 48px rgba(0, 0, 0, 0.24)",
                   }}
-                />
+                >
+                  <img
+                    src={modal.animationImageSrcs[activeImageIndex]}
+                    alt={`${modal.title} preview`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      display: "block",
+                      borderRadius: "12px",
+                      background: "#ffffff",
+                    }}
+                  />
+                </div>
               </div>
             ) : modal.animationVariant === "investor-calendar" ? (
               <div
@@ -382,12 +404,14 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
         <div
           className="tool-modal-content-panel"
           style={{
-            flex: 1,
+            width: "624px",
+            flexShrink: 0,
+            flexBasis: "624px",
             background: "rgb(255, 255, 255)",
-            padding: "48px 40px",
+            padding: "32px",
             display: "flex",
             flexDirection: "column",
-            overflowY: "auto",
+            overflow: "visible",
             position: "relative",
           }}
         >
@@ -422,30 +446,20 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
           </button>
 
           {/* Header block: 528×92px, padding-right:44px */}
-          <div style={{ paddingRight: "44px", marginBottom: "16px" }}>
+          <div style={{ paddingRight: "44px", marginBottom: "12px" }}>
             {/* Eyebrow: 12px/700/24px/0.96px, color:rgb(156,163,175) */}
-            <div
-              style={{
-                fontSize: "var(--fs-sm)",
-                fontWeight: 400,
-                lineHeight: "var(--lh-base)",
-                letterSpacing: "0.96px",
-                color: "rgb(156, 163, 175)",
-                textTransform: "uppercase",
-                marginBottom: "16px",
-              }}
-            >
+            <div className="u-label" style={{ marginBottom: "12px", display: "inline-block" }}>
               {modal.eyebrow}
             </div>
             {/* Title: 20px/400/28px/0.1px — from typography-export row 55 */}
-            <h4 className="type-h6"
+            <h4 className="type-h5"
               style={{
-                fontSize: "var(--fs-md)",
+                fontSize: "var(--fs-lg)",
                 fontWeight: 600,
-                lineHeight: "var(--lh-md)",
-                letterSpacing: "0.1px",
+                lineHeight: "var(--lh-lg)",
+                letterSpacing: "var(--ls-h4)",
                 color: "rgb(13, 31, 45)",
-                margin: "0 0 16px 0",
+                margin: "0 0 12px 0",
               }}
             >
               {modal.title}
@@ -467,27 +481,16 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
 
           {/* Divider bar: 36×2px, bg:rgb(0,173,240), border-radius:4px */}
           <div
-            style={{
-              width: "25%",
+              style={{
+              width: "64px",
               height: "2px",
               background: "rgb(0, 173, 240)",
               borderRadius: "4px",
-              marginBottom: "16px",
+              marginBottom: "12px",
             }}
           />
 
-          {/* KEY FEATURES label: 12px/700/24px/0.96px, color:rgb(156,163,175) */}
-          <div
-            style={{
-              fontSize: "var(--fs-sm)",
-              fontWeight: 400,
-              lineHeight: "var(--lh-base)",
-              letterSpacing: "0.96px",
-              color: "rgb(156, 163, 175)",
-              textTransform: "uppercase",
-              marginBottom: "16px",
-            }}
-          >
+          <div className="u-label" style={{ marginBottom: "12px", display: "inline-block" }}>
             KEY FEATURES
           </div>
 
@@ -496,7 +499,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             style={{
               listStyle: "none",
               padding: 0,
-              margin: "0 0 16px 0",
+              margin: "0 0 12px 0",
               display: "flex",
               flexDirection: "column",
               gap: "8px",
@@ -534,17 +537,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
           </ul>
 
           {/* IMPACT label */}
-          <div
-            style={{
-              fontSize: "var(--fs-sm)",
-              fontWeight: 400,
-              lineHeight: "var(--lh-base)",
-              letterSpacing: "0.96px",
-              color: "rgb(156, 163, 175)",
-              textTransform: "uppercase",
-              marginBottom: "16px",
-            }}
-          >
+          <div className="u-label" style={{ marginBottom: "12px", display: "inline-block" }}>
             IMPACT
           </div>
 
@@ -553,7 +546,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             style={{
               listStyle: "none",
               padding: 0,
-              margin: "0 0 32px 0",
+              margin: "0 0 24px 0",
               display: "flex",
               flexDirection: "column",
               gap: "8px",
@@ -567,7 +560,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
                   flexDirection: "row",
                   alignItems: "center",
                   gap: "12px",
-                fontSize: "var(--fs-xs)",
+                  fontSize: "var(--fs-sm)",
                   fontWeight: 400,
                   lineHeight: "var(--lh-sm)",
                   letterSpacing: "0.01em",
@@ -592,9 +585,6 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
 
           {/* Buttons row */}
           <div style={{ display: "flex", flexDirection: "row", gap: "12px", marginTop: "auto" }}>
-            <LangLink href="/book-demo" className="btn-primary">
-              Book a Demo
-            </LangLink>
             <LangLink href={modal.learnMoreHref || "#"} className="btn-secondary">
               Learn More
             </LangLink>
@@ -610,9 +600,8 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
             width: calc(100vw - 24px) !important;
             max-width: calc(100vw - 24px) !important;
             height: auto !important;
-            max-height: 92vh !important;
+            min-height: 0 !important;
             flex-direction: column !important;
-            overflow-y: auto !important;
           }
           .tool-modal-media-panel {
             width: 100% !important;
@@ -631,6 +620,7 @@ export default function ToolModal({ modal, onClose }: ToolModalProps) {
         @media (min-width: 768px) and (max-width: 1024px) {
           .tool-modal-card {
             width: calc(100vw - 48px) !important;
+            min-height: 0 !important;
           }
           .tool-modal-media-panel {
             width: 48% !important;
