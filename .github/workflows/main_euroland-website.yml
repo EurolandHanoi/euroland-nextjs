@@ -69,5 +69,5 @@ jobs:
         with:
           app-name: 'euroland-website'
           slot-name: 'Production'
-          package: .
+          package: app.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED6F64EA8DF64CE4A4FCF100850A502A }}
